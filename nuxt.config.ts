@@ -14,6 +14,7 @@ export default defineNuxtConfig({
     "@nuxtjs/tailwindcss",
     "@intlify/nuxt3",
     "floating-vue/nuxt",
+    "./modules/fullpage/fullpage.module"
   ],
   intlify: {
     localeDir: "locales",
@@ -27,6 +28,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     apiProxyTarget: "https://cross-chain.authright-test.newtouch.com",
     dashboardsProxyTarget: "http://183.66.65.207:8003",
+    hamsterProxyTarget: "http://183.66.65.207:8003",
     public: {
       hamsterClientPackage: {
         version: 'v1.3.3',

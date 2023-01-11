@@ -1,22 +1,38 @@
 <template>
-  <div :class="[showContent===true?'inline':'hidden']" class="container mx-auto text-white">
+  <div :class="[showContent===true?'block':'hidden']" class="container mx-auto text-white">
     <Head>
       <Title>{{ $t('meta.title') }}</Title>
       <Meta http-equiv="X-UA-Compatible" content="IE=edge" />
       <Link rel="shortcut icon" type="image/png" :href="getImageURL('logo.png')" />
+      <Link href='https://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'/>
     </Head>
-    <Header  />
-    <div class="container max-w-screen-xl mx-auto">
+    <Header :showHeader="showHeader" :showHeaderBg="showHeaderBg" />
+    <div>
       <slot />
     </div>
-    <Footer />
+    <Footer v-if="showFooter" />
   </div>
 </template>
 
 <script setup>
-  import { onMounted } from "vue"
+  import { onMounted, defineProps } from "vue"
   import Header from "./-components/header.vue"
   import Footer from "./-components/footer.vue"
+
+  defineProps({ 
+    showFooter: {
+      type: Boolean,
+      default: true
+    },
+    showHeader: {
+      type: Boolean,
+      default: true
+    },
+    showHeaderBg: {
+      type: Boolean,
+      default: false
+    },
+  })
 
   const { getImageURL } = useAssets()
   const { t } = useI18n()
@@ -115,8 +131,25 @@
   .area-title {
     @apply font-bold text-[40px] leading-[47px] mt-[164px] text-center mb-[16px];
   }
+  .fp-watermark{
+    display: none;
+  }
 </style>
 <style lang="less">
+  // Base style
+  html {
+    font-family: "Noto Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 
+                 "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", 
+                 "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    
+  }
+
+  @screen lg {
+    .container {
+      max-width: 1216px;
+    }
+  }
+
   /* about antdv's style*/
   /*  message error and success*/
   .ant-message-custom-content {
