@@ -14,7 +14,7 @@
             <div><img :src="$device.isMobile ? getImageURL('hamster-slug-mobile.svg') : getImageURL('hamster-slug-pc.svg')" /></div>
             <div class="mt-5 mb-6 text-sm md:text-2xl">One-Stop infrastructure, development, operation and maintenance service platform for projects in Web3.0</div>
             <div class="mb-6">
-              <button class="border border-[#FFFFFF] w-[120px] h-[43px] md:w-[148px] md:h-[54px] md:hover:bg-[#27FFB8] md:hover:text-[#131313] md:hover:border-[#27FFB8]">Start Building</button>
+              <button class="border border-[#FFFFFF] w-[120px] h-[43px] md:w-[148px] md:h-[54px] md:hover:bg-[#27FFB8] md:hover:text-[#131313] md:hover:border-[#27FFB8]" @click="gotoAline">Start Building</button>
               <nuxt-link to="/download">
                 <button class="border border-[#27FFB8] bg-[#27FFB8] w-[120px] h-[43px] ml-4 md:w-[148px] md:h-[54px] md:ml-6 text-[#131313]">Download</button>
               </nuxt-link>
@@ -84,7 +84,7 @@
           </div>
         </div>
       </div>
-      
+
       <div :class="fullPageSectionClass">
         <span class="text-[32px] leading-[44px] font-bold md:text-[54px] md:leading-[74px]">Hamster Ecology</span>
         <div class="grid grid-cols-1 gap-8 mt-8 overflow-hidden md:mt-0 md:grid-cols-12">
@@ -269,7 +269,7 @@
           <span v-if="!$device.isMobile" class="w-[500px] text-[red]">{{alertEmailInfo}}</span>
         </div>
       </div>
-      
+
       <div class="section fp-auto-height">
         <div class="relative mt-3 md:mt-12 md:w-[100%] md:h-auto -mx-6 md:mx-0 w-screen" @mouseover="handleFlagRaise">
           <img v-if="!$device.isMobile" src="./images/moon.png" class="w-[100%] flag-planet"/>
@@ -282,11 +282,11 @@
         <Footer />
       </div>
     </full-page>
-  </DefaultLayout> 
+  </DefaultLayout>
 </template>
 
 <script setup>
-  import { ref, reactive, onMounted } from 'vue'
+import {ref, reactive, onMounted, computed} from 'vue'
   import { Carousel, Pagination, Slide } from 'vue3-carousel'
   import lottie from "lottie-web"
   import anime from 'animejs/lib/anime.es.js';
@@ -329,7 +329,7 @@
   }
 
   const fullpageExtraOptions = device.value.isMobile ? fullpageMobileOptions : {}
-  const fullpageOptions = { 
+  const fullpageOptions = {
     ...fullpageExtraOptions,
     scrollBar: true,
     licenseKey: "gplv3-license",
@@ -373,7 +373,7 @@
       }
     }
   }
-  const fullPageSectionClass = computed(() => 
+  const fullPageSectionClass = computed(() =>
     device.value.isMobile ? "section fp-auto-height" : "section overflow-hidden"
   )
 
@@ -520,6 +520,11 @@
     setTimeout(() => flagRef.value.classList.add("flag-raise"), 500)
   }
 
+  const alineLink = computed(() => "https://develop.alpha.hamsternet.io/")
+  const gotoAline = () => {
+    window.location.href = alineLink.value
+  }
+
   onMounted(()=>{
     // Init fullpage
     try {
@@ -527,7 +532,7 @@
     } catch (error) {
       console.log("Fullpage init error", error)
     }
-    
+
     // Run lottie animation
     lottie.loadAnimation({
         container: ufoRef.value,//选择渲染dom
@@ -628,7 +633,7 @@
       animation: rotation 8s linear infinite;
     }
   }
-  
+
   .ecology-level-two{
     border: 0.3px solid rgba(255, 255, 255, 0.4);
     filter: drop-shadow(0px 4px 15px rgba(32, 64, 27, 0.25));
@@ -658,15 +663,15 @@
       opacity: 0;
   }
 
-  @keyframes rotation { 
+  @keyframes rotation {
     0% {
-      -webkit-transform: rotate(0deg); 
-      transform:rotate(0deg); 
+      -webkit-transform: rotate(0deg);
+      transform:rotate(0deg);
     }
-    100% { 
-      -webkit-transform: rotate(360deg); 
-      transform:rotate(360deg); 
-    } 
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform:rotate(360deg);
+    }
   }
 
   :deep(.carousel) {
@@ -687,7 +692,7 @@
       background-color: #48514B;
       width: 100%;
     }
-    .carousel__pagination-button:hover::after , 
+    .carousel__pagination-button:hover::after ,
     .carousel__pagination-button--active::after {
       background-color: #27FFB8 !important;
       width: 100%;
@@ -699,7 +704,7 @@
       }
     }
     .carousel__slide  {
-      
+
     }
     .carousel__prev ,
     .carousel__next  {
@@ -733,7 +738,7 @@
     margin-top: -220px;
   }
 </style>
-    
+
 <style lang="less">
   // html.fp-enabled:not(.is-mobile) {
   //   body {
