@@ -311,12 +311,12 @@ import {ref, reactive, onMounted, computed} from 'vue'
   const numberRollerRef4 = ref(null)
   const numberRollerRef5 = ref(null)
   const numberRollerRef6 = ref(null)
-  const numberRollerNumber1 = ref(16)
-  const numberRollerNumber2 = ref(73)
-  const numberRollerNumber3 = ref(20)
-  const numberRollerNumber4 = ref(143)
-  const numberRollerNumber5 = ref(24)
-  const numberRollerNumber6 = ref(162)
+  const numberRollerNumber1 = ref(0)
+  const numberRollerNumber2 = ref(0)
+  const numberRollerNumber3 = ref(0)
+  const numberRollerNumber4 = ref(0)
+  const numberRollerNumber5 = ref(0)
+  const numberRollerNumber6 = ref(0)
 
   const device = useDevice()
   const fullpageRef = ref()
@@ -529,6 +529,8 @@ import {ref, reactive, onMounted, computed} from 'vue'
     // Init fullpage
     try {
       fullpageRef.value.init()
+
+      getEcology();
     } catch (error) {
       console.log("Fullpage init error", error)
     }
@@ -542,6 +544,23 @@ import {ref, reactive, onMounted, computed} from 'vue'
         animationData: ufojson,//渲染动效json
     });
   })
+
+  const getEcology = async () => {
+    const url = '/hamster/ecology'
+    await $fetch(url, {
+      method: "GET",
+    }).then((res) => {
+      numberRollerNumber1.value = res.projects
+      numberRollerNumber2.value = res.chainNetworks
+      numberRollerNumber3.value = res.contracts
+      numberRollerNumber4.value = res.deployments
+      numberRollerNumber5.value = res.templates
+      numberRollerNumber6.value = res.tools
+
+    }).catch((err) => {
+      console.log(err)
+    })
+  }
 </script>
 
 <style lang="less" scoped>
@@ -749,7 +768,7 @@ import {ref, reactive, onMounted, computed} from 'vue'
   // }
   html.fp-enabled:not(.is-mobile) {
     body {
-      background: url(~/assets/images/home-background.jpg) no-repeat #141212;
+      background: url(~/assets/images/home-background.jpg) no-repeat #131313;
     }
   }
 </style>

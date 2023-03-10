@@ -1,7 +1,7 @@
 import { createProxyMiddleware } from "http-proxy-middleware"
 
 const { hamsterProxyTarget } = useRuntimeConfig()
-const apiProxy = hamsterProxyTarget && createProxyMiddleware("/hamster/email/**", {
+const apiProxy = hamsterProxyTarget && createProxyMiddleware("/hamster/**/**", {
   target: hamsterProxyTarget,
   changeOrigin: true,
   // pathRewrite: path => path.replace(/^\/api/, "")
