@@ -39,7 +39,7 @@ export default defineNuxtConfig({
       },
       hamsterProviderPackage: {
         version: 'v1.3.3',
-        windowsLink: 'https://github.com/hamster-shared/hamster-provider/releases/download/v1.3.2/hamster-provider-v1.3.2-windows-amd64.zip',
+        windowsLink: 'https://github.com/hamster-shared/hamster-provider/releases/download/v1.3.3/hamster-provider-v1.3.3-windows-amd64.zip',
         macLink: 'https://github.com/hamster-shared/hamster-provider/releases/download/v1.3.3/hamster-provider-v1.3.3-darwin-amd64.dmg',
         linuxLink: 'https://github.com/hamster-shared/hamster-provider/releases/download/v1.3.3/hamster-provider-v1.3.3-linux-amd64.tar.gz'
       }

@@ -14,11 +14,11 @@
             <img @click="showPhoneMenu = true;" v-if="isMobile" class="h-4 ml-[82vw]"
               src="~/assets/images/head-menu-down.svg">
             <div v-else class="menu">
-              <VDropdown 
-                auto-hide 
+              <VDropdown
+                auto-hide
                 v-model:shown="subMenuDropdownShow"
-                :distance="10" 
-                placement="bottom-start" 
+                :distance="10"
+                placement="bottom-start"
                 popper-class="locale-dropdown"
                 :skidding="16"
               >
@@ -32,7 +32,7 @@
                       <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M1.81261 0.348328L7.05525 5.59097L5.99459 6.65163L0.751953 1.40899L1.81261 0.348328Z" fill="white"/>
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M4.9452 5.59096L10.1878 0.348323L11.2485 1.40898L6.00586 6.65162L4.9452 5.59096Z" fill="white"/>
-                      </svg>   
+                      </svg>
                     </div>
                   </div>
                 </div>
@@ -40,11 +40,11 @@
                   <div class="bg-[white] py-4 rounded-[2px] max-w-[400px]">
                     <div class="px-6 py-4">
                       <img src="~/assets/images/development-toolkit.png" class="inline-block w-4 h-4" />
-                      <span class="text-base align-middle"> Developer Toolkit</span>
+                      <span class="text-base align-middle"> <a :href="alineLink"> Developer Toolkit</a></span>
                     </div>
                     <div class="px-6 py-4">
                       <img src="~/assets/images/node-service.png" class="inline-block w-4 h-4" />
-                      <span class="text-base align-middle"> Node Service</span>
+                      <span class="text-base align-middle"> <a :href="alineLink">  Node Service </a></span>
                     </div>
                     <!-- <div class="px-6 py-4">
                       <img src="~/assets/images/decentralized-computing.png" class="inline-block w-4 h-4" />
@@ -54,16 +54,16 @@
                 </template>
               </VDropdown>
               <div>
-                <a v-for="link in navLinks" 
-                  :key="link.path" 
-                  :class="{'menu-active' : `/${curMenu}` === link.path}" 
-                  class="mx-4 hover:text-[#27FFB8]" 
+                <a v-for="link in navLinks"
+                  :key="link.path"
+                  :class="{'menu-active' : `/${curMenu}` === link.path}"
+                  class="mx-4 hover:text-[#27FFB8]"
                   :href="link.path"
                  >
                   {{ link.title }}
                 </a>
               </div>
-              <button class="mx-4 start-today hover:bg-[#27FFB8] hover:text-[#131313] hover:border-[#27FFB8]">{{ $t('header.menu1') }}</button>
+              <button class="mx-4 start-today hover:bg-[#27FFB8] hover:text-[#131313] hover:border-[#27FFB8]" @click="gotoAline">{{ $t('header.menu1') }}</button>
             </div>
             <VDropdown class="hidden" v-model:shown="drodownShow" auto-hide :triggers="[]" :skidding="-2" :distance="10"
               popper-class="locale-dropdown">
@@ -114,11 +114,11 @@
           <div class="text-[#CECFD0] w-[100%]" v-if="subMenuDropdownShow">
             <div class="my-4">
               <img src="~/assets/images/development-toolkit-mobile.png" class="inline-block w-4 h-4"/>
-              <span class="text-sm align-middle"> Developer Toolkit</span>
+              <span class="text-sm align-middle"> <a :href="alineLink">  Developer Toolkit </a></span>
             </div>
             <div class="my-4">
               <img src="~/assets/images/node-service-mobile.png" class="inline-block w-4 h-4"/>
-              <span class="text-sm align-middle"> Node Service</span>
+              <span class="text-sm align-middle">  <a :href="alineLink"> Node Service </a></span>
             </div>
             <!-- <div class="my-4">
               <img src="~/assets/images/decentralized-computing-mobile.png" class="inline-block w-4 h-4"/>
@@ -133,7 +133,9 @@
           </div>
         </a>
       </div>
-      <button class="start-today w-[100%] mt-6">{{ $t('header.menu1') }}</button>
+      <button class="start-today w-[100%] mt-6" @click="gotoAline">
+         {{ $t('header.menu1') }}
+      </button>
     </div>
   </div>
 </template>
@@ -141,7 +143,7 @@
 <script setup>
 import { computed, ref, defineProps, watch } from "vue"
 
-const props = defineProps({ 
+const props = defineProps({
   showHeader: {
     type: Boolean,
     default: true
@@ -153,7 +155,7 @@ const props = defineProps({
 })
 
 watch(() => props.showHeader, (newVal)=>{
-  if (newVal) { 
+  if (newVal) {
     scrollDown.value = false;
   } else{
     scrollDown.value = true;
@@ -174,6 +176,8 @@ const localeOptions = availableLocales.map((lang) => {
   const name = t("general.langName", null, { locale: lang })
   return { name, value: lang }
 })
+
+const alineLink = computed(() => "https://develop.alpha.hamsternet.io/")
 
 const navLinks = computed(() => [
   // { title: 'Solutions', path: "/solutions", children: [] },
@@ -241,6 +245,12 @@ function setTopBgValue() {
     topBgShow.value = false
   }
 }
+
+const gotoAline = function () {
+  window.location.href = alineLink.value
+}
+
+
 onMounted(() => {
   window.addEventListener("scroll", handleScroll)
   handleScroll();
@@ -262,7 +272,7 @@ onUnmounted(() => {
 
   .v-popper__arrow-container {
     @apply hidden;
-  } 
+  }
 
   .v-popper__inner {
     background: unset;
@@ -307,7 +317,7 @@ onUnmounted(() => {
 @screen md {
   .menu-active {
     color: #27FFB8 !important;
-    font-weight: 700;    
+    font-weight: 700;
   }
 }
 
