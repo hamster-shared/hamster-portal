@@ -27,8 +27,9 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     apiProxyTarget: "https://cross-chain.authright-test.newtouch.com",
-    dashboardsProxyTarget: "http://183.66.65.207:8003",
-    hamsterProxyTarget: "http://183.66.65.207:8003",
+    dashboardsProxyTarget: "http://61.172.179.6:30312",
+    hamsterProxyTarget: "http://61.172.179.6:30312",
+    // hamsterProxyTarget: "http://183.66.65.207:8003",
     public: {
       hamsterClientPackage: {
         version: 'v1.3.3',
