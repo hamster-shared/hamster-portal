@@ -32,7 +32,7 @@ jobs:
           key: ${{ secrets.HAMSTER_SERVER_KEY }}
           port: ${{ secrets.HAMSTER_SERVER_PORT }}
           script: |
-            cd /root/hamster_portal
+            cd /home/ubuntu/hamster-protal
             docker images | grep hamstershare/hamster-portal | grep latest | awk '{print "docker tag " $3 " hamstershare/hamster-portal:rollback"}' | sh
             docker compose pull
             docker compose up -d
