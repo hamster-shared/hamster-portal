@@ -251,10 +251,10 @@
         <div class="px-6 my-6 overflow-x-auto md:my-12 md:px-0 news-overflow-scrollbar">
           <div class="flex gap-6 md:grid md:grid-cols-12">
             <div class="w-[214px] flex flex-col flex-shrink-0 md:w-auto md:h-auto col-span-3" v-for="(newsItem, index) in news" :key="index">
-              <img :src="newsItem.image" />
+              <img :src="newsItem.cover" />
               <div class="flex flex-col flex-1 pb-6 pl-6 pr-5 border-x border-b border-[#203E42] trending-bg">
                 <span class="mt-[37px] mb-[19px] flex-1" :title="newsItem.title">{{ newsItem.title }}</span>
-                <nuxt-link :to="newsItem.url" target="_blank">
+                <nuxt-link :to="newsItem.link" target="_blank">
                   <span class="text-[#27FFB8]">More</span>
                 </nuxt-link>
               </div>
@@ -318,6 +318,7 @@ import {ref, reactive, onMounted, computed} from 'vue'
   const numberRollerNumber5 = ref(0)
   const numberRollerNumber6 = ref(0)
 
+  const news = ref([]);
   const device = useDevice()
   const fullpageRef = ref()
   const fullpageMobileOptions = {
@@ -460,28 +461,28 @@ import {ref, reactive, onMounted, computed} from 'vue'
     ecologyTimer.value = setInterval(handler, 3000)
   }
 
-  const news = [
-    {
-      url: 'https://hamsternet.medium.com/mokshya-x-hamster-to-liberate-developers-with-smart-contracts-making-it-easier-to-access-web3-d22b11d9d667',
-      image: getImageURL('trending-one.jpg'),
-      title: 'Mokshya x Hamster—to liberate developers with smart contracts, making it easier to access Web3 World',
-    },
-    {
-      url: 'https://hamsternet.medium.com/vote-of-thanks-for-the-aptos-grant-dd2c271d7c44',
-      image: getImageURL('trending-two.jpg'),
-      title: 'Vote of THANKS for the Aptos Grant — a gratitude note from Hamster teamt',
-    },
-    {
-      url: 'https://hamsternet.medium.com/hamster-network-bi-weekly-report-8a5efe5aad09',
-      image: getImageURL('trending-three.jpg'),
-      title: 'Hamster Network Bi-Weekly Report',
-    },
-    {
-      url: 'https://hamsternet.medium.com/rebase-x-hamster-hamster-supports-rebase-hackathon-to-help-more-developers-build-their-dreams-c817a380d4c3',
-      image: getImageURL('trending-four.jpg'),
-      title: 'Rebase x Hamster — Hamster supports Rebase Hackathon to help more Developers build their Dreams',
-    }
-  ]
+  // const news = [
+  //   {
+  //     url: 'https://hamsternet.medium.com/mokshya-x-hamster-to-liberate-developers-with-smart-contracts-making-it-easier-to-access-web3-d22b11d9d667',
+  //     image: getImageURL('trending-one.jpg'),
+  //     title: 'Mokshya x Hamster—to liberate developers with smart contracts, making it easier to access Web3 World',
+  //   },
+  //   {
+  //     url: 'https://hamsternet.medium.com/vote-of-thanks-for-the-aptos-grant-dd2c271d7c44',
+  //     image: getImageURL('trending-two.jpg'),
+  //     title: 'Vote of THANKS for the Aptos Grant — a gratitude note from Hamster teamt',
+  //   },
+  //   {
+  //     url: 'https://hamsternet.medium.com/hamster-network-bi-weekly-report-8a5efe5aad09',
+  //     image: getImageURL('trending-three.jpg'),
+  //     title: 'Hamster Network Bi-Weekly Report',
+  //   },
+  //   {
+  //     url: 'https://hamsternet.medium.com/rebase-x-hamster-hamster-supports-rebase-hackathon-to-help-more-developers-build-their-dreams-c817a380d4c3',
+  //     image: getImageURL('trending-four.jpg'),
+  //     title: 'Rebase x Hamster — Hamster supports Rebase Hackathon to help more Developers build their Dreams',
+  //   }
+  // ]
 
   const emailInfo = ref('')
 
@@ -531,6 +532,7 @@ import {ref, reactive, onMounted, computed} from 'vue'
       fullpageRef.value.init()
 
       getEcology();
+      getArticles();
     } catch (error) {
       console.log("Fullpage init error", error)
     }
@@ -556,6 +558,18 @@ import {ref, reactive, onMounted, computed} from 'vue'
       numberRollerNumber4.value = res.deployments
       numberRollerNumber5.value = res.templates
       numberRollerNumber6.value = res.tools
+
+    }).catch((err) => {
+      console.log(err)
+    })
+  }
+
+  const getArticles = async () => {
+    const url = '/articles'
+    await $fetch(url, {
+      method: "GET",
+    }).then((res) => {
+      news.value = res.data;
 
     }).catch((err) => {
       console.log(err)
