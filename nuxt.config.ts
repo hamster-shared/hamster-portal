@@ -29,7 +29,7 @@ export default defineNuxtConfig({
     apiProxyTarget: "https://cross-chain.authright-test.newtouch.com",
     dashboardsProxyTarget: "http://61.172.179.6:30312",
     hamsterProxyTarget: "http://61.172.179.6:30312",
-    articlesProxyTarget: "http://52.26.103.150:8888",
+    articlesProxyTarget: "https://media.c.alpha.hamsternet.io",
 
     // hamsterProxyTarget: "http://183.66.65.207:8003",
     public: {
