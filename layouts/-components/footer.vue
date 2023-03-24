@@ -3,14 +3,22 @@
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-[54px]">
       <div>
         <img class="h-[20px] md:h-[32px]" src="~/assets/images/header.png">
-        <span class="inline-block mt-4 mb-8 text-sm md:text-base md:mr-20 md:mt-7 md:mb-10">
+        <span class="inline-block mt-4 mb-8 text-sm md:text-base md:mt-7 md:mb-10"><!--md:mr-20-->
           One-Stop infrastructure,
           <br>
           development, operation and maintenance service platform for projects in Web3.0
         </span>
-        <div class="flex items-center">
-          <img :src="getImageURL('aptos-grant.png')" class="h-[64px] md:h-[67px] mr-8 md:mr-12"/>
-          <img class="h-[64px] md:h-[75px]" src="~/assets/images/web3_foundation.png" />
+        <div class="md:flex items-center">
+          <!-- <img :src="getImageURL('aptos-grant.png')" class="h-[64px] md:h-[67px] mr-8 md:mr-12"/>
+          <img class="h-[64px] md:h-[75px]" src="~/assets/images/web3_foundation.png" /> -->
+          <div class="flex items-center mb-8 md:mb-0">
+            <img :src="getImageURL('aptos-grant.png')" class="w-[45%] mr-[10%] md:mr-[6.3%]"/>
+            <img :src="getImageURL('web3_foundation.png')" class="w-[45%] md:mr-[3.3%]" />
+          </div>
+          <div class="flex items-center">
+            <img :src="getImageURL('algorand.png')" class="w-[45%] mr-[10%] md:ml-[3.3%] md:mr-[6.3%]"/>
+            <img :src="getImageURL('starknet.png')" class="w-[45%]" />
+          </div>
         </div>
       </div>
 
