@@ -247,7 +247,8 @@ function setTopBgValue() {
 }
 
 const gotoAline = function () {
-  window.location.href = alineLink.value
+  const w = window.open("about:blank");
+  w.location.href = alineLink.value
 }
 
 
