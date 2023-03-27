@@ -1,5 +1,5 @@
 <template>
-  <div :class="[showContent===true?'block':'hidden']" class="container mx-auto text-white">
+  <div :class="[showContent===true?'block':'hidden']" class=" text-white">
     <Head>
       <Title>{{ $t('meta.title') }}</Title>
       <Meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -72,8 +72,8 @@
 
 <style>
   body {
-    @apply text-[14px];
-    background-color: #141212;
+    @apply text-[16px];
+    /* background-color: #141212; */
     &::-webkit-scrollbar {
       width: 0;
     }
