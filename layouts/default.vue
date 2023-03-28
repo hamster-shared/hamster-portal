@@ -128,11 +128,33 @@
   .img-center {
     @apply flex items-center justify-center;
   }
-  .area-title {
-    @apply font-bold text-[40px] leading-[47px] mt-[164px] text-center mb-[16px];
-  }
   .fp-watermark{
     display: none;
+  }
+  
+  .font-family-bold{
+    font-family: Montserrat-ExtraBold, Montserrat;
+  }
+  .font-family-medium{
+    font-family: Montserrat-Medium, Montserrat;
+  }
+  .font-family-light{
+    font-family: Montserrat-Light, Montserrat;
+  }
+  .font-family-regular{
+    font-family: Montserrat-Regular, Montserrat;
+  }
+  .font-family-pf-light{
+    font-family: PingFangSC-Light, PingFang SC;
+  }
+  .area-title{
+    @apply text-[#00044C] text-[25px] font-extrabold md:text-[48px] leading-[74px] mt-[60px] md:mt-[80px];
+    font-family: Montserrat-ExtraBold, Montserrat;
+  }
+
+  .area-desc{
+    @apply text-sm mt-3 text-[#40425C] md:text-2xl md:mt-6 font-light;
+    font-family: Montserrat-Light, Montserrat;
   }
 </style>
 <style lang="less">

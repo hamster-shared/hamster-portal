@@ -1,8 +1,8 @@
 <template>
-  <div class="fixed inset-x-0 top-0 z-[100] md:z-[1000] bg-opacity-50"
+  <div class="fixed inset-x-0 top-0 z-[100] md:z-[1000] bg-opacity-50 bg-black"
     :class="{ 'hidden': !isMobile && scrollDown, 'bg-black': topBgShow}">
     <div class="m-auto">
-      <div class="container py-4 mx-6 md:mx-auto">
+      <div class="container mx-auto px-5 py-4 font-family-light font-light">
         <div class="relative flex flex-row items-center justify-between text-center text-white">
           <div class="absolute logo">
             <nuxt-link to="/">
@@ -43,7 +43,7 @@
                     </div>
                     <div class="bg-[white] p-[20px] rounded-[5px] text-base">
                       <div class="pb-[20px] hover:text-[#5C64FF]">
-                        <a :href="alineLink">Automate Workflow</a>
+                        <a href="/workflow">Automate Workflow</a>
                       </div>
                       <div class="hover:text-[#5C64FF]">
                         <a :href="alineLink">MiddleWare</a>
@@ -68,13 +68,13 @@
                 <a v-for="link in navLinks"
                   :key="link.path"
                   :class="{'menu-active' : `/${curMenu}` === link.path}"
-                  class="mx-4 hover:text-[#5C64FF]"
+                  class="mx-4 menu-hover"
                   :href="link.path"
                  >
                   {{ link.title }}
                 </a>
               </div>
-              <button class="mx-4 start-today" @click="gotoAline">{{ $t('header.menu1') }}</button>
+              <button class="ml-4 start-today" @click="gotoAline">{{ $t('header.menu1') }}</button>
             </div>
             <VDropdown class="hidden" v-model:shown="drodownShow" auto-hide :triggers="[]" :skidding="-2" :distance="10"
               popper-class="locale-dropdown">
@@ -190,7 +190,7 @@ const alineLink = computed(() => "https://develop.alpha.hamsternet.io/login")
 
 const navLinks = computed(() => [
   // { title: 'Solutions', path: "/solutions", children: [] },
-  // { title: t('header.dashboard'), path: '/dashboard' },
+  { title: t('header.dashboard'), path: '/dashboard' },
   // { title: 'Grant', path: "" }, //
   // { title: 'Pricing', path: "" }, //
   { title: 'About', path: "" },
@@ -220,7 +220,7 @@ const curMenu = ref('')
 const curSubMenu = ref()
 const scrollDown = ref(false)
 const beforeTopVal = ref(0)
-const topBgShow = ref(false)
+const topBgShow = ref(true)
 
 const device = useDevice()
 const isMobile = device.value.isMobile
@@ -313,10 +313,18 @@ onUnmounted(() => {
 }
 
 .menu-dropdown-opened,.menu-dropdown-hover:hover {
+  font-family: Montserrat-Medium, Montserrat;
+  font-weight: 500;
   color:#5C64FF;
   svg path {
     fill: #5C64FF;
   }
+}
+
+.menu-hover:hover{
+  /* font-family: Montserrat-Medium, Montserrat;
+  font-weight: 500; */
+  color:#5C64FF;
 }
 
 .box-dropdown{
@@ -340,6 +348,7 @@ onUnmounted(() => {
   border-radius: 5px;
   font-size: 18px;
   font-weight: bold;
+  font-family: Montserrat-Bold, Montserrat;
 }
 
 @screen md {

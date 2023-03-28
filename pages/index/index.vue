@@ -1,37 +1,33 @@
 <template>
   <DefaultLayout :showFooter="false" :showHeader="showHeader" :showHeaderBg="showHeaderBg">
-      <div class="top-bg bg-[#000000]">
-        <div class="container mx-auto">
+      <div class="top-bg " :class="{'!bg-bottom' : $device.isMobile}">
+        <div class="container mx-auto px-5">
           <div class="md:flex md:items-center relative">
-            <div class="md:w-3/5 py-[180px]">
-              <div class="text-2xl font-extrabold md:text-[50px] md:leading-[74px]">
-                <div>Hamster empowers</div>
-                <div>Projects and developers in</div>
-                <div>web3 to build their dreams</div>
+            <div class="lg:w-3/5 pt-[100px] pb-[300px] md:py-[180px] text-center md:text-left">
+              <div class="text-2xl font-extrabold md:text-[50px] md:leading-[74px] font-family-bold">
+                Hamster empowers<br>
+                Projects and developers in<br class="hidden md:in-block">
+                web3 to build their dreams
               </div>
               <!-- <div><img :src="$device.isMobile ? getImageURL('hamster-slug-mobile.svg') : getImageURL('hamster-slug-pc.svg')" /></div> -->
-              <div class="mt-5 mb-6 text-sm md:text-2xl font-medium text-[#999999]">One-Stop infrastructure, development, operation and maintenance service platform for projects in Web3.0</div>
+              <div class="mt-5 mb-6 text-base md:text-2xl font-medium text-[#999999] font-family-medium">One-Stop infrastructure, development, operation and maintenance service platform for projects in Web3.0</div>
               <div class="hidden mb-6 md:block">
-                <span class="text-[#999999] text-base font-light">Investors</span>
+                <span class="text-[#999999] text-base font-light font-family-light">Investors</span>
                 <img src="./images/waterdrip.png" class="w-[70px] h-[30px] inline-block ml-6"/>
                 <img src="./images/stratified.png" class="w-[84px] h-[30px] inline-block ml-6"/>
               </div>
-              <div class="">
-                <button class="btn-css" @click="gotoAline">Start Building</button>
-              </div>
+              <button class="btn-css" @click="gotoAline">Start Building</button>
             </div>
-            <div class="md:w-2/5">
-            </div>
-            <div class="flex justify-between px-6 md:hidden">
-              <span class="text-[#738A92] text-base font-bold">Investors</span>
-              <img src="./images/waterdrip.png" class="w-[84px] h-[36px]"/>
-              <img src="./images/stratified.png" class="w-[101px] h-[36px]"/>
+            <div class="flex justify-between pb-[30px] md:hidden">
+              <span class="text-[#999999] text-base font-light font-family-light">Investors</span>
+              <img src="./images/waterdrip.png" class="w-[70px] h-[30px] inline-block ml-6"/>
+              <img src="./images/stratified.png" class="w-[84px] h-[30px] inline-block ml-6"/>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="container mx-auto mb-[160px]">
+      <div class="container mx-auto px-5 mb-[60px] md:mb-[160px]">
         <div>
           <div class="text-center">
             <div class="area-title">Hamster DevOps Solutions</div>
@@ -42,7 +38,7 @@
               </div>
             </div>
           </div>
-          <img src="./images/moon.png" class="w-full"/>
+          <img src="~/assets/images/solutions.png" class="w-full"/>
         </div>
         <div>
           <div class="text-center">
@@ -53,7 +49,7 @@
               </div>
             </div>
           </div>
-          <img src="./images/moon.png" class="w-full"/>
+          <img src="~/assets/images/works.png" class="w-full"/>
         </div>
         <div>
           <div class="text-center">
@@ -64,33 +60,26 @@
               </div>
             </div>
           </div>
-          <img src="./images/moon.png" class="w-full"/>
+          <img src="~/assets/images/ecology.png" class="w-full"/>
         </div>
       </div>
-      
-      <div id="free-btn-div" class="bg-[#000000] py-[160px] text-center">
-        <div class="container mx-auto">
-          <div class="font-extrabold text-[72px]">Get started with Hamster </div>
-          <div class="mt-[80px] mb-[40px] text-[#999999] text-[24px]">Build your dreams in Web3 with ease</div>
-          <button id="free-btn" :class="freeBtnClass" class="btn-css" @click="gotoAline">Start building for free</button>
-        </div>
-      </div>
+      <StartBuild></StartBuild>
 
-      <div class="container mx-auto">
-        <div class="text-center">
+      <div class="container mx-auto px-5">
+        <div class="text-center mb-8 md:mb-0">
           <div class="area-title">Trending News</div>
           <div class="area-desc">We support various networks and power leading Web3 projects</div>
         </div>
-        <div class="px-6 my-6 overflow-x-auto md:my-12 md:px-0 news-overflow-scrollbar">
-          <div class="flex gap-6 md:grid md:grid-cols-12">
-            <div class="w-[214px] flex flex-col flex-shrink-0 md:w-auto md:h-auto col-span-4" v-for="(newsItem, index) in news" :key="index">
+        <div class="md:my-12 md:px-0">
+          <div class="md:gap-6 md:grid md:grid-cols-12">
+            <div class="flex flex-col flex-shrink-0 md:w-auto md:h-auto md:col-span-4 mb-10 md:mb-0" v-for="(newsItem, index) in news" :key="index">
               <img :src="newsItem.cover" />
-              <div class="flex flex-col flex-1 pb-6 pl-6 pr-5">
-                <div class="text-[26px] text-[#000000] my-[40px]">Article Name</div>
-                <span class="mb-[20px] flex-1 text-[#83848E] text-[18px]" :title="newsItem.title">{{ newsItem.title }}</span>
+              <div class="flex flex-col flex-1 pb-6">
+                <div class="text-[26px] text-[#000000] my-7 md:my-[40px] font-family-regular font-normal leading-[32px]">Article Name</div>
+                <span class="mb-[20px] flex-1 text-[#83848E] text-[18px] font-family-pf-light font-light leading-[25px]" :title="newsItem.title">{{ newsItem.title }}</span>
                 <nuxt-link :to="newsItem.link" target="_blank">
-                  <span class="text-[#5C64FF] text-[18px]">View more
-                    <img :src="getImageURL('right.svg')" class="inline-block h-[14px]" />
+                  <span class="text-[#5C64FF] text-[24px] md:text-[18px] font-family-regular font-normal">View more
+                    <img :src="getImageURL('right.svg')" class="inline-block h-[19px] md:h-[14px]" />
                   </span>
                 </nuxt-link>
               </div>
@@ -103,31 +92,21 @@
 </template>
 
 <script setup>
-import {ref, reactive, onMounted, computed, onUnmounted} from 'vue'
-  import { Carousel, Pagination, Slide } from 'vue3-carousel'
-  import lottie from "lottie-web"
-  import anime from 'animejs/lib/anime.es.js';
+  import {ref, onMounted, computed, onUnmounted} from 'vue'
   import DefaultLayout from "~/layouts/default.vue"
   import Footer from "~/layouts/-components/footer.vue"
-  import { UfoAnimation } from "~/utils/animateUtil/ufoAnimation"
-  import ufojson from "../../assets/json/ufo.json"
+  import StartBuild from "../company/StartBuild.vue";
   import 'vue3-carousel/dist/carousel.css'
 
   definePageMeta({
     layout: false
   })
 
-  const { getImageURL, getAssets } = useAssets()
+  const { getImageURL } = useAssets()
 
   const showHeader = ref(true)
   const showHeaderBg = ref(false)
 
-  const numberRollerRef1 = ref(null)
-  const numberRollerRef2 = ref(null)
-  const numberRollerRef3 = ref(null)
-  const numberRollerRef4 = ref(null)
-  const numberRollerRef5 = ref(null)
-  const numberRollerRef6 = ref(null)
   const numberRollerNumber1 = ref(0)
   const numberRollerNumber2 = ref(0)
   const numberRollerNumber3 = ref(0)
@@ -135,153 +114,7 @@ import {ref, reactive, onMounted, computed, onUnmounted} from 'vue'
   const numberRollerNumber5 = ref(0)
   const numberRollerNumber6 = ref(0)
 
-  const freeBtnClass = ref();
   const news = ref([]);
-  const device = useDevice()
-  const fullpageRef = ref()
-  const fullpageMobileOptions = {
-    autoScrolling: false,
-    fitToSection: false,
-    scrollOverflow: false,
-    verticalCentered: false,
-    paddingTop: "4rem",
-  }
-
-  const fullpageExtraOptions = device.value.isMobile ? fullpageMobileOptions : {}
-  // const fullpageExtraOptions = fullpageMobileOptions;
-  const fullpageOptions = {
-    ...fullpageExtraOptions,
-    scrollBar: true,
-    licenseKey: "gplv3-license",
-    beforeLeave( origin, destination, direction, trigger ) {
-      showHeader.value = direction === 'up'
-      showHeaderBg.value = !destination.isFirst
-      // Run UFO animation by fullpage
-      // ufoAnimation.animate(origin, destination, direction)
-      if (destination.index === 0) {
-        freeBtnClass.value = 'free-btn-show';
-      }
-    },
-    afterLoad(origin, destination, direction, trigger) {
-      if (destination.index === 0) {
-        freeBtnClass.value = 'free-btn-hidden';
-      }
-      // handle fullpage scroll
-      // ecology and number roller section index is：2
-      if (destination.index === 2) {
-        // handle ecology
-        handleEcologyExhibit()
-
-        // handle number roller
-        const numberRollers = [
-          { ref: numberRollerRef1, number: numberRollerNumber1 },
-          { ref: numberRollerRef2, number: numberRollerNumber2 },
-          { ref: numberRollerRef3, number: numberRollerNumber3 },
-          { ref: numberRollerRef4, number: numberRollerNumber4 },
-          { ref: numberRollerRef5, number: numberRollerNumber5 },
-          { ref: numberRollerRef6, number: numberRollerNumber6 },
-        ]
-
-        numberRollers.forEach(item => {
-          const number = item.number.value
-          const renderedNumber = parseInt(item.ref.value.textContent)
-          // Skip animation when number renderer
-          if (!renderedNumber && number !== renderedNumber) {
-            anime({
-              targets: item.ref.value,
-              innerHTML: [0, number],
-              round: 1,
-              easing: 'easeInOutExpo'
-            })
-          }
-        })
-      }
-    }
-  }
-
-  const ufoRef = ref(null)
-  const animateUfoRef = ref(null)
-  const ufoAnimation = new UfoAnimation(animateUfoRef, ufoRef)
-
-  // carousels
-  // autoplay interval
-  const carouselsAutoPlay = ref(5000)
-  const carouselsCurrentIndex = ref(0)
-  const carouselsCurrentSlide = computed(() => carousels[carouselsCurrentIndex.value] || {})
-  const carousels = [
-    {
-      name: "James Bayly",
-      desc: "Head Of Business Development at SubQuery & OnFinality",
-      comment: "No information available",
-      src: getImageURL('usinghamster-one.png')
-    },
-    {
-      name: "Zhangsan",
-      desc: "abcdefg",
-      comment: "No information available 2",
-      src: getImageURL('usinghamster-two.png')
-    },
-    {
-      name: "Lisi",
-      desc: "hijklmn",
-      comment: "No information available 3",
-      src: getImageURL('usinghamster-three.png')
-    }
-  ]
-
-  // carousels autoplay interval is 3000ms
-  const handleSlideStart = (slideData) => {
-    const { slidingToIndex, slidesCount } = slideData
-    carouselsCurrentIndex.value = slidesCount > slidingToIndex ? slidingToIndex : 0
-  }
-  const handleSlidePrev = (slideData) => {
-    const { currentSlide, slidesCount, slideTo, prev } = slideData
-    if (currentSlide == 0) {
-      slideTo(slidesCount)
-    } else {
-      prev()
-    }
-  }
-  const handleSlideNext = (slideData) => {
-    const { currentSlide, slidesCount, slideTo, next } = slideData
-    if (currentSlide + 1 == slidesCount) {
-      slideTo(0)
-    } else {
-      next()
-    }
-  }
-
-  // handle ecology
-  const ecologyTimer = ref(null)
-  const ecologyTypes = ["Infrastructure", "Defi", "GameFi", "NFT"]
-  const currentEcologyTypeIndex = ref(0)
-  const currentEcologyType = computed(() => ecologyTypes[currentEcologyTypeIndex.value])
-  const currentEcologyImages = computed(() => {
-    const allEcologyAssets = getAssets("ecology")
-    const currentEcologyAssets = []
-
-    Object.entries(allEcologyAssets).forEach(([key, asset]) => {
-      if (key.startsWith(currentEcologyType.value)) {
-        currentEcologyAssets.push(asset)
-      }
-    })
-
-    return currentEcologyAssets
-  })
-  const handleEcologyExhibit = () => {
-    if (ecologyTimer.value) { return }
-
-    const handler = () => {
-      const newEcologyTypeIndex = currentEcologyTypeIndex.value + 1
-      currentEcologyTypeIndex.value =
-        newEcologyTypeIndex < ecologyTypes.length
-        ? newEcologyTypeIndex
-        : 0
-    }
-
-    ecologyTimer.value = setInterval(handler, 3000)
-  }
-
   const emailInfo = ref('')
 
   const sendEmail = async () => {
@@ -313,12 +146,6 @@ import {ref, reactive, onMounted, computed, onUnmounted} from 'vue'
     }
   }
 
-  const flagRef = ref(null)
-  const handleFlagRaise = () => {
-    flagRef.value.classList.add("flag-show")
-    setTimeout(() => flagRef.value.classList.add("flag-raise"), 500)
-  }
-
   const alineLink = computed(() => "https://develop.alpha.hamsternet.io/")
   const gotoAline = () => {
     window.location.href = alineLink.value
@@ -327,23 +154,12 @@ import {ref, reactive, onMounted, computed, onUnmounted} from 'vue'
   onMounted(()=>{
     // Init fullpage
     try {
-      window.addEventListener("scroll", handleScroll)
-      handleScroll();
 
       getEcology();
       getArticles();
     } catch (error) {
       console.log("Fullpage init error", error)
     }
-
-    // Run lottie animation
-    lottie.loadAnimation({
-        container: ufoRef.value,//选择渲染dom
-        renderer: "svg",//渲染格式
-        loop: false,//循环播放
-        autoplay: true,//是否i自动播放,
-        animationData: ufojson,//渲染动效json
-    });
   })
 
   const getEcology = async () => {
@@ -376,47 +192,6 @@ import {ref, reactive, onMounted, computed, onUnmounted} from 'vue'
       console.log(err)
     })
 }
-  
-const beforeScrollH = ref(0);
-function handleScroll() {
-  let freeBtnEle = document.getElementById("free-btn");
-  let freeBtnH = freeBtnEle.clientHeight; //按钮的的高度
-  let freeTopH = freeBtnEle.offsetTop; //距离顶部的高度，包含滚动条
-  let freeDivH = document.getElementById("free-btn-div").clientHeight; //div的高度
-  let windowH = window.screen.height; //显示屏高度 
-  let scrollH = document.body.scrollTop || document.documentElement.scrollTop; //滚动的高度
-  console.log("freeBtnH:",freeBtnH);
-  console.log("freeDivH:",freeDivH);
-  console.log("windowH:",windowH);
-  console.log("freeBtnClass:", freeBtnClass.value);
-  console.log("scrollH:", scrollH);
-  console.log("freeTopH:",freeTopH);
-  console.log("temp:",scrollH + windowH);
-  console.log("tempD:",freeTopH + freeBtnH);
-  // freeBtnClass.value = "";
-  if (beforeScrollH.value < scrollH) { // 向下滚动
-    if (freeTopH < scrollH + windowH < freeTopH + freeBtnH) {
-      freeBtnClass.value = 'free-btn-show';
-    }
-  } else { //向上滚动
-    if (freeTopH < scrollH + windowH < freeTopH + freeBtnH) {
-      freeBtnClass.value = 'free-btn-hidden';
-    }
-  }
-  beforeScrollH.value = scrollH
-  setTopBgValue();
-}
-function setTopBgValue() {
-  // if (topVal.value > 0) {
-  //   topBgShow.value = true
-  // } else {
-  //   topBgShow.value = false
-  // }
-}
-
-onUnmounted(() => {
-  window.removeEventListener("scroll", handleScroll)
-})
 </script>
 
 <style lang="less" scoped>
@@ -428,49 +203,9 @@ onUnmounted(() => {
   }
 
   .top-bg{
-    background: url("~/assets/images/top-bg.jpg") no-repeat 77% #000000;
+    background: url("~/assets/images/top-bg.png") no-repeat 77% #000000;
     background-size: contain;
   }
-
-  .area-title{
-    @apply text-[#00044C] text-[32px] leading-[44px] font-extrabold md:text-[48px] md:leading-[74px];
-  }
-
-  .area-desc{
-    @apply text-base mt-3 text-[#40425C] md:text-2xl md:mt-6;
-  }
-
-  
-.free-btn-show{
-  -webkit-animation: scaleS 2s 1;
-  animation: scaleS 2s 1; 
-}
-@keyframes scaleS {
-  
-  0% {
-    opacity: 0;
-    transform: scale(0.2, 0.2);
-  }
-  100% {
-    opacity: 100;
-    transform: scale(1, 1);
-  }
-}
-.free-btn-hidden{
-  -webkit-animation: scaleH 2s 1;
-  animation: scaleH 2s 1; 
-}
-@keyframes scaleH {
-  
-  0% {
-    opacity: 100;
-    transform: scale(1, 1);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(0.2, 0.2);
-  }
-}
 
   .devops-bg{
     background: radial-gradient(111.94% 125.64% at -11.86% 57.81%, rgba(109, 197, 160, 0.1147) 0%, rgba(14, 14, 19, 0) 100%);
