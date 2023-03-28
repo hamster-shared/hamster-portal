@@ -5,7 +5,7 @@
       <div class="grid grid-cols-1 lg:grid-cols-2 lg:gap-[200px] mb-[60px]">
         <div>
           <img class="h-[20px] md:h-[32px]" src="~/assets/images/header.png">
-          <span class="inline-block mt-4 mb-8 text-lg md:text-lg md:mt-7 md:mb-10 text-[#999999] font-family-medium font-medium md:leading-[22px] leading-[16px]"><!--md:mr-20-->
+          <span class="inline-block mt-4 mb-8 text-sm md:text-lg md:mt-7 md:mb-10 text-[#999999] font-family-medium font-medium md:leading-[22px] leading-[16px]"><!--md:mr-20-->
             One-Stop infrastructure,development, <br>
             operation and maintenance service <br>
             platform for projects in Web3.0

@@ -124,7 +124,7 @@
           </div>
           <div class="text-[#CECFD0] w-[100%]" v-if="subMenuDropdownShow">
             <div class="my-4">
-              <span class="text-sm align-middle"> <a :href="alineLink">Automate Workflow</a></span>
+              <span class="text-sm align-middle"> <a href="/workflow">Automate Workflow</a></span>
             </div>
             <div class="my-4">
               <span class="text-sm align-middle">  <a :href="alineLink">MiddleWare</a></span>

@@ -148,7 +148,7 @@
     font-family: PingFangSC-Light, PingFang SC;
   }
   .area-title{
-    @apply text-[#00044C] text-[25px] font-extrabold md:text-[48px] leading-[74px] mt-[60px] md:mt-[80px];
+    @apply text-[#00044C] text-[25px] font-extrabold md:text-[48px] leading-[30px] md:leading-[74px] mt-[60px] md:mt-[80px];
     font-family: Montserrat-ExtraBold, Montserrat;
   }
 
