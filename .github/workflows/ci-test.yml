@@ -16,9 +16,9 @@ jobs:
           username: ${{ secrets.REGISTRY_USERNAME }}
           password: ${{ secrets.REGISTRY_PASSWORD }}
       - run : |
-          docker build -t hamstershare/hamster-portal:$GIT_ACTION_ID .
-          docker push hamstershare/hamster-portal:$GIT_ACTION_ID
-          docker tag hamstershare/hamster-portal:$GIT_ACTION_ID hamstershare/hamster-portal:develop
+          docker build -t hamstershare/hamster-portal:$GITHUB_RUN_NUMBER .
+          docker push hamstershare/hamster-portal:$GITHUB_RUN_NUMBER
+          docker tag hamstershare/hamster-portal:$GITHUB_RUN_NUMBER hamstershare/hamster-portal:develop
           docker push hamstershare/hamster-portal:develop
   deploy:
     name: deploy
@@ -32,4 +32,4 @@ jobs:
           kubectl-version: v1.26.1
       - run: |
           echo $GITHUB_ACTION
-          kubectl -n hamster set image deployment/hamster-portal hamster-portal=hamstershare/hamster-portal:$GIT_ACTION_ID
+          kubectl -n hamster set image deployment/hamster-portal hamster-portal=hamstershare/hamster-portal:$GITHUB_RUN_NUMBER
