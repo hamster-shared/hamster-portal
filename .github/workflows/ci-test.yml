@@ -1,4 +1,4 @@
-name: Hamster Protal Test
+name: GitHub Actions Demo
 on:
   workflow_dispatch:
   push:
@@ -15,21 +15,11 @@ jobs:
         with:
           username: ${{ secrets.REGISTRY_USERNAME }}
           password: ${{ secrets.REGISTRY_PASSWORD }}
-
-      - name: Extract metadata (tags, labels) for Docker
-        id: meta
-        uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
-        with:
-          images: hamstershare/hamster-portal
-
-      - name: Build and push Docker image
-        uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
-        with:
-          context: .
-          push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
-
+      - run : |
+          docker build -t hamstershare/hamster-portal:$GIT_ACTION_ID .
+          docker push hamstershare/hamster-portal:$GIT_ACTION_ID
+          docker tag hamstershare/hamster-portal:$GIT_ACTION_ID hamstershare/hamster-portal:develop
+          docker push hamstershare/hamster-portal:develop
   deploy:
     name: deploy
     needs:
@@ -41,5 +31,5 @@ jobs:
           base64-kube-config: ${{ secrets.TEST_KUBE_CONFIG }}
           kubectl-version: v1.26.1
       - run: |
-          env
-          kubectl get pods
+          echo $GITHUB_ACTION
+          kubectl -n hamster set image deployment/hamster-portal hamster-portal=hamstershare/hamster-portal:$GIT_ACTION_ID
