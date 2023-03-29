@@ -23,7 +23,7 @@
             <span class="inline-block mb-5 cursor-pointer md:hover:text-[#5C64FF]" @click="skipNewUrl('about')">About</span>
             <!-- <span class="md:hover:text-[#27FFB8] cursor-pointer">Grant</span> -->
             <span class="inline-block mb-5 md:hover:text-[#5C64FF] cursor-pointer">Careers</span>
-            <span class="md:hover:text-[#5C64FF] cursor-pointer">Roadmap</span>
+            <a href="/roadmap" class="md:hover:text-[#5C64FF] cursor-pointer">Roadmap</a>
           </div>
           <div class="flex flex-col text-base ml-[40px] md:ml-0">
             <div class="inline-block mb-5 cursor-pointer md:hover:text-[#5C64FF]" @click="skipNewUrl('docs')">

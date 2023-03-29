@@ -1,6 +1,6 @@
 <template>
   <div class="fixed inset-x-0 top-0 z-[100] md:z-[1000] bg-opacity-50 bg-black"
-    :class="{ 'hidden': !isMobile && scrollDown, 'bg-black': topBgShow}">
+    :class="{ 'hidden': scrollDown, 'bg-black': topBgShow}">
     <div class="m-auto">
       <div class="container mx-auto px-5 py-4 font-family-light font-light">
         <div class="relative flex flex-row items-center justify-between text-center text-white">
