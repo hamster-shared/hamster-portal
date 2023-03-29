@@ -20,21 +20,21 @@
 
         <div class="flex lg:justify-end lg:items-end mt-8 lg:mt-0 font-family-medium font-medium">
           <div class="flex flex-col text-base md:mr-16">
-            <span class="inline-block mb-5 cursor-pointer md:hover:text-[#27FFB8]" @click="skipNewUrl('about')">About</span>
+            <span class="inline-block mb-5 cursor-pointer md:hover:text-[#5C64FF]" @click="skipNewUrl('about')">About</span>
             <!-- <span class="md:hover:text-[#27FFB8] cursor-pointer">Grant</span> -->
-            <span class="inline-block mb-5 md:hover:text-[#27FFB8] cursor-pointer">Careers</span>
-            <span class="md:hover:text-[#27FFB8] cursor-pointer">Roadmap</span>
+            <span class="inline-block mb-5 md:hover:text-[#5C64FF] cursor-pointer">Careers</span>
+            <span class="md:hover:text-[#5C64FF] cursor-pointer">Roadmap</span>
           </div>
           <div class="flex flex-col text-base ml-[40px] md:ml-0">
-            <div class="inline-block mb-5 cursor-pointer md:hover:text-[#27FFB8]" @click="skipNewUrl('docs')">
+            <div class="inline-block mb-5 cursor-pointer md:hover:text-[#5C64FF]" @click="skipNewUrl('docs')">
               Docs
               <!-- <img class="w-[18px] inline-block" :src="getImageURL('transmit.svg')" /> -->
             </div>
-            <div class="inline-block mb-5 cursor-pointer md:hover:text-[#27FFB8]" @click="skipNewUrl('github')">
+            <div class="inline-block mb-5 cursor-pointer md:hover:text-[#5C64FF]" @click="skipNewUrl('github')">
               Github
               <!-- <img class="w-[18px] inline-block" :src="getImageURL('transmit.svg')" /> -->
             </div>
-            <div class="cursor-pointer md:hover:text-[#27FFB8]" @click="skipNewUrl('news')">
+            <div class="cursor-pointer md:hover:text-[#5C64FF]" @click="skipNewUrl('news')">
               News
               <!-- <img class="w-[18px] inline-block" :src="getImageURL('transmit.svg')" /> -->
             </div>
@@ -69,7 +69,7 @@ const skipNewUrl = (val) => {
   if (val === 'github') {
     window.open('https://github.com/hamster-shared')
   } else if (val === 'about') {
-    // window.open('/company')
+    window.open('/about')
   } else if (val === 'news') {
     window.open('https://hamsternet.medium.com/')
   }else if (val === 'twitter') {

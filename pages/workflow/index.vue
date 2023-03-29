@@ -13,7 +13,7 @@
   </div>
   <div class="container mx-auto px-5 mt-[100px]">
     <div class="relative">
-      <div class="bg-box right-0"></div>
+      <div :class="{'bg-box right-0' : !$device.isMobile}"></div>
       <div class="md:flex md:pt-[152px] pb-[56px]">
         <div class="md:w-[500px]">
           <div class="area-title !mt-0">Quickly start web3 project</div>
@@ -22,11 +22,15 @@
         <div class="flex justify-center my-[40px] md:my-0">
           <img src="~/assets/images/workflow-start.png" class="h-[180px] md:h-[348px]" />
         </div>
-        <div class="w-full flex justify-between md:inline-block md:w-[240px] px-[14px]">
-          <div class="wf-start-bg-box wf-start-text">NFTs</div>
-          <div class="wf-start-text">DeFi</div>
-          <div class="wf-start-text">GameFi</div>
-          <div class="wf-start-text">DAO</div>
+        <div class="overflow-x-auto  wf-overflow-scrollbar">
+          <div class="w-auto flex flex-shrink-0 md:inline-block md:w-[240px] md:px-[14px]">
+            <div class="wf-start-bg-box wf-start-text">NFTs</div>
+            <div class="wf-start-text">DeFi</div>
+            <div class="wf-start-text">GameFi</div>
+            <div class="wf-start-text">DAO</div>
+            <div class="wf-start-text">GameFi</div>
+            <div class="wf-start-text">DAO</div>
+          </div>
         </div>
       </div>
     </div>
@@ -105,6 +109,10 @@ import StartBuild from "../company/StartBuild.vue";
   background: url("~/assets/images/workflow-build.png") no-repeat left;
   background-size: contain;
 }
+
+.wf-overflow-scrollbar::-webkit-scrollbar{
+  display: none;
+}
 </style>
 <style>
 
@@ -117,13 +125,13 @@ import StartBuild from "../company/StartBuild.vue";
   color: #FFFFFF !important;
 }
 .wf-start-text{
-  @apply md:pl-[33px] text-center md:text-left text-[21px] md:text-[34px] leading-[61px] md:leading-[47px];
+  @apply flex-shrink-0 w-[120px] md:w-auto md:pl-[33px] text-center md:text-left text-[21px] md:text-[34px] leading-[61px] md:leading-[47px];
   font-family: Montserrat-Bold, Montserrat;
   font-weight: bold;
   color: #30325C; 
 }
 .wf-start-text:not(:first-child){
-  @apply md:mt-[47px];
+  @apply md:mt-[47px] ml-[20px] md:ml-0;
 }
 .wf-area-div{
   @apply text-center md:text-left mt-[70px] md:mt-[200px] md:mb-[160px];

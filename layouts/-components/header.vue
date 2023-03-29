@@ -25,7 +25,7 @@
                 <div class="cursor-pointer select-none">
                   <div
                     class="px-4 h-[32px] text-base flex justify-center items-center menu-dropdown-hover"
-                    :class="{'menu-dropdown-opened': subMenuDropdownShow}"
+                    :class="{'menu-dropdown-opened': subMenuDropdownShow || `/${curMenu}` === '/workflow'}"
                   >
                     <div>Solutions</div>
                     <div class="h-2 ml-2" :class="{'rotate-dropdown-icon': subMenuDropdownShow}">
@@ -43,7 +43,7 @@
                     </div>
                     <div class="bg-[white] p-[20px] rounded-[5px] text-base">
                       <div class="pb-[20px] hover:text-[#5C64FF]">
-                        <a href="/workflow">Automate Workflow</a>
+                        <a href="/workflow" :class="{'menu-active' : `/${curMenu}` === '/workflow'}">Automate Workflow</a>
                       </div>
                       <div class="hover:text-[#5C64FF]">
                         <a :href="alineLink">MiddleWare</a>
@@ -193,7 +193,7 @@ const navLinks = computed(() => [
   { title: t('header.dashboard'), path: '/dashboard' },
   // { title: 'Grant', path: "" }, //
   // { title: 'Pricing', path: "" }, //
-  { title: 'About', path: "" },
+  { title: 'About', path: "/about" },
   { title: t('header.docs'), path: "https://hamsternet.io/docs/" },
   // { title: t('header.faucet'), path: "/faucet" },
   // { title: t('header.stake'), path: "/stake" },
@@ -266,6 +266,7 @@ onMounted(() => {
   handleScroll();
 
   curMenu.value = route.path.substring(1);
+  console.log("curMenu.value:",curMenu.value);
 })
 onUnmounted(() => {
   window.removeEventListener("scroll", handleScroll)
@@ -305,7 +306,8 @@ onUnmounted(() => {
 }
 
 .menu {
-  @apply cursor-pointer text-[white] leading-[32px] flex items-center;
+  @apply cursor-pointer text-[white] leading-[32px] flex items-center font-light;
+  font-family: Montserrat-Light, Montserrat;
 }
 
 .menu-active {
@@ -313,12 +315,14 @@ onUnmounted(() => {
 }
 
 .menu-dropdown-opened,.menu-dropdown-hover:hover {
-  font-family: Montserrat-Medium, Montserrat;
-  font-weight: 500;
   color:#5C64FF;
   svg path {
     fill: #5C64FF;
   }
+}
+.menu-dropdown-opened{
+  font-family: Montserrat-Medium, Montserrat;
+  font-weight: 500;
 }
 
 .menu-hover:hover{
@@ -353,8 +357,8 @@ onUnmounted(() => {
 
 @screen md {
   .menu-active {
-    color: #27FFB8 !important;
-    font-weight: 700;
+    color: #5C64FF !important;
+    font-weight: 500;
   }
 }
 
