@@ -190,7 +190,7 @@ const alineLink = computed(() => "https://develop.alpha.hamsternet.io/login")
 
 const navLinks = computed(() => [
   // { title: 'Solutions', path: "/solutions", children: [] },
-  { title: t('header.dashboard'), path: '/dashboard' },
+  // { title: t('header.dashboard'), path: '/dashboard' },
   // { title: 'Grant', path: "" }, //
   // { title: 'Pricing', path: "" }, //
   { title: 'About', path: "/about" },
@@ -266,7 +266,6 @@ onMounted(() => {
   handleScroll();
 
   curMenu.value = route.path.substring(1);
-  console.log("curMenu.value:",curMenu.value);
 })
 onUnmounted(() => {
   window.removeEventListener("scroll", handleScroll)

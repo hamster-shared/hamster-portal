@@ -17,28 +17,37 @@
   <div class="container mx-auto px-5 mt-[60px] md:mt-[180px]">
     <div>
       <div class="area-title text-center !mt-0 mb-[40px] md:mb-[100px]">Dashboard</div>
-      <div class="md:grid md:grid-cols-5 text-center">
-        <div>
-          <div class="about-board-number">1000+</div>
-          <div class="about-board-text">Developers</div>
-        </div>
-        <div>
-          <div class="about-board-number">29</div>
-          <div class="about-board-text">Workflows</div>
-        </div>
-        <div>
-          <div class="about-board-number">8</div>
-          <div class="about-board-text">EcoSystems</div>
-        </div>
-        <div>
-          <div class="about-board-number">20+</div>
-          <div class="about-board-text">Templates</div>
-        </div>
-        <div>
-          <div class="about-board-number">10+</div>
-          <div class="about-board-text !mb-0">Blockchains</div>
-        </div>
-        <div></div>
+      <div id="dashboard-div" class="md:grid md:grid-cols-5 text-center">
+          <div>
+            <div class="about-board-number">
+              <TransitionText :boardNumber="boardNumber1"></TransitionText>
+            </div>
+            <div class="about-board-text" @click="showBoardNumber">Developers</div>
+          </div>
+          <div>
+            <div class="about-board-number">
+              <TransitionText :boardNumber="boardNumber2"></TransitionText>
+            </div>
+            <div class="about-board-text">Workflows</div>
+          </div>
+          <div>
+            <div class="about-board-number">
+              <TransitionText :boardNumber="boardNumber3"></TransitionText>
+            </div>
+            <div class="about-board-text">EcoSystems</div>
+          </div>
+          <div>
+            <div class="about-board-number">
+              <TransitionText :boardNumber="boardNumber4"></TransitionText>
+            </div>
+            <div class="about-board-text">Templates</div>
+          </div>
+          <div>
+            <div class="about-board-number">
+              <TransitionText :boardNumber="boardNumber5"></TransitionText>
+            </div>
+            <div class="about-board-text !mb-0">Blockchains</div>
+          </div>
       </div>
     </div>
     <div class="mt-[60px] md:mt-[180px]">
@@ -100,7 +109,41 @@
   <StartBuild></StartBuild>
 </template>
 <script setup>
-import StartBuild from "../company/StartBuild.vue";
+import StartBuild from "../index/components/StartBuild.vue";
+import TransitionText from "./components/TransitionText.vue";
+
+const boardNumberList = ref(['1000+', '29', '8', '20+', '10+'])
+const boardNumber1 = ref([])
+const boardNumber2 = ref([])
+const boardNumber3 = ref([])
+const boardNumber4 = ref([])
+const boardNumber5 = ref([])
+const showBoardNumber = () => {
+  boardNumber1.value = boardNumberList.value[0].split('')
+  boardNumber2.value = boardNumberList.value[1].split('')
+  boardNumber3.value = boardNumberList.value[2].split('')
+  boardNumber4.value = boardNumberList.value[3].split('')
+  boardNumber5.value = boardNumberList.value[4].split('')
+}
+
+
+
+function handleScroll() {
+  let dashboardEle = document.getElementById("dashboard-div");
+  let dashboardH = dashboardEle.clientHeight; //div的的高度
+  let dashboardTopH = dashboardEle.offsetTop; //距离顶部的高度，包含滚动条
+  let windowH = window.screen.height; //显示屏高度 
+  let scrollH = document.body.scrollTop || document.documentElement.scrollTop; //滚动的高度
+  if (dashboardTopH - windowH + dashboardH < scrollH) {
+    showBoardNumber();
+  }
+}
+onMounted(()=>{
+  window.addEventListener("scroll", handleScroll)
+})
+onUnmounted(() => {
+  window.removeEventListener("scroll", handleScroll)
+})
 </script>
 <style lang="less" scoped>
 
@@ -120,7 +163,7 @@ import StartBuild from "../company/StartBuild.vue";
 </style>
 <style>
 .about-board-number{
-  @apply text-[72px] font-bold text-[#5C64FF] leading-[88px] mb-0 md:mb-[20px];
+  @apply text-[72px] font-bold text-[#5C64FF] leading-[88px] h-[88px] mb-0 md:mb-[20px] flex justify-center;
   font-family: Montserrat-Bold, Montserrat;
 }
 .about-board-text{

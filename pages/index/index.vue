@@ -95,7 +95,7 @@
   import {ref, onMounted, computed, onUnmounted} from 'vue'
   import DefaultLayout from "~/layouts/default.vue"
   import Footer from "~/layouts/-components/footer.vue"
-  import StartBuild from "../company/StartBuild.vue";
+  import StartBuild from "./components/StartBuild.vue";
   import 'vue3-carousel/dist/carousel.css'
 
   definePageMeta({
