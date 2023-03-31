@@ -12,7 +12,7 @@
     </div>
   </div>
   <div class="container mx-auto px-5 mt-[100px]">
-    <div class="relative">
+    <div id="projectDiv" class="relative">
       <div :class="{'bg-box right-0' : !$device.isMobile}"></div>
       <div class="md:flex md:pt-[152px] pb-[56px]">
         <div class="md:w-[500px]">
@@ -23,13 +23,12 @@
           <img src="~/assets/images/workflow-start.png" class="h-[180px] md:h-[348px]" />
         </div>
         <div class="overflow-x-auto  wf-overflow-scrollbar">
-          <div class="w-auto flex flex-shrink-0 md:inline-block md:w-[240px] md:px-[14px]">
-            <div class="wf-start-bg-box wf-start-text">NFTs</div>
-            <div class="wf-start-text">DeFi</div>
-            <div class="wf-start-text">GameFi</div>
-            <div class="wf-start-text">DAO</div>
-            <div class="wf-start-text">GameFi</div>
-            <div class="wf-start-text">DAO</div>
+          <div class="w-auto flex flex-shrink-0 md:inline-block md:w-[240px] md:px-[14px] md:absolute">
+            <div v-for="(item,index) in list" :key="index">
+              <div class="wf-start-text" 
+                :class="{'wf-start-bg-box':item === curProject, 'md:mt-[47px] ml-[20px] md:ml-0': index !=0}"
+                 @click="handleProject(item)">{{ item }}</div>
+            </div>
           </div>
         </div>
       </div>
@@ -87,7 +86,91 @@
   <StartBuild></StartBuild>
 </template>
 <script setup>
-import StartBuild from "../company/StartBuild.vue";
+import StartBuild from "../index/components/StartBuild.vue";
+
+const mouseIndex = ref(0);
+const scrollIndex = ref(0);
+const beforeTopVal = ref(0);
+const list = ref(['NFTs', 'DeFi', 'GameFi', 'DAO']);
+const curProject = ref(list.value[0]);
+const handleProject = (val) => {
+  curProject.value = val;
+}
+function handleScroll() {
+  let ele = document.getElementById("projectDiv");
+  let eleH = ele.clientHeight; //div的的高度
+  let eleTopH = ele.offsetTop; //距离顶部的高度，包含滚动条
+  let windowH = window.screen.height; //显示屏高度 
+  let scrollH = document.body.scrollTop || document.documentElement.scrollTop; //滚动的高度
+  if (beforeTopVal.value < scrollH) { // 向下滚动
+    if (eleH >= windowH) {  
+      if (eleTopH <= scrollH && mouseIndex.value === 0) {
+        stopScroll();
+      }
+    } else {
+      if (eleTopH + eleH - windowH <= scrollH && mouseIndex.value === 0) {
+        stopScroll();
+      }
+    }
+  } else { //向上滚动
+    if (eleH >= windowH) { 
+      if (eleTopH + eleH - windowH > scrollH && mouseIndex.value === list.value.length - 1) {
+        stopScroll();
+      }
+    } else {
+      if (eleTopH > scrollH && mouseIndex.value === list.value.length - 1) {
+        stopScroll();
+      }
+    }
+  }
+  beforeTopVal.value = scrollH;
+}
+const handleMouse = () => {
+  console.log("sIndex:", mouseIndex.value);
+  let e = window.event;
+  let mouseVal = e.wheelDelta ? e.wheelDelta : e.detail;
+  if (mouseVal > 0) { //向上滚动
+    if (mouseIndex.value === 0) {
+      canScroll();
+    } else {
+      mouseIndex.value--
+      curProject.value = list.value[mouseIndex.value];
+    }
+  } else { //向下滚动
+    if (mouseIndex.value === list.value.length - 1) {
+      canScroll();
+    } else {
+      mouseIndex.value++
+      curProject.value = list.value[mouseIndex.value];
+    }
+  }
+}
+
+const stopScroll = () => {
+  var defaultNo = function (e) { e.preventDefault() }
+  document.body.style.overflow = 'hidden';
+  //禁止页面滑动
+  document.addEventListener("touchmove", defaultNo, false);
+  window.onmousewheel = function (e) {
+    handleMouse()
+  }
+  // window.addEventListener("mousewheel", handleMouse)
+}
+
+const canScroll = () => {
+  var defaultNo = function (e) { e.preventDefault() }
+  document.body.style.overflow = '';
+  //禁止页面滑动
+  document.removeEventListener("touchmove", defaultNo, false);
+  // window.removeEventListener("mousewheel", handleMouse)
+  window.onmousewheel = function (e) {}
+}
+onMounted(()=>{
+  window.addEventListener("scroll", handleScroll)
+})
+onUnmounted(() => {
+  window.removeEventListener("scroll", handleScroll)
+})
 </script>
 
 <style lang="less" scoped>
@@ -125,13 +208,10 @@ import StartBuild from "../company/StartBuild.vue";
   color: #FFFFFF !important;
 }
 .wf-start-text{
-  @apply flex-shrink-0 w-[120px] md:w-auto md:pl-[33px] text-center md:text-left text-[21px] md:text-[34px] leading-[61px] md:leading-[47px];
+  @apply cursor-pointer flex-shrink-0 w-[120px] md:w-auto md:pl-[33px] text-center md:text-left text-[21px] md:text-[34px] leading-[61px] md:leading-[47px];
   font-family: Montserrat-Bold, Montserrat;
   font-weight: bold;
   color: #30325C; 
-}
-.wf-start-text:not(:first-child){
-  @apply md:mt-[47px] ml-[20px] md:ml-0;
 }
 .wf-area-div{
   @apply text-center md:text-left mt-[70px] md:mt-[200px] md:mb-[160px];
