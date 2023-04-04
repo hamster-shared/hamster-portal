@@ -65,7 +65,7 @@ const skipNewUrl = (val) => {
   if (val === 'github') {
     window.open('https://github.com/hamster-shared')
   } else if (val === 'about') {
-    // window.open('/company')
+    window.open('/abouts')
   } else if (val === 'news') {
     window.open('https://hamsternet.medium.com/')
   }else if (val === 'twitter') {
