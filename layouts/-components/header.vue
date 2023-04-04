@@ -169,7 +169,7 @@ watch(() => props.showHeaderBg, (newVal)=>{
   }
 })
 
-const { getImageURL } = useAssets()
+// const { getImageURL } = useAssets()
 const route = useRoute();
 const { t, locale, availableLocales } = useI18n()
 const localeOptions = availableLocales.map((lang) => {
@@ -181,10 +181,10 @@ const alineLink = computed(() => "https://develop.alpha.hamsternet.io/")
 
 const navLinks = computed(() => [
   // { title: 'Solutions', path: "/solutions", children: [] },
-  { title: t('header.dashboard'), path: '/dashboard' },
+  // { title: t('header.dashboard'), path: '/dashboard' },
   { title: 'Grant', path: "" }, //
   { title: 'Pricing', path: "" }, //
-  { title: 'About', path: "" },
+  { title: 'About', path: "/abouts" },
   { title: t('header.docs'), path: "https://hamsternet.io/docs/" },
   // { title: t('header.faucet'), path: "/faucet" },
   // { title: t('header.stake'), path: "/stake" },
@@ -247,7 +247,8 @@ function setTopBgValue() {
 }
 
 const gotoAline = function () {
-  window.location.href = alineLink.value
+  const w = window.open("about:blank");
+  w.location.href = alineLink.value
 }
 
 

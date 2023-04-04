@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto my-20">
+  <div class="container mx-auto my-20 px-5 md:px-0">
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-[54px]">
       <div>
         <img class="h-[20px] md:h-[32px]" src="~/assets/images/header.png">
@@ -9,8 +9,12 @@
           development, operation and maintenance service platform for projects in Web3.0
         </span>
         <div class="flex items-center">
-          <img :src="getImageURL('aptos-grant.png')" class="h-[64px] md:h-[67px] mr-8 md:mr-12"/>
-          <img class="h-[64px] md:h-[75px]" src="~/assets/images/web3_foundation.png" />
+          <!-- <img :src="getImageURL('aptos-grant.png')" class="h-[64px] md:h-[67px] mr-8 md:mr-12"/>
+          <img class="h-[64px] md:h-[75px]" src="~/assets/images/web3_foundation.png" /> -->
+          <img :src="getImageURL('aptos-grant.png')" class="w-[20%] mr-[6.3%]"/>
+          <img :src="getImageURL('web3_foundation.png')" class="w-[20%] mr-[6.3%]" />
+          <img :src="getImageURL('algorand.png')" class="w-[20%] mr-[6.3%]"/>
+          <img :src="getImageURL('starknet.png')" class="w-[20%]" />
         </div>
       </div>
 
@@ -61,7 +65,7 @@ const skipNewUrl = (val) => {
   if (val === 'github') {
     window.open('https://github.com/hamster-shared')
   } else if (val === 'about') {
-    // window.open('/company')
+    window.open('/abouts')
   } else if (val === 'news') {
     window.open('https://hamsternet.medium.com/')
   }else if (val === 'twitter') {
