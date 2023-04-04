@@ -1,61 +1,53 @@
 <template>
-  <div class="bg-[#000000]">
-
-    <div class="container mx-auto md:py-20 py-14 px-5">
-      <div class="grid grid-cols-1 lg:grid-cols-2 lg:gap-[200px] mb-[60px]">
-        <div>
-          <img class="h-[20px] md:h-[32px]" src="~/assets/images/header.png">
-          <span class="inline-block mt-4 mb-8 text-sm md:text-lg md:mt-7 md:mb-10 text-[#999999] font-family-medium font-medium md:leading-[22px] leading-[16px]"><!--md:mr-20-->
-            One-Stop infrastructure,development, <br>
-            operation and maintenance service <br>
-            platform for projects in Web3.0
-          </span>
-          <div class="flex items-center">
-            <img :src="getImageURL('aptos-grant.png')" class="w-[20%] mr-[6.3%]"/>
-            <img :src="getImageURL('web3_foundation.png')" class="w-[20%] mr-[6.3%]" />
-            <img :src="getImageURL('algorand.png')" class="w-[20%] mr-[6.3%]"/>
-            <img :src="getImageURL('starknet.png')" class="w-[20%]" />
-          </div>
+  <div class="container mx-auto my-20 px-6 md:px-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-[54px]">
+      <div>
+        <img class="h-[20px] md:h-[32px]" src="~/assets/images/header.png">
+        <span class="inline-block mt-4 mb-8 text-sm md:text-base md:mr-20 md:mt-7 md:mb-10">
+          One-Stop infrastructure,
+          <br>
+          development, operation and maintenance service platform for projects in Web3.0
+        </span>
+        <div class="flex items-center">
+          <img :src="getImageURL('aptos-grant.png')" class="h-[64px] md:h-[67px] mr-8 md:mr-12"/>
+          <img class="h-[64px] md:h-[75px]" src="~/assets/images/web3_foundation.png" />
         </div>
+      </div>
 
-        <div class="flex lg:justify-end lg:items-end mt-8 lg:mt-0 font-family-medium font-medium">
-          <div class="flex flex-col text-base md:mr-16">
-            <span class="inline-block mb-5 cursor-pointer md:hover:text-[#5C64FF]" @click="skipNewUrl('about')">About</span>
-            <!-- <span class="md:hover:text-[#27FFB8] cursor-pointer">Grant</span> -->
-            <span class="inline-block mb-5 md:hover:text-[#5C64FF] cursor-pointer">Careers</span>
-            <a href="/roadmap" class="md:hover:text-[#5C64FF] cursor-pointer">Roadmap</a>
+      <div class="flex md:justify-between md:px-16">
+        <div class="flex flex-col text-base">
+          <span class="inline-block mb-5 font-bold cursor-pointer md:hover:text-[#27FFB8]" @click="skipNewUrl('about')">About</span>
+          <span class="md:hover:text-[#27FFB8] cursor-pointer">Grant</span>
+          <span class="inline-block my-5 md:hover:text-[#27FFB8] cursor-pointer">Careers</span>
+          <span class="md:hover:text-[#27FFB8] cursor-pointer">Roadmap</span>
+        </div>
+        <div class="flex flex-col text-base ml-[40px] md:ml-0">
+          <div class="inline-block mb-5 font-bold cursor-pointer md:hover:text-[#27FFB8]" @click="skipNewUrl('docs')">
+            Docs
+            <img class="w-[18px] inline-block" :src="getImageURL('transmit.svg')" />
           </div>
-          <div class="flex flex-col text-base ml-[40px] md:ml-0">
-            <div class="inline-block mb-5 cursor-pointer md:hover:text-[#5C64FF]" @click="skipNewUrl('docs')">
-              Docs
-              <!-- <img class="w-[18px] inline-block" :src="getImageURL('transmit.svg')" /> -->
-            </div>
-            <div class="inline-block mb-5 cursor-pointer md:hover:text-[#5C64FF]" @click="skipNewUrl('github')">
-              Github
-              <!-- <img class="w-[18px] inline-block" :src="getImageURL('transmit.svg')" /> -->
-            </div>
-            <div class="cursor-pointer md:hover:text-[#5C64FF]" @click="skipNewUrl('news')">
-              News
-              <!-- <img class="w-[18px] inline-block" :src="getImageURL('transmit.svg')" /> -->
-            </div>
+          <div class="inline-block mb-5 cursor-pointer md:hover:text-[#27FFB8]" @click="skipNewUrl('github')">
+            Github
+            <img class="w-[18px] inline-block" :src="getImageURL('transmit.svg')" />
+          </div>
+          <div class="cursor-pointer md:hover:text-[#27FFB8]" @click="skipNewUrl('news')">
+            News
+            <img class="w-[18px] inline-block" :src="getImageURL('transmit.svg')" />
           </div>
         </div>
       </div>
-      <div class="flex flex-wrap lg:flex-nowrap lg:justify-between pt-[30px] text-[#999999] border-line">
-        <div class="lg:flex text-center lg:text-left  w-full lg:w-auto">
-          <div class="inline-block text-base font-family-medium font-medium mt-[60px] lg:mt-0">Hamster Ltd.</div>
-          <div class="text-sm lg:mx-[40px] lg:text-base lg:w-[300px] font-light my-[20px] lg:my-0 font-family-light">
-            Harbour Plaza, 103 South Church Street Grand Cayman, Cayman Islands
-          </div>
-          <div class="font-light font-family-light">
-            <div class="inline-block text-sm mlgd:text-base">+49 17647 082974</div>
-            <div class="text-sm lg:text-base">Email: hamster@hamsternet.io</div>
-          </div>
-        </div>
-        <div class="flex mt-5 justify-around w-full lg:w-auto order-first lg:order-none">
-          <img src="~/assets/images/footer-twitter.png" @click="skipNewUrl('twitter')" class="h-[50px] md:h-6 cursor-pointer" />
-          <img src="~/assets/images/footer-discord.png" @click="skipNewUrl('discord')" class="h-[50px] md:h-6 mx-[60px] cursor-pointer" />
-          <img src="~/assets/images/footer-telegram.png" @click="skipNewUrl('telegram')" class="h-[50px] md:h-6 cursor-pointer" />
+
+      <div class="flex flex-col md:justify-self-end">
+        <span class="inline-block mb-5 text-base font-bold md:text-2xl">Hamster Ltd.</span>
+        <span class="text-sm md:text-base">
+          Harbour Plaza, 103 South Church Street Grand Cayman, Cayman Islands
+        </span>
+        <span class="inline-block my-5 text-sm md:text-base">+49 17647 082974</span>
+        <span class="text-sm md:text-base">Email: hamster@hamsternet.io</span>
+        <div class="flex mt-5">
+          <img src="~/assets/images/footer-twitter.png" @click="skipNewUrl('twitter')" class="h-6 cursor-pointer" />
+          <img src="~/assets/images/footer-discord.png" @click="skipNewUrl('discord')" class="h-6 mx-5 cursor-pointer" />
+          <img src="~/assets/images/footer-telegram.png" @click="skipNewUrl('telegram')" class="h-6 cursor-pointer" />
         </div>
       </div>
     </div>
@@ -69,7 +61,7 @@ const skipNewUrl = (val) => {
   if (val === 'github') {
     window.open('https://github.com/hamster-shared')
   } else if (val === 'about') {
-    window.open('/about')
+    // window.open('/company')
   } else if (val === 'news') {
     window.open('https://hamsternet.medium.com/')
   }else if (val === 'twitter') {
@@ -96,8 +88,5 @@ const skipNewUrl = (val) => {
   }
   .footer-sub {
     @apply text-[#807D7C] leading-8;
-  }
-  .border-line{
-    border-top: 1px solid #363636;
   }
 </style>

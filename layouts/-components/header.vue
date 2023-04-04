@@ -190,10 +190,10 @@ const alineLink = computed(() => "https://develop.alpha.hamsternet.io/login")
 
 const navLinks = computed(() => [
   // { title: 'Solutions', path: "/solutions", children: [] },
-  // { title: t('header.dashboard'), path: '/dashboard' },
-  // { title: 'Grant', path: "" }, //
-  // { title: 'Pricing', path: "" }, //
-  { title: 'About', path: "/about" },
+  { title: t('header.dashboard'), path: '/dashboard' },
+  { title: 'Grant', path: "" }, //
+  { title: 'Pricing', path: "" }, //
+  { title: 'About', path: "/abouts" },
   { title: t('header.docs'), path: "https://hamsternet.io/docs/" },
   // { title: t('header.faucet'), path: "/faucet" },
   // { title: t('header.stake'), path: "/stake" },
