@@ -1,5 +1,5 @@
 <template>
-  <div :class="[showContent===true?'block':'hidden']" class="container mx-auto text-white">
+  <div :class="[showContent===true?'block':'hidden'],{'container mx-auto':curMenu!=='abouts'}" class=" text-white">
     <Head>
       <Title>{{ $t('meta.title') }}</Title>
       <Meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -36,6 +36,8 @@
 
   const { getImageURL } = useAssets()
   const { t } = useI18n()
+  const route = useRoute();
+  const curMenu = ref('')
 
   const showContent = ref(false)
 
@@ -67,6 +69,8 @@
 
   onMounted(() => {
     showContent.value = true;
+    curMenu.value = route.path.substring(1);
+    console.log("curMenu:",curMenu.value);
   })
 </script>
 

@@ -1,7 +1,7 @@
 <template>
 <div >
-  <div class="px-5">
-    <div class=" abouts-top-bg pt-[140px] md:pt-[250px]">
+  <div class=" bg-[#000000]" >
+    <div class="container mx-auto px-5 abouts-top-bg pt-[140px] md:pt-[250px]">
       <div class="text-center">
         <div class="mb-[50px] text-[24px] md:text-[50px] leading-[36px] md:leading-[74px] font-extrabold font-family-bold text-[#FFFFFF]">About Hamster</div>
         <div class="text-[16px] md:text-[24px] leading-[21px] md:leading-[35px] font-medium text-[#999999] font-family-medium flex justify-center">
@@ -15,7 +15,7 @@
       </div>
     </div>
   </div>
-  <div class="px-5 mt-[80px] md:mt-[200px]">
+  <div class="container mx-auto px-5 mt-[80px] md:mt-[200px]">
     <div id="dashboard-div">
       <div class="abouts-area-title text-center !mt-0 mb-[40px] md:mb-[120px]">Dashboard</div>
       <div class="md:grid md:grid-cols-5 text-center">
@@ -90,7 +90,7 @@
       </div>
     </div>
   </div>
-  <div class="px-5 abouts-team-bg" :class="[$device.isMobile ?'abouts-team-bg-mobile' : 'abouts-team-bg-win']">
+  <div class="container mx-auto px-5 abouts-team-bg" :class="[$device.isMobile ?'abouts-team-bg-mobile' : 'abouts-team-bg-win']">
     <div class=" pt-[80px] md:pt-[140px]">
       <div class="text-center">
         <div class="abouts-area-title !mt-0 mb-[40px] md:mb-[120px]">Core Dev Team</div>
@@ -108,17 +108,21 @@
       </div>
     </div>
   </div>
-  <div class="px-5 mb-[60px] md:mb-[180px]">
+  <div class="container mx-auto px-5 mb-[60px] md:mb-[180px]">
     <div class="text-center">
-      <div class="flex flex-wrap mt-[30px] md:mt-[100px] justify-between">
-        <img src="~/assets/images/abouts-logo-1.png" class="abouts-logo-img2"/>
-        <img src="~/assets/images/abouts-logo-2.png" class="abouts-logo-img2"/>
-        <img src="~/assets/images/abouts-logo-3.png" class="abouts-logo-img2"/>
-        <img src="~/assets/images/abouts-logo-4.png" class="abouts-logo-img2"/>
-        <img src="~/assets/images/abouts-logo-5.png" class="abouts-logo-img2 !ml-0 mt-[30px] md:mt-0"/>
-        <img src="~/assets/images/abouts-logo-6.png" class="abouts-logo-img2 mt-[30px] md:mt-0"/>
-        <img src="~/assets/images/abouts-logo-7.png" class="abouts-logo-img2 mt-[30px] md:mt-0"/>
-        <img src="~/assets/images/abouts-logo-8.png" class="abouts-logo-img2 mt-[30px] md:mt-0"/>
+      <div class="md:flex mt-[30px] md:mt-[100px]">
+        <div class="flex justify-between md:justify-around w-full md:w-1/2">
+          <img src="~/assets/images/abouts-logo-1.png" class="abouts-logo-img2"/>
+          <img src="~/assets/images/abouts-logo-2.png" class="abouts-logo-img2"/>
+          <img src="~/assets/images/abouts-logo-3.png" class="abouts-logo-img2"/>
+          <img src="~/assets/images/abouts-logo-4.png" class="abouts-logo-img2"/>
+        </div>
+        <div class="flex justify-between md:justify-around w-full md:w-1/2 mt-[30px] md:mt-0">
+          <img src="~/assets/images/abouts-logo-5.png" class="abouts-logo-img2"/>
+          <img src="~/assets/images/abouts-logo-6.png" class="abouts-logo-img2"/>
+          <img src="~/assets/images/abouts-logo-7.png" class="abouts-logo-img2"/>
+          <img src="~/assets/images/abouts-logo-8.png" class="abouts-logo-img2"/>
+        </div>
       </div>
     </div>
   </div>
@@ -178,9 +182,10 @@ const showBoardNumber = () => {
 function handleScroll() {
   let dashboardEle = document.getElementById("dashboard-div");
   let dashboardTopH = dashboardEle.offsetTop; //距离顶部的高度，包含滚动条
+  let windowH = window.screen.height; //显示屏高度 
   let scrollH = document.body.scrollTop || document.documentElement.scrollTop; //滚动的高度
   const addH = device.value.isMobile ? 100 : 200;
-  if (dashboardTopH < scrollH + addH) {
+  if (dashboardTopH + addH < scrollH + windowH) {
     showBoardNumber();
   }
 }
@@ -257,9 +262,9 @@ onUnmounted(() => {
 .abouts-logo-img2{
   @apply h-[54px] md:h-[60px]
 }
-.abouts-logo-img2:not(:first-child){
+/* .abouts-logo-img2:not(:first-child){
   @apply ml-8 md:ml-0;
-}
+} */
 .abouts-key-img{
   @apply  h-[212px];
 }
