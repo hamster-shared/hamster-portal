@@ -1,8 +1,8 @@
 <template>
-  <div class="fixed inset-x-0 top-0 z-[100] md:z-[1000] bg-opacity-50 bg-black"
-    :class="{ 'hidden': scrollDown, 'bg-black': topBgShow}">
+  <div class="fixed inset-x-0 top-0 z-[100] md:z-[1000] bg-opacity-50"
+    :class="{ 'hidden': !isMobile && scrollDown, 'bg-black': topBgShow}">
     <div class="m-auto">
-      <div class="container mx-auto px-5 py-4 font-family-light font-light">
+      <div class="container py-4 mx-6 md:mx-auto">
         <div class="relative flex flex-row items-center justify-between text-center text-white">
           <div class="absolute logo">
             <nuxt-link to="/">
@@ -18,14 +18,14 @@
                 auto-hide
                 v-model:shown="subMenuDropdownShow"
                 :distance="10"
-                placement="bottom"
+                placement="bottom-start"
                 popper-class="locale-dropdown"
                 :skidding="16"
               >
                 <div class="cursor-pointer select-none">
                   <div
-                    class="px-4 h-[32px] text-base flex justify-center items-center menu-dropdown-hover"
-                    :class="{'menu-dropdown-opened': subMenuDropdownShow || `/${curMenu}` === '/workflow'}"
+                    class="px-4 h-[32px] text-base flex justify-center items-center hover:color-[#27FFB8]"
+                    :class="{'menu-dropdown-opened': subMenuDropdownShow}"
                   >
                     <div>Solutions</div>
                     <div class="h-2 ml-2" :class="{'rotate-dropdown-icon': subMenuDropdownShow}">
@@ -37,26 +37,15 @@
                   </div>
                 </div>
                 <template #popper>
-                  <div class=" box-dropdown max-w-[400px]">
-                    <div class="flex justify-center h-[9px]">
-                      <div class="box-top"></div>
-                    </div>
-                    <div class="bg-[white] p-[20px] rounded-[5px] text-base">
-                      <div class="pb-[20px] hover:text-[#5C64FF]">
-                        <a href="/workflow" :class="{'menu-active' : `/${curMenu}` === '/workflow'}">Automate Workflow</a>
-                      </div>
-                      <div class="hover:text-[#5C64FF]">
-                        <a :href="alineLink">MiddleWare</a>
-                      </div>
-                    </div>
-                    <!-- <div class="px-6 py-4">
+                  <div class="bg-[white] py-4 rounded-[2px] max-w-[400px]">
+                    <div class="px-6 py-4">
                       <img src="~/assets/images/development-toolkit.png" class="inline-block w-4 h-4" />
                       <span class="text-base align-middle"> <a :href="alineLink"> Developer Toolkit</a></span>
                     </div>
                     <div class="px-6 py-4">
                       <img src="~/assets/images/node-service.png" class="inline-block w-4 h-4" />
                       <span class="text-base align-middle"> <a :href="alineLink">  Node Service </a></span>
-                    </div> -->
+                    </div>
                     <!-- <div class="px-6 py-4">
                       <img src="~/assets/images/decentralized-computing.png" class="inline-block w-4 h-4" />
                       <span class="text-base align-middle"> Decentralized Computing Power Network</span>
@@ -68,13 +57,13 @@
                 <a v-for="link in navLinks"
                   :key="link.path"
                   :class="{'menu-active' : `/${curMenu}` === link.path}"
-                  class="mx-4 menu-hover"
+                  class="mx-4 hover:text-[#27FFB8]"
                   :href="link.path"
                  >
                   {{ link.title }}
                 </a>
               </div>
-              <button class="ml-4 start-today" @click="gotoAline">{{ $t('header.menu1') }}</button>
+              <button class="mx-4 start-today hover:bg-[#27FFB8] hover:text-[#131313] hover:border-[#27FFB8]" @click="gotoAline">{{ $t('header.menu1') }}</button>
             </div>
             <VDropdown class="hidden" v-model:shown="drodownShow" auto-hide :triggers="[]" :skidding="-2" :distance="10"
               popper-class="locale-dropdown">
@@ -124,10 +113,12 @@
           </div>
           <div class="text-[#CECFD0] w-[100%]" v-if="subMenuDropdownShow">
             <div class="my-4">
-              <span class="text-sm align-middle"> <a href="/workflow">Automate Workflow</a></span>
+              <img src="~/assets/images/development-toolkit-mobile.png" class="inline-block w-4 h-4"/>
+              <span class="text-sm align-middle"> <a :href="alineLink">  Developer Toolkit </a></span>
             </div>
             <div class="my-4">
-              <span class="text-sm align-middle">  <a :href="alineLink">MiddleWare</a></span>
+              <img src="~/assets/images/node-service-mobile.png" class="inline-block w-4 h-4"/>
+              <span class="text-sm align-middle">  <a :href="alineLink"> Node Service </a></span>
             </div>
             <!-- <div class="my-4">
               <img src="~/assets/images/decentralized-computing-mobile.png" class="inline-block w-4 h-4"/>
@@ -170,7 +161,7 @@ watch(() => props.showHeader, (newVal)=>{
     scrollDown.value = true;
   }
 })
-watch(() => props.showHeaderBg, (newVal) => {
+watch(() => props.showHeaderBg, (newVal)=>{
   if (newVal) {
     topBgShow.value = true
   } else{
@@ -178,7 +169,7 @@ watch(() => props.showHeaderBg, (newVal) => {
   }
 })
 
-const { getImageURL } = useAssets()
+// const { getImageURL } = useAssets()
 const route = useRoute();
 const { t, locale, availableLocales } = useI18n()
 const localeOptions = availableLocales.map((lang) => {
@@ -186,7 +177,7 @@ const localeOptions = availableLocales.map((lang) => {
   return { name, value: lang }
 })
 
-const alineLink = computed(() => "https://develop.alpha.hamsternet.io/login")
+const alineLink = computed(() => "https://develop.alpha.hamsternet.io/")
 
 const navLinks = computed(() => [
   // { title: 'Solutions', path: "/solutions", children: [] },
@@ -220,7 +211,7 @@ const curMenu = ref('')
 const curSubMenu = ref()
 const scrollDown = ref(false)
 const beforeTopVal = ref(0)
-const topBgShow = ref(true)
+const topBgShow = ref(false)
 
 const device = useDevice()
 const isMobile = device.value.isMobile
@@ -256,8 +247,7 @@ function setTopBgValue() {
 }
 
 const gotoAline = function () {
-  const w = window.open("about:blank");
-  w.location.href = alineLink.value
+  window.location.href = alineLink.value
 }
 
 
@@ -305,59 +295,29 @@ onUnmounted(() => {
 }
 
 .menu {
-  @apply cursor-pointer text-[white] leading-[32px] flex items-center font-light;
-  font-family: Montserrat-Light, Montserrat;
+  @apply cursor-pointer text-[white] leading-[32px] flex items-center;
 }
 
 .menu-active {
   @apply text-white !important;
 }
 
-.menu-dropdown-opened,.menu-dropdown-hover:hover {
-  color:#5C64FF;
+.menu-dropdown-opened {
+  color:#27FFB8;
   svg path {
-    fill: #5C64FF;
+    fill: #27FFB8;
   }
 }
-.menu-dropdown-opened{
-  font-family: Montserrat-Medium, Montserrat;
-  font-weight: 500;
-}
 
-.menu-hover:hover{
-  /* font-family: Montserrat-Medium, Montserrat;
-  font-weight: 500; */
-  color:#5C64FF;
-}
-
-.box-dropdown{
-  box-shadow: 0px 2px 10px 0px rgba(204,204,215,0.65);
-}
-
-.box-top{
-  width:0px;
-  height:0px;
-  overflow:hidden;
-  border-width:10px;
-  margin-top: -10px;
-  border-color:transparent transparent white transparent;
-  border-style:dashed dashed solid dashed;
-}
-
-.start-today,.btn-css{
-  border: 1px solid #5C64FF;
-  padding: 8px 40px;
-  background: #5C64FF;
-  border-radius: 5px;
-  font-size: 18px;
-  font-weight: bold;
-  font-family: Montserrat-Bold, Montserrat;
+.start-today{
+  border: 1px solid white;
+  padding: 5px 18px;
 }
 
 @screen md {
   .menu-active {
-    color: #5C64FF !important;
-    font-weight: 500;
+    color: #27FFB8 !important;
+    font-weight: 700;
   }
 }
 

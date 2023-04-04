@@ -1,5 +1,6 @@
 <template>
-  <div class="px-5 bg-[#000000]">
+<div >
+  <div class="px-5">
     <div class=" abouts-top-bg pt-[140px] md:pt-[250px]">
       <div class="text-center">
         <div class="mb-[50px] text-[24px] md:text-[50px] leading-[36px] md:leading-[74px] font-extrabold font-family-bold text-[#FFFFFF]">About Hamster</div>
@@ -130,6 +131,7 @@
       <img src="../index/images/flag.png" class="flag flag-show flag-raise"/>
     </div>
   </div>
+</div>
 </template>
 <script setup>
 import anime from 'animejs/lib/anime.es.js';

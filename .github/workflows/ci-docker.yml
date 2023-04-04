@@ -1,4 +1,4 @@
-name: Hamster Protal Production
+name: GitHub Actions Demo
 on:
   workflow_dispatch:
   push:
