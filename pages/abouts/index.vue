@@ -264,3 +264,18 @@ onUnmounted(() => {
   @apply  h-[212px];
 }
 </style>
+
+<style lang="less">
+  // html.fp-enabled:not(.is-mobile) {
+  //   body {
+  //     background: url(~/assets/images/index-bg-top.png) left top no-repeat,
+  //                 url(~/assets/images/index-bg-body.png) center center no-repeat,
+  //                 #141212;
+  //   }
+  // }
+  html:not(.is-mobile) {
+    body {
+      background: url(~/assets/images/home-background.jpg) no-repeat #131313;
+    }
+  }
+</style>
