@@ -115,7 +115,7 @@
         <img src="~/assets/images/abouts-logo-2.png" class="abouts-logo-img2"/>
         <img src="~/assets/images/abouts-logo-3.png" class="abouts-logo-img2"/>
         <img src="~/assets/images/abouts-logo-4.png" class="abouts-logo-img2"/>
-        <img src="~/assets/images/abouts-logo-5.png" class="abouts-logo-img2 mt-[30px] md:mt-0"/>
+        <img src="~/assets/images/abouts-logo-5.png" class="abouts-logo-img2 !ml-0 mt-[30px] md:mt-0"/>
         <img src="~/assets/images/abouts-logo-6.png" class="abouts-logo-img2 mt-[30px] md:mt-0"/>
         <img src="~/assets/images/abouts-logo-7.png" class="abouts-logo-img2 mt-[30px] md:mt-0"/>
         <img src="~/assets/images/abouts-logo-8.png" class="abouts-logo-img2 mt-[30px] md:mt-0"/>
@@ -249,18 +249,33 @@ onUnmounted(() => {
 }
 .abouts-line{
   @apply w-[32px] mt-[10px] md:mt-[30px] mb-[80px] md:mb-0;
-  border: 7px solid #27FFB8;
+  border: 3px solid #27FFB8;
 }
 .abouts-logo-img1{
-  @apply h-[58px] md:h-[97px]
+  @apply h-[39px] md:h-[57px]
 }
 .abouts-logo-img2{
-  @apply h-[66px] md:h-[107px]
+  @apply h-[54px] md:h-[60px]
 }
 .abouts-logo-img2:not(:first-child){
-  @apply ml-1 md:ml-0;
+  @apply ml-8 md:ml-0;
 }
 .abouts-key-img{
   @apply  h-[212px];
 }
+</style>
+
+<style lang="less">
+  // html.fp-enabled:not(.is-mobile) {
+  //   body {
+  //     background: url(~/assets/images/index-bg-top.png) left top no-repeat,
+  //                 url(~/assets/images/index-bg-body.png) center center no-repeat,
+  //                 #141212;
+  //   }
+  // }
+  html:not(.is-mobile) {
+    body {
+      background: url(~/assets/images/home-background.jpg) no-repeat #131313;
+    }
+  }
 </style>
