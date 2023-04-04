@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto my-20 px-6 md:px-auto">
+  <div class="container mx-auto my-20">
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-[54px]">
       <div>
         <img class="h-[20px] md:h-[32px]" src="~/assets/images/header.png">
