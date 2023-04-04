@@ -169,7 +169,7 @@ watch(() => props.showHeaderBg, (newVal)=>{
   }
 })
 
-const { getImageURL } = useAssets()
+// const { getImageURL } = useAssets()
 const route = useRoute();
 const { t, locale, availableLocales } = useI18n()
 const localeOptions = availableLocales.map((lang) => {
