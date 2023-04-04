@@ -181,7 +181,7 @@ const alineLink = computed(() => "https://develop.alpha.hamsternet.io/")
 
 const navLinks = computed(() => [
   // { title: 'Solutions', path: "/solutions", children: [] },
-  { title: t('header.dashboard'), path: '/dashboard' },
+  // { title: t('header.dashboard'), path: '/dashboard' },
   { title: 'Grant', path: "" }, //
   { title: 'Pricing', path: "" }, //
   { title: 'About', path: "/abouts" },
