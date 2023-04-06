@@ -32,6 +32,7 @@
     "animejs": "^3.2.1",
     "ant-design-vue": "^3.2.11",
     "dplayer": "^1.27.0",
+    "gsap": "^3.11.5",
     "http-proxy-middleware": "^2.0.6",
     "lottie-web": "^5.10.0",
     "mobile-detect": "^1.4.5",

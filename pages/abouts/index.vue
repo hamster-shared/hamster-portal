@@ -278,9 +278,9 @@ onUnmounted(() => {
   //                 #141212;
   //   }
   // }
-  html:not(.is-mobile) {
-    body {
-      background: url(~/assets/images/home-background.jpg) no-repeat #131313;
-    }
-  }
+  // html:not(.is-mobile) {
+  //   body {
+  //     background: url(~/assets/images/home-background.jpg) no-repeat #131313;
+  //   }
+  // }
 </style>
