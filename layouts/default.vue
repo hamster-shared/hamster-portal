@@ -15,7 +15,7 @@
 </template>
 
 <script setup>
-  import { onMounted, defineProps } from "vue"
+  import { onMounted } from "vue"
   import Header from "./-components/header.vue"
   import Footer from "./-components/footer.vue"
 

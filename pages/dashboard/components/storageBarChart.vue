@@ -1,4 +1,6 @@
-<template>
+<template></template>
+<script setup></script>
+<!-- <template>
   <div>
     <div class="text-xl font-bold mb-[36px]">·Total Storage：{{ totalStorage }} TB</div>
     <div id="storag-total-chart"></div>
@@ -81,4 +83,4 @@ const initChart = () => {
 </script>
 <style scoped>
 
-</style>
+</style> -->

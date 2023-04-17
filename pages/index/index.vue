@@ -106,7 +106,18 @@
               </div>
             </div>
           </div>
-          <img src="~/assets/images/ecology.png" class="w-full"/>
+          <!-- <div class="flex">
+            <div class="font-bold leading-[35px] text-[#989898]">Infrastructure</div>
+            <div class="flex">
+                <img src="~/assets/images/Infrastructure-1.png" class="h-[34px] animate__animated animate__bounce animate__infinite animate__slideOutRight animate__slow"/>
+                <img src="~/assets/images/Infrastructure-2.png" class="h-[34px] animate__animated animate__bounce animate__infinite animate__slideOutRight animate__slow animate__delay-3s"/>
+            </div>
+          </div>
+          <div class="w-full flex" >
+              <img src="~/assets/images/Infrastructure-1.png" class="h-[34px] move-line"/>
+              <img src="~/assets/images/Infrastructure-2.png" class="h-[34px] move-line"/>
+          </div> -->
+
         </div>
       </div>
       <StartBuild></StartBuild>
@@ -143,13 +154,19 @@
   import Footer from "~/layouts/-components/footer.vue"
   import StartBuild from "./components/StartBuild.vue";
 import 'vue3-carousel/dist/carousel.css';
-// import vueSeamlessScroll from 'vue-seamless-scroll'
+  import 'animate.css';
 
   definePageMeta({
     layout: false
   })
 
   const { getImageURL } = useAssets()
+
+const listData = [1, 2, 3, 4, 5, 6];
+const classOption = {
+  limitMoveNum: 2,
+  direction: 3,
+};
 
   const showHeader = ref(true)
   const showHeaderBg = ref(false)
@@ -457,6 +474,23 @@ import 'vue3-carousel/dist/carousel.css';
   .ufo-onepage{
     margin-top: -220px;
   }
+
+//@todo
+.move-line {
+  animation: moves 6s infinite linear;
+	-webkit-animation: moves 6s infinite linear;
+}
+
+@keyframes moves {
+	0% {
+    transform: translate(0, 0);
+	}
+
+	100% {
+    transform: translate(500%, 0);
+	}
+}
+
 </style>
 
 <style lang="less">
