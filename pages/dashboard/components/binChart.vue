@@ -1,4 +1,6 @@
-<template>
+<template></template>
+<script setup></script>
+<!-- <template>
   <div>
     <div class="text-xl font-bold mb-[36px]">·Total Nodes：{{totalNodes}}</div>
     <div id="nodes-chart"></div>
@@ -91,4 +93,4 @@ const initChart = () => {
 </script>
 <style scoped>
 
-</style>
+</style> -->

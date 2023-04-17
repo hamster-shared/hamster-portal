@@ -1,4 +1,6 @@
-<template>
+<template></template>
+<script setup></script>
+<!-- <template>
   <div>
     <div class="text-xl font-bold mb-[36px]">·Total RAM：{{ totalRam }} TB</div>
     <div id="RAM-total-chart"></div>
@@ -82,4 +84,4 @@ const initChart = () => {
 </script>
 <style scoped>
 
-</style>
+</style> -->
