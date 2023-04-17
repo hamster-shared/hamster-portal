@@ -1,15 +1,12 @@
 <template>
   <DefaultLayout :showFooter="false" :showHeader="showHeader" :showHeaderBg="showHeaderBg">
-      <div class="top-bg " :class="{'!bg-bottom' : $device.isMobile}">
-        <div class="container mx-auto px-5">
+      <div class=" top-bg-color" :class="{'!bg-bottom' : $device.isMobile}">
+        <div class="container mx-auto px-5 top-bg">
           <div class="md:flex md:items-center relative">
             <div class="lg:w-3/5 pt-[100px] pb-[300px] md:py-[180px] text-center md:text-left">
-              <div class="text-2xl font-extrabold md:text-[50px] md:leading-[74px] font-family-bold">
-                Hamster empowers<br>
-                Projects and developers in<br class="hidden md:in-block">
-                web3 to build their dreams
+              <div class="text-2xl font-extrabold w-[500px] md:text-[50px] md:leading-[74px] font-family-bold">
+                Hamster empowers web3 Explorer to build their dreams
               </div>
-              <!-- <div><img :src="$device.isMobile ? getImageURL('hamster-slug-mobile.svg') : getImageURL('hamster-slug-pc.svg')" /></div> -->
               <div class="mt-5 mb-6 text-base md:text-2xl font-medium text-[#999999] font-family-medium">One-Stop infrastructure, development, operation and maintenance service platform for projects in Web3.0</div>
               <div class="hidden mb-6 md:block">
                 <span class="text-[#999999] text-base font-light font-family-light">Investors</span>
@@ -32,28 +29,77 @@
           <div class="text-center">
             <div class="area-title">Hamster DevOps Solutions</div>
             <div class="flex  justify-center">
-              <div class="area-desc w-[700px]">
+              <div class="area-desc w-[770px]">
                 Hamster offers the integrated approach to build , test and run projects in web3.
                 We provide the most flexible platform for developers to turn their blockchain ideas into reality.
               </div>
             </div>
           </div>
-          <img src="~/assets/images/solutions.png" class="w-full"/>
+          <div class="solutions-bg h-[610px]">
+            <div class="flex relative">
+              <div class="flex mt-[350px] ml-[280px] w-[430px] text-center">
+                <div class="ml-5">
+                  <div class="flex justify-center">
+                    <img src="~/assets/images/template-market-logo.svg" class="w-[50px]">
+                  </div>
+                  <div class="solution-text">Template Market</div>
+                </div>
+                <div class="ml-5">
+                  <div class="flex justify-center">
+                    <img src="~/assets/images/middleWare-logo.svg" class="w-[50px]">
+                  </div>
+                  <div class="solution-text">MiddleWare</div>
+                </div>
+                <div class="ml-5 cursor-pointer" @click="goWorkflow">
+                  <div class="flex justify-center">
+                    <img src="~/assets/images/automate-workflow-logo.svg" class="w-[50px]">
+                  </div>
+                  <div class="solution-text">Automate Workflow</div>
+                </div>
+                <div class="mx-5 cursor-pointer" @click="goDownload">
+                  <div class="flex justify-center">
+                    <img src="~/assets/images/decentralized-logo.svg" class="w-[50px]">
+                  </div>
+                  <div class="solution-text">Decentralized Computing Power</div>
+                </div>
+              </div>
+              <div class="grid grid-cols-3 gap-4 absolute w-[285px] right-[125px] bottom-[20px] text-center px-5">
+                <div class="mr-2">
+                  <div class="flex justify-center">
+                    <img src="~/assets/images/contract-operation-logo.svg" class="w-[50px]">
+                  </div>
+                  <div class="solution-text">Contract Operation</div>
+                </div>
+                <div class="mr-2">
+                  <div class="flex justify-center">
+                    <img src="~/assets/images/service-operation-logo.svg" class="w-[50px]">
+                  </div>
+                  <div class="solution-text">Service Operation</div>
+                </div>
+                <div>
+                  <div class="flex justify-center">
+                    <img src="~/assets/images/data-monitoring-logo.svg" class="w-[50px]">
+                  </div>
+                  <div class="solution-text">Data monitoring</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div>
           <div class="text-center">
-            <div class="area-title">How Hamster Works</div>
+            <div class="area-title !mt-0">How Hamster Works</div>
             <div class="flex justify-center">
               <div class="area-desc w-[770px]">
                 ~35% cost and 40% time of development are saved with support of the Hamster Toolkit
               </div>
             </div>
           </div>
-          <img src="~/assets/images/works.png" class="w-full"/>
+          <img src="~/assets/images/home-work-img.png" class="w-full"/>
         </div>
         <div>
           <div class="text-center">
-            <div class="area-title">Hamster Ecology</div>
+            <div class="area-title !mt-0">Hamster Ecology</div>
             <div class="flex justify-center">
               <div class="area-desc">
                 We support various networks and power leading Web3 projects
@@ -96,7 +142,8 @@
   import DefaultLayout from "~/layouts/default.vue"
   import Footer from "~/layouts/-components/footer.vue"
   import StartBuild from "./components/StartBuild.vue";
-  import 'vue3-carousel/dist/carousel.css'
+import 'vue3-carousel/dist/carousel.css';
+// import vueSeamlessScroll from 'vue-seamless-scroll'
 
   definePageMeta({
     layout: false
@@ -150,6 +197,12 @@
   const gotoAline = () => {
     window.location.href = alineLink.value
   }
+  const goDownload = () => {
+    window.open("https://hamsternet.io/download");
+  }
+  const goWorkflow = () => {
+    window.open("/workflow");
+  }
 
   onMounted(()=>{
     // Init fullpage
@@ -201,12 +254,24 @@
   .force-transparent {
     opacity: 0 !important;
   }
-
+  .top-bg-color{
+    background-color: #000000;
+  }
   .top-bg{
-    background: url("~/assets/images/top-bg.png") no-repeat 77% #000000;
+    background: url("~/assets/images/home-top-bg.jpg") no-repeat center #000000;
     background-size: contain;
   }
-
+  .solutions-bg{
+    background: url("~/assets/images/home-solutions-bg.png") no-repeat center;
+    background-size: 100% 100%;
+  }
+  .solution-text{
+    font-size: 14px;
+    color: #DEDBFF;
+    font-family: OpenSans;
+    line-height: 19px;
+    margin-top: 10px
+  }
   .devops-bg{
     background: radial-gradient(111.94% 125.64% at -11.86% 57.81%, rgba(109, 197, 160, 0.1147) 0%, rgba(14, 14, 19, 0) 100%);
   }
