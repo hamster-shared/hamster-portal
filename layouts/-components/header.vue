@@ -14,56 +14,32 @@
             <img @click="showPhoneMenu = true;" v-if="isMobile" class="h-4 ml-[82vw]"
               src="~/assets/images/head-menu-down.svg">
             <div v-else class="menu">
-              <VDropdown
-                auto-hide
-                v-model:shown="subMenuDropdownShow"
-                :distance="10"
-                placement="bottom"
-                popper-class="locale-dropdown"
-                :skidding="16"
-              >
-                <div class="cursor-pointer select-none">
-                  <div
-                    class="px-4 h-[32px] text-base flex justify-center items-center menu-dropdown-hover"
-                    :class="{'menu-dropdown-opened': subMenuDropdownShow || `/${curMenu}` === '/workflow'}"
-                  >
-                    <div>Solutions</div>
-                    <div class="h-2 ml-2" :class="{'rotate-dropdown-icon': subMenuDropdownShow}">
-                      <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M1.81261 0.348328L7.05525 5.59097L5.99459 6.65163L0.751953 1.40899L1.81261 0.348328Z" fill="white"/>
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M4.9452 5.59096L10.1878 0.348323L11.2485 1.40898L6.00586 6.65162L4.9452 5.59096Z" fill="white"/>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-                <template #popper>
-                  <div class=" box-dropdown max-w-[400px]">
-                    <div class="flex justify-center h-[9px]">
-                      <div class="box-top"></div>
-                    </div>
-                    <div class="bg-[white] p-[20px] rounded-[5px] text-base">
-                      <div class="pb-[20px] hover:text-[#5C64FF]">
-                        <a href="/workflow" :class="{'menu-active' : `/${curMenu}` === '/workflow'}">Automate Workflow</a>
-                      </div>
-                      <div class="hover:text-[#5C64FF]">
-                        <a :href="alineLink">MiddleWare</a>
-                      </div>
-                    </div>
-                    <!-- <div class="px-6 py-4">
-                      <img src="~/assets/images/development-toolkit.png" class="inline-block w-4 h-4" />
-                      <span class="text-base align-middle"> <a :href="alineLink"> Developer Toolkit</a></span>
-                    </div>
-                    <div class="px-6 py-4">
-                      <img src="~/assets/images/node-service.png" class="inline-block w-4 h-4" />
-                      <span class="text-base align-middle"> <a :href="alineLink">  Node Service </a></span>
-                    </div> -->
-                    <!-- <div class="px-6 py-4">
-                      <img src="~/assets/images/decentralized-computing.png" class="inline-block w-4 h-4" />
-                      <span class="text-base align-middle"> Decentralized Computing Power Network</span>
-                    </div> -->
-                  </div>
-                </template>
-              </VDropdown>
+              <Dropdown class="mx-4">
+                <a class="ant-dropdown-link" :class="{'ant-dropdown-opened' : `/${curMenu}` === '/workflow'}" @click.prevent>
+                  Hover me
+                  <DownOutlined />
+                </a>
+                <template #overlay>
+                  <Menu class="!p-4">
+                    <MenuItem>
+                      <a href="/workflow" :class="{'menu-active' : `/${curMenu}` === '/workflow'}">
+                        <div class="flex leading-[40px] text-[16px]">
+                          <img src="~/assets/images/solutions-workflow.svg" class="h-[40px]" />
+                          <div class="ml-4">Automate Workflow</div>
+                        </div>
+                      </a>
+                    </MenuItem>
+                    <MenuItem>
+                      <a :href="alineLink">
+                        <div class="flex leading-[40px] text-[16px]">
+                          <img src="~/assets/images/solutions-middleware.svg" class="h-[40px]" />
+                          <div class="ml-4">MiddleWare</div>
+                        </div>
+                      </a>
+                    </MenuItem>
+                  </Menu>
+                </template> 
+              </Dropdown>
               <div>
                 <a v-for="link in navLinks"
                   :key="link.path"
@@ -76,30 +52,6 @@
               </div>
               <button class="ml-4 start-today" @click="gotoAline">{{ $t('header.menu1') }}</button>
             </div>
-            <VDropdown class="hidden" v-model:shown="drodownShow" auto-hide :triggers="[]" :skidding="-2" :distance="10"
-              popper-class="locale-dropdown">
-              <div class="relative cursor-pointer select-none" @click="drodownShow = !drodownShow">
-                <div
-                  class="px-4 h-[32px] flex justify-center items-center border border-solid box-border rounded-[71px] hover:bg-[#0c0e2f]">
-                  <div>{{ selectedLocale.name }}</div>
-                  <img src="~/assets/images/drop-down.png" class="w-4 h-4 ml-2"
-                    :class="{'rotate-dropdown-icon': drodownShow}">
-                </div>
-              </div>
-              <template #popper>
-                <div class="to-top"
-                  :class="[{'top-active' : selectedLocale.value == 'en'},{'top-focus' : focusVal == 'en'}]"></div>
-                <div class="w-[90px] h-[80px] drop-bg text-white cursor-pointer">
-                  <div v-for="option in localeOptions" :key="option.value"
-                    class="choose-locale text-center leading-[40px] hover:bg-[#A05E1C] hover:text-white"
-                    :class="{'choose-locale-active': selectedLocale.value == option.value}"
-                    @mouseover="focusVal = option.value" @mouseleave="focusVal=false"
-                    @click="locale = option.value; drodownShow = false;focusVal=false">
-                    {{ option.label || option.name }}
-                  </div>
-                </div>
-              </template>
-            </VDropdown>
           </div>
         </div>
       </div>
@@ -124,10 +76,20 @@
           </div>
           <div class="text-[#CECFD0] w-[100%]" v-if="subMenuDropdownShow">
             <div class="my-4">
-              <span class="text-sm align-middle"> <a href="/workflow">Automate Workflow</a></span>
+              <a href="/workflow">
+                <span class="text-sm flex items-center">
+                  <img src="~/assets/images/solutions-workflow.svg" class="h-[24px] mr-4" />
+                  Automate Workflow
+                </span>
+              </a>
             </div>
             <div class="my-4">
-              <span class="text-sm align-middle">  <a :href="alineLink">MiddleWare</a></span>
+              <a :href="alineLink">
+                <span class="text-sm flex items-center">
+                  <img src="~/assets/images/solutions-middleware.svg" class="h-[24px] mr-4" />
+                  MiddleWare
+                </span>
+              </a>
             </div>
             <!-- <div class="my-4">
               <img src="~/assets/images/decentralized-computing-mobile.png" class="inline-block w-4 h-4"/>
@@ -151,6 +113,8 @@
 
 <script setup>
 import { computed, ref, defineProps, watch } from "vue"
+import { Dropdown , Menu , MenuItem } from 'ant-design-vue';
+import { DownOutlined} from '@ant-design/icons-vue';
 
 const props = defineProps({
   showHeader: {
@@ -299,6 +263,8 @@ onUnmounted(() => {
   @apply -rotate-90;
 }
 
+
+
 .drop-bg {
   background: rgba(255, 255, 255, 0.30141);
   border-radius: 4px;
@@ -384,5 +350,28 @@ onUnmounted(() => {
 
 .menu-color {
   @apply text-[#807D7C];
+}
+</style>
+<style scoped lang="less">
+@baseColor: #5C64FF;
+:deep(.anticon-down){
+  transition: all .3s, visibility 0s;
+}
+:deep(.ant-dropdown-open .anticon-down) {
+  transform: rotate(180deg);
+}
+:deep(.ant-dropdown-open) , .ant-dropdown-opened{
+  color:@baseColor;
+  svg path {
+    fill: @baseColor;
+  }
+}
+.ant-dropdown-opened{
+  font-family: Montserrat-Medium, Montserrat;
+  font-weight: 500;
+}
+:deep(.ant-dropdown-menu-item:hover), :deep(.ant-dropdown-menu-submenu-title:hover){
+  color:@baseColor;
+  background-color: transparent;
 }
 </style>
