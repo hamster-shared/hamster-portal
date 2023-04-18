@@ -84,4 +84,7 @@ export default defineNuxtConfig({
       },
     },
   },
+  // plugins: [
+  //   { src: '@/plugins/vue-seamless-scroll', ssr: false },
+  // ]
 })

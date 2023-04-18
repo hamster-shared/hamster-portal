@@ -1,6 +1,6 @@
 <template>
-  <div class=" bg-[#000000]">
-    <div class="container mx-auto px-5 about-top-bg pt-[140px] md:pt-[250px]">
+  <div :class="[$device.isMobile ? 'about-top-bg-phone' : 'about-top-bg']">
+    <div class="container mx-auto px-5 pt-[140px] md:pt-[250px]">
       <div class="text-center">
         <div class="mb-[50px] text-[24px] md:text-[50px] leading-[36px] md:leading-[74px] font-extrabold font-family-bold text-[#FFFFFF]">About Hamster</div>
         <div class="text-[16px] md:text-[24px] leading-[21px] md:leading-[35px] font-medium text-[#999999] font-family-medium flex justify-center">
@@ -55,19 +55,19 @@
       <div class="md:grid md:grid-cols-3 md:gap-16 text-center">
         <div class="md:mb-0 mb-[60px]">
           <div class="img-center">
-            <img src="~/assets/images/about-key-1.png" class="about-key-img"/>
+            <img src="~/assets/images/about-key-1.svg" class="about-key-img"/>
           </div>
           <div class="area-desc">Dapps run at full speed and update iteratively through DevOps under automation technology </div>
         </div>
         <div class="md:mb-0 mb-[60px]">
           <div class="img-center">
-            <img src="~/assets/images/about-key-2.png" class="about-key-img"/>
+            <img src="~/assets/images/about-key-2.svg" class="about-key-img"/>
           </div>
           <div class="area-desc">~35% cost and 40% time of development are saved with support of Hamster Developer Toolkits</div>
         </div>
         <div>
           <div class="img-center">
-            <img src="~/assets/images/about-key-3.png" class="about-key-img"/>
+            <img src="~/assets/images/about-key-3.svg" class="about-key-img"/>
           </div>
           <div class="area-desc">Saves 30% extra for DApps using Hamster RPC service</div>
         </div>
@@ -148,7 +148,11 @@ onUnmounted(() => {
 <style lang="less" scoped>
 
 .about-top-bg{
-  background: url("~/assets/images/about-top-bg.png") no-repeat center #000000;
+  background: url("~/assets/images/about-top-bg.jpg") no-repeat center;
+  background-size: 100% 100%;
+}
+.about-top-bg-phone{
+  background: url("~/assets/images/about-top-bg-phone.jpg") no-repeat center;
   background-size: 100% 100%;
 }
 .about-team-bg{
