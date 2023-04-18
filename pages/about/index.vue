@@ -2,8 +2,8 @@
   <div :class="[$device.isMobile ? 'about-top-bg-phone' : 'about-top-bg']">
     <div class="container mx-auto px-5 pt-[140px] md:pt-[250px]">
       <div class="text-center">
-        <div class="mb-[50px] text-[24px] md:text-[50px] leading-[36px] md:leading-[74px] font-extrabold font-family-bold text-[#FFFFFF]">About Hamster</div>
-        <div class="text-[16px] md:text-[24px] leading-[21px] md:leading-[35px] font-medium text-[#999999] font-family-medium flex justify-center">
+        <div class="mb-[50px] text-[21px] leading-[25px] font-bold font-family-bold text-color-css">OUR MISSION</div>
+        <div class="text-[16px] md:text-[24px] leading-[21px] md:leading-[35px] font-medium text-[#FFFFFF] font-family-medium flex justify-center">
           <div class="md:mx-[60px]">One-Stop infrastructure, Developer Toolkit DevOps Framework in Web3.0, achieving automatic code/contract writing, build, check, deployment and more, empowering projects in Web3.0 to improve their coding and delivery speed, quality and efficiency, as well as product reliability & safety.</div>
         </div>
       </div>
@@ -14,7 +14,7 @@
       </div>
     </div>
   </div>
-  <div class="container mx-auto px-5 mt-[60px] md:mt-[180px]">
+  <div class="container mx-auto px-5 my-[60px] md:my-[180px]">
     <div>
       <div class="area-title text-center !mt-0 mb-[40px] md:mb-[100px]">Dashboard</div>
       <div id="dashboard-div" class="md:grid md:grid-cols-5 text-center">
@@ -50,7 +50,7 @@
           </div>
       </div>
     </div>
-    <div class="mt-[60px] md:mt-[180px]">
+    <div class="mt-[60px] md:mt-[120px]">
       <div class="area-title text-center !mt-0 mb-[40px] md:mb-[100px]">Key Advantages</div>
       <div class="md:grid md:grid-cols-3 md:gap-16 text-center">
         <div class="md:mb-0 mb-[60px]">
@@ -73,36 +73,48 @@
         </div>
       </div>
     </div>
-  </div>
-  <div class="about-team-bg" :class="[$device.isMobile ?'about-team-bg-mobile' : 'about-team-bg-win']">
-    <div class="container mx-auto px-5 pt-[60px] md:pt-[180px]">
-      <div class="text-center">
-        <div class="area-title !mt-0 mb-[40px] md:mb-[100px]">Core Dev Team</div>
-        <div class="area-desc w-full pb-[60px] md:pb-[180px] flex justify-center">
-          <div class="md:w-[720px]">Formal Fintech listed company's most elite cloud computing & blockchain team, having been proved privacy professional in most sensitive Fintech DevOps: 6000+ DevOps & 1000+ Fintech Projects simultaneously in the past 20 yrs+.    </div>
+    <div class="pt-[60px] md:pt-[120px]">
+      <div class="text-center md:text-left flex">
+        <div class="w-1/2 hidden md:inline-block">
+          <img src="~/assets/images/about-team-img.png" class="w-full"/>
         </div>
-        <div class="area-title !mt-0 mb-[40px] md:mb-[100px]">5 Issued Grants & 8 EcoSystems </div>
-        <div class="flex justify-evenly flex-wrap">
-          <img src="~/assets/images/about-grant.png" class="about-logo-img1"/>
-          <img src="~/assets/images/about-web3.png" class="about-logo-img1"/>
-          <img src="~/assets/images/about-f.png" class="about-logo-img1"/>
-          <img src="~/assets/images/about-starknet.png" class="about-logo-img1 mt-[30px] md:mt-0"/>
-          <img src="~/assets/images/about-igorand.png" class="about-logo-img1 mt-[30px] md:mt-0"/>
+        <div class="md:w-1/2 md:pl-[70px] flex items-center">
+          <div>
+            <div class="area-title !mt-0 mb-[40px] md:mb-[20px]">Core Dev Team</div>
+            <img src="~/assets/images/about-team-img.png" class="w-full inline-block md:hidden"/>
+            <div class="area-desc flex justify-center">
+            Formal Fintech listed company's most elite cloud computing & blockchain team, having been proved privacy professional in most sensitive Fintech DevOps: 6000+ DevOps & 1000+ Fintech Projects simultaneously in the past 20 yrs+.
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="container mx-auto px-5 mb-[60px] md:mb-[180px]">
-    <div class="text-center">
-      <div class="flex flex-wrap mt-[30px] md:mt-[80px] justify-between">
-        <img src="~/assets/images/about-logo-1.png" class="about-logo-img2"/>
-        <img src="~/assets/images/about-logo-2.png" class="about-logo-img2"/>
-        <img src="~/assets/images/about-logo-3.png" class="about-logo-img2"/>
-        <img src="~/assets/images/about-logo-4.png" class="about-logo-img2"/>
-        <img src="~/assets/images/about-logo-5.png" class="about-logo-img2"/>
-        <img src="~/assets/images/about-logo-6.png" class="about-logo-img2"/>
-        <img src="~/assets/images/about-logo-7.png" class="about-logo-img2"/>
-        <img src="~/assets/images/about-logo-8.png" class="about-logo-img2"/>
+    <div class="mt-[60px] md:mt-[120px]">
+      <div class="text-[12px] md:text-[24px] font-bold text-color-css text-center !mt-0 mb-[40px] md:mb-[100px]">5 Issued Grants & 8 EcoSystems </div>
+      <div class="md:flex justify-around">
+        <div class="flex justify-around md:w-3/5">
+          <img src="~/assets/images/Issued-Grants-1.png" class="about-logo-img1"/>
+          <img src="~/assets/images/Issued-Grants-2.png" class="about-logo-img1"/>
+          <img src="~/assets/images/Issued-Grants-3.png" class="about-logo-img1"/>
+        </div>
+        <div class="flex justify-around md:w-2/5 mt-[50px] md:mt-0">
+          <img src="~/assets/images/Issued-Grants-4.png" class="about-logo-img1"/>
+          <img src="~/assets/images/Issued-Grants-5.png" class="about-logo-img1"/>
+        </div>
+      </div>
+      <div class="md:flex justify-around mt-[50px] md:mt-[80px]">
+        <div class="flex md:w-1/2 justify-around">
+          <img src="~/assets/images/EcoSystems-1.png" class="about-logo-img2"/>
+          <img src="~/assets/images/EcoSystems-2.png" class="about-logo-img2"/>
+          <img src="~/assets/images/EcoSystems-3.png" class="about-logo-img2"/>
+          <img src="~/assets/images/EcoSystems-4.png" class="about-logo-img2"/>
+        </div>
+        <div class="flex justify-around md:w-1/2 mt-[50px] md:mt-0">
+          <img src="~/assets/images/EcoSystems-5.png" class="about-logo-img2"/>
+          <img src="~/assets/images/EcoSystems-6.png" class="about-logo-img2"/>
+          <img src="~/assets/images/EcoSystems-7.png" class="about-logo-img2"/>
+          <img src="~/assets/images/EcoSystems-8.png" class="about-logo-img2"/>
+        </div>
       </div>
     </div>
   </div>
@@ -164,26 +176,29 @@ onUnmounted(() => {
 .about-team-bg-win{
   background-size: contain;
 }
+.text-color-css{
+  background: linear-gradient(221deg, #40ECE1 0%, #5C64FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: Montserrat-Bold, Montserrat;
+}
 </style>
 <style>
 .about-board-number{
-  @apply text-[72px] font-bold text-[#5C64FF] leading-[88px] h-[88px] mb-0 md:mb-[20px] flex justify-center;
+  @apply text-[60px] md:text-[72px] font-bold text-[#000000] leading-[73px] md:leading-[88px] h-[73px] md:h-[88px] mb-0 md:mb-[20px] flex justify-center;
   font-family: Montserrat-Bold, Montserrat;
 }
 .about-board-text{
-  @apply text-[24px] font-light leading-[35px] text-[#40425C] mb-[50px] md:mb-0;
-  font-family: Montserrat-Light, Montserrat;
+  @apply text-[14px] md:text-[21px] font-medium md:font-bold leading-[20px] md:leading-[25px] text-[#40425C] md:text-[#959595] mb-[50px] md:mb-0;
+  font-family: Montserrat-Bold, Montserrat;
 }
 .about-logo-img1{
-  @apply h-[58px] md:h-[97px]
+  @apply h-[32px] md:h-[45px]
 }
 .about-logo-img2{
-  @apply h-[66px] md:h-[107px]
-}
-.about-logo-img2:not(:first-child){
-  @apply ml-1 md:ml-0;
+  @apply h-[37px] md:h-[53px]
 }
 .about-key-img{
-  @apply md:h-[200px] h-[60px];
+  @apply h-[175px];
 }
 </style>
