@@ -1,10 +1,10 @@
 <template>
   <DefaultLayout :showFooter="false" :showHeader="showHeader" :showHeaderBg="showHeaderBg">
-      <div class=" top-bg-color" :class="{'!bg-bottom' : $device.isMobile}">
-        <div class="container mx-auto px-5 top-bg">
+      <div class=" top-bg-color" :class="[{'!bg-bottom' : $device.isMobile},[$device.isMobile ? 'top-bg-phone' : 'top-bg']]">
+        <div class="container mx-auto px-5">
           <div class="md:flex md:items-center relative">
             <div class="lg:w-3/5 pt-[100px] pb-[300px] md:py-[180px] text-center md:text-left">
-              <div class="text-2xl font-extrabold w-[500px] md:text-[50px] md:leading-[74px] font-family-bold">
+              <div class="text-2xl font-extrabold px-10 md:px-0 md:w-[500px] md:text-[50px] md:leading-[74px] font-family-bold">
                 Hamster empowers web3 Explorer to build their dreams
               </div>
               <div class="mt-5 mb-6 text-base md:text-2xl font-medium text-[#999999] font-family-medium">One-Stop infrastructure, development, operation and maintenance service platform for projects in Web3.0</div>
@@ -35,52 +35,52 @@
               </div>
             </div>
           </div>
-          <div class="solutions-bg h-[610px]">
-            <div class="flex relative">
-              <div class="flex mt-[350px] ml-[280px] w-[430px] text-center">
-                <div class="ml-5">
+          <div :class="[$device.isMobile ? 'solutions-bg-phone my-[40px]' : 'solutions-bg']"> 
+            <div class="flex relative h-[460px] md:h-[610px]">
+              <div class="flex flex-wrap md:flex-nowrap justify-around h-[130px] md:h-auto mt-[85px] md:mt-[350px] ml-[92px] md:ml-[280px] w-[236px] md:w-[430px] text-center">
+                <div class="md:ml-5 w-[45%] md:w-auto">
                   <div class="flex justify-center">
-                    <img src="~/assets/images/template-market-logo.svg" class="w-[50px]">
+                    <img src="~/assets/images/template-market-logo.svg" class="w-[30px] md:w-[50px]">
                   </div>
-                  <div class="solution-text">Template Market</div>
+                  <div class="solution-text text-[7px] leading-[10px] md:text-[14px] md:leading-[19px]">Template Market</div>
                 </div>
-                <div class="ml-5">
+                <div class="md:ml-5 w-[45%] md:w-auto">
                   <div class="flex justify-center">
-                    <img src="~/assets/images/middleWare-logo.svg" class="w-[50px]">
+                    <img src="~/assets/images/middleWare-logo.svg" class="w-[30px] md:w-[50px]">
                   </div>
-                  <div class="solution-text">MiddleWare</div>
+                  <div class="solution-text text-[7px] leading-[10px] md:text-[14px] md:leading-[19px]">MiddleWare</div>
                 </div>
-                <div class="ml-5 cursor-pointer" @click="goWorkflow">
+                <div class="md:ml-5 cursor-pointer w-[45%] md:w-auto" @click="goWorkflow">
                   <div class="flex justify-center">
-                    <img src="~/assets/images/automate-workflow-logo.svg" class="w-[50px]">
+                    <img src="~/assets/images/automate-workflow-logo.svg" class="w-[30px] md:w-[50px]">
                   </div>
-                  <div class="solution-text">Automate Workflow</div>
+                  <div class="solution-text text-[7px] leading-[10px] md:text-[14px] md:leading-[19px]">Automate Workflow</div>
                 </div>
-                <div class="mx-5 cursor-pointer" @click="goDownload">
+                <div class="md:mx-5 cursor-pointer w-[45%] md:w-auto" @click="goDownload">
                   <div class="flex justify-center">
-                    <img src="~/assets/images/decentralized-logo.svg" class="w-[50px]">
+                    <img src="~/assets/images/decentralized-logo.svg" class="w-[30px] md:w-[50px]">
                   </div>
-                  <div class="solution-text">Decentralized Computing Power</div>
+                  <div class="solution-text text-[7px] leading-[10px] md:text-[14px] md:leading-[19px]">Decentralized Computing Power</div>
                 </div>
               </div>
-              <div class="grid grid-cols-3 gap-4 absolute w-[285px] right-[125px] bottom-[20px] text-center px-5">
-                <div class="mr-2">
+              <div class="grid grid-cols-2 md:grid-cols-3 gap-4 absolute w-[190px] md:w-[285px] right-[28px] md:right-[125px] bottom-[25px] md:bottom-[180px] text-center md:px-5">
+                <div class="md:mr-2">
                   <div class="flex justify-center">
-                    <img src="~/assets/images/contract-operation-logo.svg" class="w-[50px]">
+                    <img src="~/assets/images/contract-operation-logo.svg" class="w-[30px] md:w-[50px]">
                   </div>
-                  <div class="solution-text">Contract Operation</div>
+                  <div class="solution-text text-[7px] leading-[10px] md:text-[14px] md:leading-[19px]">Contract Operation</div>
                 </div>
-                <div class="mr-2">
+                <div class="md:mr-2">
                   <div class="flex justify-center">
-                    <img src="~/assets/images/service-operation-logo.svg" class="w-[50px]">
+                    <img src="~/assets/images/service-operation-logo.svg" class="w-[30px] md:w-[50px]">
                   </div>
-                  <div class="solution-text">Service Operation</div>
+                  <div class="solution-text text-[7px] leading-[10px] md:text-[14px] md:leading-[19px]">Service Operation</div>
                 </div>
                 <div>
                   <div class="flex justify-center">
-                    <img src="~/assets/images/data-monitoring-logo.svg" class="w-[50px]">
+                    <img src="~/assets/images/data-monitoring-logo.svg" class="w-[30px] md:w-[50px]">
                   </div>
-                  <div class="solution-text">Data monitoring</div>
+                  <div class="solution-text text-[7px] leading-[10px] md:text-[14px] md:leading-[19px]">Data monitoring</div>
                 </div>
               </div>
             </div>
@@ -95,10 +95,11 @@
               </div>
             </div>
           </div>
-          <img src="~/assets/images/home-work-img.png" class="w-full"/>
+          <img v-if="$device.isMobile" src="~/assets/images/home-work-img-phone.png" class="w-full my-[40px]"/>
+          <img v-else src="~/assets/images/home-work-img.png" class="w-full"/>
         </div>
         <div>
-          <div class="text-center">
+          <div class="text-center mb-[70px]">
             <div class="area-title !mt-0">Hamster Ecology</div>
             <div class="flex justify-center">
               <div class="area-desc">
@@ -106,18 +107,68 @@
               </div>
             </div>
           </div>
-          <!-- <div class="flex">
-            <div class="font-bold leading-[35px] text-[#989898]">Infrastructure</div>
-            <div class="flex">
-                <img src="~/assets/images/Infrastructure-1.png" class="h-[34px] animate__animated animate__bounce animate__infinite animate__slideOutRight animate__slow"/>
-                <img src="~/assets/images/Infrastructure-2.png" class="h-[34px] animate__animated animate__bounce animate__infinite animate__slideOutRight animate__slow animate__delay-3s"/>
+          <div class="flex">
+            <div class="ecology-text w-[30%] md:w-[10%]">Infrastructure</div>
+            <div class="scroll-content w-[70%] md:w-[90%]">
+              <div class="scroll-infrastructure1 scroll-img">
+                <img class="h-[35px] mx-5" v-for="(item, index) in 11" :key="index" :src="getImageURL(`Infrastructure-${item}.png`)"/>
+              </div>
+              <div class="scroll-infrastructure2 scroll-img">
+                <img class="h-[35px] mx-5" v-for="(item, index) in 11" :key="index" :src="getImageURL(`Infrastructure-${item}.png`)"/>
+              </div>
             </div>
           </div>
-          <div class="w-full flex" >
-              <img src="~/assets/images/Infrastructure-1.png" class="h-[34px] move-line"/>
-              <img src="~/assets/images/Infrastructure-2.png" class="h-[34px] move-line"/>
-          </div> -->
-
+          <div class="flex mt-7">
+            <div class="ecology-text w-[30%] md:w-[10%]">Defi</div>
+            <div class="scroll-content w-[70%] md:w-[90%]">
+              <div class="scroll-defi1 scroll-img">
+                <img class="h-[35px] mx-5" v-for="(item, index) in 11" :key="index" :src="getImageURL(`DeFi-${item}.png`)"/>
+              </div>
+              <div class="scroll-defi2 scroll-img">
+                <img class="h-[35px] mx-5" v-for="(item, index) in 11" :key="index" :src="getImageURL(`DeFi-${item}.png`)"/>
+              </div>
+            </div>
+          </div>
+          <div class="flex mt-7">
+            <div class="ecology-text w-[30%] md:w-[10%]">NFT</div>
+            <div class="scroll-content w-[70%] md:w-[90%]">
+              <div class="scroll-NFT1 scroll-img">
+                <img class="h-[50px] mx-5" v-for="(item, index) in 11" :key="index" :src="getImageURL(`NFT-${item}.png`)"/>
+              </div>
+              <div class="scroll-NFT2 scroll-img">
+                <img class="h-[50px] mx-5" v-for="(item, index) in 11" :key="index" :src="getImageURL(`NFT-${item}.png`)"/>
+              </div>
+            </div>
+          </div>
+          <div class="flex mt-7">
+            <div class="ecology-text w-[30%] md:w-[10%]">GameFi</div>
+            <div class="scroll-content w-[70%] md:w-[90%]">
+              <div class="scroll-GameFi1 scroll-img">
+                <img class="h-[50px] mx-5" v-for="(item, index) in 10" :key="index" :src="getImageURL(`GameFi-${item}.png`)"/>
+              </div>
+              <div class="scroll-GameFi2 scroll-img">
+                <img class="h-[50px] mx-5" v-for="(item, index) in 10" :key="index" :src="getImageURL(`GameFi-${item}.png`)"/>
+              </div>
+            </div>
+          </div>
+          <div class="md:flex md:justify-around mt-[60px] md:mt-[100px] text-center">
+            <div class="md:flex md:text-left">
+              <div class="num-title">260</div>
+              <div class="num-desc md:ml-[10px]">Web3 Developersu<br>Use Hamster</div>
+            </div>
+            <div class="md:flex mt-[40px] md:mt-0">
+              <div class="num-title">387</div>
+              <div class="num-desc md:ml-[10px]">Contract/FrontEnd<br>Templates</div>
+            </div>
+            <div class="md:flex mt-[40px] md:mt-0">
+              <div class="num-title">13K</div>
+              <div class="num-desc md:ml-[10px]">Total MiddleWare<br>Requests</div>
+            </div>
+            <div class="md:flex mt-[40px] md:mt-0">
+              <div class="num-title">27</div>
+              <div class="num-desc md:ml-[10px]">Total Workflow<br>Executions</div>
+            </div>
+          </div>
         </div>
       </div>
       <StartBuild></StartBuild>
@@ -154,19 +205,13 @@
   import Footer from "~/layouts/-components/footer.vue"
   import StartBuild from "./components/StartBuild.vue";
 import 'vue3-carousel/dist/carousel.css';
-  import 'animate.css';
-
+import 'animate.css';
+  
   definePageMeta({
     layout: false
   })
 
   const { getImageURL } = useAssets()
-
-const listData = [1, 2, 3, 4, 5, 6];
-const classOption = {
-  limitMoveNum: 2,
-  direction: 3,
-};
 
   const showHeader = ref(true)
   const showHeaderBg = ref(false)
@@ -276,221 +321,126 @@ const classOption = {
   }
   .top-bg{
     background: url("~/assets/images/home-top-bg.jpg") no-repeat center #000000;
+    // background: url("~/assets/images/home-top-bg.png") no-repeat 70% #000000;
+    background-size: contain;
+  }
+  .top-bg-phone{
+    background: url("~/assets/images/home-top-bg-phone.jpg") no-repeat center #000000;
     background-size: contain;
   }
   .solutions-bg{
     background: url("~/assets/images/home-solutions-bg.png") no-repeat center;
     background-size: 100% 100%;
   }
+  .solutions-bg-phone{
+    background: url("~/assets/images/home-solutions-bg-phone.png") no-repeat center;
+    background-size: 100% 100%;
+  }
   .solution-text{
-    font-size: 14px;
     color: #DEDBFF;
     font-family: OpenSans;
-    line-height: 19px;
     margin-top: 10px
   }
-  .devops-bg{
-    background: radial-gradient(111.94% 125.64% at -11.86% 57.81%, rgba(109, 197, 160, 0.1147) 0%, rgba(14, 14, 19, 0) 100%);
-  }
-  .trending-bg{
-    background: linear-gradient(180deg, #21342B 0%, #141414 100%);
-  }
-  .subscription {
-    background: linear-gradient(180deg, #131C17 0%, #151616 100%);
-    color: #AFC6C8;
-    font-size: 16px;
-    border: 1px solid #203E42;
-    &:focus-visible {
-      outline: none;
-    }
-  }
-  .subscription-mobile {
-    background: linear-gradient(180deg, #131C17 0%, #151616 100%);
-    color: #AFC6C8;
-    font-size: 14px;
-    border: 1px solid #203E42;
-    &:focus-visible {
-      outline: none;
-    }
-  }
 
-  .flag {
-    width: 60px;
-    display: inline-block;
-    margin-left: -14px;
-    margin-top: -50px;
-    opacity: 1;
-    @media screen and (min-width: 768px) {
-      margin-top: 0;
-      opacity: 0;
-    }
-  }
-
-  .flag-show {
-    opacity: 1;
-    transition: opacity 500ms;
-  }
-
-  .flag-raise {
-    margin-top: -50px;
-    transition: margin-top 1000ms;
-  }
-
-  .flag-planet {
-    // transform: scale(2);
-    @media screen and (min-width: 768px) {
-      transform: scale(1);
-    }
-  }
-
-  .using-imgbg {
-    background: linear-gradient(180deg, #1E2723 0%, #161817 100%);
-  }
-
-  .ecology-center{
-    border: 0.3px solid rgba(255, 255, 255, 0.7);
-    filter: drop-shadow(0px 0px 17px rgba(29, 60, 45, 0.25));
-    border-radius: 50%;
-    position: absolute;
-    z-index: 100;
-    top: 50%;
-    left: 50%;
-    transform:translate(-50%,-50%)
-  }
-  .ecology-level-one{
-    border: 0.3px solid rgba(255, 255, 255, 0.6);
-    box-shadow: 0px 0px 23px rgba(27, 41, 36, 0.25);
-    border-radius: 50%;
-    position: absolute;
-    z-index: 90;
-    top: 50%;
-    left: 50%;
-    transform:translate(-50%,-50%);
-    .animation-rotate{
-      animation: rotation 8s linear infinite;
-    }
-  }
-
-  .ecology-level-two{
-    border: 0.3px solid rgba(255, 255, 255, 0.4);
-    filter: drop-shadow(0px 4px 15px rgba(32, 64, 27, 0.25));
-    border-radius: 50%;
-    position: absolute;
-    z-index: 80;
-    top: 50%;
-    left: 50%;
-    transform:translate(-50%,-50%);
-    .animation-rotate{
-      animation: rotation 8s linear infinite;
-    }
-  }
-
-  .ecology-fade-enter-active,
-  .ecology-fade-leave-active {
-      transition: opacity 1s ease;
-  }
-
-  .ecology-fade-leave,
-  .ecology-fade-enter-to {
-      opacity: 1;
-  }
-
-  .ecology-fade-enter-from,
-  .ecology-fade-leave-to {
-      opacity: 0;
-  }
-
-  @keyframes rotation {
-    0% {
-      -webkit-transform: rotate(0deg);
-      transform:rotate(0deg);
-    }
-    100% {
-      -webkit-transform: rotate(360deg);
-      transform:rotate(360deg);
-    }
-  }
-
-  :deep(.carousel) {
-    .carousel__item {
-      min-height: 200px;
-      width: 100%;
-      background-color: var(--vc-clr-primary);
-      color: var(--vc-clr-white);
-      font-size: 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .carousel__pagination {
-      margin-top: 20px;
-    }
-    .carousel__pagination-button::after {
-      background-color: #48514B;
-      width: 100%;
-    }
-    .carousel__pagination-button:hover::after ,
-    .carousel__pagination-button--active::after {
-      background-color: #27FFB8 !important;
-      width: 100%;
-    }
-    .carousel__pagination-item {
-      width: 33%;
-      .carousel__pagination-button {
-        width: 100%;
-      }
-    }
-    .carousel__slide  {
-
-    }
-    .carousel__prev ,
-    .carousel__next  {
-      box-sizing: content-box;
-      color: white;
-      background: #27392D;
-      height: 49px;
-      width: 40px;
-    }
-  }
-
-  .using-navigation {
-    position: absolute;
-    top: 102%;
-    left: 18px;
-    width: 100px;
-  }
-  .using-numprogress{
-    position: absolute;
-    bottom: -3px;
-    right: 20px;
-    z-index: 100;
-    color: red !important;
-  }
-
-  .news-overflow-scrollbar::-webkit-scrollbar{
-    display: none;
-  }
-
-  .ufo-onepage{
-    margin-top: -220px;
-  }
-
-//@todo
-.move-line {
-  animation: moves 6s infinite linear;
-	-webkit-animation: moves 6s infinite linear;
+.ecology-text{
+  font-weight: bold;
+  line-height: 35px;
+  text-align: right;
+  color: #989898;
+  margin-right: 20px;
 }
 
-@keyframes moves {
-	0% {
-    transform: translate(0, 0);
-	}
-
-	100% {
-    transform: translate(500%, 0);
-	}
+.scroll-content{
+  overflow: hidden;
+  height: 60px;
+  margin: auto;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
 }
-
+.scroll-img{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  position: absolute;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-duration: 15s;
+}
+.scroll-infrastructure1{
+  animation-name: rollInfrastructure1;
+}
+.scroll-infrastructure2{
+  animation-name: rollInfrastructure2;
+}
+@keyframes rollInfrastructure1{
+  0%{left: 0px; top: 0px;}
+  100%{left: 2183px; top: 0px;}
+}
+@keyframes rollInfrastructure2{
+  0%{left: -2183px; top: 0px;}
+  100%{left: 0px; top: 0px;}
+}
+.scroll-defi1{
+  animation-name: rollDefi1
+}
+.scroll-defi2{
+  animation-name: rollDefi2;
+}
+@keyframes rollDefi1{
+  0%{left: 2467px; top: 0px;}
+  100%{left: 0px; top: 0px;}
+}
+@keyframes rollDefi2{
+  0%{left: 0px; top: 0px;}
+  100%{left: -2467px; top: 0px;}
+}
+.scroll-NFT1{
+  animation-name: rollNFT1;
+}
+.scroll-NFT2{
+  animation-name: rollNFT2;
+}
+@keyframes rollNFT1{
+  0%{left: 0px; top: 0px;}
+  100%{left: 1852px; top: 0px;}
+}
+@keyframes rollNFT2{
+  0%{left: -1852px; top: 0px;}
+  100%{left: 0px; top: 0px;}
+}
+.scroll-GameFi1{
+  animation-name: rollGameFi1;
+}
+.scroll-GameFi2{
+  animation-name: rollGameFi2;
+}
+@keyframes rollGameFi1{
+  0%{left: 1783px; top: 0px;}
+  100%{left: 0px; top: 0px;}
+}
+@keyframes rollGameFi2{
+  0%{left: 0px; top: 0px;}
+  100%{left: -1783px; top: 0px;}
+}
+.num-title{
+  font-size: 60px;
+  font-family: Montserrat-Bold, Montserrat;
+  font-weight: bold;
+  color: #000000;
+  line-height: 73px;
+}
+.num-desc{
+  font-size: 14px;
+  font-family: Montserrat-Medium, Montserrat;
+  font-weight: 500;
+  color: #40425C;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 </style>
 
 <style lang="less">
