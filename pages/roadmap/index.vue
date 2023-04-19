@@ -75,7 +75,7 @@
                 </div>
             </div>
           </div>
-          <div class="text-[21px] text-[#6E6E6E] leading-[35px] font-bold flex justify-center md:pl-[180px] pt-[65px] md:pt-[52px] more-text">More…</div>
+          <div class="text-[18px] md:text-[16px] text-[#6E6E6E] md:text-[#404040] leading-[35px] font-bold flex justify-center md:pl-[180px] pt-[65px] md:pt-[52px] more-text">More…</div>
         </div>
       </Transition>
     </div>
@@ -188,7 +188,7 @@ onMounted(() => {
   background-position: 43% 30%;
 }
 .map-mobile-top-bg{
-  background: url("~/assets/images/roadmap-top-bg.png") no-repeat #000000;
+  background: url("~/assets/images/roadmap-top-bg-phone.png") no-repeat #000000;
   background-size: contain;
   background-position: 0 20%;
 }
@@ -199,12 +199,15 @@ onMounted(() => {
 </style>
 <style>
 .map-line-text{
-  @apply font-light text-[14px] md:text-[18px] leading-[21px] md:leading-[24px] text-[#FFFFFF];
+  @apply font-light text-[14px] md:text-[18px] leading-[21px] md:leading-[24px] text-[#DEDBFF];
   font-family: Montserrat-Light, Montserrat;
 }
 .map-line-year{
   @apply font-bold text-[24px] leading-[35px] text-[#FFFFFF] md:my-[6px];
   font-family: Montserrat-Bold, Montserrat;
+  background: linear-gradient(270deg, #32B6B2 0%, #474DC7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .map-mobile-right-div{
   @apply flex flex-wrap justify-end text-right;
