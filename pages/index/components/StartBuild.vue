@@ -4,7 +4,7 @@
       <div class="flex justify-center">
         <img src="~/assets/images/logo.png" class="w-[200px]"/>
       </div>
-      <div class="font-extrabold text-[25px] md:text-[72px] leading-[74px] font-family-bold">Get started with Hamster </div>
+      <div class="font-extrabold text-[25px] md:text-[72px] leading-[74px] font-family-extraBold">Get started with Hamster </div>
       <div class="mt-[10px] md:mt-[80px] mb-[20px] md:mb-[40px] text-[#999999] text-[14px] md:text-[24px] font-light md:font-medium font-family-medium">Build your dreams in Web3 with ease</div>
       <button class="btn-css" @click="gotoAline">Start building for free</button>
       <!-- <div id="free-btn">

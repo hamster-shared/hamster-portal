@@ -2,7 +2,7 @@
   <div :class="[$device.isMobile ? 'about-top-bg-phone' : 'about-top-bg']">
     <div class="container mx-auto px-5 pt-[140px] md:pt-[250px]">
       <div class="text-center">
-        <div class="mb-[50px] text-[21px] leading-[25px] font-bold font-family-bold text-color-css">OUR MISSION</div>
+        <div class="mb-[50px] text-[21px] leading-[25px] font-bold font-family-extraBold text-color-css">OUR MISSION</div>
         <div class="text-[16px] md:text-[24px] leading-[21px] md:leading-[35px] font-medium text-[#FFFFFF] font-family-medium flex justify-center">
           <div class="md:mx-[60px]">One-Stop infrastructure, Developer Toolkit DevOps Framework in Web3.0, achieving automatic code/contract writing, build, check, deployment and more, empowering projects in Web3.0 to improve their coding and delivery speed, quality and efficiency, as well as product reliability & safety.</div>
         </div>
@@ -157,12 +157,6 @@ onUnmounted(() => {
 }
 .about-team-bg-win{
   background-size: contain;
-}
-.text-color-css{
-  background: linear-gradient(221deg, #40ECE1 0%, #5C64FF 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-family: Montserrat-Bold, Montserrat;
 }
 
 .about-scroll-content{

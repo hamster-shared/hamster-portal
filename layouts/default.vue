@@ -131,8 +131,10 @@
   .fp-watermark{
     display: none;
   }
-  
   .font-family-bold{
+    font-family: Montserrat-Bold, Montserrat;
+  }
+  .font-family-extraBold{
     font-family: Montserrat-ExtraBold, Montserrat;
   }
   .font-family-medium{
@@ -148,13 +150,40 @@
     font-family: PingFangSC-Light, PingFang SC;
   }
   .area-title{
-    @apply text-[#00044C] text-[25px] font-extrabold md:text-[48px] leading-[30px] md:leading-[74px] mt-[60px] md:mt-[80px];
+    @apply text-[#00044C] text-[25px] font-extrabold md:text-[48px] leading-[30px] md:leading-[60px] mt-[60px] md:mt-[80px];
     font-family: Montserrat-ExtraBold, Montserrat;
   }
 
   .area-desc{
-    @apply text-sm mt-3 text-[#40425C] md:text-2xl md:mt-6 font-light;
+    @apply text-sm mt-[30px] text-[#40425C] md:text-2xl md:mt-6 font-light;
     font-family: Montserrat-Light, Montserrat;
+  }
+  
+  .text-color-css{
+    background: linear-gradient(221deg, #40ECE1 0%, #5C64FF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: Montserrat-Bold, Montserrat;
+  }
+
+  .scroll-content{
+    overflow: hidden;
+    height: 60px;
+    margin: auto;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+  }
+  .scroll-img{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    position: absolute;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-duration: 15s;
   }
 </style>
 <style lang="less">
