@@ -18,36 +18,18 @@
     <div>
       <div class="area-title text-center !mt-0 mb-[40px] md:mb-[100px]">Dashboard</div>
       <div id="dashboard-div" class="md:grid md:grid-cols-5 text-center">
-          <div>
+          <div v-for="(item, index) in dashboardList" :key="index">
+            <div class="about-scroll-content">
+              <div class="scroll-text about-board-number" :class="[{'scroll-up':showDashboardNumber}]" :style="'transition-delay:'+(index+1)+'00ms'">{{ item.number }}</div>
+            </div>
+            <div class="about-board-text" @click="showBoardNumber">{{ item.title }}</div>
+          </div>
+          <!-- <div>
             <div class="about-board-number">
               <TransitionText :boardNumber="boardNumber1"></TransitionText>
             </div>
             <div class="about-board-text" @click="showBoardNumber">Developers</div>
-          </div>
-          <div>
-            <div class="about-board-number">
-              <TransitionText :boardNumber="boardNumber2"></TransitionText>
-            </div>
-            <div class="about-board-text">Workflows</div>
-          </div>
-          <div>
-            <div class="about-board-number">
-              <TransitionText :boardNumber="boardNumber3"></TransitionText>
-            </div>
-            <div class="about-board-text">EcoSystems</div>
-          </div>
-          <div>
-            <div class="about-board-number">
-              <TransitionText :boardNumber="boardNumber4"></TransitionText>
-            </div>
-            <div class="about-board-text">Templates</div>
-          </div>
-          <div>
-            <div class="about-board-number">
-              <TransitionText :boardNumber="boardNumber5"></TransitionText>
-            </div>
-            <div class="about-board-text !mb-0">Blockchains</div>
-          </div>
+          </div> -->
       </div>
     </div>
     <div class="mt-[60px] md:mt-[120px]">
@@ -124,18 +106,16 @@
 import StartBuild from "../index/components/StartBuild.vue";
 import TransitionText from "./components/TransitionText.vue";
 
-const boardNumberList = ref(['1000+', '29', '8', '20+', '10+'])
-const boardNumber1 = ref([])
-const boardNumber2 = ref([])
-const boardNumber3 = ref([])
-const boardNumber4 = ref([])
-const boardNumber5 = ref([])
+const dashboardList = ref([
+  {title: 'Developers', number: '1000+'},
+  {title: 'Workflows', number: '29'},
+  {title: 'EcoSystems', number: '8'},
+  {title: 'Templates', number: '20+'},
+  {title: 'Blockchains', number: '10+'},
+])
+const showDashboardNumber = ref(false);
 const showBoardNumber = () => {
-  boardNumber1.value = boardNumberList.value[0].split('')
-  boardNumber2.value = boardNumberList.value[1].split('')
-  boardNumber3.value = boardNumberList.value[2].split('')
-  boardNumber4.value = boardNumberList.value[3].split('')
-  boardNumber5.value = boardNumberList.value[4].split('')
+  showDashboardNumber.value = true;
 }
 
 
@@ -146,7 +126,9 @@ function handleScroll() {
   let dashboardTopH = dashboardEle.offsetTop; //距离顶部的高度，包含滚动条
   let windowH = window.screen.height; //显示屏高度 
   let scrollH = document.body.scrollTop || document.documentElement.scrollTop; //滚动的高度
-  if (dashboardTopH - windowH + dashboardH < scrollH) {
+  console.log("left:", dashboardTopH);
+  console.log("right:",scrollH + windowH);
+  if (dashboardTopH < scrollH + windowH) {
     showBoardNumber();
   }
 }
@@ -182,14 +164,38 @@ onUnmounted(() => {
   -webkit-text-fill-color: transparent;
   font-family: Montserrat-Bold, Montserrat;
 }
+
+.about-scroll-content{
+  overflow: hidden;
+  margin: auto;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+}
+.scroll-text{
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 88px;
+}
+.scroll-up{
+  top: 0px;
+  transition: top 1s;
+}
+
 </style>
 <style>
+.about-scroll-content{
+  @apply h-[73px] md:h-[88px];
+}
 .about-board-number{
-  @apply text-[60px] md:text-[72px] font-bold text-[#000000] leading-[73px] md:leading-[88px] h-[73px] md:h-[88px] mb-0 md:mb-[20px] flex justify-center;
+  @apply text-[60px] md:text-[72px] font-bold text-[#000000] leading-[73px] md:leading-[88px] h-[73px] md:h-[88px] flex justify-center;
   font-family: Montserrat-Bold, Montserrat;
 }
 .about-board-text{
-  @apply text-[14px] md:text-[21px] font-medium md:font-bold leading-[20px] md:leading-[25px] text-[#40425C] md:text-[#959595] mb-[50px] md:mb-0;
+  @apply text-[14px] md:text-[21px] font-medium md:font-bold leading-[20px] md:leading-[25px] text-[#40425C] md:text-[#959595] mb-[50px] md:mb-0 mt-0 md:mt-[20px];
   font-family: Montserrat-Bold, Montserrat;
 }
 .about-logo-img1{
