@@ -14,14 +14,15 @@
             <img @click="showPhoneMenu = true;" v-if="isMobile" class="h-4 ml-[82vw]"
               src="~/assets/images/head-menu-down.svg">
             <div v-else class="menu">
-              <Dropdown class="mx-4">
-                <a class="ant-dropdown-link" :class="{'ant-dropdown-opened' : `/${curMenu}` === '/workflow'}" @click.prevent>
-                  Hover me
-                  <DownOutlined />
-                </a>
-                <template #overlay>
-                  <Menu class="!p-4">
-                    <MenuItem>
+              
+              <Menu class="!p-4" mode="horizontal">
+                <SubMenu key="Solutions" :class="{'ant-menu-opened' : `/${curMenu}` === '/workflow'}">
+                  <template #title>
+                    <div class="flex items-center">
+                      Solutions <DownOutlined class="ml-2" />
+                    </div>
+                  </template>
+                  <MenuItem key="workflow">
                       <a href="/workflow" :class="{'menu-active' : `/${curMenu}` === '/workflow'}">
                         <div class="flex leading-[40px] text-[16px]">
                           <img src="~/assets/images/solutions-workflow.svg" class="h-[40px]" />
@@ -37,9 +38,8 @@
                         </div>
                       </a>
                     </MenuItem>
-                  </Menu>
-                </template> 
-              </Dropdown>
+                </SubMenu>
+              </Menu>
               <div>
                 <a v-for="link in navLinks"
                   :key="link.path"
@@ -113,7 +113,7 @@
 
 <script setup>
 import { computed, ref, defineProps, watch } from "vue"
-import { Dropdown , Menu , MenuItem } from 'ant-design-vue';
+import { Menu , MenuItem, SubMenu, MenuItemGroup } from 'ant-design-vue';
 import { DownOutlined} from '@ant-design/icons-vue';
 
 const props = defineProps({
@@ -351,27 +351,42 @@ onUnmounted(() => {
 .menu-color {
   @apply text-[#807D7C];
 }
+.ant-menu-vertical.ant-menu-sub{
+  padding: 20px !important;
+  max-height: fit-content !important;
+}
+.ant-menu-opened{
+  font-family: Montserrat-Medium, Montserrat;
+  font-weight: 500;
+  color: #5C64FF;
+  svg path {
+    fill: #5C64FF;
+  }
+}
 </style>
 <style scoped lang="less">
 @baseColor: #5C64FF;
 :deep(.anticon-down){
   transition: all .3s, visibility 0s;
 }
-:deep(.ant-dropdown-open .anticon-down) {
+:deep(.ant-menu-submenu-open .anticon-down) {
   transform: rotate(180deg);
 }
-:deep(.ant-dropdown-open) , .ant-dropdown-opened{
+:deep(.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu:hover::after){
+  border-bottom: none;
+}
+:deep(.ant-menu-submenu-open),
+:deep(.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu:hover){
   color:@baseColor;
   svg path {
     fill: @baseColor;
   }
 }
-.ant-dropdown-opened{
-  font-family: Montserrat-Medium, Montserrat;
-  font-weight: 500;
-}
-:deep(.ant-dropdown-menu-item:hover), :deep(.ant-dropdown-menu-submenu-title:hover){
-  color:@baseColor;
+:deep(.ant-menu){
+  color: #FFFFFF;
   background-color: transparent;
+}
+:deep(.ant-menu-horizontal){
+  border-bottom: none;
 }
 </style>

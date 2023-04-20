@@ -4,7 +4,7 @@
         <div class="container mx-auto px-5">
           <div class="md:flex md:items-center relative">
             <div class="lg:w-3/5 pt-[100px] pb-[300px] md:py-[180px] text-center md:text-left">
-              <div class="text-2xl font-extrabold px-10 md:px-0 md:w-[500px] md:text-[50px] md:leading-[74px] font-family-bold">
+              <div class="text-2xl font-extrabold px-10 md:px-0 md:w-[500px] md:text-[50px] md:leading-[74px] font-family-extraBold">
                 Hamster empowers web3 Explorer to build their dreams
               </div>
               <div class="mt-5 mb-6 text-base md:text-2xl font-medium text-[#999999] font-family-medium">One-Stop infrastructure, development, operation and maintenance service platform for projects in Web3.0</div>
@@ -348,26 +348,6 @@ import 'animate.css';
   text-align: right;
   color: #989898;
   margin-right: 20px;
-}
-
-.scroll-content{
-  overflow: hidden;
-  height: 60px;
-  margin: auto;
-  position: relative;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
-}
-.scroll-img{
-  height: 100%;
-  width: 100%;
-  display: flex;
-  position: absolute;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  animation-duration: 15s;
 }
 .scroll-infrastructure1{
   animation-name: rollInfrastructure1;
