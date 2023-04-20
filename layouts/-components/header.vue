@@ -14,8 +14,51 @@
             <img @click="showPhoneMenu = true;" v-if="isMobile" class="h-4 ml-[82vw]"
               src="~/assets/images/head-menu-down.svg">
             <div v-else class="menu">
-              
-              <Menu class="!p-4" mode="horizontal">
+              <VDropdown
+                auto-hide
+                v-model:shown="subMenuDropdownShow"
+                :distance="10"
+                placement="bottom"
+                popper-class="locale-dropdown"
+                :skidding="16"
+              >
+                <div class="cursor-pointer select-none">
+                  <div
+                    class="px-4 h-[32px] text-base flex justify-center items-center menu-dropdown-hover"
+                    :class="{'menu-dropdown-opened': subMenuDropdownShow || `/${curMenu}` === '/workflow'}"
+                  >
+                    <div>Solutions</div>
+                    <div class="h-2 ml-2" :class="{'rotate-dropdown-icon': subMenuDropdownShow}">
+                      <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M1.81261 0.348328L7.05525 5.59097L5.99459 6.65163L0.751953 1.40899L1.81261 0.348328Z" fill="white"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M4.9452 5.59096L10.1878 0.348323L11.2485 1.40898L6.00586 6.65162L4.9452 5.59096Z" fill="white"/>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <template #popper>
+                  <div class=" box-dropdown max-w-[400px]">
+                    <!-- <div class="flex justify-center h-[9px]">
+                      <div class="box-top"></div>
+                    </div> -->
+                    <div class="bg-[white] p-[20px] rounded-[5px] text-base">
+                      <div class="pb-[20px] hover:text-[#5C64FF]">
+                        <a href="/workflow" class="flex items-center mr-2" :class="{'menu-active' : `/${curMenu}` === '/workflow'}">
+                          <img src="~/assets/images/solutions-workflow.svg" class="h-[40px]" />
+                          Automate Workflow
+                        </a>
+                      </div>
+                      <div class="hover:text-[#5C64FF]">
+                        <a :href="alineLink" class="flex items-center mr-2">
+                          <img src="~/assets/images/solutions-middleware.svg" class="h-[40px]" />
+                          MiddleWare
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </template>
+              </VDropdown>
+              <!-- <Menu class="!p-4" mode="horizontal">
                 <SubMenu key="Solutions" :class="{'ant-menu-opened' : `/${curMenu}` === '/workflow'}">
                   <template #title>
                     <div class="flex items-center">
@@ -39,7 +82,7 @@
                       </a>
                     </MenuItem>
                 </SubMenu>
-              </Menu>
+              </Menu> -->
               <div>
                 <a v-for="link in navLinks"
                   :key="link.path"
@@ -113,8 +156,8 @@
 
 <script setup>
 import { computed, ref, defineProps, watch } from "vue"
-import { Menu , MenuItem, SubMenu, MenuItemGroup } from 'ant-design-vue';
-import { DownOutlined} from '@ant-design/icons-vue';
+// import { Menu , MenuItem, SubMenu } from 'ant-design-vue';
+// import { DownOutlined} from '@ant-design/icons-vue';
 
 const props = defineProps({
   showHeader: {
@@ -369,7 +412,7 @@ onUnmounted(() => {
 :deep(.anticon-down){
   transition: all .3s, visibility 0s;
 }
-:deep(.ant-menu-submenu-open .anticon-down) {
+:deep(.ant-menu-submenu-open .anticon-down),:deep(.menu-dropdown-opened .anticon-down) {
   transform: rotate(180deg);
 }
 :deep(.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu:hover::after){
