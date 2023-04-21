@@ -1,17 +1,19 @@
 <template>
-  <div :class="[$device.isMobile ? 'about-top-bg-phone' : 'about-top-bg']">
-    <div class="container mx-auto px-5 pt-[140px] md:pt-[250px]">
+  <div class="h-screen relative" :class="[$device.isMobile ? 'about-top-bg-phone' : 'about-top-bg ']">
+    <div class="container mx-auto px-5 pt-[140px] md:pt-[180px]">
       <div class="text-center">
-        <div class="mb-[50px] text-[21px] leading-[25px] font-bold font-family-extraBold text-color-css">OUR MISSION</div>
-        <div class="text-[16px] md:text-[24px] leading-[21px] md:leading-[35px] font-medium text-[#FFFFFF] font-family-medium flex justify-center">
-          <div class="md:mx-[60px]">One-Stop infrastructure, Developer Toolkit DevOps Framework in Web3.0, achieving automatic code/contract writing, build, check, deployment and more, empowering projects in Web3.0 to improve their coding and delivery speed, quality and efficiency, as well as product reliability & safety.</div>
+        <div class="mb-[50px] text-[21px] leading-[25px] font-bold font-family-extraBold flex justify-center">
+          <div class="text-color-css">OUR MISSION</div>
+        </div>
+        <div class="text-[16px] md:text-[24px] leading-[21px] md:leading-[35px] font-medium md:font-light text-[#FFFFFF] font-family-light flex justify-center">
+          <div class="md:w-[796px]">One-Stop infrastructure, Developer Toolkit DevOps Framework in Web3.0, achieving automatic code/contract writing, build, check, deployment and more, empowering projects in Web3.0 to improve their coding and delivery speed, quality and efficiency, as well as product reliability & safety.</div>
         </div>
       </div>
-      <div class="flex justify-center pt-[90px] md:pt-[200px] pb-[40px] md:pb-[60px]">
-        <span class="text-[#999999] text-base font-light font-family-light">Investors</span>
-        <img src="~/assets/images/waterdrip.png" class="h-[30px] mx-[26px]"/>
-        <img src="~/assets/images/stratified.png" class="h-[30px]"/>
-      </div>
+    </div>
+    <div class="flex justify-center absolute bottom-[60px] w-full">
+      <span class="text-[#999999] text-base font-light font-family-light">Investors</span>
+      <img src="~/assets/images/waterdrip.png" class="h-[30px] mx-[26px]"/>
+      <img src="~/assets/images/stratified.png" class="h-[30px]"/>
     </div>
   </div>
   <div class="container mx-auto px-5 my-[60px] md:my-[180px]">
@@ -72,8 +74,12 @@
       </div>
     </div>
     <div class="mt-[60px] md:mt-[120px]">
-      <div class="text-[12px] md:text-[24px] font-bold text-color-css text-center !mt-0 mb-[40px] md:mb-[100px]">5 Issued Grants & 8 EcoSystems </div>
-      <div class="md:flex justify-around">
+      <div class="text-[12px] md:text-[24px] font-bold flex justify-center !mt-0 mb-[40px] md:mb-[100px]">
+        <div class="text-color-css">5 Issued Grants & 8 EcoSystems</div>
+      </div>
+      <img v-if="$device.isMobile" src="~/assets/images/about-logos-phone.png" class="w-full"/>
+      <img v-else src="~/assets/images/about-logos.png" class="w-full"/>
+      <!-- <div class="md:flex justify-around">
         <div class="flex justify-around md:w-3/5">
           <img src="~/assets/images/Issued-Grants-1.png" class="about-logo-img1"/>
           <img src="~/assets/images/Issued-Grants-2.png" class="about-logo-img1"/>
@@ -97,7 +103,7 @@
           <img src="~/assets/images/EcoSystems-7.png" class="about-logo-img2"/>
           <img src="~/assets/images/EcoSystems-8.png" class="about-logo-img2"/>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
   <StartBuild></StartBuild>

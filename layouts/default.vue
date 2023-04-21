@@ -164,12 +164,12 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-family: Montserrat-Bold, Montserrat;
+    width: max-content;
   }
 
   .scroll-content{
+    @apply h-[30px] md:h-[50px];
     overflow: hidden;
-    height: 60px;
-    margin: auto;
     position: relative;
     top: 0px;
     left: 0px;
@@ -183,7 +183,20 @@
     position: absolute;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
-    animation-duration: 15s;
+    animation-duration: 30s;
+  }
+  .scroll-fadeout-bg{
+    position: absolute;
+    width: 10%;
+    height: 100%;
+    z-index: 9;
+  }
+  .scroll-fadeout-left{
+    background: linear-gradient(90deg, #FFFFFF 0%, rgba(255,255,255,0) 100%);
+  }
+  .scroll-fadeout-right{
+    background: linear-gradient(270deg, #FFFFFF 0%, rgba(255,255,255,0) 100%);
+    right: 0;
   }
 </style>
 <style lang="less">

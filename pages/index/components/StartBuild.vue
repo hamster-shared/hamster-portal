@@ -1,12 +1,12 @@
 <template>
-  <div class="free-bg py-[40px] md:py-[160px] text-center">
+  <div class="free-bg py-[40px] md:py-[90px] text-center">
     <div class="container mx-auto px-5">
       <div class="flex justify-center">
-        <img src="~/assets/images/logo.png" class="w-[200px]"/>
+        <img src="~/assets/images/logo.png" class="h-[60px]"/>
       </div>
-      <div class="font-extrabold text-[25px] md:text-[72px] leading-[74px] font-family-extraBold">Get started with Hamster </div>
-      <div class="mt-[10px] md:mt-[80px] mb-[20px] md:mb-[40px] text-[#999999] text-[14px] md:text-[24px] font-light md:font-medium font-family-medium">Build your dreams in Web3 with ease</div>
-      <button class="btn-css" @click="gotoAline">Start building for free</button>
+      <div class="font-extrabold text-[16px] md:text-[36px] leading-[34px] md:leading-[74px] font-family-extraBold">Get started with Hamster </div>
+      <div class=" mb-[20px] md:mb-[30px] text-[#FFFFFF] leading-[16px] md:leading-[35px] text-[10px] md:text-[18px] font-light md:font-medium font-family-medium">Build your dreams in Web3 with ease</div>
+      <button class="btn-css !font-normal !text-[8px] md:!text-[14px]" @click="gotoAline">Start building for free</button>
       <!-- <div id="free-btn">
         <Transition name="free">
           <button v-if="showFreeBtn" class="btn-css" @click="gotoAline">Start building for free</button>

@@ -1,6 +1,5 @@
 <template>
-  <div class="fixed inset-x-0 top-0 z-[100] md:z-[1000] bg-opacity-50 bg-black"
-    :class="{ 'hidden': scrollDown, 'bg-black': topBgShow}">
+  <div class="absolute inset-x-0 top-0 z-[100] md:z-[1000]  bg-black">
     <div class="m-auto">
       <div class="container mx-auto px-5 py-4 font-family-light font-light">
         <div class="relative flex flex-row items-center justify-between text-center text-white">
@@ -93,14 +92,14 @@
                   {{ link.title }}
                 </a>
               </div>
-              <button class="ml-4 start-today" @click="gotoAline">{{ $t('header.menu1') }}</button>
+              <button class="ml-4 start-today !text-[14px] !font-normal" @click="gotoAline">{{ $t('header.menu1') }}</button>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div v-if="showPhoneMenu" :class="{ 'hidden': scrollDown }"
+  <div v-if="showPhoneMenu" 
     class="inset-x-0 top-0 fixed z-[300] py-4 px-6 bg-black">
     <div class="relative flex justify-start">
       <img class="h-4 md:h-[24px]" src="~/assets/images/header.png">
@@ -147,7 +146,7 @@
           </div>
         </a>
       </div>
-      <button class="start-today w-[100%] mt-6" @click="gotoAline">
+      <button class="start-today w-[100%] mt-6 !text-[14px] !font-normal" @click="gotoAline">
          {{ $t('header.menu1') }}
       </button>
     </div>
@@ -168,21 +167,6 @@ const props = defineProps({
     type: Boolean,
     default: false
   },
-})
-
-watch(() => props.showHeader, (newVal)=>{
-  if (newVal) {
-    scrollDown.value = false;
-  } else{
-    scrollDown.value = true;
-  }
-})
-watch(() => props.showHeaderBg, (newVal) => {
-  if (newVal) {
-    topBgShow.value = true
-  } else{
-    topBgShow.value = false
-  }
 })
 
 const { getImageURL } = useAssets()
@@ -208,26 +192,9 @@ const navLinks = computed(() => [
   { title: 'News', path: "https://hamsternet.medium.com/" },
 ])
 
-const drodownShow = ref(false)
 const subMenuDropdownShow = ref(false)
-const drodownShow7 = ref(false)
-const selectedLocale = computed(() => {
-  return localeOptions.find(option => option.value === locale.value)
-})
-const aboutUsOptions = computed(() => {
-  return [
-    { label: t('header.menu7-sub1'), value: 'news' },
-    { label: t('header.menu7-sub2'), value: 'company' }
-  ]
-})
 
-const focusVal = ref()
-const topVal = ref(0)
 const curMenu = ref('')
-const curSubMenu = ref()
-const scrollDown = ref(false)
-const beforeTopVal = ref(0)
-const topBgShow = ref(true)
 
 const device = useDevice()
 const isMobile = device.value.isMobile
@@ -245,21 +212,7 @@ onMounted(() => {
 
 function handleScroll() {
   subMenuDropdownShow.value = false
-  topVal.value = document.body.scrollTop || document.documentElement.scrollTop
-  if (beforeTopVal.value < topVal.value) { // 向下滚动
-    scrollDown.value = true;
-  } else { //向上滚动
-    scrollDown.value = false;
-  }
-  beforeTopVal.value = topVal.value
-  setTopBgValue();
-}
-function setTopBgValue() {
-  if (topVal.value > 0) {
-    topBgShow.value = true
-  } else {
-    topBgShow.value = false
-  }
+  showPhoneMenu.value = false;
 }
 
 const gotoAline = function () {

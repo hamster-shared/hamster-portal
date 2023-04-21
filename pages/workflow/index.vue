@@ -6,7 +6,7 @@
         <div class="text-[14px] md:text-[24px] font-bold text-[#676767] leading-[40px] md:leading-[50px] ml-[10px] font-family-bold">Workflow</div>
       </div>
       <div class="md:flex">
-        <div class="md:w-[55%] text-center">
+        <div class="md:w-[55%] text-center md:text-left">
           <div class="mt-[10px] mb-[20px] text-[24px] md:text-[48px] leading-[36px] md:leading-[60px] font-extrabold font-family-extraBold text-[#00044C]">Make your Project from idea to production easily</div>
           <div class="text-[16px] md:text-[24px] leading-[21px] md:leading-[30px] font-light text-[#40425C] font-family-light md:w-[500px]">
           Makes it easy to automate all your web3.0 project workflows. Check, build, and deploy your code right from code repository by Hamster
@@ -66,7 +66,7 @@
         </div>
         <div class="md:w-1/3 flex items-center">
           <div>
-            <div class="area-title !mt-0">Manage Web3 Project </div>
+            <div class="area-title !mt-0">Manage web3 project </div>
             <img v-if="$device.isMobile" src="~/assets/images/workflow-manage.png" class="w-full mt-[40px]" />
             <div class="area-desc">A deployment workflow designed for you to ship contracts on-chain effortlessly</div>
           </div>
@@ -74,8 +74,12 @@
       </div>
     </div>
     <div class="mb-[70px] md:mb-[180px] workflow-area-div">
-      <div class="font-bold mb-[45px] md:mb-[100px] text-[#5B7ED1] text-[16px] md:text-[24px] leading-[19px] md:leading-[29px] text-center text-color-css">Trusted by best teams</div>
-      <div class="scroll-content">
+      <div class="font-bold mb-[45px] md:mb-[100px] text-[#5B7ED1] text-[16px] md:text-[24px] leading-[19px] md:leading-[29px] flex justify-center">
+        <div class="text-color-css">Trusted by best teams</div>
+      </div>
+      <div class="scroll-content relative">
+        <div class="scroll-fadeout-bg scroll-fadeout-left"></div>
+        <div class="scroll-fadeout-bg scroll-fadeout-right"></div>
         <div class="scroll-team1 scroll-img">
           <img class="h-[35px] mx-5" v-for="(item, index) in 8" :key="index" :src="getImageURL(`best-teams-${item}.png`)"/>
         </div>
@@ -97,7 +101,7 @@ const { getImageURL } = useAssets()
 <style lang="less" scoped>
 
 .wk-top-bg{
-  background: url("~/assets/images/workflow-top-bg.png") no-repeat center #FFFFFF;
+  background: url("~/assets/images/workflow-top-bg.jpg") no-repeat center #FFFFFF;
   background-size: 100% 100%;
 }
 .wk-top-bg-phone{
