@@ -1,17 +1,21 @@
 <template>
-  <div class="container mx-auto" :class="[$device.isMobile ? 'wk-top-bg-phone' : 'wk-top-bg']">
-    <div class="px-5 py-[100px] md:pt-[200px] md:pb-[170px]">
-      <div class="flex">
-        <img src="~/assets/images/solutions-workflow.svg" class="h-[40px] md:h-[50px]"/>
-        <div class="text-[14px] md:text-[24px] font-bold text-[#676767] leading-[40px] md:leading-[50px] ml-[10px] font-family-bold">Workflow</div>
-      </div>
-      <div class="md:flex">
-        <div class="md:w-[55%] text-center md:text-left">
-          <div class="mt-[10px] mb-[20px] text-[24px] md:text-[48px] leading-[36px] md:leading-[60px] font-extrabold font-family-extraBold text-[#00044C]">Make your Project from idea to production easily</div>
-          <div class="text-[16px] md:text-[24px] leading-[21px] md:leading-[30px] font-light text-[#40425C] font-family-light md:w-[500px]">
-          Makes it easy to automate all your web3.0 project workflows. Check, build, and deploy your code right from code repository by Hamster
+  <div :class="[$device.isMobile ? 'wk-top-bg-phone' : 'wk-top-bg']">
+    <div class="container mx-auto px-5 md:flex md:items-center h-screen flex">
+      <div class="relative">
+        <div class="flex mt-[80px] md:mt-0">
+          <img src="~/assets/images/solutions-workflow.svg" class="h-[40px] md:h-[50px]"/>
+          <div class="text-[14px] md:text-[24px] font-bold text-[#676767] leading-[40px] md:leading-[50px] ml-[10px] font-family-bold">Workflow</div>
+        </div>
+        <div class="md:flex">
+          <div class="md:w-[55%] text-center md:text-left">
+            <div class="mt-[10px] mb-[20px] text-[24px] md:text-[48px] leading-[36px] md:leading-[60px] font-extrabold font-family-extraBold text-[#00044C]">Make your Project from idea to production easily</div>
+            <div class="text-[16px] md:text-[24px] leading-[21px] md:leading-[30px] font-light text-[#40425C] font-family-light md:w-[500px]">
+            Makes it easy to automate all your web3.0 project workflows. Check, build, and deploy your code right from code repository by Hamster
+            </div>
           </div>
-          <button class="btn-css mt-[320px] md:mt-[20px]" @click="gotoAline">Get Started</button>
+        </div>
+        <div class="md:mt-[20px] text-center md:text-left w-full absolute md:static bottom-[35px]">
+            <button class="btn-css " @click="gotoAline">Get Started</button>
         </div>
       </div>
     </div>
@@ -102,7 +106,7 @@ const { getImageURL } = useAssets()
 
 .wk-top-bg{
   background: url("~/assets/images/workflow-top-bg.jpg") no-repeat center #FFFFFF;
-  background-size: 100% 100%;
+  background-size: contain;
 }
 .wk-top-bg-phone{
   background: url("~/assets/images/workflow-top-bg-phone.jpg") no-repeat center #FFFFFF;
