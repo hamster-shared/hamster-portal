@@ -10,31 +10,37 @@
           <div v-if="$device.isMobile">
             <div class="flex flex-wrap">
               <div class="pt-[80px]">
-                <div class="map-line-year up-title">{{ mapList[0].title }}</div>
+                <div class="map-line-year map-text-color up-title map-text-color">{{ mapList[0].title }}</div>
                 <div class="map-line-text w-[45%] up-desc">{{ mapList[0].desc }}</div>
               </div>
               <div class="map-mobile-right-div">
-                <div class="map-line-year w-full up-title1">{{ mapList[1].title }}</div>
+                <div class="map-line-year w-full up-title1 map-mobile-right-text">
+                  <div class="map-text-color">{{ mapList[1].title }}</div>
+                </div>
                 <div class="map-line-text w-[45%] up-desc1">{{ mapList[1].desc }}</div>
               </div>
               <div>
-                <div class="map-line-year up-title2">{{ mapList[2].title }}</div>
+                <div class="map-line-year map-text-color up-title2">{{ mapList[2].title }}</div>
                 <div class="map-line-text w-[45%] up-desc2">{{ mapList[2].desc }}</div>
               </div>
               <div class="map-mobile-right-div">
-                <div class="map-line-year w-full up-title3">{{ mapList[3].title }}</div>
+                <div class="map-line-year w-full up-title3 map-mobile-right-text">
+                  <div class="map-text-color">{{ mapList[3].title }}</div>
+                </div>
                 <div class="map-line-text w-[45%] up-desc3">{{ mapList[3].desc }}</div>
               </div>
               <div class="pt-[5px]">
-                <div class="map-line-year up-title4">{{ mapList[4].title }}</div>
+                <div class="map-line-year map-text-color up-title4">{{ mapList[4].title }}</div>
                 <div class="map-line-text w-[45%] up-desc4">{{ mapList[4].desc }}</div>
               </div>
               <div class="map-mobile-right-div pt-[15px]">
-                <div class="map-line-year w-full up-title5">{{ mapList[5].title }}</div>
+                <div class="map-line-year w-full up-title5 map-mobile-right-text">
+                  <div class="map-text-color">{{ mapList[5].title }}</div>
+                </div>
                 <div class="map-line-text w-[45%] up-desc5">{{ mapList[5].desc }}</div>
               </div>
               <div class="pt-[15px]">
-                <div class="map-line-year up-title6">{{ mapList[6].title }}</div>
+                <div class="map-line-year map-text-color up-title6">{{ mapList[6].title }}</div>
                 <div class="map-line-text w-[45%] up-desc6">{{ mapList[6].desc }}</div>
               </div>
             </div>
@@ -43,35 +49,37 @@
             <div class="flex items-end">
               <div class="ml-[100px]">
                 <div class="map-line-text w-[220px] up-desc">{{ mapList[0].desc }}</div>
-                <div class="map-line-year up-title">{{ mapList[0].title }}</div>
+                <div class="map-line-year map-text-color up-title">{{ mapList[0].title }}</div>
               </div>
               <div class="ml-[90px]">
                 <div class="map-line-text w-[240px] up-desc2">{{ mapList[2].desc }}</div>
-                <div class="map-line-year up-title2">{{ mapList[2].title }}</div>
+                <div class="map-line-year map-text-color up-title2">{{ mapList[2].title }}</div>
               </div>
               <div class="ml-[80px]">
                 <div class="map-line-text w-[240px] up-desc4">{{ mapList[4].desc }}</div>
-                <div class="map-line-year up-title4">{{ mapList[4].title }}</div>
+                <div class="map-line-year map-text-color up-title4">{{ mapList[4].title }}</div>
               </div>
             </div>
             <div class="flex mt-[140px]">
               <div class="ml-[210px]">
-                <div class="map-line-year down-title1">{{ mapList[1].title }}</div>
+                <div class="map-line-year map-text-color down-title1">
+                  <div class="map-text-color">{{ mapList[1].title }}</div>
+                </div>
                 <div class="map-line-text w-[235px] down-desc1">{{ mapList[1].desc }}</div>
               </div>
               <div class="ml-[110px]">
-                <div class="map-line-year down-title3">{{ mapList[3].title }}</div>
+                <div class="map-line-year map-text-color down-title3">{{ mapList[3].title }}</div>
                 <div class="map-line-text w-[220px] down-desc3">{{ mapList[3].desc }}</div>
               </div>
               <div class="ml-[100px]">
-                <div class="map-line-year down-title5">{{ mapList[5].title }}</div>
+                <div class="map-line-year map-text-color down-title5">{{ mapList[5].title }}</div>
                 <div class="map-line-text w-[240px] down-desc5">{{ mapList[5].desc }}</div>
               </div>
             </div>
             <div class="flex justify-end">
                 <div class="mr-[220px]">
                   <div class="map-line-text up-desc6">{{ mapList[6].desc }}</div>
-                  <div class="map-line-year up-title6">{{ mapList[6].title }}</div>
+                  <div class="map-line-year map-text-color up-title6">{{ mapList[6].title }}</div>
                 </div>
             </div>
           </div>
@@ -205,11 +213,17 @@ onMounted(() => {
 .map-line-year{
   @apply font-bold text-[24px] leading-[35px] text-[#FFFFFF] md:my-[6px];
   font-family: Montserrat-Bold, Montserrat;
+}
+.map-text-color{
   background: linear-gradient(270deg, #32B6B2 0%, #474DC7 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  width: max-content;
 }
 .map-mobile-right-div{
   @apply flex flex-wrap justify-end text-right;
+}
+.map-mobile-right-text{
+  @apply flex justify-end;
 }
 </style>
