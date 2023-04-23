@@ -13,9 +13,10 @@
             <img @click="showPhoneMenu = true;" v-if="isMobile" class="h-4 ml-[82vw]"
               src="~/assets/images/head-menu-down.svg">
             <div v-else class="menu">
-              <VDropdown
+              <!-- <VDropdown
                 auto-hide
                 v-model:shown="subMenuDropdownShow"
+                :triggers="['click']"
                 :distance="10"
                 placement="bottom"
                 popper-class="locale-dropdown"
@@ -37,9 +38,6 @@
                 </div>
                 <template #popper>
                   <div class=" box-dropdown max-w-[400px]">
-                    <!-- <div class="flex justify-center h-[9px]">
-                      <div class="box-top"></div>
-                    </div> -->
                     <div class="bg-[white] p-[20px] rounded-[5px] text-base">
                       <div class="pb-[20px] hover:text-[#5C64FF]">
                         <a href="/workflow" class="flex items-center mr-2" :class="{'menu-active' : `/${curMenu}` === '/workflow'}">
@@ -56,7 +54,30 @@
                     </div>
                   </div>
                 </template>
-              </VDropdown>
+              </VDropdown> -->
+              <Popover trigger="hover">
+                <template #content>
+                  <div class=" box-dropdown max-w-[400px]">
+                    <div class="bg-[white] p-[20px] rounded-[5px] text-base">
+                      <div class="pb-[20px] hover:text-[#5C64FF]">
+                        <a href="/workflow" class="flex items-center mr-2" :class="{'menu-active' : `/${curMenu}` === '/workflow'}">
+                          <img src="~/assets/images/solutions-workflow.svg" class="h-[40px]" />
+                          Automate Workflow
+                        </a>
+                      </div>
+                      <div class="hover:text-[#5C64FF]">
+                        <a :href="alineLink" class="flex items-center mr-2">
+                          <img src="~/assets/images/solutions-middleware.svg" class="h-[40px]" />
+                          MiddleWare
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </template>
+                <div class="flex items-center">
+                  Solutions <DownOutlined class="ml-2" />
+                </div>
+              </Popover>
               <!-- <Menu class="!p-4" mode="horizontal">
                 <SubMenu key="Solutions" :class="{'ant-menu-opened' : `/${curMenu}` === '/workflow'}">
                   <template #title>
@@ -155,8 +176,9 @@
 
 <script setup>
 import { computed, ref, defineProps, watch } from "vue"
+import { Popover } from 'ant-design-vue'
 // import { Menu , MenuItem, SubMenu } from 'ant-design-vue';
-// import { DownOutlined} from '@ant-design/icons-vue';
+import { DownOutlined} from '@ant-design/icons-vue';
 
 const props = defineProps({
   showHeader: {
@@ -358,6 +380,11 @@ onUnmounted(() => {
   svg path {
     fill: #5C64FF;
   }
+}
+
+
+.ant-popover-inner-content{
+  padding: 0px;
 }
 </style>
 <style scoped lang="less">
