@@ -13,7 +13,7 @@
             <img @click="showPhoneMenu = true;" v-if="isMobile" class="h-4 ml-[82vw]"
               src="~/assets/images/head-menu-down.svg">
             <div v-else class="menu">
-              <!-- <VDropdown
+              <VDropdown
                 auto-hide
                 v-model:shown="subMenuDropdownShow"
                 :triggers="['click']"
@@ -54,8 +54,8 @@
                     </div>
                   </div>
                 </template>
-              </VDropdown> -->
-              <Popover trigger="hover">
+              </VDropdown>
+              <!-- <Popover trigger="hover">
                 <template #content>
                   <div class=" box-dropdown max-w-[400px]">
                     <div class="bg-[white] p-[20px] rounded-[5px] text-base">
@@ -77,7 +77,7 @@
                 <div class="flex items-center">
                   Solutions <DownOutlined class="ml-2" />
                 </div>
-              </Popover>
+              </Popover> -->
               <!-- <Menu class="!p-4" mode="horizontal">
                 <SubMenu key="Solutions" :class="{'ant-menu-opened' : `/${curMenu}` === '/workflow'}">
                   <template #title>
