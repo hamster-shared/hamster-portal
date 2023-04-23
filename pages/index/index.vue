@@ -1,9 +1,9 @@
 <template>
   <DefaultLayout :showFooter="false" :showHeader="showHeader" :showHeaderBg="showHeaderBg">
       <div class=" top-bg-color" :class="[{'!bg-bottom' : $device.isMobile},[$device.isMobile ? 'top-bg-phone' : 'top-bg']]">
-        <div class="container mx-auto px-5">
+        <div class="container mx-auto px-5 h-screen flex ">
           <div class="md:flex md:items-center relative">
-            <div class="lg:w-3/5 pt-[100px] pb-[300px] md:py-[180px] text-center md:text-left">
+            <div class="lg:w-3/5 text-center md:text-left mt-[100px] md:mt-0">
               <div class="text-2xl font-extrabold px-10 md:px-0 md:w-[560px] md:text-[50px] md:leading-[74px] font-family-extraBold">
                 Hamster empowers web3 Explorer to build their dreams
               </div>
@@ -15,7 +15,7 @@
               </div>
               <button class="btn-css" @click="gotoAline">Start Building</button>
             </div>
-            <div class="flex justify-between pb-[30px] md:hidden">
+            <div class="flex justify-between absolute bottom-[35px] w-full md:hidden">
               <span class="text-[#999999] text-base font-light font-family-light">Investors</span>
               <img src="./images/waterdrip.png" class="w-[70px] h-[30px] inline-block ml-6"/>
               <img src="./images/stratified.png" class="w-[84px] h-[30px] inline-block ml-6"/>
