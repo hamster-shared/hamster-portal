@@ -20,6 +20,7 @@ export function configStyleImportPlugin() {
             'breadcrumb-item',
             'breadcrumb-separator',
             'form-item',
+            'popover',
             'step',
             'select-option',
             'select-opt-group',
@@ -66,8 +67,8 @@ export function configStyleImportPlugin() {
           return ignoreList.includes(name)
             ? ''
             : replaceList.hasOwnProperty(name)
-            ? `ant-design-vue/es/${replaceList[name]}/style/index.css`
-            : `ant-design-vue/es/${name}/style/index.css`;
+              ? `ant-design-vue/es/${replaceList[name]}/style/index.css`
+              : `ant-design-vue/es/${name}/style/index.css`;
         },
       },
     ],
