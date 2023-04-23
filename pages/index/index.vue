@@ -36,51 +36,57 @@
             </div>
           </div>
           <div :class="[$device.isMobile ? 'solutions-bg-phone my-[40px]' : 'solutions-bg']"> 
-            <div class="flex relative h-[460px] md:h-[610px]">
-              <div class="grid grid-cols-2 md:grid-cols-4 gap-2 h-[130px] md:h-auto mt-[85px] md:mt-[350px] ml-[91px] md:ml-[276px] w-[236px] md:w-[430px] text-center">
-                <div>
-                  <div class="flex justify-center">
-                    <img src="~/assets/images/template-market-logo.svg" class="w-[30px] md:w-[50px]">
+            <div class="flex relative h-[460px] md:h-[610px] justify-end"> 
+              <div class=" w-[75%] md:w-full">
+                <div class="flex md:block justify-center">
+                  <div class="grid grid-cols-2 md:grid-cols-4 gap-2 h-[130px] md:h-auto mt-[80px] md:mt-[350px] md:ml-[276px] w-[236px] md:w-[430px] text-center">
+                    <div>
+                      <div class="flex justify-center">
+                        <img src="~/assets/images/template-market-logo.svg" class="w-[30px] md:w-[50px]">
+                      </div>
+                      <div class="solution-text">Template Market</div>
+                    </div>
+                    <div>
+                      <div class="flex justify-center">
+                        <img src="~/assets/images/middleWare-logo.svg" class="w-[30px] md:w-[50px]">
+                      </div>
+                      <div class="solution-text">MiddleWare</div>
+                    </div>
+                    <div class="cursor-pointer" @click="goWorkflow">
+                      <div class="flex justify-center">
+                        <img src="~/assets/images/automate-workflow-logo.svg" class="w-[30px] md:w-[50px]">
+                      </div>
+                      <div class="solution-text">Automate Workflow</div>
+                    </div>
+                    <div class="cursor-pointer" @click="goDownload">
+                      <div class="flex justify-center">
+                        <img src="~/assets/images/decentralized-logo.svg" class="w-[30px] md:w-[50px]">
+                      </div>
+                      <div class="solution-text">Decentralized Computing Power</div>
+                    </div>
                   </div>
-                  <div class="solution-text">Template Market</div>
                 </div>
-                <div>
-                  <div class="flex justify-center">
-                    <img src="~/assets/images/middleWare-logo.svg" class="w-[30px] md:w-[50px]">
+                <div class="flex md:block justify-center">
+                  <div class="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-4 md:absolute w-[190px] md:w-[285px] md:right-[125px] md:bottom-[180px] text-center md:px-5 mt-[95px] md:mt-0"> 
+                    <div class="md:mr-2">
+                      <div class="flex justify-center">
+                        <img src="~/assets/images/contract-operation-logo.svg" class="w-[30px] md:w-[50px]">
+                      </div>
+                      <div class="solution-text">Contract Operation</div>
+                    </div>
+                    <div class="md:mr-2">
+                      <div class="flex justify-center">
+                        <img src="~/assets/images/service-operation-logo.svg" class="w-[30px] md:w-[50px]">
+                      </div>
+                      <div class="solution-text">Service Operation</div>
+                    </div>
+                    <div>
+                      <div class="flex justify-center">
+                        <img src="~/assets/images/data-monitoring-logo.svg" class="w-[30px] md:w-[50px]">
+                      </div>
+                      <div class="solution-text ">Data monitoring</div>
+                    </div>
                   </div>
-                  <div class="solution-text">MiddleWare</div>
-                </div>
-                <div class="cursor-pointer" @click="goWorkflow">
-                  <div class="flex justify-center">
-                    <img src="~/assets/images/automate-workflow-logo.svg" class="w-[30px] md:w-[50px]">
-                  </div>
-                  <div class="solution-text">Automate Workflow</div>
-                </div>
-                <div class="cursor-pointer" @click="goDownload">
-                  <div class="flex justify-center">
-                    <img src="~/assets/images/decentralized-logo.svg" class="w-[30px] md:w-[50px]">
-                  </div>
-                  <div class="solution-text">Decentralized Computing Power</div>
-                </div>
-              </div>
-              <div class="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-4 absolute w-[190px] md:w-[285px] right-[29px] md:right-[125px] bottom-[25px] md:bottom-[180px] text-center md:px-5">
-                <div class="md:mr-2">
-                  <div class="flex justify-center">
-                    <img src="~/assets/images/contract-operation-logo.svg" class="w-[30px] md:w-[50px]">
-                  </div>
-                  <div class="solution-text">Contract Operation</div>
-                </div>
-                <div class="md:mr-2">
-                  <div class="flex justify-center">
-                    <img src="~/assets/images/service-operation-logo.svg" class="w-[30px] md:w-[50px]">
-                  </div>
-                  <div class="solution-text">Service Operation</div>
-                </div>
-                <div>
-                  <div class="flex justify-center">
-                    <img src="~/assets/images/data-monitoring-logo.svg" class="w-[30px] md:w-[50px]">
-                  </div>
-                  <div class="solution-text ">Data monitoring</div>
                 </div>
               </div>
             </div>
