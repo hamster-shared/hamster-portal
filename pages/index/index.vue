@@ -50,7 +50,7 @@
                       <div class="flex justify-center">
                         <img src="~/assets/images/middleWare-logo.svg" class="w-[30px] md:w-[50px]">
                       </div>
-                      <div class="solution-text">MiddleWare</div>
+                      <div class="solution-text">Middleware</div>
                     </div>
                     <div class="cursor-pointer" @click="goWorkflow">
                       <div class="flex justify-center">
@@ -159,20 +159,20 @@
           </div>
           <div class="md:flex md:justify-around mt-[60px] md:mt-[100px] text-center">
             <div class="md:flex md:text-left">
-              <div class="num-title">260</div>
-              <div class="num-desc md:ml-[10px]">Web3 Developersu<br>Use Hamster</div>
+              <div class="num-title">1K+</div>
+              <div class="num-desc md:ml-[10px]">Web3 Developers<br>Use Hamster</div>
             </div>
             <div class="md:flex md:text-left mt-[40px] md:mt-0">
-              <div class="num-title">387</div>
+              <div class="num-title">20+</div>
               <div class="num-desc md:ml-[10px]">Contract/FrontEnd<br>Templates</div>
             </div>
             <div class="md:flex md:text-left mt-[40px] md:mt-0">
-              <div class="num-title">13K</div>
-              <div class="num-desc md:ml-[10px]">Total MiddleWare<br>Requests</div>
+              <div class="num-title">10K</div>
+              <div class="num-desc md:ml-[10px]">Support Networks</div>
             </div>
             <div class="md:flex md:text-left mt-[40px] md:mt-0">
-              <div class="num-title">27</div>
-              <div class="num-desc md:ml-[10px]">Total Workflow<br>Executions</div>
+              <div class="num-title">2000+</div>
+              <div class="num-desc md:ml-[10px]">Total workflow<br>Executions</div>
             </div>
           </div>
         </div>
@@ -189,8 +189,8 @@
             <div class="flex flex-col flex-shrink-0 md:w-auto md:h-auto md:col-span-4 mb-10 md:mb-0" v-for="(newsItem, index) in news" :key="index">
               <img :src="newsItem.cover" />
               <div class="flex flex-col flex-1 pb-6">
-                <div class="text-[26px] text-[#000000] my-7 md:my-[40px] font-family-regular font-normal leading-[32px]">Article Name</div>
-                <span class="mb-[20px] flex-1 text-[#83848E] text-[18px] font-family-pf-light font-light leading-[25px]" :title="newsItem.title">{{ newsItem.title }}</span>
+                <div class="text-[26px] text-[#000000] my-7 md:my-[40px] font-family-regular font-normal leading-[32px] show-line-2">{{ newsItem.title }}</div>
+                <span class="mb-[20px] flex-1 text-[#83848E] text-[18px] font-family-pf-light font-light leading-[25px] show-line-4">{{ newsItem.text }}</span>
                 <nuxt-link :to="newsItem.link" target="_blank">
                   <span class="text-[#5C64FF] text-[24px] md:text-[18px] font-family-regular font-normal">View more
                     <img :src="getImageURL('right.svg')" class="inline-block h-[19px] md:h-[14px]" />
@@ -266,17 +266,18 @@ import 'animate.css';
     window.location.href = alineLink.value
   }
   const goDownload = () => {
-    window.open("https://hamsternet.io/download");
+    // window.open("https://hamsternet.io/download");
+    window.location.href = "/download";
   }
   const goWorkflow = () => {
-    window.open("/workflow");
+    window.location.href = "/workflow";
   }
 
   onMounted(()=>{
     // Init fullpage
     try {
 
-      getEcology();
+      // getEcology();
       getArticles();
     } catch (error) {
       console.log("Fullpage init error", error)
@@ -469,6 +470,20 @@ import 'animate.css';
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.show-line-2{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.show-line-4{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
 }
 </style>
 

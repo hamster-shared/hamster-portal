@@ -100,6 +100,13 @@ import StartBuild from "../index/components/StartBuild.vue";
 
 
 const { getImageURL } = useAssets()
+
+
+
+const alineLink = computed(() => "https://develop.alpha.hamsternet.io/")
+const gotoAline = () => {
+  window.open(alineLink.value);
+}
 </script>
 
 <style lang="less" scoped>

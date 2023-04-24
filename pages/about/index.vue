@@ -113,8 +113,8 @@ import StartBuild from "../index/components/StartBuild.vue";
 import TransitionText from "./components/TransitionText.vue";
 
 const dashboardList = ref([
-  {title: 'Developers', number: '1000+'},
-  {title: 'Workflows', number: '29'},
+  {title: 'Developers', number: '1K+'},
+  {title: 'Workflows', number: '2K+'},
   {title: 'EcoSystems', number: '8'},
   {title: 'Templates', number: '20+'},
   {title: 'Blockchains', number: '10+'},
