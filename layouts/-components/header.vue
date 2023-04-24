@@ -43,7 +43,7 @@
                       <div class="pb-[20px] hover:text-[#5C64FF]">
                         <a href="/workflow" class="flex items-center mr-2" :class="{'menu-active' : `/${curMenu}` === '/workflow'}">
                           <img src="~/assets/images/solutions-workflow.svg" class="h-[40px]" />
-                          Automate Workflow
+                          Automated Workflow
                         </a>
                       </div>
                       <div class="hover:text-[#5C64FF]">
@@ -63,7 +63,7 @@
                       <div class="pb-[20px] hover:text-[#5C64FF]">
                         <a href="/workflow" class="flex items-center mr-2" :class="{'menu-active' : `/${curMenu}` === '/workflow'}">
                           <img src="~/assets/images/solutions-workflow.svg" class="h-[40px]" />
-                          Automate Workflow
+                          Automated Workflow
                         </a>
                       </div>
                       <div class="hover:text-[#5C64FF]">
@@ -90,7 +90,7 @@
                       <a href="/workflow" :class="{'menu-active' : `/${curMenu}` === '/workflow'}">
                         <div class="flex leading-[40px] text-[16px]">
                           <img src="~/assets/images/solutions-workflow.svg" class="h-[40px]" />
-                          <div class="ml-4">Automate Workflow</div>
+                          <div class="ml-4">Automated Workflow</div>
                         </div>
                       </a>
                     </MenuItem>
@@ -144,7 +144,7 @@
               <a href="/workflow">
                 <span class="text-sm flex items-center">
                   <img src="~/assets/images/solutions-workflow.svg" class="h-[24px] mr-4" />
-                  Automate Workflow
+                  Automated Workflow
                 </span>
               </a>
             </div>

@@ -114,45 +114,45 @@
             </div>
           </div>
           <div class="flex">
-            <div class="w-[30%] md:w-[10%]">
-              <div class="ecology-text">Infrastructure</div>
-              <div class="ecology-text  my-[30px] md:my-[50px]">Defi</div>
-              <div class="ecology-text">NFT</div>
-              <div class="ecology-text  mt-[30px] md:mt-[50px]">GameFi</div>
+            <div class="w-[35%] md:w-[15%]">
+              <div class="ecology-text">Layer 1&2</div>
+              <div class="ecology-text  my-[30px] md:my-[50px]">Infrastructure</div>
+              <div class="ecology-text">Security</div>
+              <div class="ecology-text  mt-[30px] md:mt-[50px]">DAO&Community</div>
             </div>
-            <div class="w-[70%] md:w-[90%] relative">
+            <div class="w-[65%] md:w-[85%] relative">
               <div class="scroll-fadeout-bg scroll-fadeout-left"></div>
               <div class="scroll-fadeout-bg scroll-fadeout-right"></div>
               <div class="scroll-content">
-                <div class="scroll-img" :class="[$device.isMobile ? 'scroll-infrastructure-phone1' : 'scroll-infrastructure1']">
-                  <img class="ecology-img mx-5" v-for="(item, index) in 11" :key="index" :src="getImageURL(`Infrastructure-${item}.png`)"/>
+                <div class="scroll-img" :class="[$device.isMobile ? 'scroll-one-phone1' : 'scroll-one1']">
+                  <img class="ecology-img mx-5" v-for="(item, index) in 6" :key="index" :src="getImageURL(`Layer-${item}.png`)"/>
                 </div>
-                <div class="scroll-img" :class="[$device.isMobile ? 'scroll-infrastructure-phone2' : 'scroll-infrastructure2']">
-                  <img class="ecology-img mx-5" v-for="(item, index) in 11" :key="index" :src="getImageURL(`Infrastructure-${item}.png`)"/>
+                <div class="scroll-img" :class="[$device.isMobile ? 'scroll-one-phone2' : 'scroll-one2']">
+                  <img class="ecology-img mx-5" v-for="(item, index) in 6" :key="index" :src="getImageURL(`Layer-${item}.png`)"/>
                 </div>
               </div>
               <div class="scroll-content my-[30px] md:my-[50px]">
-                <div class="scroll-img" :class="[$device.isMobile ? 'scroll-defi-phone1' : 'scroll-defi1']">
-                  <img class="ecology-img mx-5" v-for="(item, index) in 11" :key="index" :src="getImageURL(`DeFi-${item}.png`)"/>
+                <div class="scroll-img" :class="[$device.isMobile ? 'scroll-two-phone1' : 'scroll-two1']">
+                  <img class="ecology-img mx-5" v-for="(item, index) in 8" :key="index" :src="getImageURL(`Infrastructure-${item}.png`)"/>
                 </div>
-                <div class="scroll-img" :class="[$device.isMobile ? 'scroll-defi-phone2' : 'scroll-defi2']">
-                  <img class="ecology-img mx-5" v-for="(item, index) in 11" :key="index" :src="getImageURL(`DeFi-${item}.png`)"/>
+                <div class="scroll-img" :class="[$device.isMobile ? 'scroll-two-phone2' : 'scroll-two2']">
+                  <img class="ecology-img mx-5" v-for="(item, index) in 8" :key="index" :src="getImageURL(`Infrastructure-${item}.png`)"/>
                 </div>
               </div>
               <div class="scroll-content">
-                <div class=" scroll-img" :class="[$device.isMobile ? 'scroll-NFT-phone1' : 'scroll-NFT1']">
-                  <img class="ecology-img mx-10" v-for="(item, index) in 11" :key="index" :src="getImageURL(`NFT-${item}.png`)"/>
+                <div class=" scroll-img" :class="[$device.isMobile ? 'scroll-three-phone1' : 'scroll-three1']">
+                  <img class="ecology-img mx-5" v-for="(item, index) in 8" :key="index" :src="getImageURL(`Security-${item}.png`)"/>
                 </div>
-                <div class=" scroll-img" :class="[$device.isMobile ? 'scroll-NFT-phone2' : 'scroll-NFT2']">
-                  <img class="ecology-img mx-10" v-for="(item, index) in 11" :key="index" :src="getImageURL(`NFT-${item}.png`)"/>
+                <div class=" scroll-img" :class="[$device.isMobile ? 'scroll-three-phone2' : 'scroll-three2']">
+                  <img class="ecology-img mx-5" v-for="(item, index) in 8" :key="index" :src="getImageURL(`Security-${item}.png`)"/>
                 </div>
               </div>
               <div class="scroll-content mt-[30px] md:mt-[50px]">
-                <div class=" scroll-img" :class="[$device.isMobile ? 'scroll-GameFi-phone1' : 'scroll-GameFi1']">
-                  <img class="ecology-img mx-10" v-for="(item, index) in 10" :key="index" :src="getImageURL(`GameFi-${item}.png`)"/>
+                <div class=" scroll-img" :class="[$device.isMobile ? 'scroll-four-phone1' : 'scroll-four1']">
+                  <img class="ecology-img mx-5" v-for="(item, index) in 10" :key="index" :src="getImageURL(`Community-${item}.png`)"/>
                 </div>
-                <div class=" scroll-img" :class="[$device.isMobile ? 'scroll-GameFi-phone2' : 'scroll-GameFi2']">
-                  <img class="ecology-img mx-10" v-for="(item, index) in 10" :key="index" :src="getImageURL(`GameFi-${item}.png`)"/>
+                <div class=" scroll-img" :class="[$device.isMobile ? 'scroll-four-phone2' : 'scroll-four2']">
+                  <img class="ecology-img mx-5" v-for="(item, index) in 10" :key="index" :src="getImageURL(`Community-${item}.png`)"/>
                 </div>
               </div>
             </div>
@@ -343,117 +343,117 @@ import 'animate.css';
     background: url("~/assets/images/home-solutions-bg-phone.png") no-repeat center;
     background-size: 100% 100%;
   }
-.scroll-infrastructure1{
-  animation-name: rollInfrastructure1;
+.scroll-one1{
+  animation-name: scrollOne1;
 }
-.scroll-infrastructure2{
-  animation-name: rollInfrastructure2;
+.scroll-one2{
+  animation-name: scrollOne2;
 }
-@keyframes rollInfrastructure1{
+@keyframes scrollOne1{
   0%{left: 0px; top: 0px;}
-  100%{left: 1964px; top: 0px;}
+  100%{left: 968px; top: 0px;}
 }
-@keyframes rollInfrastructure2{
-  0%{left: -1964px; top: 0px;}
+@keyframes scrollOne2{
+  0%{left: -968px; top: 0px;}
   100%{left: 0px; top: 0px;}
 }
-.scroll-infrastructure-phone1{
-  animation-name: rollInfrastructurePhone1;
+.scroll-one-phone1{
+  animation-name: scrollOnePhone1;
 }
-.scroll-infrastructure-phone2{
-  animation-name: rollInfrastructurePhone2;
+.scroll-one-phone2{
+  animation-name: scrollOnePhone2;
 }
-@keyframes rollInfrastructurePhone1{
+@keyframes scrollOnePhone1{
   0%{left: 0px; top: 0px;}
-  100%{left: 1355px; top: 0px;}
+  100%{left: 678px; top: 0px;}
 }
-@keyframes rollInfrastructurePhone2{
-  0%{left: -1355px; top: 0px;}
+@keyframes scrollOnePhone2{
+  0%{left: -678px; top: 0px;}
   100%{left: 0px; top: 0px;}
 }
-.scroll-defi1{
-  animation-name: rollDefi1
+.scroll-two1{
+  animation-name: scrollTwo1
 }
-.scroll-defi2{
-  animation-name: rollDefi2;
+.scroll-two2{
+  animation-name: scrollTwo2;
 }
-@keyframes rollDefi1{
-  0%{left: 1917px; top: 0px;}
+@keyframes scrollTwo1{
+  0%{left: 1293px; top: 0px;}
   100%{left: 0px; top: 0px;}
 }
-@keyframes rollDefi2{
+@keyframes scrollTwo2{
   0%{left: 0px; top: 0px;}
-  100%{left: -1917px; top: 0px;}
+  100%{left: -1293px; top: 0px;}
 }
-.scroll-defi-phone1{
-  animation-name: rollDefiPhone1
+.scroll-two-phone1{
+  animation-name: scrollTwoPhone1
 }
-.scroll-defi-phone2{
-  animation-name: rollDefiPhone2
+.scroll-two-phone2{
+  animation-name: scrollTwoPhone2
 }
-@keyframes rollDefiPhone1{
-  0%{left: 1328px; top: 0px;}
+@keyframes scrollTwoPhone1{
+  0%{left: 905px; top: 0px;}
   100%{left: 0px; top: 0px;}
 }
-@keyframes rollDefiPhone2{
+@keyframes scrollTwoPhone2{
   0%{left: 0px; top: 0px;}
-  100%{left: -1328px; top: 0px;}
+  100%{left: -905px; top: 0px;}
 }
-.scroll-NFT1{
-  animation-name: rollNFT1;
+.scroll-three1{
+  animation-name: scrollThree1;
 }
-.scroll-NFT2{
-  animation-name: rollNFT2;
+.scroll-three2{
+  animation-name: scrollThree2;
 }
-@keyframes rollNFT1{
+@keyframes scrollThree1{
   0%{left: 0px; top: 0px;}
-  100%{left: 2292px; top: 0px;}
+  100%{left: 1442px; top: 0px;}
 }
-@keyframes rollNFT2{
-  0%{left: -2292px; top: 0px;}
+@keyframes scrollThree2{
+  0%{left: -1442px; top: 0px;}
   100%{left: 0px; top: 0px;}
 }
-.scroll-NFT-phone1{
-  animation-name: rollNFTPhone1;
+.scroll-three-phone1{
+  animation-name: scrollThreePhone1;
 }
-.scroll-NFT-phone2{
-  animation-name: rollNFTPhone2;
+.scroll-three-phone2{
+  animation-name: scrollThreePhone2;
 }
-@keyframes rollNFTPhone1{
+@keyframes scrollThreePhone1{
   0%{left: 0px; top: 0px;}
-  100%{left: 1728px; top: 0px;}
+  100%{left: 994px; top: 0px;}
 }
-@keyframes rollNFTPhone2{
-  0%{left: -1728px; top: 0px;}
+@keyframes scrollThreePhone2{
+  0%{left: -994px; top: 0px;}
   100%{left: 0px; top: 0px;}
 }
-.scroll-GameFi1{
-  animation-name: rollGameFi1;
+.scroll-four1{
+  animation-name: scrollFour1;
 }
-.scroll-GameFi2{
-  animation-name: rollGameFi2;
+.scroll-four2{
+  animation-name: scrollFour2;
 }
-@keyframes rollGameFi1{
-  0%{left: 2183px; top: 0px;}
+@keyframes scrollFour1{
+  0%{left: 1656px; top: 0px;}
   100%{left: 0px; top: 0px;}
 }
-@keyframes rollGameFi2{
+@keyframes scrollFour2{
   0%{left: 0px; top: 0px;}
-  100%{left: -2183px; top: 0px;}
+  100%{left: -1656px; top: 0px;}
 }
-.scroll-GameFi-phone1{
-  animation-name: rollGameFiPhone1;
+.scroll-four-phone1{
+  animation-name: scrollFourPhone1;
 }
-.scroll-GameFi-phone2{
-  animation-name: rollGameFiPhone2;
+.scroll-four-phone2{
+  animation-name: scrollFourPhone2;
 }
-@keyframes rollGameFiPhone1{
-  0%{left: 1632px; top: 0px;}
+@keyframes scrollFourPhone1{
+  0%{left: 1154px; top: 0px;}
   100%{left: 0px; top: 0px;}
 }
-@keyframes rollGameFiPhone2{
+@keyframes scrollFourPhone2{
   0%{left: 0px; top: 0px;}
-  100%{left: -1632px; top: 0px;}
+  100%{left: -1154px; top: 0px;}
 }
 .num-title{
   font-size: 60px;
