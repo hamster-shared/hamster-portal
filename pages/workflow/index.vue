@@ -25,7 +25,7 @@
       <div class="md:flex">
         <div class="md:w-2/5 flex items-center md:pr-[40px]">
           <div>
-            <div class="area-title !mt-0">Quickly start web3 project</div>
+            <div class="area-title !mt-0">Quickly start Web3.0 project</div>
             <img v-if="$device.isMobile" src="~/assets/images/workflow-start.png" class="w-full mt-[40px]" />
             <div class="area-desc">Get Start your Own Contract/FrontEnd quickly with best practices from partners and the community.</div>
           </div>
@@ -42,7 +42,7 @@
         </div>
         <div class="md:w-1/3 flex items-center">
           <div>
-            <div class="area-title !mt-0">Automate build web3 project</div>
+            <div class="area-title !mt-0">Automate build Web3.0 project</div>
             <img v-if="$device.isMobile" src="~/assets/images/workflow-build.png" class="w-full mt-[40px]" />
             <div class="area-desc">Set up tasks and combine them to automate all your software development workflows for saving time and cost.</div>
           </div>
@@ -51,11 +51,11 @@
     </div>
     <div class="workflow-area-div">
       <div class="md:flex">
-        <div class="md:pr-[80px] md:w-1/3 md:pt-[50px]">
+        <div class="md:w-1/3 md:pt-[50px]">
           <div>
-            <div class="area-title !mt-0">Secure web3 project</div>
+            <div class="area-title !mt-0">Secure Web3.0 project</div>
             <img v-if="$device.isMobile" src="~/assets/images/workflow-secure.gif" class="w-full mt-[40px]" />
-            <div class="area-desc">Combines multiple state-of-art security scanning engines into Hamster workflow, securing every aspect of your web3 project</div>
+            <div class="area-desc">Combines multiple state-of-art security scanning engines into Hamster workflow, securing every aspect of your Web3.0 project</div>
           </div>
         </div>
         <div v-if="!$device.isMobile" class="md:w-2/3">
@@ -70,7 +70,7 @@
         </div>
         <div class="md:w-1/3 flex items-center">
           <div>
-            <div class="area-title !mt-0">Manage web3 project </div>
+            <div class="area-title !mt-0">Manage Web3.0 project </div>
             <img v-if="$device.isMobile" src="~/assets/images/workflow-manage.png" class="w-full mt-[40px]" />
             <div class="area-desc">A deployment workflow designed for you to ship contracts on-chain effortlessly</div>
           </div>
