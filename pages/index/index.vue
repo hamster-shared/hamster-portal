@@ -114,13 +114,13 @@
             </div>
           </div>
           <div class="flex">
-            <div class="w-[30%] md:w-[10%]">
+            <div class="w-[35%] md:w-[15%]">
               <div class="ecology-text">Layer 1&2</div>
               <div class="ecology-text  my-[30px] md:my-[50px]">Infrastructure</div>
               <div class="ecology-text">Security</div>
               <div class="ecology-text  mt-[30px] md:mt-[50px]">DAO&Community</div>
             </div>
-            <div class="w-[70%] md:w-[90%] relative">
+            <div class="w-[65%] md:w-[85%] relative">
               <div class="scroll-fadeout-bg scroll-fadeout-left"></div>
               <div class="scroll-fadeout-bg scroll-fadeout-right"></div>
               <div class="scroll-content">
