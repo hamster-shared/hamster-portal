@@ -109,7 +109,7 @@
             <div class="area-title !mt-0">Hamster Ecology</div>
             <div class="flex justify-center">
               <div class="area-desc">
-                We support various networks and power leading Web3 projects
+                We support various networks and power leading Web3.0 projects
               </div>
             </div>
           </div>
@@ -182,7 +182,7 @@
       <div class="container mx-auto px-5">
         <div class="text-center mb-8 md:mb-0">
           <div class="area-title">Trending News</div>
-          <div class="area-desc">We support various networks and power leading Web3 projects</div>
+          <div class="area-desc">We support various networks and power leading Web3.0 projects</div>
         </div>
         <div class="md:my-12 md:px-0">
           <div class="md:gap-6 md:grid md:grid-cols-12">

@@ -103,7 +103,7 @@ import StartBuild from "../index/components/StartBuild.vue";
 
 const mapList = reactive([
   {title: '2021', desc: 'Start Hamster Project \nPublish White Paper Complete Shared Computing \nPower Model'},
-  {title: '2022 Q1 - Q3', desc: 'Complete Hamster Client of shared Computing Power\nGet Web3 Foundation/Algorand Grants\nParticipate in Web3.0 Bootcamp Release MVP Version of Decentralized Computing Power\n'},
+  {title: '2022 Q1 - Q3', desc: 'Complete Hamster Client of shared Computing Power\nGet Web3.0 Foundation/Algorand Grants\nParticipate in Web3.0 Bootcamp Release MVP Version of Decentralized Computing Power\n'},
   {title: '2022 Q4', desc: 'Release Alpha+ Version of \nHamster DevOps Platform\nGet Aptos Grant\nGet Excellent Prize of Polkadot Hackathon'},
   {title: '2023 Q2', desc: 'Get StarkNet Grant\nIntegration with Filecoin/StarkNet\nPolkadot & Rebase Hackathon Prizes\nRelease Beta Version of Hamster DevOps Platform'},
   {title: '2023 Q3', desc: 'Finalize Business Model Support DAO Governance Launch Testnet'},
