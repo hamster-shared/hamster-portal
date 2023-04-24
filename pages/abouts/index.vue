@@ -3,7 +3,7 @@
   <div class=" bg-[#000000]" >
     <div class="container mx-auto px-5 abouts-top-bg pt-[140px] md:pt-[250px]">
       <div class="text-center">
-        <div class="mb-[50px] text-[24px] md:text-[50px] leading-[36px] md:leading-[74px] font-extrabold font-family-bold text-[#FFFFFF]">About Hamster</div>
+        <div class="mb-[50px] text-[24px] md:text-[50px] leading-[36px] md:leading-[74px] font-extrabold font-family-extraBold text-[#FFFFFF]">About Hamster</div>
         <div class="text-[16px] md:text-[24px] leading-[21px] md:leading-[35px] font-medium text-[#999999] font-family-medium flex justify-center">
           <div class="md:mx-[60px]">One-Stop infrastructure, Developer Toolkit DevOps Framework in Web3.0, achieving automatic code/contract writing, build, check, deployment and more, empowering projects in Web3.0 to improve their coding and delivery speed, quality and efficiency, as well as product reliability & safety.</div>
         </div>
@@ -278,9 +278,9 @@ onUnmounted(() => {
   //                 #141212;
   //   }
   // }
-  html:not(.is-mobile) {
-    body {
-      background: url(~/assets/images/home-background.jpg) no-repeat #131313;
-    }
-  }
+  // html:not(.is-mobile) {
+  //   body {
+  //     background: url(~/assets/images/home-background.jpg) no-repeat #131313;
+  //   }
+  // }
 </style>

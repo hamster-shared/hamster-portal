@@ -1,8 +1,7 @@
 <template>
-  <div class="fixed inset-x-0 top-0 z-[100] md:z-[1000] bg-opacity-50"
-    :class="{ 'hidden': !isMobile && scrollDown, 'bg-black': topBgShow}">
+  <div class="absolute inset-x-0 top-0 z-[100] md:z-[1000]  bg-black">
     <div class="m-auto">
-      <div class="container py-4 mx-6 md:mx-auto">
+      <div class="container mx-auto px-5 py-4 font-family-light font-light">
         <div class="relative flex flex-row items-center justify-between text-center text-white">
           <div class="absolute logo">
             <nuxt-link to="/">
@@ -17,15 +16,17 @@
               <VDropdown
                 auto-hide
                 v-model:shown="subMenuDropdownShow"
+                :triggers="['click']"
                 :distance="10"
-                placement="bottom-start"
+                placement="bottom"
                 popper-class="locale-dropdown"
                 :skidding="16"
+                @mouseover="subMenuDropdownShow=true"
               >
                 <div class="cursor-pointer select-none">
                   <div
-                    class="px-4 h-[32px] text-base flex justify-center items-center hover:color-[#27FFB8]"
-                    :class="{'menu-dropdown-opened': subMenuDropdownShow}"
+                    class="px-4 h-[32px] text-base flex justify-center items-center menu-dropdown-hover"
+                    :class="{'menu-dropdown-opened': subMenuDropdownShow || `/${curMenu}` === '/workflow'}"
                   >
                     <div>Solutions</div>
                     <div class="h-2 ml-2" :class="{'rotate-dropdown-icon': subMenuDropdownShow}">
@@ -37,64 +38,91 @@
                   </div>
                 </div>
                 <template #popper>
-                  <div class="bg-[white] py-4 rounded-[2px] max-w-[400px]">
-                    <div class="px-6 py-4">
-                      <img src="~/assets/images/development-toolkit.png" class="inline-block w-4 h-4" />
-                      <span class="text-base align-middle"> <a :href="alineLink"> Developer Toolkit</a></span>
+                  <div class=" box-dropdown max-w-[400px]">
+                    <div class="bg-[white] p-[20px] rounded-[5px] text-base">
+                      <div class="pb-[20px] hover:text-[#5C64FF]">
+                        <a href="/workflow" class="flex items-center mr-2" :class="{'menu-active' : `/${curMenu}` === '/workflow'}">
+                          <img src="~/assets/images/solutions-workflow.svg" class="h-[40px]" />
+                          Automated Workflow
+                        </a>
+                      </div>
+                      <div class="hover:text-[#5C64FF]">
+                        <a target="_blank" :href="dashboardLink" class="flex items-center mr-2">
+                          <img src="~/assets/images/solutions-middleware.svg" class="h-[40px]" />
+                          Middleware
+                        </a>
+                      </div>
                     </div>
-                    <div class="px-6 py-4">
-                      <img src="~/assets/images/node-service.png" class="inline-block w-4 h-4" />
-                      <span class="text-base align-middle"> <a :href="alineLink">  Node Service </a></span>
-                    </div>
-                    <!-- <div class="px-6 py-4">
-                      <img src="~/assets/images/decentralized-computing.png" class="inline-block w-4 h-4" />
-                      <span class="text-base align-middle"> Decentralized Computing Power Network</span>
-                    </div> -->
                   </div>
                 </template>
               </VDropdown>
+              <!-- <Popover trigger="hover">
+                <template #content>
+                  <div class=" box-dropdown max-w-[400px]">
+                    <div class="bg-[white] p-[20px] rounded-[5px] text-base">
+                      <div class="pb-[20px] hover:text-[#5C64FF]">
+                        <a href="/workflow" class="flex items-center mr-2" :class="{'menu-active' : `/${curMenu}` === '/workflow'}">
+                          <img src="~/assets/images/solutions-workflow.svg" class="h-[40px]" />
+                          Automated Workflow
+                        </a>
+                      </div>
+                      <div class="hover:text-[#5C64FF]">
+                        <a :href="alineLink" class="flex items-center mr-2">
+                          <img src="~/assets/images/solutions-middleware.svg" class="h-[40px]" />
+                          Middleware
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </template>
+                <div class="flex items-center">
+                  Solutions <DownOutlined class="ml-2" />
+                </div>
+              </Popover> -->
+              <!-- <Menu class="!p-4" mode="horizontal">
+                <SubMenu key="Solutions" :class="{'ant-menu-opened' : `/${curMenu}` === '/workflow'}">
+                  <template #title>
+                    <div class="flex items-center">
+                      Solutions <DownOutlined class="ml-2" />
+                    </div>
+                  </template>
+                  <MenuItem key="workflow">
+                      <a href="/workflow" :class="{'menu-active' : `/${curMenu}` === '/workflow'}">
+                        <div class="flex leading-[40px] text-[16px]">
+                          <img src="~/assets/images/solutions-workflow.svg" class="h-[40px]" />
+                          <div class="ml-4">Automated Workflow</div>
+                        </div>
+                      </a>
+                    </MenuItem>
+                    <MenuItem>
+                      <a :href="alineLink">
+                        <div class="flex leading-[40px] text-[16px]">
+                          <img src="~/assets/images/solutions-middleware.svg" class="h-[40px]" />
+                          <div class="ml-4">Middleware</div>
+                        </div>
+                      </a>
+                    </MenuItem>
+                </SubMenu>
+              </Menu> -->
               <div>
                 <a v-for="link in navLinks"
                   :key="link.path"
                   :class="{'menu-active' : `/${curMenu}` === link.path}"
-                  class="mx-4 hover:text-[#27FFB8]"
+                  class="mx-4 menu-hover"
                   :href="link.path"
+                  :target="link.target"
                  >
                   {{ link.title }}
                 </a>
               </div>
-              <button class="mx-4 start-today hover:bg-[#27FFB8] hover:text-[#131313] hover:border-[#27FFB8]" @click="gotoAline">{{ $t('header.menu1') }}</button>
+              <button class="ml-4 start-today !text-[14px] !font-normal" @click="gotoAline">{{ $t('header.menu1') }}</button>
             </div>
-            <VDropdown class="hidden" v-model:shown="drodownShow" auto-hide :triggers="[]" :skidding="-2" :distance="10"
-              popper-class="locale-dropdown">
-              <div class="relative cursor-pointer select-none" @click="drodownShow = !drodownShow">
-                <div
-                  class="px-4 h-[32px] flex justify-center items-center border border-solid box-border rounded-[71px] hover:bg-[#0c0e2f]">
-                  <div>{{ selectedLocale.name }}</div>
-                  <img src="~/assets/images/drop-down.png" class="w-4 h-4 ml-2"
-                    :class="{'rotate-dropdown-icon': drodownShow}">
-                </div>
-              </div>
-              <template #popper>
-                <div class="to-top"
-                  :class="[{'top-active' : selectedLocale.value == 'en'},{'top-focus' : focusVal == 'en'}]"></div>
-                <div class="w-[90px] h-[80px] drop-bg text-white cursor-pointer">
-                  <div v-for="option in localeOptions" :key="option.value"
-                    class="choose-locale text-center leading-[40px] hover:bg-[#A05E1C] hover:text-white"
-                    :class="{'choose-locale-active': selectedLocale.value == option.value}"
-                    @mouseover="focusVal = option.value" @mouseleave="focusVal=false"
-                    @click="locale = option.value; drodownShow = false;focusVal=false">
-                    {{ option.label || option.name }}
-                  </div>
-                </div>
-              </template>
-            </VDropdown>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div v-if="showPhoneMenu" :class="{ 'hidden': scrollDown }"
+  <div v-if="showPhoneMenu" 
     class="inset-x-0 top-0 fixed z-[300] py-4 px-6 bg-black">
     <div class="relative flex justify-start">
       <img class="h-4 md:h-[24px]" src="~/assets/images/header.png">
@@ -113,12 +141,20 @@
           </div>
           <div class="text-[#CECFD0] w-[100%]" v-if="subMenuDropdownShow">
             <div class="my-4">
-              <img src="~/assets/images/development-toolkit-mobile.png" class="inline-block w-4 h-4"/>
-              <span class="text-sm align-middle"> <a :href="alineLink">  Developer Toolkit </a></span>
+              <a href="/workflow">
+                <span class="text-sm flex items-center">
+                  <img src="~/assets/images/solutions-workflow.svg" class="h-[24px] mr-4" />
+                  Automated Workflow
+                </span>
+              </a>
             </div>
             <div class="my-4">
-              <img src="~/assets/images/node-service-mobile.png" class="inline-block w-4 h-4"/>
-              <span class="text-sm align-middle">  <a :href="alineLink"> Node Service </a></span>
+              <a :href="dashboardLink">
+                <span class="text-sm flex items-center">
+                  <img src="~/assets/images/solutions-middleware.svg" class="h-[24px] mr-4" />
+                  Middleware
+                </span>
+              </a>
             </div>
             <!-- <div class="my-4">
               <img src="~/assets/images/decentralized-computing-mobile.png" class="inline-block w-4 h-4"/>
@@ -133,7 +169,7 @@
           </div>
         </a>
       </div>
-      <button class="start-today w-[100%] mt-6" @click="gotoAline">
+      <button class="start-today w-[100%] mt-6 !text-[14px] !font-normal" @click="gotoAline">
          {{ $t('header.menu1') }}
       </button>
     </div>
@@ -142,6 +178,9 @@
 
 <script setup>
 import { computed, ref, defineProps, watch } from "vue"
+import { Popover } from 'ant-design-vue'
+// import { Menu , MenuItem, SubMenu } from 'ant-design-vue';
+import { DownOutlined} from '@ant-design/icons-vue';
 
 const props = defineProps({
   showHeader: {
@@ -154,22 +193,8 @@ const props = defineProps({
   },
 })
 
-watch(() => props.showHeader, (newVal)=>{
-  if (newVal) {
-    scrollDown.value = false;
-  } else{
-    scrollDown.value = true;
-  }
-})
-watch(() => props.showHeaderBg, (newVal)=>{
-  if (newVal) {
-    topBgShow.value = true
-  } else{
-    topBgShow.value = false
-  }
-})
 
-// const { getImageURL } = useAssets()
+const { getImageURL } = useAssets()
 const route = useRoute();
 const { t, locale, availableLocales } = useI18n()
 const localeOptions = availableLocales.map((lang) => {
@@ -177,41 +202,25 @@ const localeOptions = availableLocales.map((lang) => {
   return { name, value: lang }
 })
 
-const alineLink = computed(() => "https://develop.alpha.hamsternet.io/")
+const alineLink = computed(() => "https://develop.alpha.hamsternet.io/login")
+const dashboardLink = computed(() => "https://develop.alpha.hamsternet.io/chainlink/dashboard")
 
 const navLinks = computed(() => [
   // { title: 'Solutions', path: "/solutions", children: [] },
   // { title: t('header.dashboard'), path: '/dashboard' },
-  { title: 'Grant', path: "" }, //
-  { title: 'Pricing', path: "" }, //
-  { title: 'About', path: "/abouts" },
-  { title: t('header.docs'), path: "https://hamsternet.io/docs/" },
+  // { title: 'Grant', path: "" }, //
+  // { title: 'Pricing', path: "" }, //
+  { title: 'About', path: "/about", target: '_self' },
+  { title: t('header.docs'), path: "https://hamsternet.io/docs/", target: '_bank' },
   // { title: t('header.faucet'), path: "/faucet" },
   // { title: t('header.stake'), path: "/stake" },
   // { title: t('header.cross_chain'), path: "/cross_chain" },
-  { title: 'News', path: "https://hamsternet.medium.com/" },
+  { title: 'News', path: "https://hamsternet.medium.com/", target: '_bank' },
 ])
 
-const drodownShow = ref(false)
 const subMenuDropdownShow = ref(false)
-const drodownShow7 = ref(false)
-const selectedLocale = computed(() => {
-  return localeOptions.find(option => option.value === locale.value)
-})
-const aboutUsOptions = computed(() => {
-  return [
-    { label: t('header.menu7-sub1'), value: 'news' },
-    { label: t('header.menu7-sub2'), value: 'company' }
-  ]
-})
 
-const focusVal = ref()
-const topVal = ref(0)
 const curMenu = ref('')
-const curSubMenu = ref()
-const scrollDown = ref(false)
-const beforeTopVal = ref(0)
-const topBgShow = ref(false)
 
 const device = useDevice()
 const isMobile = device.value.isMobile
@@ -229,21 +238,7 @@ onMounted(() => {
 
 function handleScroll() {
   subMenuDropdownShow.value = false
-  topVal.value = document.body.scrollTop || document.documentElement.scrollTop
-  if (beforeTopVal.value < topVal.value) { // 向下滚动
-    scrollDown.value = true;
-  } else { //向上滚动
-    scrollDown.value = false;
-  }
-  beforeTopVal.value = topVal.value
-  setTopBgValue();
-}
-function setTopBgValue() {
-  if (topVal.value > 0) {
-    topBgShow.value = true
-  } else {
-    topBgShow.value = false
-  }
+  showPhoneMenu.value = false;
 }
 
 const gotoAline = function () {
@@ -290,35 +285,67 @@ onUnmounted(() => {
   @apply -rotate-90;
 }
 
+
+
 .drop-bg {
   background: rgba(255, 255, 255, 0.30141);
   border-radius: 4px;
 }
 
 .menu {
-  @apply cursor-pointer text-[white] leading-[32px] flex items-center;
+  @apply cursor-pointer text-[white] leading-[32px] flex items-center font-light;
+  font-family: Montserrat-Light, Montserrat;
 }
 
 .menu-active {
   @apply text-white !important;
 }
 
-.menu-dropdown-opened {
-  color:#27FFB8;
+.menu-dropdown-opened,.menu-dropdown-hover:hover {
+  color:#5C64FF;
   svg path {
-    fill: #27FFB8;
+    fill: #5C64FF;
   }
 }
+.menu-dropdown-opened{
+  font-family: Montserrat-Medium, Montserrat;
+  font-weight: 500;
+}
 
-.start-today{
-  border: 1px solid white;
-  padding: 5px 18px;
+.menu-hover:hover{
+  /* font-family: Montserrat-Medium, Montserrat;
+  font-weight: 500; */
+  color:#5C64FF;
+}
+
+.box-dropdown{
+  box-shadow: 0px 2px 10px 0px rgba(204,204,215,0.65);
+}
+
+.box-top{
+  width:0px;
+  height:0px;
+  overflow:hidden;
+  border-width:10px;
+  margin-top: -10px;
+  border-color:transparent transparent white transparent;
+  border-style:dashed dashed solid dashed;
+}
+
+.start-today,.btn-css{
+  border: 1px solid #5C64FF;
+  padding: 8px 40px;
+  background: #5C64FF;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: Montserrat-Bold, Montserrat;
 }
 
 @screen md {
   .menu-active {
-    color: #27FFB8 !important;
-    font-weight: 700;
+    color: #5C64FF !important;
+    font-weight: 500;
   }
 }
 
@@ -345,5 +372,50 @@ onUnmounted(() => {
 
 .menu-color {
   @apply text-[#807D7C];
+}
+.ant-menu-vertical.ant-menu-sub{
+  padding: 20px !important;
+  max-height: fit-content !important;
+}
+.ant-menu-opened{
+  font-family: Montserrat-Medium, Montserrat;
+  font-weight: 500;
+  color: #5C64FF;
+  svg path {
+    fill: #5C64FF;
+  }
+}
+
+
+.ant-popover-inner-content{
+  padding: 0px;
+}
+</style>
+<style scoped lang="less">
+@baseColor: #5C64FF;
+:deep(.anticon-down){
+  transform: rotate(0deg);
+  transition: all .3s, visibility 0s;
+}
+:deep(.ant-menu-submenu-open .anticon-down),:deep(.menu-dropdown-opened .anticon-down),
+:deep(.menu-dropdown-hover .anticon-down) {
+  transform: rotate(180deg);
+}
+:deep(.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu:hover::after){
+  border-bottom: none;
+}
+:deep(.ant-menu-submenu-open),
+:deep(.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu:hover){
+  color:@baseColor;
+  svg path {
+    fill: @baseColor;
+  }
+}
+:deep(.ant-menu){
+  color: #FFFFFF;
+  background-color: transparent;
+}
+:deep(.ant-menu-horizontal){
+  border-bottom: none;
 }
 </style>

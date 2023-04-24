@@ -1,5 +1,5 @@
 <template>
-  <div :class="[showContent===true?'block':'hidden'],{'container mx-auto':curMenu!=='abouts'}" class=" text-white">
+  <div :class="[showContent===true?'block':'hidden']" class=" text-white">
     <Head>
       <Title>{{ $t('meta.title') }}</Title>
       <Meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -15,7 +15,7 @@
 </template>
 
 <script setup>
-  import { onMounted, defineProps } from "vue"
+  import { onMounted } from "vue"
   import Header from "./-components/header.vue"
   import Footer from "./-components/footer.vue"
 
@@ -36,8 +36,6 @@
 
   const { getImageURL } = useAssets()
   const { t } = useI18n()
-  const route = useRoute();
-  const curMenu = ref('')
 
   const showContent = ref(false)
 
@@ -69,15 +67,13 @@
 
   onMounted(() => {
     showContent.value = true;
-    curMenu.value = route.path.substring(1);
-    console.log("curMenu:",curMenu.value);
   })
 </script>
 
 <style>
   body {
-    @apply text-[14px];
-    background-color: #141212;
+    @apply text-[16px];
+    /* background-color: #141212; */
     &::-webkit-scrollbar {
       width: 0;
     }
@@ -132,11 +128,75 @@
   .img-center {
     @apply flex items-center justify-center;
   }
-  .area-title {
-    @apply font-bold text-[40px] leading-[47px] mt-[164px] text-center mb-[16px];
-  }
   .fp-watermark{
     display: none;
+  }
+  .font-family-bold{
+    font-family: Montserrat-Bold, Montserrat;
+  }
+  .font-family-extraBold{
+    font-family: Montserrat-ExtraBold, Montserrat;
+  }
+  .font-family-medium{
+    font-family: Montserrat-Medium, Montserrat;
+  }
+  .font-family-light{
+    font-family: Montserrat-Light, Montserrat;
+  }
+  .font-family-regular{
+    font-family: Montserrat-Regular, Montserrat;
+  }
+  .font-family-pf-light{
+    font-family: PingFangSC-Light, PingFang SC;
+  }
+  .area-title{
+    @apply text-[#00044C] text-[25px] font-extrabold md:text-[48px] leading-[30px] md:leading-[60px] mt-[60px] md:mt-[80px];
+    font-family: Montserrat-ExtraBold, Montserrat;
+  }
+
+  .area-desc{
+    @apply text-sm mt-[30px] text-[#40425C] md:text-2xl md:mt-6 font-light;
+    font-family: Montserrat-Light, Montserrat;
+  }
+  
+  .text-color-css{
+    background: linear-gradient(221deg, #40ECE1 0%, #5C64FF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: Montserrat-Bold, Montserrat;
+    width: max-content;
+  }
+
+  .scroll-content{
+    @apply h-[30px] md:h-[50px];
+    overflow: hidden;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+  }
+  .scroll-img{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    position: absolute;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-duration: 30s;
+  }
+  .scroll-fadeout-bg{
+    position: absolute;
+    width: 10%;
+    height: 100%;
+    z-index: 9;
+  }
+  .scroll-fadeout-left{
+    background: linear-gradient(90deg, #FFFFFF 0%, rgba(255,255,255,0) 100%);
+  }
+  .scroll-fadeout-right{
+    background: linear-gradient(270deg, #FFFFFF 0%, rgba(255,255,255,0) 100%);
+    right: 0;
   }
 </style>
 <style lang="less">

@@ -2,8 +2,8 @@
   <div class="download-top-bg main-margin">
     <div class="bg-div-style"></div>
     <div class="flex justify-center items-center text-center sm:text-[20px] -mt-[30px]">
-      <div @click="setType('client')" :class="[activeType === 'client'?'bg-[#27FFB8] text-[#FFFFFF]':'bg-[#FFFFFF] text-[#807D7C]']" class="rounded-l-[8px] download-tab-title">{{ $t('download.client') }}</div>
-      <div @click="setType('provider')" :class="[activeType === 'provider'?'bg-[#27FFB8] text-[#FFFFFF]':'bg-[#FFFFFF] text-[#807D7C]']" class="rounded-r-[8px] download-tab-title">{{ $t('download.provider') }}</div>
+      <div @click="setType('client')" :class="[activeType === 'client'?'bg-[#5C64FF] text-[#FFFFFF]':'bg-[#FFFFFF] text-[#807D7C]']" class="rounded-l-[8px] download-tab-title">{{ $t('download.client') }}</div>
+      <div @click="setType('provider')" :class="[activeType === 'provider'?'bg-[#5C64FF] text-[#FFFFFF]':'bg-[#FFFFFF] text-[#807D7C]']" class="rounded-r-[8px] download-tab-title">{{ $t('download.provider') }}</div>
     </div>
     <div class="mt-[50px] lg:mx-[100px]">
       <Tabs v-model:activeKey="activeKey">
@@ -97,15 +97,15 @@
   @apply justify-center w-1/3;
 }
 .ant-tabs-tab:hover{
-  @apply !text-[#27FFB8]
+  @apply !text-[#5C64FF]
 }
 .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn{
-  @apply !text-[#27FFB8]
+  @apply !text-[#5C64FF]
 }
 .ant-tabs-tab.ant-tabs-tab-disabled {
   @apply !text-gray-500;
 }
 .ant-tabs-ink-bar{
-  @apply !bg-[#27FFB8]
+  @apply !bg-[#5C64FF]
 }
 </style>

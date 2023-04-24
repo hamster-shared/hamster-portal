@@ -7,7 +7,7 @@
       </div>
     </div>
 
-    <div class="grid sm:grid-cols-1 md:grid-cols-3 mt-[64px] xl:gap-[24px] gap-[8px]">
+    <!-- <div class="grid sm:grid-cols-1 md:grid-cols-3 mt-[64px] xl:gap-[24px] gap-[8px]">
       <div class="flex flex-col sm:col-span-1 md:col-span-1 bg-[#191F1C] rounded-[16px] h-[418px] sm:h-auto p-[30px]">
         <BinChart />
       </div>
@@ -41,18 +41,18 @@
       <div class="flex flex-col sm:col-span-1 md:col-span-2 bg-[#191F1C] rounded-[16px] h-[418px] sm:h-auto p-[30px]">
         <StorageHistoryChart />
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 <script setup>
-import BinChart from './components/binChart.vue'
-import BarChart from './components/barChart.vue'
-import AreaChart from './components/areaChart.vue'
-import CPUHistoryChart from './components/CPUHistoryChart.vue';
-import RAMBarChart from './components/RAMBarChart.vue';
-import RAMHistoryChart from './components/RAMHistoryChart.vue'
-import StorageBarChart from './components/storageBarChart.vue';
-import StorageHistoryChart from './components/storageHistoryChart.vue';
+// import BinChart from './components/binChart.vue'
+// import BarChart from './components/barChart.vue'
+// import AreaChart from './components/areaChart.vue'
+// import CPUHistoryChart from './components/CPUHistoryChart.vue';
+// import RAMBarChart from './components/RAMBarChart.vue';
+// import RAMHistoryChart from './components/RAMHistoryChart.vue'
+// import StorageBarChart from './components/storageBarChart.vue';
+// import StorageHistoryChart from './components/storageHistoryChart.vue';
 
 
 definePageMeta({

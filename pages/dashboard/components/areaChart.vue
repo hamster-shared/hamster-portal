@@ -1,4 +1,6 @@
-<template>
+<template></template>
+<script setup></script>
+<!-- <template>
   <div>
     <div class="text-xl font-bold mb-[36px]">·Nodes History</div>
     <div id="area-chart"></div>
@@ -84,4 +86,4 @@ const initChart = () => {
 </script>
 <style scoped>
 
-</style>
+</style> -->

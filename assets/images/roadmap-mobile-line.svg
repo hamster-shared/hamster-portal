@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="277px" height="1198px" viewBox="0 0 277 1198" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>roadmap路径图</title>
+    <defs>
+        <linearGradient x1="49.9999651%" y1="0%" x2="50.0000288%" y2="24.3595103%" id="linearGradient-1">
+            <stop stop-color="#45D5E6" offset="0%"></stop>
+            <stop stop-color="#5393F5" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="0%" y1="50.010407%" x2="100%" y2="50.0017686%" id="linearGradient-2">
+            <stop stop-color="#5973FC" offset="0%"></stop>
+            <stop stop-color="#45D5E6" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="0%" y1="50.010407%" x2="100%" y2="50.0017686%" id="linearGradient-3">
+            <stop stop-color="#5973FC" offset="0%"></stop>
+            <stop stop-color="#5393F5" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="100%" y1="49.9526163%" x2="11.3767164%" y2="50.0473837%" id="linearGradient-4">
+            <stop stop-color="#5973FC" offset="0%"></stop>
+            <stop stop-color="#45D5E6" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="100%" y1="49.9923792%" x2="11.3767164%" y2="50.0076208%" id="linearGradient-5">
+            <stop stop-color="#5973FC" offset="0%"></stop>
+            <stop stop-color="#5393F5" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="100%" y1="49.9923792%" x2="11.3767164%" y2="50.0076208%" id="linearGradient-6">
+            <stop stop-color="#6A8AFA" offset="0%"></stop>
+            <stop stop-color="#5393F5" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="roadmap路径图">
+            <line x1="183" y1="-4.54747351e-13" x2="183" y2="1197.65326" id="路径-5" stroke="url(#linearGradient-1)"></line>
+            <circle id="椭圆形" fill="#49C5EA" cx="183" cy="83" r="7"></circle>
+            <line x1="176.141276" y1="82.9417869" x2="8" y2="82.9417869" id="路径-3" stroke="url(#linearGradient-2)" stroke-dasharray="3"></line>
+            <line x1="176.141276" y1="433.941787" x2="8" y2="433.941787" id="路径-3备份-2" stroke="url(#linearGradient-3)" stroke-dasharray="3"></line>
+            <line x1="176.141276" y1="749.941787" x2="8" y2="749.941787" id="路径-3备份-4" stroke="url(#linearGradient-3)" stroke-dasharray="3"></line>
+            <line x1="176.141276" y1="1041.94179" x2="8" y2="1041.94179" id="路径-3备份-6" stroke="url(#linearGradient-3)" stroke-dasharray="3"></line>
+            <line x1="220.484075" y1="241.941787" x2="188" y2="241.941787" id="路径-3备份" stroke="url(#linearGradient-4)" stroke-dasharray="3"></line>
+            <line x1="269" y1="627.941787" x2="188" y2="627.941787" id="路径-3备份-3" stroke="url(#linearGradient-5)" stroke-dasharray="3"></line>
+            <line x1="269" y1="907.941787" x2="188" y2="907.941787" id="路径-3备份-5" stroke="url(#linearGradient-6)" stroke-dasharray="3"></line>
+            <circle id="椭圆形备份-3" fill="#5875FB" cx="4" cy="83" r="4"></circle>
+            <circle id="椭圆形备份-8" fill="#5976FC" cx="4" cy="434" r="4"></circle>
+            <circle id="椭圆形备份-10" fill="#5876FB" cx="4" cy="750" r="4"></circle>
+            <circle id="椭圆形备份-12" fill="#5976FC" cx="4" cy="1042" r="4"></circle>
+            <circle id="椭圆形备份-7" fill="#548CF7" cx="220" cy="242" r="4"></circle>
+            <circle id="椭圆形备份-9" fill="#5876FB" cx="273" cy="628" r="4"></circle>
+            <circle id="椭圆形备份-11" fill="#6A8AFA" cx="273" cy="908" r="4"></circle>
+            <circle id="椭圆形备份" fill="#50A0F2" cx="183" cy="242" r="7"></circle>
+            <circle id="椭圆形备份-2" fill="#5393F5" cx="183" cy="434" r="7"></circle>
+            <circle id="椭圆形备份-3" fill="#5393F5" cx="183" cy="628" r="7"></circle>
+            <circle id="椭圆形备份-4" fill="#5393F5" cx="183" cy="750" r="7"></circle>
+            <circle id="椭圆形备份-5" fill="#5393F5" cx="183" cy="908" r="7"></circle>
+            <circle id="椭圆形备份-6" fill="#5393F5" cx="183" cy="1041" r="7"></circle>
+        </g>
+    </g>
+</svg>
