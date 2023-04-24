@@ -21,6 +21,7 @@
                 placement="bottom"
                 popper-class="locale-dropdown"
                 :skidding="16"
+                @mouseover="subMenuDropdownShow=true"
               >
                 <div class="cursor-pointer select-none">
                   <div
@@ -46,9 +47,9 @@
                         </a>
                       </div>
                       <div class="hover:text-[#5C64FF]">
-                        <a :href="alineLink" class="flex items-center mr-2">
+                        <a target="_blank" :href="dashboardLink" class="flex items-center mr-2">
                           <img src="~/assets/images/solutions-middleware.svg" class="h-[40px]" />
-                          MiddleWare
+                          Middleware
                         </a>
                       </div>
                     </div>
@@ -68,7 +69,7 @@
                       <div class="hover:text-[#5C64FF]">
                         <a :href="alineLink" class="flex items-center mr-2">
                           <img src="~/assets/images/solutions-middleware.svg" class="h-[40px]" />
-                          MiddleWare
+                          Middleware
                         </a>
                       </div>
                     </div>
@@ -97,7 +98,7 @@
                       <a :href="alineLink">
                         <div class="flex leading-[40px] text-[16px]">
                           <img src="~/assets/images/solutions-middleware.svg" class="h-[40px]" />
-                          <div class="ml-4">MiddleWare</div>
+                          <div class="ml-4">Middleware</div>
                         </div>
                       </a>
                     </MenuItem>
@@ -109,6 +110,7 @@
                   :class="{'menu-active' : `/${curMenu}` === link.path}"
                   class="mx-4 menu-hover"
                   :href="link.path"
+                  :target="link.target"
                  >
                   {{ link.title }}
                 </a>
@@ -147,10 +149,10 @@
               </a>
             </div>
             <div class="my-4">
-              <a :href="alineLink">
+              <a :href="dashboardLink">
                 <span class="text-sm flex items-center">
                   <img src="~/assets/images/solutions-middleware.svg" class="h-[24px] mr-4" />
-                  MiddleWare
+                  Middleware
                 </span>
               </a>
             </div>
@@ -191,6 +193,7 @@ const props = defineProps({
   },
 })
 
+
 const { getImageURL } = useAssets()
 const route = useRoute();
 const { t, locale, availableLocales } = useI18n()
@@ -200,18 +203,19 @@ const localeOptions = availableLocales.map((lang) => {
 })
 
 const alineLink = computed(() => "https://develop.alpha.hamsternet.io/login")
+const dashboardLink = computed(() => "https://develop.alpha.hamsternet.io/chainlink/dashboard")
 
 const navLinks = computed(() => [
   // { title: 'Solutions', path: "/solutions", children: [] },
   // { title: t('header.dashboard'), path: '/dashboard' },
   // { title: 'Grant', path: "" }, //
   // { title: 'Pricing', path: "" }, //
-  { title: 'About', path: "/about" },
-  { title: t('header.docs'), path: "https://hamsternet.io/docs/" },
+  { title: 'About', path: "/about", target: '_self' },
+  { title: t('header.docs'), path: "https://hamsternet.io/docs/", target: '_bank' },
   // { title: t('header.faucet'), path: "/faucet" },
   // { title: t('header.stake'), path: "/stake" },
   // { title: t('header.cross_chain'), path: "/cross_chain" },
-  { title: 'News', path: "https://hamsternet.medium.com/" },
+  { title: 'News', path: "https://hamsternet.medium.com/", target: '_bank' },
 ])
 
 const subMenuDropdownShow = ref(false)
@@ -390,9 +394,11 @@ onUnmounted(() => {
 <style scoped lang="less">
 @baseColor: #5C64FF;
 :deep(.anticon-down){
+  transform: rotate(0deg);
   transition: all .3s, visibility 0s;
 }
-:deep(.ant-menu-submenu-open .anticon-down),:deep(.menu-dropdown-opened .anticon-down) {
+:deep(.ant-menu-submenu-open .anticon-down),:deep(.menu-dropdown-opened .anticon-down),
+:deep(.menu-dropdown-hover .anticon-down) {
   transform: rotate(180deg);
 }
 :deep(.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu:hover::after){

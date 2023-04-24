@@ -22,7 +22,7 @@
           <div class="flex flex-col text-base md:mr-16">
             <span class="inline-block mb-5 cursor-pointer md:hover:text-[#5C64FF]" @click="skipNewUrl('about')">About</span>
             <!-- <span class="md:hover:text-[#27FFB8] cursor-pointer">Grant</span> -->
-            <span class="inline-block mb-5 md:hover:text-[#5C64FF] cursor-pointer">Careers</span>
+            <span class="inline-block mb-5 md:hover:text-[#5C64FF] cursor-pointer" @click="skipNewUrl('Careers')">Careers</span>
             <a href="/roadmap" class="md:hover:text-[#5C64FF] cursor-pointer">Roadmap</a>
           </div>
           <div class="flex flex-col text-base ml-[40px] md:ml-0">
@@ -69,7 +69,7 @@ const skipNewUrl = (val) => {
   if (val === 'github') {
     window.open('https://github.com/hamster-shared')
   } else if (val === 'about') {
-    window.open('/about')
+    window.location.href = '/about';
   } else if (val === 'news') {
     window.open('https://hamsternet.medium.com/')
   }else if (val === 'twitter') {
@@ -78,6 +78,8 @@ const skipNewUrl = (val) => {
     window.open('https://discord.gg/qMWUvs7jkV')
   }else if (val === 'telegram') {
     window.open('https://t.me/hamsternetio')
+  }else if (val === 'Careers') {
+    window.open('https://hamsternet.notion.site/Careers-2c82841516474af285635df8900d4353')
   } else {
     window.open('https://hamsternet.io/docs/')
   }
