@@ -3,11 +3,11 @@
       <div class=" top-bg-color" :class="[{'!bg-bottom' : $device.isMobile},[$device.isMobile ? 'top-bg-phone' : 'top-bg']]">
         <div class="container mx-auto px-5 h-screen flex ">
           <div class="md:flex md:items-center relative">
-            <div class="lg:w-3/5 text-center md:text-left mt-[100px] md:mt-0">
+            <div class=" text-center md:text-left mt-[100px] md:mt-0">
               <div class="text-2xl font-extrabold px-10 md:px-0 md:w-[560px] md:text-[50px] md:leading-[74px] font-family-extraBold">
-                Hamster empowers web3 Explorer to build their dreams
+                Hamster empowers Web3.0 Explorer to build their dreams
               </div>
-              <div class="mt-5 mb-6 text-[16px] md:text-[21px] leading-[21px] md:leading-[30px] font-medium md:font-light text-[#999999] ">One-Stop infrastructure, development, operation and maintenance service platform for projects in Web3.0</div>
+              <div class="mt-5 mb-6 text-[16px] md:text-[21px] md:w-[560px] leading-[21px] md:leading-[30px] font-medium md:font-light text-[#999999] ">One-stop Toolkit and Middleware Platform for Web3.0 Developers</div>
               <div class="hidden mb-6 md:block">
                 <span class="text-[#999999] text-base font-light font-family-light">Investors</span>
                 <img src="./images/waterdrip.png" class="w-[70px] h-[30px] inline-block ml-6"/>
@@ -27,10 +27,10 @@
       <div class="container mx-auto px-5 mb-[60px] md:mb-[160px]">
         <div>
           <div class="text-center">
-            <div class="area-title">Hamster DevOps Solutions</div>
+            <div class="area-title">Hamster DevOps Solution</div>
             <div class="flex  justify-center">
               <div class="area-desc w-[770px]">
-                Hamster offers the integrated approach to build , test and run projects in web3.
+                Hamster offers integrated approach to build , test and run projects in Web3.0.
                 We provide the most flexible platform for developers to turn their blockchain ideas into reality.
               </div>
             </div>
@@ -56,7 +56,7 @@
                       <div class="flex justify-center">
                         <img src="~/assets/images/automate-workflow-logo.svg" class="w-[30px] md:w-[50px]">
                       </div>
-                      <div class="solution-text">Automate Workflow</div>
+                      <div class="solution-text">Automated Workflow</div>
                     </div>
                     <div class="cursor-pointer" @click="goDownload">
                       <div class="flex justify-center">
@@ -94,7 +94,7 @@
         </div>
         <div>
           <div class="text-center">
-            <div class="area-title !mt-0">How Hamster Works</div>
+            <div class="area-title !mt-0">How Hamster works</div>
             <div class="flex justify-center">
               <div class="area-desc w-[770px]">
                 ~35% cost and 40% time of development are saved with support of the Hamster Toolkit
@@ -160,7 +160,7 @@
           <div class="md:flex md:justify-around mt-[60px] md:mt-[100px] text-center">
             <div class="md:flex md:text-left">
               <div class="num-title">1K+</div>
-              <div class="num-desc md:ml-[10px]">Web3 Developers<br>Use Hamster</div>
+              <div class="num-desc md:ml-[10px]">Web3.0 Developers<br>on Hamster</div>
             </div>
             <div class="md:flex md:text-left mt-[40px] md:mt-0">
               <div class="num-title">20+</div>
@@ -171,8 +171,8 @@
               <div class="num-desc md:ml-[10px]">Support Networks</div>
             </div>
             <div class="md:flex md:text-left mt-[40px] md:mt-0">
-              <div class="num-title">2000+</div>
-              <div class="num-desc md:ml-[10px]">Total workflow<br>Executions</div>
+              <div class="num-title">2K+</div>
+              <div class="num-desc md:ml-[10px]">Workflow Executions</div>
             </div>
           </div>
         </div>
