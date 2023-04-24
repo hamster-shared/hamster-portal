@@ -106,7 +106,7 @@
         </div>
         <div>
           <div class="text-center mb-[60px] md:mb-[100px]">
-            <div class="area-title !mt-0">Hamster Ecology</div>
+            <div class="area-title !mt-0">Hamster Ecosystem</div>
             <div class="flex justify-center">
               <div class="area-desc">
                 We support various networks and power leading Web3.0 projects
