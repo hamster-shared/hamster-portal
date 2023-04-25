@@ -178,7 +178,7 @@ const setEchartInit = () => {
         data: monthlyGrowthData.value,
         itemStyle: {
           color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-            { offset: 0, color: '#CAEBFA' },
+            { offset: 0, color: '#BDB2FB' },
             { offset: 1, color: '#5C64FF' }
           ])
         },
