@@ -142,18 +142,14 @@ const setEchartInit = () => {
         axisLine: {
           show: true,
           lineStyle: {
-            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-              { offset: 0, color: '#CAEBFA' },
-              { offset: 1, color: '#5C64FF' }
-            ])
+            color: colors[0]
           }
         },
         axisLabel: {
           // formatter: '{value}'
           formatter: function (value, index) {
             return setShowNumber(value);
-          },
-          color: colors[0]
+          }
         }
       },
       {
