@@ -167,7 +167,7 @@
               <div class="num-desc md:ml-[10px]">Contract/FrontEnd<br>Templates</div>
             </div>
             <div class="md:flex md:text-left mt-[40px] md:mt-0">
-              <div class="num-title">10K</div>
+              <div class="num-title">10+</div>
               <div class="num-desc md:ml-[10px]">Support Networks</div>
             </div>
             <div class="md:flex md:text-left mt-[40px] md:mt-0">
