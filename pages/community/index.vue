@@ -14,10 +14,12 @@
       <div class="md:w-[70%]">
         <EchartLineBar echartsId="developerPie"></EchartLineBar>
       </div>
-      <div class="md:w-[30%]">
-        <EchartPie echartsId="jobPie" :echartsData="jobData" titleText="Job"></EchartPie>
-        <EchartPie echartsId="skillPie" :echartsData="skillData" titleText="Skill"></EchartPie>
-        <EchartPie echartsId="genderPie" :echartsData="genderData" titleText="Gender"></EchartPie>
+      <div class="md:w-[30%] flex justify-center md:justify-end">
+        <div>
+          <EchartPie echartsId="jobPie" :echartsData="jobData" titleText="Job"></EchartPie>
+          <EchartPie echartsId="skillPie" :echartsData="skillData" titleText="Skill"></EchartPie>
+          <EchartPie echartsId="genderPie" :echartsData="genderData" titleText="Gender"></EchartPie>
+        </div>
       </div>
     </div>
       
