@@ -25,7 +25,6 @@
   </div>
 </template>
 <script setup>
-import { onMounted } from "vue";
 import EchartPie from './components/EchartPie.vue';
 import EchartLineBar from './components/EchartLineBar.vue';
 
@@ -57,12 +56,6 @@ const genderData = ref([
   { value: 79427, name: 'Female' },
   { value: 87686, name: 'Unknown' },
 ]);
-
-onMounted(() => {
-  
-})
-
-
 
 </script>
 <style scoped lang="less"> 
