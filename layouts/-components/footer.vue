@@ -35,7 +35,7 @@
               Github
               <!-- <img class="w-[18px] inline-block" :src="getImageURL('transmit.svg')" /> -->
             </div>
-            <div class="cursor-pointer md:hover:text-[#5C64FF]" @click="skipNewUrl('news')">
+            <div class="cursor-pointer md:hover:text-[#5C64FF] md:mb-[43px]" @click="skipNewUrl('news')">
               News
               <!-- <img class="w-[18px] inline-block" :src="getImageURL('transmit.svg')" /> -->
             </div>

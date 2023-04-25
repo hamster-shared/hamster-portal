@@ -1,5 +1,5 @@
 <template>
-  <div :id="echartsId" class="w-[300px] md:w-[350px] h-[300px] md:h-[350px]"></div>
+  <div :id="echartsId" class="w-[300px] h-[200px]"></div>
 </template>
 <script setup>
 import * as echarts from 'echarts';
