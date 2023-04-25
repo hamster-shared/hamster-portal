@@ -72,6 +72,5 @@ const genderData = ref([
     background: #FEFEFE;
     box-shadow: 0px 12px 15px 0px rgba(63,71,157,0.14);
     border-radius: 12px;
-    border: 1px solid #BBC3E3;
   }
 </style>

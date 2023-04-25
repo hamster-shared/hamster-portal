@@ -1,5 +1,5 @@
 <template>
-  <div :id="echartsId" class="w-[300px] md:w-[800px] h-[300px] md:h-[800px]"></div>
+  <div :id="echartsId" class="w-[300px] md:w-[800px] h-[300px] md:h-[1050px]"></div>
 </template>
 <script setup>
 import * as echarts from 'echarts';
@@ -142,14 +142,18 @@ const setEchartInit = () => {
         axisLine: {
           show: true,
           lineStyle: {
-            color: colors[0]
+            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+              { offset: 0, color: '#CAEBFA' },
+              { offset: 1, color: '#5C64FF' }
+            ])
           }
         },
         axisLabel: {
           // formatter: '{value}'
           formatter: function (value, index) {
             return setShowNumber(value);
-          }
+          },
+          color: colors[0]
         }
       },
       {
@@ -175,13 +179,22 @@ const setEchartInit = () => {
       {
         name: 'Monthly growth',
         type: 'bar',
-        data: monthlyGrowthData.value
+        data: monthlyGrowthData.value,
+        itemStyle: {
+          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+            { offset: 0, color: '#CAEBFA' },
+            { offset: 1, color: '#5C64FF' }
+          ])
+        },
       },
       {
         name: 'Total Developers',
         type: 'line',
         yAxisIndex: 1,
-        data: totalNumber.value
+        data: totalNumber.value,
+        itemStyle: {
+          color: colors[1]
+        },
       }
     ]
   });
