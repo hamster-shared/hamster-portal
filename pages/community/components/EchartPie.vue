@@ -30,6 +30,11 @@ onMounted(() => {
     },
     tooltip: {
       trigger: 'item',
+      // formatter: '{a} <br/>{b}: ({d}%)'
+      formatter : function (params) {
+        return params.seriesName + '<br/><div style="display: flex;align-items: center;"><div style="width:10px; height:10px; border-radius:50%;margin-right:5px; background-color:'+params.color+';"></div><div>' + params.name+": "+params.percent+"%</div></div>";
+      }
+          
     },
     legend: {
       orient: 'vertical',
