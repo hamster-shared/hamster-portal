@@ -5,7 +5,7 @@
         <img src="~/assets/images/logo.png" class="h-[60px]"/>
       </div>
       <div class="font-extrabold text-[16px] md:text-[36px] leading-[34px] md:leading-[74px] font-family-extraBold">Get started with Hamster </div>
-      <div class=" mb-[20px] md:mb-[30px] text-[#FFFFFF] leading-[16px] md:leading-[35px] text-[10px] md:text-[18px] font-light md:font-medium font-family-medium">Build your dreams in Web3.0 with ease</div>
+      <div class=" mb-[20px] md:mb-[30px] text-[#FFFFFF] leading-[16px] md:leading-[35px] text-[10px] md:text-[18px] font-light md:font-medium font-family-medium">Realize your dreams on Web3.0 effortlessly</div>
       <button class="btn-css !font-normal !text-[8px] md:!text-[14px]" @click="gotoAline">Start building for free</button>
       <!-- <div id="free-btn">
         <Transition name="free">

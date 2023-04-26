@@ -8,9 +8,9 @@
         </div>
         <div class="md:flex">
           <div class="md:w-[55%] text-center md:text-left">
-            <div class="mt-[10px] mb-[20px] text-[24px] md:text-[48px] leading-[36px] md:leading-[60px] font-extrabold font-family-extraBold text-[#00044C]">Make your Project from idea to production easily</div>
+            <div class="mt-[10px] mb-[20px] text-[24px] md:text-[48px] leading-[36px] md:leading-[60px] font-extrabold font-family-extraBold text-[#00044C]">Double your project efficiency with Hamster Automation</div>
             <div class="text-[16px] md:text-[24px] leading-[21px] md:leading-[30px] font-light text-[#40425C] font-family-light md:w-[500px]">
-            Makes it easy to automate all your web3.0 project workflows. Check, build, and deploy your code right from code repository by Hamster
+            Hamster automates your Web3.0 project workflows seamlessly. Check, build, and deploy your code directly through code repository
             </div>
           </div>
         </div>
@@ -25,9 +25,9 @@
       <div class="md:flex">
         <div class="md:w-2/5 flex items-center md:pr-[40px]">
           <div>
-            <div class="area-title !mt-0">Quickly start Web3.0 project</div>
+            <div class="area-title md:!text-[40px]  !mt-0">Launch your Web3.0 project swiftly</div>
             <img v-if="$device.isMobile" src="~/assets/images/workflow-start.png" class="w-full mt-[40px]" />
-            <div class="area-desc">Get Start your Own Contract/FrontEnd quickly with best practices from partners and the community.</div>
+            <div class="area-desc">Build your smart contract and frontend efficiently through following the best practices from our partners and community</div>
           </div>
         </div>
         <div v-if="!$device.isMobile" class="md:w-3/5 md:pl-[30px]">
@@ -42,9 +42,9 @@
         </div>
         <div class="md:w-1/3 flex items-center">
           <div>
-            <div class="area-title !mt-0">Automate build Web3.0 project</div>
+            <div class="area-title md:!text-[40px] !mt-0">Smart Automation, Web3.0 at Your Command</div>
             <img v-if="$device.isMobile" src="~/assets/images/workflow-build.png" class="w-full mt-[40px]" />
-            <div class="area-desc">Set up tasks and combine them to automate all your software development workflows for saving time and cost.</div>
+            <div class="area-desc">Configure tasks and assemble them to fully automate your software development workflows, saving time and cost</div>
           </div>
         </div>
       </div>
@@ -53,9 +53,9 @@
       <div class="md:flex">
         <div class="md:w-1/3 md:pt-[50px]">
           <div>
-            <div class="area-title !mt-0">Secure Web3.0 project</div>
+            <div class="area-title md:!text-[40px] !mt-0">Secure Your Web3.0 Project in Every Way</div>
             <img v-if="$device.isMobile" src="~/assets/images/workflow-secure.gif" class="w-full mt-[40px]" />
-            <div class="area-desc">Combines multiple state-of-art security scanning engines into Hamster workflow, securing every aspect of your Web3.0 project</div>
+            <div class="area-desc">Multiple cutting-edge security scanning engines safeguard every part of your Web3.0 project</div>
           </div>
         </div>
         <div v-if="!$device.isMobile" class="md:w-2/3">
@@ -70,9 +70,9 @@
         </div>
         <div class="md:w-1/3 flex items-center">
           <div>
-            <div class="area-title !mt-0">Manage Web3.0 project </div>
+            <div class="area-title md:!text-[40px] !mt-0">Streamline Your Project Operations</div>
             <img v-if="$device.isMobile" src="~/assets/images/workflow-manage.png" class="w-full mt-[40px]" />
-            <div class="area-desc">A deployment workflow designed for you to ship contracts on-chain effortlessly</div>
+            <div class="area-desc">Gain full visibility into your project's performance with the Hamster dashboard and enable online optimization for seamless post-launch management</div>
           </div>
         </div>
       </div>
