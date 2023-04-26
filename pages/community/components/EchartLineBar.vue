@@ -21,7 +21,6 @@ const monthAbbr = ref(['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', '
 const baseNumber = ref(189649);
 const monthlyGrowthData = ref([ 0, 15175, 9911, 7854, 9509, 9723, 9856, 6991, 6442, 3932, 8875, 13165, 11696, 13010, 16297, 15475, 13356, 15212, 11390, 12535, 7915, 4814, 3771, 4300, 2863 ])
 const totalNumber = ref([]);
-const random = Math.floor(Math.random() * (1.3 - 0.7 + 1)) + 0.7;
 const baseYear = ref(2023);
 const baseMonth = ref(4);
 
@@ -33,19 +32,15 @@ onMounted(() => {
 const setGrowthData = () => {
   const timeOne = new Date()
   const year = timeOne.getFullYear();
-  const yearAbbr = year.toString().substring(2, 4);
-  let month = timeOne.getMonth() + 1;
+  const month = timeOne.getMonth() + 1;
+  let yearAbbr = year.toString().substring(2, 4);
   if (year === baseYear.value && month > baseMonth.value || year > baseYear.value || 1) {
-    //设置是增长数据
-    let tempNum = 2;  //(year - 2023) * 12 + (month - 4);
     if (year > baseYear.value) {
-      //@todo
       let tempYear = year - baseYear.value;
       for (let i = 0; i <= tempYear; i++) {
         yearAbbr = (baseYear.value + i).toString().substring(2, 4);
         if (i === 0) {
-          tempNum = 12 - baseMonth.value;
-          for (let i = 0; i < tempNum; i++) {
+          for (let i = 0; i < 12 - baseMonth.value; i++) {
             setNewData(i, yearAbbr);
           }
         } else if(i === tempYear){
@@ -58,16 +53,16 @@ const setGrowthData = () => {
           }
         }
       }
-    } else {
-      tempNum = month - baseMonth.value;
-      for (let i = 0; i < tempNum; i++) {
-        setNewData(month + i, yearAbbr);
+    } else { 
+      for (let i = 0; i < month - baseMonth.value; i++) {
+        setNewData(baseMonth.value + i, yearAbbr);
       }
     }
     setTotalNumber();
-    monthlyGrowthData.value.splice(0, tempNum)
-    xAxisData.value.splice(0, tempNum)
-    totalNumber.value.splice(0, tempNum)
+    let tempMonth = (year - baseYear.value) * 12 + (month - baseMonth.value);
+    monthlyGrowthData.value.splice(0, tempMonth)
+    xAxisData.value.splice(0, tempMonth)
+    totalNumber.value.splice(0, tempMonth)
   } else {
     totalNumber();
   }
@@ -75,7 +70,8 @@ const setGrowthData = () => {
 
 const setNewData = (i, yearAbbr) => {
   xAxisData.value.push(monthAbbr.value[i] + '-' + yearAbbr);
-  monthlyGrowthData.value.push(3000*random);
+  let random = (Math.random() * (1.3 - 0.7) + 0.7).toFixed(1);
+  monthlyGrowthData.value.push(parseInt(3000*random));
 }
 
 const setTotalNumber = () => {
