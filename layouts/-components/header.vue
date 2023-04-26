@@ -13,7 +13,30 @@
             <img @click="showPhoneMenu = true;" v-if="isMobile" class="h-4 ml-[82vw]"
               src="~/assets/images/head-menu-down.svg">
             <div v-else class="menu">
-              <VDropdown
+              <div>
+                <div>
+                  <div @mouseleave="menuMouseLeave"  @mouseenter="subMenuDropdownShow=true" :class="{'menu-dropdown-opened':subMenuDropdownShow}" class="flex items-center px-4 menu-dropdown-hover">Solutions<DownOutlined class="ml-2" /></div>
+                  <div :class="[subMenuDropdownShow === true ? 'block' :'hidden']" class="absolute z-[999] text-[#00044C] text-[16px] font-medium font-family-medium pt-[10px]">
+                    <div @mouseleave="subMenuMouseLeave" @mouseenter="subMenuMouseEnter" class=" box-dropdown w-max">
+                      <div class="bg-[white] p-[20px] rounded-[5px] text-base">
+                        <div class="pb-[20px] hover:text-[#5C64FF]">
+                          <a href="/workflow" class="flex items-center mr-2" :class="{'menu-active' : `/${curMenu}` === '/workflow'}">
+                            <img src="~/assets/images/solutions-workflow.svg" class="h-[40px] mr-4" />
+                            Automated Workflow
+                          </a>
+                        </div>
+                        <div class="hover:text-[#5C64FF]">
+                          <a target="_blank" :href="dashboardLink" class="flex items-center mr-2">
+                            <img src="~/assets/images/solutions-middleware.svg" class="h-[40px] mr-4" />
+                            Middleware
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- <VDropdown
                 auto-hide
                 v-model:shown="subMenuDropdownShow"
                 :triggers="['click']"
@@ -55,55 +78,7 @@
                     </div>
                   </div>
                 </template>
-              </VDropdown>
-              <!-- <Popover trigger="hover">
-                <template #content>
-                  <div class=" box-dropdown max-w-[400px]">
-                    <div class="bg-[white] p-[20px] rounded-[5px] text-base">
-                      <div class="pb-[20px] hover:text-[#5C64FF]">
-                        <a href="/workflow" class="flex items-center mr-2" :class="{'menu-active' : `/${curMenu}` === '/workflow'}">
-                          <img src="~/assets/images/solutions-workflow.svg" class="h-[40px]" />
-                          Automated Workflow
-                        </a>
-                      </div>
-                      <div class="hover:text-[#5C64FF]">
-                        <a :href="alineLink" class="flex items-center mr-2">
-                          <img src="~/assets/images/solutions-middleware.svg" class="h-[40px]" />
-                          Middleware
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </template>
-                <div class="flex items-center">
-                  Solutions <DownOutlined class="ml-2" />
-                </div>
-              </Popover> -->
-              <!-- <Menu class="!p-4" mode="horizontal">
-                <SubMenu key="Solutions" :class="{'ant-menu-opened' : `/${curMenu}` === '/workflow'}">
-                  <template #title>
-                    <div class="flex items-center">
-                      Solutions <DownOutlined class="ml-2" />
-                    </div>
-                  </template>
-                  <MenuItem key="workflow">
-                      <a href="/workflow" :class="{'menu-active' : `/${curMenu}` === '/workflow'}">
-                        <div class="flex leading-[40px] text-[16px]">
-                          <img src="~/assets/images/solutions-workflow.svg" class="h-[40px]" />
-                          <div class="ml-4">Automated Workflow</div>
-                        </div>
-                      </a>
-                    </MenuItem>
-                    <MenuItem>
-                      <a :href="alineLink">
-                        <div class="flex leading-[40px] text-[16px]">
-                          <img src="~/assets/images/solutions-middleware.svg" class="h-[40px]" />
-                          <div class="ml-4">Middleware</div>
-                        </div>
-                      </a>
-                    </MenuItem>
-                </SubMenu>
-              </Menu> -->
+              </VDropdown> -->
               <div>
                 <a v-for="link in navLinks"
                   :key="link.path"
@@ -219,6 +194,7 @@ const navLinks = computed(() => [
 ])
 
 const subMenuDropdownShow = ref(false)
+const subMenuDropdownHover = ref(false)
 
 const curMenu = ref('')
 
@@ -236,8 +212,22 @@ onMounted(() => {
   }
 })
 
+const menuMouseLeave = () => {
+  setTimeout(() => {
+    subMenuDropdownShow.value = subMenuDropdownHover.value;
+  }, 100);
+}
+
+const subMenuMouseLeave = () => {
+  subMenuDropdownShow.value = false;
+  subMenuDropdownHover.value = false;
+}
+
+const subMenuMouseEnter = () => {
+  subMenuDropdownHover.value = true;
+}
+
 function handleScroll() {
-  subMenuDropdownShow.value = false
   showPhoneMenu.value = false;
 }
 
@@ -398,7 +388,7 @@ onUnmounted(() => {
   transition: all .3s, visibility 0s;
 }
 :deep(.ant-menu-submenu-open .anticon-down),:deep(.menu-dropdown-opened .anticon-down),
-:deep(.menu-dropdown-hover .anticon-down) {
+:deep(.menu-dropdown-hover:hover .anticon-down) {
   transform: rotate(180deg);
 }
 :deep(.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu:hover::after){
