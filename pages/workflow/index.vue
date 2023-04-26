@@ -40,8 +40,8 @@
         <div v-if="!$device.isMobile" class="md:w-2/3 md:pr-[40px]">
           <img src="~/assets/images/workflow-build.png" class="w-full" />
         </div>
-        <div class="md:w-1/3 flex items-center">
-          <div>
+        <div class="md:w-1/3">
+          <div class="pt-[20px]">
             <div class="area-title md:!text-[40px] !mt-0">Smart Automation, Web3.0 at Your Command</div>
             <img v-if="$device.isMobile" src="~/assets/images/workflow-build.png" class="w-full mt-[40px]" />
             <div class="area-desc">Configure tasks and assemble them to fully automate your software development workflows, saving time and cost</div>
@@ -68,8 +68,8 @@
         <div v-if="!$device.isMobile" class="md:w-2/3 md:pr-[80px]">
           <img src="~/assets/images/workflow-manage.png" class="w-full" />
         </div>
-        <div class="md:w-1/3 flex items-center">
-          <div>
+        <div class="md:w-1/3">
+          <div class="pt-[40px]">
             <div class="area-title md:!text-[40px] !mt-0">Streamline Your Project Operations</div>
             <img v-if="$device.isMobile" src="~/assets/images/workflow-manage.png" class="w-full mt-[40px]" />
             <div class="area-desc">Gain full visibility into your project's performance with the Hamster dashboard and enable online optimization for seamless post-launch management</div>
