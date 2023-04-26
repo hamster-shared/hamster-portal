@@ -85,7 +85,7 @@
                   :class="{'menu-active' : `/${curMenu}` === link.path}"
                   class="mx-4 menu-hover"
                   :href="link.path"
-                  :target="link.target"
+                  :target="[link.title === 'About' ? '_self' : '_blank']"
                  >
                   {{ link.title }}
                 </a>
