@@ -29,9 +29,8 @@
           <div class="text-center">
             <div class="area-title">Hamster DevOps Solution</div>
             <div class="flex  justify-center">
-              <div class="area-desc w-[770px]">
-                Hamster offers integrated approach to build , test and run projects in Web3.0.
-                We provide the most flexible platform for developers to turn their blockchain ideas into reality.
+              <div class="area-desc md:w-[770px]">
+                Hamster offers the comprehensive approach to develop projects in Web3.0. We provide a developer-friendly platform for developers to build their blockchain ideas
               </div>
             </div>
           </div>
@@ -96,8 +95,8 @@
           <div class="text-center">
             <div class="area-title !mt-0">How Hamster works</div>
             <div class="flex justify-center">
-              <div class="area-desc w-[770px]">
-                ~35% cost and 40% time of development are saved with support of the Hamster Toolkit
+              <div class="area-desc md:w-[770px]">
+                Up to 35% of costs and 40% of development time is saved by using the Hamster Toolkit.
               </div>
             </div>
           </div>
@@ -108,8 +107,8 @@
           <div class="text-center mb-[60px] md:mb-[100px]">
             <div class="area-title !mt-0">Hamster Ecosystem</div>
             <div class="flex justify-center">
-              <div class="area-desc">
-                We support various networks and power leading Web3.0 projects
+              <div class="area-desc md:w-[770px]">
+                We support major blockchains and empower leading decentralized applications
               </div>
             </div>
           </div>
@@ -182,7 +181,11 @@
       <div class="container mx-auto px-5">
         <div class="text-center mb-8 md:mb-0">
           <div class="area-title">Trending News</div>
-          <div class="area-desc">We support various networks and power leading Web3.0 projects</div>
+          <div class="flex justify-center">
+            <div class="area-desc md:w-[770px]">
+              We support major blockchains and empower leading decentralized applications
+            </div>
+          </div>
         </div>
         <div class="md:my-12 md:px-0">
           <div class="md:gap-6 md:grid md:grid-cols-12">

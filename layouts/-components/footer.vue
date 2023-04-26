@@ -23,7 +23,8 @@
             <span class="inline-block mb-5 cursor-pointer md:hover:text-[#5C64FF]" @click="skipNewUrl('about')">About</span>
             <!-- <span class="md:hover:text-[#27FFB8] cursor-pointer">Grant</span> -->
             <span class="inline-block mb-5 md:hover:text-[#5C64FF] cursor-pointer" @click="skipNewUrl('Careers')">Careers</span>
-            <a href="/roadmap" class="md:hover:text-[#5C64FF] cursor-pointer">Roadmap</a>
+            <a href="/roadmap" class="md:hover:text-[#5C64FF] cursor-pointer mb-5">Roadmap</a>
+            <a href="/community" class="md:hover:text-[#5C64FF] cursor-pointer">Community</a>
           </div>
           <div class="flex flex-col text-base ml-[40px] md:ml-0">
             <div class="inline-block mb-5 cursor-pointer md:hover:text-[#5C64FF]" @click="skipNewUrl('docs')">
@@ -34,7 +35,7 @@
               Github
               <!-- <img class="w-[18px] inline-block" :src="getImageURL('transmit.svg')" /> -->
             </div>
-            <div class="cursor-pointer md:hover:text-[#5C64FF]" @click="skipNewUrl('news')">
+            <div class="cursor-pointer md:hover:text-[#5C64FF] md:mb-[43px]" @click="skipNewUrl('news')">
               News
               <!-- <img class="w-[18px] inline-block" :src="getImageURL('transmit.svg')" /> -->
             </div>
