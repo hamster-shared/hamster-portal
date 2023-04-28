@@ -264,9 +264,9 @@ import 'animate.css';
     }
   }
 
-  const alineLink = computed(() => "https://develop.alpha.hamsternet.io/")
+  const alineLink = ref('')
   const gotoAline = () => {
-    window.location.href = alineLink.value
+    window.open(alineLink.value);
   }
   const goDownload = () => {
     // window.open("https://hamsternet.io/download");
@@ -279,7 +279,11 @@ import 'animate.css';
   onMounted(()=>{
     // Init fullpage
     try {
-
+      if (window.location.href.indexOf('hamsternet.io') !== -1) {
+        alineLink.value = "https://develop.alpha.hamsternet.io";
+      } else {
+        alineLink.value = "https://develop.hamster.newtouch.com";
+      }
       // getEcology();
       getArticles();
     } catch (error) {

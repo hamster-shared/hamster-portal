@@ -101,12 +101,17 @@ import StartBuild from "../index/components/StartBuild.vue";
 
 const { getImageURL } = useAssets()
 
-
-
-const alineLink = computed(() => "https://develop.alpha.hamsternet.io/")
+const alineLink = ref('')
 const gotoAline = () => {
   window.open(alineLink.value);
 }
+onMounted(()=>{
+  if (window.location.href.indexOf('hamsternet.io') !== -1) {
+    alineLink.value = "https://develop.alpha.hamsternet.io";
+  } else {
+    alineLink.value = "https://develop.hamster.newtouch.com";
+  }
+})
 </script>
 
 <style lang="less" scoped>
