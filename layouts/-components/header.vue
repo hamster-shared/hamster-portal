@@ -36,56 +36,13 @@
                   </div>
                 </div>
               </div>
-              <!-- <VDropdown
-                auto-hide
-                v-model:shown="subMenuDropdownShow"
-                :triggers="['click']"
-                :distance="10"
-                placement="bottom"
-                popper-class="locale-dropdown"
-                :skidding="16"
-                @mouseover="subMenuDropdownShow=true"
-              >
-                <div class="cursor-pointer select-none">
-                  <div
-                    class="px-4 h-[32px] text-base flex justify-center items-center menu-dropdown-hover"
-                    :class="{'menu-dropdown-opened': subMenuDropdownShow || `/${curMenu}` === '/workflow'}"
-                  >
-                    <div>Solutions</div>
-                    <div class="h-2 ml-2" :class="{'rotate-dropdown-icon': subMenuDropdownShow}">
-                      <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M1.81261 0.348328L7.05525 5.59097L5.99459 6.65163L0.751953 1.40899L1.81261 0.348328Z" fill="white"/>
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M4.9452 5.59096L10.1878 0.348323L11.2485 1.40898L6.00586 6.65162L4.9452 5.59096Z" fill="white"/>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-                <template #popper>
-                  <div class=" box-dropdown max-w-[400px]">
-                    <div class="bg-[white] p-[20px] rounded-[5px] text-base">
-                      <div class="pb-[20px] hover:text-[#5C64FF]">
-                        <a href="/workflow" class="flex items-center mr-2" :class="{'menu-active' : `/${curMenu}` === '/workflow'}">
-                          <img src="~/assets/images/solutions-workflow.svg" class="h-[40px]" />
-                          Automated Workflow
-                        </a>
-                      </div>
-                      <div class="hover:text-[#5C64FF]">
-                        <a target="_blank" :href="dashboardLink" class="flex items-center mr-2">
-                          <img src="~/assets/images/solutions-middleware.svg" class="h-[40px]" />
-                          Middleware
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </template>
-              </VDropdown> -->
               <div>
                 <a v-for="link in navLinks"
                   :key="link.path"
                   :class="{'menu-active' : `/${curMenu}` === link.path}"
                   class="mx-4 menu-hover"
-                  :href="link.path"
-                  :target="[link.title === 'About' ? '_self' : '_blank']"
+                  @click="openNewUrl(link.title, link.path)"
+                  href="#"
                  >
                   {{ link.title }}
                 </a>
@@ -236,6 +193,13 @@ const gotoAline = function () {
   w.location.href = alineLink.value
 }
 
+const openNewUrl = (val, link) => {
+  if (val === 'About') {
+    window.location.href = link;
+  } else {
+    window.open(link);
+  }
+}
 
 onMounted(() => {
   window.addEventListener("scroll", handleScroll)
