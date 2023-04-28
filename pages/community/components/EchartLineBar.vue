@@ -40,23 +40,15 @@ const setGrowthData = () => {
       for (let i = 0; i <= tempYear; i++) {
         yearAbbr = (baseYear.value + i).toString().substring(2, 4);
         if (i === 0) {
-          for (let i = 0; i < 12 - baseMonth.value; i++) {
-            setNewData(i, yearAbbr);
-          }
+          setNewData(baseMonth.value, 12, yearAbbr);
         } else if(i === tempYear){
-          for (let i = 0; i < month; i++) {
-            setNewData(i, yearAbbr);
-          }
+          setNewData(0, month, yearAbbr);
         } else {
-          for (let i = 0; i < 12; i++) {
-            setNewData(i, yearAbbr);
-          }
+          setNewData(0, 12, yearAbbr);
         }
       }
     } else { 
-      for (let i = 0; i < month - baseMonth.value; i++) {
-        setNewData(baseMonth.value + i, yearAbbr);
-      }
+      setNewData(baseMonth.value, month, yearAbbr);
     }
     setTotalNumber();
     let tempMonth = (year - baseYear.value) * 12 + (month - baseMonth.value);
@@ -68,10 +60,12 @@ const setGrowthData = () => {
   }
 }
 
-const setNewData = (i, yearAbbr) => {
-  xAxisData.value.push(monthAbbr.value[i] + '-' + yearAbbr);
-  let random = (Math.random() * (1.3 - 0.7) + 0.7).toFixed(1);
-  monthlyGrowthData.value.push(parseInt(3000*random));
+const setNewData = (start, end, yearAbbr) => {
+  for (let i = start; i < end; i++) {
+    xAxisData.value.push(monthAbbr.value[i] + '-' + yearAbbr);
+    let random = (Math.random() * (1.3 - 0.7) + 0.7).toFixed(1);
+    monthlyGrowthData.value.push(parseInt(3000*random));
+  }
 }
 
 const setTotalNumber = () => {

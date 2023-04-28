@@ -6,7 +6,7 @@
           <div class="text-color-css">OUR MISSION</div>
         </div>
         <div class="text-[16px] md:text-[24px] leading-[21px] md:leading-[35px] font-medium md:font-light text-[#FFFFFF] font-family-light flex justify-center">
-          <div class="md:w-[796px]">One-Stop infrastructure, Developer Toolkit DevOps Framework in Web3.0, achieving automatic code/contract writing, build, check, deployment and more, empowering projects in Web3.0 to improve their coding and delivery speed, quality and efficiency, as well as product reliability & safety.</div>
+          <div class="md:w-[796px]">One-Stop infrastructure, Developer Toolkit DevOps Framework in Web3.0, achieving automatic code/contract writing, build, check, deployment and more, empowering projects in Web3.0 to improve their coding and delivery speed, quality and efficiency, as well as product reliability & safety</div>
         </div>
       </div>
     </div>
@@ -67,7 +67,7 @@
             <div class="area-title !mt-0 mb-[40px] md:mb-[20px]">Core Dev Team</div>
             <img src="~/assets/images/about-team-img.png" class="w-full inline-block md:hidden"/>
             <div class="area-desc flex justify-center">
-            Formal Fintech listed company's most elite cloud computing & blockchain team, having been proved privacy professional in most sensitive Fintech DevOps: 6000+ DevOps & 1000+ Fintech Projects simultaneously in the past 20 yrs+.
+            Formal Fintech listed company's most elite cloud computing & blockchain team, having been proved privacy professional in most sensitive Fintech DevOps: 6000+ DevOps & 1000+ Fintech Projects simultaneously in the past 20 yrs+
             </div>
           </div>
         </div>

@@ -96,7 +96,7 @@
             <div class="area-title !mt-0">How Hamster works</div>
             <div class="flex justify-center">
               <div class="area-desc md:w-[770px]">
-                Up to 35% of costs and 40% of development time is saved by using the Hamster Toolkit.
+                Up to 35% of costs and 40% of development time is saved by using the Hamster Toolkit
               </div>
             </div>
           </div>
@@ -264,9 +264,9 @@ import 'animate.css';
     }
   }
 
-  const alineLink = computed(() => "https://develop.alpha.hamsternet.io/")
+  const alineLink = ref('')
   const gotoAline = () => {
-    window.location.href = alineLink.value
+    window.open(alineLink.value);
   }
   const goDownload = () => {
     // window.open("https://hamsternet.io/download");
@@ -279,7 +279,11 @@ import 'animate.css';
   onMounted(()=>{
     // Init fullpage
     try {
-
+      if (window.location.href.indexOf('hamsternet.io') !== -1) {
+        alineLink.value = "https://develop.alpha.hamsternet.io";
+      } else {
+        alineLink.value = "https://develop.hamster.newtouch.com";
+      }
       // getEcology();
       getArticles();
     } catch (error) {
