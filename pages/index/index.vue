@@ -96,7 +96,7 @@
             <div class="area-title !mt-0">How Hamster works</div>
             <div class="flex justify-center">
               <div class="area-desc md:w-[770px]">
-                Up to 35% of costs and 40% of development time is saved by using the Hamster Toolkit.
+                Up to 35% of costs and 40% of development time is saved by using the Hamster Toolkit
               </div>
             </div>
           </div>
