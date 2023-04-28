@@ -110,8 +110,6 @@
 
 <script setup>
 import { computed, ref } from "vue"
-import { Popover } from 'ant-design-vue'
-// import { Menu , MenuItem, SubMenu } from 'ant-design-vue';
 import { DownOutlined} from '@ant-design/icons-vue';
 
 const props = defineProps({
@@ -134,8 +132,9 @@ const localeOptions = availableLocales.map((lang) => {
   return { name, value: lang }
 })
 
-const alineLink = computed(() => "https://develop.alpha.hamsternet.io/login")
-const dashboardLink = computed(() => "https://develop.alpha.hamsternet.io/chainlink/dashboard")
+const linkValue = ref('');
+const alineLink = computed(() => linkValue.value + "/login")
+const dashboardLink = computed(() => linkValue.value + "/chainlink/dashboard")
 
 const navLinks = computed(() => [
   // { title: 'Solutions', path: "/solutions", children: [] },
@@ -206,6 +205,12 @@ onMounted(() => {
   handleScroll();
 
   curMenu.value = route.path.substring(1);
+
+  if (window.location.href.indexOf('hamsternet.io') !== -1) {
+    linkValue.value = "https://develop.alpha.hamsternet.io";
+  } else {
+    linkValue.value = "https://develop.hamster.newtouch.com";
+  }
 })
 onUnmounted(() => {
   window.removeEventListener("scroll", handleScroll)
