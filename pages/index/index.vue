@@ -132,26 +132,28 @@
               </div>
               <div class="scroll-content my-[30px] md:my-[50px]">
                 <div class="scroll-img" :class="[$device.isMobile ? 'scroll-two-phone1' : 'scroll-two1']">
-                  <img class="ecology-img mx-5" v-for="(item, index) in 8" :key="index" :src="getImageURL(`Infrastructure-${item}.png`)"/>
+                  <img class="ecology-img mx-5" v-for="(item, index) in 9" :key="index" :src="getImageURL(`Infrastructure-${item}.png`)"/>
                 </div>
                 <div class="scroll-img" :class="[$device.isMobile ? 'scroll-two-phone2' : 'scroll-two2']">
-                  <img class="ecology-img mx-5" v-for="(item, index) in 8" :key="index" :src="getImageURL(`Infrastructure-${item}.png`)"/>
+                  <img class="ecology-img mx-5" v-for="(item, index) in 9" :key="index" :src="getImageURL(`Infrastructure-${item}.png`)"/>
                 </div>
               </div>
               <div class="scroll-content">
                 <div class=" scroll-img" :class="[$device.isMobile ? 'scroll-three-phone1' : 'scroll-three1']">
-                  <img class="ecology-img mx-5" v-for="(item, index) in 8" :key="index" :src="getImageURL(`Security-${item}.png`)"/>
+                  <img class="ecology-img mx-5" v-for="(item, index) in 5" :key="index" :src="getImageURL(`Security-${item}.png`)"/>
+                  <img class="ecology-img mx-5" v-for="(item, index) in 5" :key="index" :src="getImageURL(`Security-${item}.png`)"/>
                 </div>
                 <div class=" scroll-img" :class="[$device.isMobile ? 'scroll-three-phone2' : 'scroll-three2']">
-                  <img class="ecology-img mx-5" v-for="(item, index) in 8" :key="index" :src="getImageURL(`Security-${item}.png`)"/>
+                  <img class="ecology-img mx-5" v-for="(item, index) in 5" :key="index" :src="getImageURL(`Security-${item}.png`)"/>
+                  <img class="ecology-img mx-5" v-for="(item, index) in 5" :key="index" :src="getImageURL(`Security-${item}.png`)"/>
                 </div>
               </div>
               <div class="scroll-content mt-[30px] md:mt-[50px]">
                 <div class=" scroll-img" :class="[$device.isMobile ? 'scroll-four-phone1' : 'scroll-four1']">
-                  <img class="ecology-img mx-5" v-for="(item, index) in 10" :key="index" :src="getImageURL(`Community-${item}.png`)"/>
+                  <img class="ecology-img mx-5" v-for="(item, index) in 6" :key="index" :src="getImageURL(`Community-${item}.png`)"/>
                 </div>
                 <div class=" scroll-img" :class="[$device.isMobile ? 'scroll-four-phone2' : 'scroll-four2']">
-                  <img class="ecology-img mx-5" v-for="(item, index) in 10" :key="index" :src="getImageURL(`Community-${item}.png`)"/>
+                  <img class="ecology-img mx-5" v-for="(item, index) in 6" :key="index" :src="getImageURL(`Community-${item}.png`)"/>
                 </div>
               </div>
             </div>
@@ -385,12 +387,12 @@ import 'animate.css';
   animation-name: scrollTwo2;
 }
 @keyframes scrollTwo1{
-  0%{left: 1293px; top: 0px;}
+  0%{left: 1518px; top: 0px;}
   100%{left: 0px; top: 0px;}
 }
 @keyframes scrollTwo2{
   0%{left: 0px; top: 0px;}
-  100%{left: -1293px; top: 0px;}
+  100%{left: -1518px; top: 0px;}
 }
 .scroll-two-phone1{
   animation-name: scrollTwoPhone1
@@ -399,12 +401,12 @@ import 'animate.css';
   animation-name: scrollTwoPhone2
 }
 @keyframes scrollTwoPhone1{
-  0%{left: 905px; top: 0px;}
+  0%{left: 1056px; top: 0px;}
   100%{left: 0px; top: 0px;}
 }
 @keyframes scrollTwoPhone2{
   0%{left: 0px; top: 0px;}
-  100%{left: -905px; top: 0px;}
+  100%{left: -1056px; top: 0px;}
 }
 .scroll-three1{
   animation-name: scrollThree1;
@@ -414,10 +416,10 @@ import 'animate.css';
 }
 @keyframes scrollThree1{
   0%{left: 0px; top: 0px;}
-  100%{left: 1442px; top: 0px;}
+  100%{left: 1802px; top: 0px;}
 }
 @keyframes scrollThree2{
-  0%{left: -1442px; top: 0px;}
+  0%{left: -1802px; top: 0px;}
   100%{left: 0px; top: 0px;}
 }
 .scroll-three-phone1{
@@ -428,10 +430,10 @@ import 'animate.css';
 }
 @keyframes scrollThreePhone1{
   0%{left: 0px; top: 0px;}
-  100%{left: 994px; top: 0px;}
+  100%{left: 1242px; top: 0px;}
 }
 @keyframes scrollThreePhone2{
-  0%{left: -994px; top: 0px;}
+  0%{left: -1242px; top: 0px;}
   100%{left: 0px; top: 0px;}
 }
 .scroll-four1{
@@ -441,12 +443,12 @@ import 'animate.css';
   animation-name: scrollFour2;
 }
 @keyframes scrollFour1{
-  0%{left: 1656px; top: 0px;}
+  0%{left: 1005px; top: 0px;}
   100%{left: 0px; top: 0px;}
 }
 @keyframes scrollFour2{
   0%{left: 0px; top: 0px;}
-  100%{left: -1656px; top: 0px;}
+  100%{left: -1005px; top: 0px;}
 }
 .scroll-four-phone1{
   animation-name: scrollFourPhone1;
@@ -455,12 +457,12 @@ import 'animate.css';
   animation-name: scrollFourPhone2;
 }
 @keyframes scrollFourPhone1{
-  0%{left: 1154px; top: 0px;}
+  0%{left: 699px; top: 0px;}
   100%{left: 0px; top: 0px;}
 }
 @keyframes scrollFourPhone2{
   0%{left: 0px; top: 0px;}
-  100%{left: -1154px; top: 0px;}
+  100%{left: -699px; top: 0px;}
 }
 .num-title{
   font-size: 60px;
