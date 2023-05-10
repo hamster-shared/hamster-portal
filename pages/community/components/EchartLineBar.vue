@@ -32,7 +32,7 @@ onMounted(() => {
 const setGrowthData = () => {
   const timeOne = new Date()
   const year = timeOne.getFullYear();
-  const month = timeOne.getMonth() + 1;
+  const month = timeOne.getMonth(); //不显示当前月份数据
   let yearAbbr = year.toString().substring(2, 4);
   if (year === baseYear.value && month > baseMonth.value || year > baseYear.value || 1) {
     if (year > baseYear.value) {
