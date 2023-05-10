@@ -192,7 +192,7 @@
         <div class="md:my-12 md:px-0">
           <div class="md:gap-6 md:grid md:grid-cols-12">
             <div class="flex flex-col flex-shrink-0 md:w-auto md:h-auto md:col-span-4 mb-10 md:mb-0" v-for="(newsItem, index) in news" :key="index">
-              <img :src="newsItem.cover" />
+              <img :src="newsItem.cover" class="h-[200px] w-full" />
               <div class="flex flex-col flex-1 pb-6">
                 <div class="text-[26px] text-[#000000] my-7 md:my-[40px] font-family-regular font-normal leading-[32px] show-line-2">{{ newsItem.title }}</div>
                 <span class="mb-[20px] flex-1 text-[#83848E] text-[18px] font-family-pf-light font-light leading-[25px] show-line-4">{{ newsItem.text }}</span>
