@@ -26,7 +26,7 @@
                           </a>
                         </div>
                         <div class="hover:text-[#5C64FF]">
-                          <a target="_blank" :href="dashboardLink" class="flex items-center mr-2">
+                          <a href="/middleware" class="flex items-center mr-2" :class="{'menu-active' : `/${curMenu}` === '/middleware'}">
                             <img src="~/assets/images/solutions-middleware.svg" class="h-[40px] mr-4" />
                             Middleware
                           </a>
@@ -81,7 +81,7 @@
               </a>
             </div>
             <div class="my-4">
-              <a :href="dashboardLink">
+              <a href="/middleware">
                 <span class="text-sm flex items-center">
                   <img src="~/assets/images/solutions-middleware.svg" class="h-[24px] mr-4" />
                   Middleware
