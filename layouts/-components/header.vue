@@ -301,6 +301,18 @@ onUnmounted(() => {
   font-weight: bold;
   font-family: Montserrat-Bold, Montserrat;
 }
+.btn-css:hover{
+  border-color: #6C73FF;
+  background: #6C73FF;
+}
+.btn-css:active{
+  border-color: #3F48FF;
+  background: #3F48FF;
+}
+.btn-css:disabled{
+  border-color: #D3D5FF;
+  background: #D3D5FF;
+}
 
 @screen md {
   .menu-active {
