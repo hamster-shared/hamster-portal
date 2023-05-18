@@ -24,30 +24,27 @@
               <div class="form-label"><span class="text-[#FF4A4A] mr-2">*</span>Social Account</div>
               <div class="flex">
                 <div class="relative !w-[40%]">
-                <div class="select-div !rounded-r-none" :class="{'select-active' : showOptions.social}" @click="showOptions.social = !showOptions.social">{{ optionLabel.social }}
+                <div class="select-div !rounded-r-none" :class="{'select-active' : showOptions.socialPlatform}" @click="showOptions.socialPlatform = !showOptions.socialPlatform">{{ optionLabel.socialPlatform }}
                   <img src="~/assets/images/select-down.svg" class="w-[15px] up-tran"/>
                 </div>
-                <div class="option-div" v-if="showOptions.social" @touchstart="optionEnter" @touchend="optionLeave" @mouseleave="optionLeave"  @mouseenter="optionEnter">
-                  <div @click="setOptionVal(item, 'social')" v-for="(item,index) in optionsSocial" :key="index" :value="item.value" :class="{'option-active':item.value==formData.social}">{{ item.label }}</div>
+                <div class="option-div" v-if="showOptions.socialPlatform" @touchstart="optionEnter" @touchend="optionLeave" @mouseleave="optionLeave"  @mouseenter="optionEnter">
+                  <div @click="setOptionVal(item, 'socialPlatform')" v-for="(item,index) in optionsSocial" :key="index" :value="item.value" :class="{'option-active':item.value==formData.socialPlatform}">{{ item.label }}</div>
                 </div>
               </div>
-              <input @change="checkFormData('account')" class="!w-[60%] !rounded-l-none" type="text" name="account" v-model="formData.account" placeholder="your account…" autocomplete="off" />
+              <input @change="checkFormData('socialAccount')" class="!w-[60%] !rounded-l-none" type="text" name="socialAccount" v-model="formData.socialAccount" placeholder="your account…" autocomplete="off" />
               </div>
               <div class="form-label"><span class="text-[#FF4A4A] mr-2">*</span>Middleware Category</div>
               <div class="relative">
-                <div class="select-div" :class="{'select-active' : showOptions.miwaCategory}" @click="showOptions.miwaCategory = !showOptions.miwaCategory">{{ optionLabel.miwaCategory }}
+                <div class="select-div" :class="{'select-active' : showOptions.middlewareCategory}" @click="showOptions.middlewareCategory = !showOptions.middlewareCategory">{{ optionLabel.middlewareCategory }}
                   <img src="~/assets/images/select-down.svg" class="w-[15px] up-tran"/>
                 </div>
-                <div class="option-div" v-if="showOptions.miwaCategory" @touchstart="optionEnter" @touchend="optionLeave" @mouseleave="optionLeave"  @mouseenter="optionEnter">
+                <div class="option-div" v-if="showOptions.middlewareCategory" @touchstart="optionEnter" @touchend="optionLeave" @mouseleave="optionLeave"  @mouseenter="optionEnter">
                   <!-- <div class="top-div"></div> -->
-                  <div @click="setOptionVal(item, 'miwaCategory')" v-for="(item,index) in optionsCategory" :key="index" :value="item.value" :class="{'option-active':item.value==formData.miwaCategory}">{{ item.label }}</div>
+                  <div @click="setOptionVal(item, 'middlewareCategory')" v-for="(item,index) in optionsCategory" :key="index" :value="item.value" :class="{'option-active':item.value==formData.middlewareCategory}">{{ item.label }}</div>
                 </div>
               </div>
-              <!-- <select @change="checkFormData('miwaCategory')" name="miwaCategory" v-model="formData.miwaCategory" placeholder="Please enter Middleware Category">
-                <option v-for="(item,index) in optionsCategory" :key="index" :value="item.value">{{ item.label }}</option>
-              </select> -->
               <div class="form-label">Middleware Information</div>
-              <textarea name="desc" maxlength="200" v-model="formData.desc" rows="5" placeholder="Such as positioning, goals, functions, etc, controlled within 200 words"></textarea>
+              <textarea name="middlewareInformation" maxlength="200" v-model="formData.middlewareInformation" rows="5" placeholder="Such as positioning, goals, functions, etc, controlled within 200 words"></textarea>
               
               <button class="btn-css my-[10px] w-full text-white" :disabled="isDisabled" @click="handleSubmit">Submit</button>
             </div>
@@ -74,6 +71,8 @@
   </div>
 </template>
 <script setup lang="ts">
+import { json } from 'stream/consumers';
+
 
   const device = useDevice()
   const isDisabled = ref(true);
@@ -82,20 +81,20 @@
   const isShowError = ref(false);
   const isOptionMouse = ref(false);
   const showOptions = reactive({
-    'miwaCategory': false,
-    'social': false,
+    'middlewareCategory': false,
+    'socialPlatform': false,
   });
   const optionLabel = reactive({
-    'miwaCategory': "Make a selection",
-    'social': "Twitter",
+    'middlewareCategory': "Make a selection",
+    'socialPlatform': "Twitter",
   });
   const formData = reactive({
     name: '',
     email: '',
-    social: 'Twitter',
-    account: '',
-    miwaCategory: '',
-    desc: '',
+    socialPlatform: 'Twitter',
+    socialAccount: '',
+    middlewareCategory: '',
+    middlewareInformation: '',
   })
   const optionsSocial = ref([
     {value: 'Twitter', label: 'Twitter'},
@@ -140,24 +139,24 @@
         emailErr.value = false;
       }
     }
-    if (checkEmpty(formData.name) && checkEmpty(formData.email) && checkEmpty(formData.account) && checkEmpty(formData.miwaCategory)) {
+    if (checkEmpty(formData.name) && checkEmpty(formData.email) && checkEmpty(formData.socialAccount) && checkEmpty(formData.middlewareCategory)) {
       isDisabled.value = false;
     } else {
       isDisabled.value = true;
     }
   }
 const handleSubmit = async () => {
-  isShowModal.value = true;
-    // await formRef.value?.validate();
-    
-    // try {
-    //   message.success('This is successed!')
-    // } catch(error) {
-    //   console.log('error',error)
-    //   message.error('This is failed!')
-    // } finally {
-    //   // isLoadingControl.isLoadingAllowButton = false
-    // }
+  const url = '/JoinMiddleware';
+  await $fetch(url, {
+    method: "POST",
+    body: JSON.stringify(formData)
+  }).then((res) => {
+    console.log('res:', res)
+    isShowModal.value = true;
+  }).catch((err) => {
+    console.log(err)
+    isShowError.value = true;
+  })
 }
   const optionLeave = () => {
     isOptionMouse.value = false;
@@ -165,14 +164,13 @@ const handleSubmit = async () => {
   const optionEnter = () => {
     isOptionMouse.value = true;
   }
-const handleMouseDown = () => {
-  console.log("isOptionMouse:",isOptionMouse.value);
+  const handleMouseDown = () => {
     if (isOptionMouse.value === false) {
       Object.keys(showOptions).forEach(key => {
         showOptions[key] = false;
       });
     }
-  }// 手机端悬浮取消问题思考。。。
+  } 
   onMounted(() => {
     if (device.value.isMobile) {
       window.addEventListener("touchstart", handleMouseDown)
