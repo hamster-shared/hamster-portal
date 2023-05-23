@@ -260,10 +260,10 @@ const handleSubmit = async () => {
 .select-active .up-tran {
   transform: rotate(180deg);
 }
-input::-webkit-input-placeholder,
-input:-moz-placeholder,
-input::-moz-placeholder,
-input:-ms-input-placeholder {
+::-webkit-input-placeholder,
+:-moz-placeholder,
+::-moz-placeholder,
+:-ms-input-placeholder {
   color: #C3C4C7;
 }
 .input-error{

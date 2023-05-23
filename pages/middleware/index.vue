@@ -39,14 +39,18 @@
     </div>
   </div>
   <div class="container mx-auto px-5 text-center">
-    <div class="area-title">Build and expand in one go</div>
+    <div class="area-title">Middleware combined with project construction, efficient and convenient</div>
     <div v-if="!$device.isMobile" class="flex justify-center">
       <div class="area-desc md:w-[780px]">{{ subDesc.miwabuid }}</div>
     </div>
-    <img src="~/assets/images/middleware-build.png" class="w-full" />
+    <video src="~/assets/video/middleware-build.mp4" autoplay muted loop class="w-full my-[40px] md:my-[60px]"></video>
     <div v-if="$device.isMobile" class="flex justify-center">
-      <div class="area-desc">{{ subDesc.miwabuid }}</div>
+      <div class="area-desc !mt-0 mb-[20px]">{{ subDesc.miwabuid }}</div>
     </div>
+    <div class="flex justify-center">
+      <div class="text-css-color">No project yet?</div>
+    </div>
+    <button class="btn-css mt-[20px] md:mt-[40px]" @click="gotoAline">Start Building</button>
   </div>
   <div class="container mx-auto px-5 text-center">
     <div class="flex justify-center">
@@ -100,8 +104,8 @@
 const { getImageURL } = useAssets()
 
 const subDesc = ref({
-  'miwaspace': 'Hamster offers the comprehensive approach to develop projects in Web3.0. We provide a developer-friendly platform for developers to build their blockchain ideas',
-  'miwabuid': 'Middleware extension is deeply integrated with DAPP development. It helps your project soar in both breadth and depth.',
+  'miwaspace': 'Miwaspace is a middleware marketplace that aggregates common middleware solutions in the market to meet your needs in all aspects.',
+  'miwabuid': 'Middleware extensions are deeply integrated with project construction, helping your project develop rapidly in both breadth and depth.',
   'miwausage': 'Regularly release middleware combination practices, innovative practices, excellent case studies and other usage strategies to easily expand the unlimited possibilities of your project.',
   'miwajoin' : 'To maximize your exposure to web3 developers and gain more benefits'
 });
@@ -137,6 +141,16 @@ onMounted(()=>{
 .ware-space-bg-phone{
   background: url("~/assets/images/middleware-space-bg.png") no-repeat center #FFFFFF;
   background-size: 100% 100%;
+}
+.text-css-color{
+  font-size: 24px;
+  font-family: Montserrat-Bold, Montserrat;
+  font-weight: bold;
+  color: #5B7ED1;
+  line-height: 29px;
+  background: linear-gradient(221deg, #40ECE1 0%, #5C64FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .scroll-one1{
   animation-name: scrollOne1;
