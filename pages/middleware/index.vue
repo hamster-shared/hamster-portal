@@ -113,11 +113,12 @@ const subDesc = ref({
   'miwausage': 'Regularly release middleware combination practices, innovative practices, excellent case studies and other usage strategies to easily expand the unlimited possibilities of your project.',
   'miwajoin' : 'To maximize your exposure to web3 developers and gain more benefits'
 });
-
+// 
 const alineLink = ref('')
+const alineMwLink = computed(() => alineLink.value + "/chainlink/dashboard")
 const middlewareLink = computed(() => alineLink.value + "/chainlink/miwaspace?key=1")
 const gotoAline = () => {
-  window.open(alineLink.value);
+  window.open(alineMwLink.value);
 }
 const moreMiddleware = () => {
   window.open(middlewareLink.value);
