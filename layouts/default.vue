@@ -198,6 +198,22 @@
     background: linear-gradient(270deg, #FFFFFF 0%, rgba(255,255,255,0) 100%);
     right: 0;
   }
+  ::-webkit-scrollbar {
+    /* 设置竖向滚动条的宽度 */
+    width: 5px;
+    /* 设置横向滚动条的高度 */
+    height: 5px;
+  }
+  ::-webkit-scrollbar-thumb {
+    /* //滑块部分 */
+    border-radius: 35px;
+    background-color: rgba(144,147,153,.3);
+  }
+  ::-webkit-scrollbar-track {
+    /* //轨道部分 */
+    background-color: rgba(144,147,153,.3);
+    border-radius: 35px;
+  }
 </style>
 <style lang="less">
   // Base style

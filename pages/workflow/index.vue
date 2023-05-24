@@ -1,6 +1,6 @@
 <template>
   <div :class="[$device.isMobile ? 'wk-top-bg-phone' : 'wk-top-bg']">
-    <div class="container mx-auto px-5 md:flex md:items-center h-screen flex">
+    <div class="container mx-auto px-5 md:flex md:items-center md:mt-[30px] h-screen flex">
       <div class="relative">
         <div class="flex mt-[80px] md:mt-0">
           <img src="~/assets/images/solutions-workflow.svg" class="h-[40px] md:h-[50px]"/>

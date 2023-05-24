@@ -26,7 +26,7 @@
                           </a>
                         </div>
                         <div class="hover:text-[#5C64FF]">
-                          <a target="_blank" :href="dashboardLink" class="flex items-center mr-2">
+                          <a href="/middleware" class="flex items-center mr-2" :class="{'menu-active' : `/${curMenu}` === '/middleware'}">
                             <img src="~/assets/images/solutions-middleware.svg" class="h-[40px] mr-4" />
                             Middleware
                           </a>
@@ -81,7 +81,7 @@
               </a>
             </div>
             <div class="my-4">
-              <a :href="dashboardLink">
+              <a href="/middleware">
                 <span class="text-sm flex items-center">
                   <img src="~/assets/images/solutions-middleware.svg" class="h-[24px] mr-4" />
                   Middleware
@@ -300,6 +300,18 @@ onUnmounted(() => {
   font-size: 18px;
   font-weight: bold;
   font-family: Montserrat-Bold, Montserrat;
+}
+.btn-css:hover{
+  border-color: #6C73FF;
+  background: #6C73FF;
+}
+.btn-css:active{
+  border-color: #3F48FF;
+  background: #3F48FF;
+}
+.btn-css:disabled{
+  border-color: #D3D5FF;
+  background: #D3D5FF;
 }
 
 @screen md {
