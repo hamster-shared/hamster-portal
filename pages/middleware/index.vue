@@ -15,7 +15,7 @@
           </div>
         </div>
         <div class="md:mt-[20px] text-center md:text-left w-full absolute md:static bottom-[35px]">
-            <button class="btn-css " @click="gotoAline">Get Started</button>
+            <button class="btn-css " @click="gotoAlineMw">Get Started</button>
         </div>
       </div>
     </div>
@@ -118,6 +118,9 @@ const alineLink = ref('')
 const alineMwLink = computed(() => alineLink.value + "/chainlink/dashboard")
 const middlewareLink = computed(() => alineLink.value + "/chainlink/miwaspace?key=1")
 const gotoAline = () => {
+  window.open(alineLink.value);
+}
+const gotoAlineMw = () => {
   window.open(alineMwLink.value);
 }
 const moreMiddleware = () => {
