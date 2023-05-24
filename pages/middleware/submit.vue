@@ -239,6 +239,7 @@ const handleSubmit = async () => {
   border: 1px solid #EBEBEB;
   width: 100%;
   outline: none;
+  font-weight: 260;
 }
 :deep(input),:deep(select),.select-div{
   height: 37px;
