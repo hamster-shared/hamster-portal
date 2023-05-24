@@ -31,7 +31,7 @@
                   <div @click="setOptionVal(item, 'socialPlatform')" v-for="(item,index) in optionsSocial" :key="index" :value="item.value" :class="{'option-active':item.value==formData.socialPlatform}">{{ item.label }}</div>
                 </div>
               </div>
-              <input @change="checkFormData('socialAccount')" class="!w-[60%] !rounded-l-none" type="text" name="socialAccount" v-model="formData.socialAccount" placeholder="your account…" autocomplete="off" />
+              <input @change="checkFormData('socialAccount')" class="!w-[60%] !rounded-l-none" type="text" name="socialAccount" v-model="formData.socialAccount" placeholder="Your Account..." autocomplete="off" />
               </div>
               <div class="form-label"><span class="text-[#FF4A4A] mr-2">*</span>Middleware Category</div>
               <div class="relative">
@@ -239,7 +239,8 @@ const handleSubmit = async () => {
   border: 1px solid #EBEBEB;
   width: 100%;
   outline: none;
-  font-weight: 260;
+  font-weight: 300;
+  font-family: Montserrat-Light, Montserrat;
 }
 :deep(input),:deep(select),.select-div{
   height: 37px;
