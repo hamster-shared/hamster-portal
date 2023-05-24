@@ -135,7 +135,7 @@ onMounted(()=>{
 </script>
 <style lang="less" scoped>
 .ware-top-bg{
-  background: url("~/assets/images/middleware-top-bg.png") no-repeat 80% #FFFFFF;
+  background: url("~/assets/images/middleware-top-bg.png") no-repeat 90% #FFFFFF;
   // background-size: contain;
   background-size: auto 90%;
 }
