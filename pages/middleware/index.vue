@@ -22,7 +22,7 @@
   </div>
   <div class="container mx-auto px-5 text-center">
     <div class="flex justify-center">
-      <div class="area-title md:w-[800px]">Miwaspace: Find the middleware you need most</div>
+      <div class="area-title md:!text-[40px] md:w-[800px]">Miwaspace: Find the middleware you need most</div>
     </div>
   </div>
   <div :class="{'ware-space-bg-phone': !$device.isMobile}">
@@ -39,11 +39,13 @@
     </div>
   </div>
   <div class="container mx-auto px-5 text-center">
-    <div class="area-title">Middleware combined with project construction, efficient and convenient</div>
+    <div class="area-title md:!text-[40px]">Middleware combined with project construction, efficient and convenient</div>
     <div v-if="!$device.isMobile" class="flex justify-center">
       <div class="area-desc md:w-[780px]">{{ subDesc.miwabuid }}</div>
     </div>
-    <video src="~/assets/video/middleware-build.mp4" autoplay muted loop class="w-full my-[40px] md:my-[60px]"></video>
+    <div class="flex justify-center">
+      <video src="~/assets/video/middleware-build.mp4" autoplay muted loop class="w-[90%] my-[40px] md:my-[60px]"></video>
+    </div>
     <div v-if="$device.isMobile" class="flex justify-center">
       <div class="area-desc !mt-0 mb-[20px]">{{ subDesc.miwabuid }}</div>
     </div>
@@ -54,12 +56,14 @@
   </div>
   <div class="container mx-auto px-5 text-center">
     <div class="flex justify-center">
-      <div class="area-title md:w-[980px]">Middleware usage strategy to help you explore more possibilities in web3</div>
+      <div class="area-title md:!text-[40px] md:w-[980px]">Middleware usage strategy to help you explore more possibilities in web3</div>
     </div>
     <div v-if="!$device.isMobile" class="flex justify-center">
       <div class="area-desc md:w-[780px]">{{ subDesc.miwausage }}</div>
     </div>
-    <img src="~/assets/images/middleware-usage.png" class="w-full" />
+    <div class="flex justify-center">
+      <img src="~/assets/images/middleware-usage.png" class="w-[90%]" />
+    </div>
     <div v-if="$device.isMobile" class="flex justify-center">
       <div class="area-desc">{{ subDesc.miwausage }}</div>
     </div>
@@ -67,7 +71,7 @@
   <div class="container mx-auto px-5 text-center mb-[70px] md:mb-[180px]">
     <div class="flex justify-center">
       <div>
-        <div class="area-title">Join our middleware open platform</div>
+        <div class="area-title md:!text-[40px]">Join our middleware open platform</div>
         <div v-if="!$device.isMobile" class="area-desc">{{ subDesc.miwajoin }}</div>
       </div>
     </div>
@@ -132,7 +136,8 @@ onMounted(()=>{
 <style lang="less" scoped>
 .ware-top-bg{
   background: url("~/assets/images/middleware-top-bg.png") no-repeat 80% #FFFFFF;
-  background-size: contain;
+  // background-size: contain;
+  background-size: auto 90%;
 }
 .ware-top-bg-phone{
   background: url("~/assets/images/middleware-top-bg-phone.png") no-repeat center 76% #FFFFFF;
