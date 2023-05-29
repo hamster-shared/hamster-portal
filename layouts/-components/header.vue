@@ -134,7 +134,7 @@ const localeOptions = availableLocales.map((lang) => {
 
 const linkValue = ref('');
 const alineLink = computed(() => linkValue.value + "/login")
-const dashboardLink = computed(() => linkValue.value + "/chainlink/dashboard")
+const dashboardLink = computed(() => linkValue.value + "/middleware/dashboard")
 
 const navLinks = computed(() => [
   // { title: 'Solutions', path: "/solutions", children: [] },
