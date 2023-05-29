@@ -115,8 +115,8 @@ const subDesc = ref({
 });
 
 const alineLink = ref('')
-const alineMwLink = computed(() => alineLink.value + "/chainlink/dashboard")
-const middlewareLink = computed(() => alineLink.value + "/chainlink/miwaspace?key=1")
+const alineMwLink = computed(() => alineLink.value + "/middleware/dashboard")
+const middlewareLink = computed(() => alineLink.value + "/middleware/miwaspace?key=1")
 const gotoAline = () => {
   window.open(alineLink.value);
 }
