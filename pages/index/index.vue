@@ -132,10 +132,10 @@
               </div>
               <div class="scroll-content my-[30px] md:my-[50px]">
                 <div class="scroll-img" :class="[$device.isMobile ? 'scroll-two-phone1' : 'scroll-two1']">
-                  <img class="ecology-img mx-5" v-for="(item, index) in 9" :key="index" :src="getImageURL(`Infrastructure-${item}.png`)"/>
+                  <img class="ecology-img mx-5" v-for="(item, index) in 10" :key="index" :src="getImageURL(`Infrastructure-${item}.png`)"/>
                 </div>
                 <div class="scroll-img" :class="[$device.isMobile ? 'scroll-two-phone2' : 'scroll-two2']">
-                  <img class="ecology-img mx-5" v-for="(item, index) in 9" :key="index" :src="getImageURL(`Infrastructure-${item}.png`)"/>
+                  <img class="ecology-img mx-5" v-for="(item, index) in 10" :key="index" :src="getImageURL(`Infrastructure-${item}.png`)"/>
                 </div>
               </div>
               <div class="scroll-content">
@@ -387,12 +387,12 @@ import 'animate.css';
   animation-name: scrollTwo2;
 }
 @keyframes scrollTwo1{
-  0%{left: 1518px; top: 0px;}
+  0%{left: 1660px; top: 0px;}
   100%{left: 0px; top: 0px;}
 }
 @keyframes scrollTwo2{
   0%{left: 0px; top: 0px;}
-  100%{left: -1518px; top: 0px;}
+  100%{left: -1660px; top: 0px;}
 }
 .scroll-two-phone1{
   animation-name: scrollTwoPhone1
@@ -401,12 +401,12 @@ import 'animate.css';
   animation-name: scrollTwoPhone2
 }
 @keyframes scrollTwoPhone1{
-  0%{left: 1056px; top: 0px;}
+  0%{left: 1157px; top: 0px;}
   100%{left: 0px; top: 0px;}
 }
 @keyframes scrollTwoPhone2{
   0%{left: 0px; top: 0px;}
-  100%{left: -1056px; top: 0px;}
+  100%{left: -1157px; top: 0px;}
 }
 .scroll-three1{
   animation-name: scrollThree1;
