@@ -2,7 +2,7 @@
   <div class="bg-[#000000]">
 
     <div class="container mx-auto md:py-20 py-14 px-5">
-      <div class="grid grid-cols-1 lg:grid-cols-2 lg:gap-[200px] mb-[60px]">
+      <div class="grid grid-cols-1 lg:grid-cols-2 mb-[60px]">
         <div>
           <img class="h-[20px] md:h-[32px]" src="~/assets/images/header.png">
           <span class="inline-block mt-4 mb-8 text-sm md:text-lg md:mt-7 md:mb-10 text-[#999999] font-family-medium font-medium md:leading-[22px] leading-[16px]"><!--md:mr-20-->
@@ -11,11 +11,13 @@
             platform for projects in Web3.0
           </span>
           <div class="flex items-center">
-            <img :src="getImageURL('aptos-grant.png')" class="w-[20%] mr-[6.3%]"/>
-            <img :src="getImageURL('web3_foundation.png')" class="w-[20%] mr-[6.3%]" />
-            <img :src="getImageURL('algorand.png')" class="w-[20%] mr-[6.3%]"/>
-            <img :src="getImageURL('starknet.png')" class="w-[20%]" />
+            <img :src="getImageURL('aptos-grant.png')" class="lg:w-[16%] w-[20%] lg:mr-[5%] mr-[6.3%]"/>
+            <img :src="getImageURL('web3_foundation.png')" class="lg:w-[16%] w-[20%] lg:mr-[5%] mr-[6.3%]" />
+            <img :src="getImageURL('algorand.png')" class="lg:w-[16%] w-[20%] lg:mr-[5%] mr-[6.3%]"/>
+            <img :src="getImageURL('starknet.png')" class="lg:w-[16%] w-[20%]" />
+            <img :src="getImageURL('DFINITY.png')" class="w-[14%] ml-[5%] hidden lg:inline-block" />
           </div>
+          <img :src="getImageURL('DFINITY.png')" class="w-[18%] mt-4 inline-block lg:hidden" />
         </div>
 
         <div class="flex lg:justify-end lg:items-end mt-8 lg:mt-0 font-family-medium font-medium">
