@@ -141,6 +141,7 @@ const navLinks = computed(() => [
   // { title: t('header.dashboard'), path: '/dashboard' },
   // { title: 'Grant', path: "" }, //
   // { title: 'Pricing', path: "" }, //
+  { title: 'Hamgel', path: "/hamgel", target: '_self' },
   { title: 'Community', path: "/community", target: '_self' },
   { title: 'About', path: "/about", target: '_self' },
   { title: t('header.docs'), path: "https://hamsternet.io/docs/", target: '_bank' },
@@ -194,7 +195,7 @@ const gotoAline = function () {
 }
 
 const openNewUrl = (val, link) => {
-  if (val === 'About' || val === 'Community') {
+  if (val === 'About' || val === 'Community' || val === 'Hamgel') {
     window.location.href = link;
   } else {
     window.open(link);
@@ -361,6 +362,16 @@ onUnmounted(() => {
 
 .ant-popover-inner-content{
   padding: 0px;
+}
+.text-css-color{
+  font-size: 24px;
+  font-family: Montserrat-Bold, Montserrat;
+  font-weight: bold;
+  color: #5B7ED1;
+  line-height: 29px;
+  background: linear-gradient(221deg, #40ECE1 0%, #5C64FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 </style>
 <style scoped lang="less">
