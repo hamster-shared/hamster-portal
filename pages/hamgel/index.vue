@@ -25,52 +25,54 @@
           <img class="w-full" src="~/assets/images/Hamgel-pic.png">
         </div>
       </div>
-      <div class="pb-[50px]">
-        <div class="card-title mb-[50px]">How it works?</div>
-        <div class="grid grid-cols-3 gap-36">
-          <div>
-            <div class="flex items-center">
-              <img class="h-[39px] mr-[20px]" src="~/assets/images/hamgel-work-1.png">
-              <div class="text-[18px]">1. Build a pool of funds</div>
+      <div v-if="false">
+        <div class="pb-[50px]">
+          <div class="card-title mb-[50px]">How it works?</div>
+          <div class="grid grid-cols-3 gap-36">
+            <div>
+              <div class="flex items-center">
+                <img class="h-[39px] mr-[20px]" src="~/assets/images/hamgel-work-1.png">
+                <div class="text-[18px]">1. Build a pool of funds</div>
+              </div>
+              <div class="card-desc">Hamster Foundation and other donors will send funds to the matching pool smart contract.</div>
             </div>
-            <div class="card-desc">Hamster Foundation and other donors will send funds to the matching pool smart contract.</div>
-          </div>
-          <div>
-            <div class="flex items-center">
-              <img class="h-[39px] mr-[20px]" src="~/assets/images/hamgel-work-2.png">
-              <div class="text-[18px]">2. Make a donation</div>
+            <div>
+              <div class="flex items-center">
+                <img class="h-[39px] mr-[20px]" src="~/assets/images/hamgel-work-2.png">
+                <div class="text-[18px]">2. Make a donation</div>
+              </div>
+              <div class="card-desc">Users make donations to projects they like.</div>
             </div>
-            <div class="card-desc">Users make donations to projects they like.</div>
-          </div>
-          <div>
-            <div class="flex items-center">
-              <img class="h-[39px] mr-[20px]" src="~/assets/images/hamgel-work-3.png">
-              <div class="text-[18px]">3. Allocate funds</div>
+            <div>
+              <div class="flex items-center">
+                <img class="h-[39px] mr-[20px]" src="~/assets/images/hamgel-work-3.png">
+                <div class="text-[18px]">3. Allocate funds</div>
+              </div>
+              <div class="card-desc">Once the round ends, the smart contract will distribute funds from the matching pool to projects weighted by the amount of their contributions.</div>
             </div>
-            <div class="card-desc">Once the round ends, the smart contract will distribute funds from the matching pool to projects weighted by the amount of their contributions.</div>
           </div>
         </div>
-      </div>
-      <div class="hamgel-join-bg p-[50px]">
-        <div class="join-title">Join the next round of funding list</div>
-        <div class="card-desc mt-[10px]">If you are working on a meaningful web3 project that just happens to lack funding, apply to join the next round of funding list as soon as possible.</div>
-        <button class="mt-[20px] start-today !text-[14px] !font-normal">Support <label class="font-light">(Soon)</label></button>
-      </div>
-      <div class="text-center text-[40px] font-bold mt-[150px]">What is Hamgel Bounty?</div>
-      <div class="mt-[40px] flex justify-center text-center pb-[80px]">
-        <div class="text-[18px] w-[720px]">Hamgel Bounty refers to the bounty program on Hamgel platform. Through Hamgel Bounty, project parties can get support more easily. On Hamgel Bounty, you only need to pay a certain amount of ERC20 tokens, then you can publish tasks such as code writing, event planning, content editing and research topics. Users who complete the tasks will receive the bounty as a reward.</div>
-      </div>
-      <img class="w-full" src="~/assets/images/hamgel-pic.png">
-      <div class="text-center text-[40px] font-bold mt-[120px]">Project monitoring</div>
-      <div class="mt-[40px] flex justify-center text-center pb-[80px]">
-        <div class="text-[18px] w-[620px]">Hamgel will monitor projects in real time to reflect the actual situation of the projects as much as possible, in order to find the most outstanding and most in need of funding projects.</div>
-      </div>
-      <img class="w-full" src="~/assets/images/hamgel-pic.png">
-      <div class="flex justify-center mt-[40px]">
-        <div class="text-css-color">No project yet?</div>
-      </div>
-      <div class="text-center pb-[120px]">
-        <button class="btn-css mt-[20px] md:mt-[40px]" @click="gotoAline">Start Building</button>
+        <div class="hamgel-join-bg p-[50px]">
+          <div class="join-title">Join the next round of funding list</div>
+          <div class="card-desc mt-[10px]">If you are working on a meaningful web3 project that just happens to lack funding, apply to join the next round of funding list as soon as possible.</div>
+          <button class="mt-[20px] start-today !text-[14px] !font-normal">Support <label class="font-light">(Soon)</label></button>
+        </div>
+        <div class="text-center text-[40px] font-bold mt-[150px]">What is Hamgel Bounty?</div>
+        <div class="mt-[40px] flex justify-center text-center pb-[80px]">
+          <div class="text-[18px] w-[720px]">Hamgel Bounty refers to the bounty program on Hamgel platform. Through Hamgel Bounty, project parties can get support more easily. On Hamgel Bounty, you only need to pay a certain amount of ERC20 tokens, then you can publish tasks such as code writing, event planning, content editing and research topics. Users who complete the tasks will receive the bounty as a reward.</div>
+        </div>
+        <img class="w-full" src="~/assets/images/hamgel-pic.png">
+        <div class="text-center text-[40px] font-bold mt-[120px]">Project monitoring</div>
+        <div class="mt-[40px] flex justify-center text-center pb-[80px]">
+          <div class="text-[18px] w-[620px]">Hamgel will monitor projects in real time to reflect the actual situation of the projects as much as possible, in order to find the most outstanding and most in need of funding projects.</div>
+        </div>
+        <img class="w-full" src="~/assets/images/hamgel-pic.png">
+        <div class="flex justify-center mt-[40px]">
+          <div class="text-css-color">No project yet?</div>
+        </div>
+        <div class="text-center pb-[120px]">
+          <button class="btn-css mt-[20px] md:mt-[40px]" @click="gotoAline">Start Building</button>
+        </div>
       </div>
     </div>
   </div>
