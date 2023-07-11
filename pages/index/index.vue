@@ -178,6 +178,36 @@
           </div>
         </div>
       </div>
+
+      <div class="container mx-auto px-5 mb-[60px] md:mb-[120px]">
+        <div class="area-title text-center mb-[40px] md:mb-[100px]">Partner Quotes</div>
+        <div class="relative overflow-hidden top-0 bottom-0 right-0 left-0 h-[478px] md:h-[321px]">
+          <div class="scroll-fadeout-bg scroll-fadeout-left !w-[20%] md:block hidden"></div>
+          <div class="scroll-fadeout-bg scroll-fadeout-right !w-[20%] md:block hidden"></div>
+          <div class="flex absolute h-[478px] md:h-[321px] md:-left-[40%] md:right-[40%]">
+            <div class="w-full md:w-3/5 flex-none" v-for="(item,key) in showQuotesList" :key="key">
+              <div class="card-box-css md:mx-[20px]">
+                <div class="card-box-content cursor-pointer p-[40px] md:p-[50px]">
+                  <img :src="getImageURL(`${item.imgName}.png`)" class="inline-block h-[38px]" />
+                  <div class="mt-[30px] md:mt-[20px] text-[#40425C] leading-[20px] font-medium">
+                    {{ item.desc }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="relative overflow-hidden top-0 bottom-0 right-0 left-0 h-[50px] mt-[50px] md:block hidden">
+          <div class="flex absolute h-[50px] w-[1000px] left-1/2 -ml-[500px] overflow-hidden">
+            <div v-for="(item,key) in showQuotesImgList" :key="key" @click="getQuotesName(item.imgName)" :class="[key === 2 ? 'card-img-checked' : 'opacity-[18%]']" class="w-[200px] flex-none cursor-pointer">
+              <div class="flex justify-center">
+                <img :src="getImageURL(`${item.imgName}.png`)" class="inline-block h-[19px] md:h-[30px]" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <StartBuild></StartBuild>
 
       <div class="container mx-auto px-5">
@@ -233,9 +263,44 @@ import 'animate.css';
   const numberRollerNumber4 = ref(0)
   const numberRollerNumber5 = ref(0)
   const numberRollerNumber6 = ref(0)
-
   const news = ref([]);
   const emailInfo = ref('')
+
+  const quotesList = ref([
+    {imgName: 'Quotes-Filecoin', desc: 'With abundant Web3 infrastructure capabilities, Hamster not only provides reliable and efficient data services for Filecoin, reduces the threshold for network usage and improves efficiency; its technology and business prospects are also trustworthy and have the prospect of long-term support for the prosperous development of the Filecoin ecosystem, and provide reliable assistance for the robust progress of the Filecoin community.'},
+    {imgName: 'Quotes-Chainlink', desc: 'Hamster provides full-stack Web3 infrastructure services to support the development of the Chainlink ecosystem. The visualized tool Hamslink that it provides helps more developers to use Chainlink and promotes the development of Chainlink projects and thriving ecosystem.'},
+    {imgName: 'Quotes-Dante', desc: 'Hamster has performed excellently by achieving cross-chain interoperability and strengthening the decentralized ecosystem. Its innovative technology and broad application prospects deserve attention and praise.'},
+    {imgName: 'Quotes-KNN3', desc: 'Hamster has the prospect of becoming one of the most important infrastructure service providers in the Web3 ecosystem. Its technical strength, user experience and future planning in many aspects can meet KNN3\'s needs very well, and KNN3 is honored to reach a win-win cooperation relationship with Hamster.'},
+    {imgName: 'Quotes-CESS', desc: 'Hamster\'s full-stack Web3 technology can help CESS store and access data more effectively. At the same time, data standardization and source deployment also help CESS\'s progress. Hamster has fully demonstrated its support for the CESS project.'},
+    {imgName: 'Quotes-Admeta', desc: 'Hamster provides stable and efficient Middleware services. Through Hamster, more developers and community members can access and use AdMeta services, benefiting more developers.'},
+  ]);
+  
+  const showQuotesImgList = ref(quotesList.value.slice(0,5));
+  const showQuotesList = ref(showQuotesImgList.value.slice(1,4));
+  const getQuotesName = (name) => {
+    let curKey = 0;
+    quotesList.value.filter(function (val, key) {
+      if (val.imgName === name) curKey = key;
+    })
+    if (curKey - 2 < 0) {
+      showQuotesImgList.value = quotesList.value.slice(4+curKey,6)
+      quotesList.value.filter(function (val, key) {
+        if (key < curKey + 3) {
+          showQuotesImgList.value.push(val);
+        } 
+      })
+    } else if (curKey - 2 < 2) {
+      showQuotesImgList.value = quotesList.value.slice(curKey - 2 , 3 + curKey)
+    } else {
+      showQuotesImgList.value = quotesList.value.slice(curKey - 2 , 6)
+      quotesList.value.filter(function (val, key) {
+        if (key < 6-showQuotesImgList.value.length) {
+          showQuotesImgList.value.push(val);
+        } 
+      }) 
+    }
+    showQuotesList.value = showQuotesImgList.value.slice(1,4);
+  }
 
   const sendEmail = async () => {
     const url = '/hamster/email'
@@ -493,6 +558,24 @@ import 'animate.css';
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 4;
   overflow: hidden;
+}
+
+.card-box-css{
+  height: 100%;
+  height: 100%;
+  box-shadow: 0px 9px 10px 0px rgba(172,174,192,0.14);
+  border-radius: 8px;
+  padding: 0.8px;
+  background: linear-gradient(134deg, rgba(71, 77, 200, 1), rgba(50, 182, 177, 1)) ;
+}
+.card-box-content{
+  width: 100%; // calc(100% - 0.5px);
+  height: 100%;
+  border-radius: 8px;
+  background: #FEFEFE;
+}
+.card-img-checked{
+  border-bottom: 3px solid #000000;
 }
 </style>
 

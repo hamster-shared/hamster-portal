@@ -18,14 +18,14 @@
           <div>
             <div class="card-title">Send your favorite project to the moon</div>
             <div class="card-desc mt-[20px]">very project you participate in will receive an extra portion of funding, and your personal donations have an amplified impact through the use of Quadratic Funding (QF) allocation mechanism.</div>
-            <button class="mt-[40px] start-today !text-[14px] !font-normal">Support <label class="font-light">(Soon)</label></button>
+            <button v-if="false" class="mt-[40px] start-today !text-[14px] !font-normal">Support <label class="font-light">(Soon)</label></button>
           </div>
         </div>
         <div class="w-3/5 pl-[60px]">
           <img class="w-full" src="~/assets/images/Hamgel-pic.png">
         </div>
       </div>
-      <div v-if="false">
+      <div>
         <div class="pb-[50px]">
           <div class="card-title mb-[50px]">How it works?</div>
           <div class="grid grid-cols-3 gap-36">
@@ -55,7 +55,7 @@
         <div class="hamgel-join-bg p-[50px]">
           <div class="join-title">Join the next round of funding list</div>
           <div class="card-desc mt-[10px]">If you are working on a meaningful web3 project that just happens to lack funding, apply to join the next round of funding list as soon as possible.</div>
-          <button class="mt-[20px] start-today !text-[14px] !font-normal">Support <label class="font-light">(Soon)</label></button>
+          <button v-if="false" class="mt-[20px] start-today !text-[14px] !font-normal">Support <label class="font-light">(Soon)</label></button>
         </div>
         <div class="text-center text-[40px] font-bold mt-[150px]">What is Hamgel Bounty?</div>
         <div class="mt-[40px] flex justify-center text-center pb-[80px]">
