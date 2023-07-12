@@ -1,77 +1,80 @@
 <template>
   <div class="bg-[#000000]">
     <div class="container mx-auto px-5">
-      <div class="pt-[140px] md:pb-[450px] md:pt-[180px]" :class="[$device.isMobile ? 'hamgel-top-bg-phone' : 'hamgel-top-bg']">
+      <div class="pt-[100px] pb-[300px] md:pb-[450px] md:pt-[180px]" :class="[$device.isMobile ? 'hamgel-top-bg-phone' : 'hamgel-top-bg']">
         <div class="flex justify-center text-center">
-          <div class="title-text">Help web3 projects raise funds and encourage more people to participate in its development.</div>
+          <div class="title-text font-extrabold md:font-bold w-[357px] md:w-[977px] text-[24px] md:text-[60px] leading-[29px] md:leading-[73px]">Help web3 projects raise funds and encourage more people to participate in its development.</div>
         </div>
-        <div class="mt-[30px] flex justify-center text-center">
-          <div class="text-[18px] w-[690px]">Hamgel is a web3 project support platform initiated by Hamster together with various ecosystems.Through funding, donations, bounty tasks, project roadshows and other means, Hamgel gathers project parties, developers, users, communities and investors to create the best development environment for web3 projects.</div>
+        <div class="mt-[20px] md:mt-[30px] flex justify-center text-center">
+          <div class="text-[16px] md:text-[18px] w-[318px] md:w-[690px]">Hamgel is a web3 project support platform initiated by Hamster together with various ecosystems.Through funding, donations, bounty tasks, project roadshows and other means, Hamgel gathers project parties, developers, users, communities and investors to create the best development environment for web3 projects.</div>
         </div>
       </div>
-      <div class="text-center text-[40px] font-bold">What is Hamgel Grants?</div>
-      <div class="mt-[40px] flex justify-center text-center pb-[95px]">
-        <div class="text-[18px] w-[640px]">Hamgel Grants refers to the funding pool of Hamster Foundation to provide grants. The grant program has at least two rounds per year to help worthy web3 projects that match the grant purposes.</div>
+      <div class="text-center text-[25px] md:text-[40px] font-bold">What is Hamgel Grants?</div>
+      <div class="mt-[30px] md:mt-[40px] flex justify-center text-center pb-[95px]">
+        <div class="text-[14px] md:text-[18px] md:w-[640px]">Hamgel Grants refers to the funding pool of Hamster Foundation to provide grants. The grant program has at least two rounds per year to help worthy web3 projects that match the grant purposes.</div>
       </div>
-      <div class="flex pb-[100px]">
-        <div class="w-2/5 flex items-center">
+      <div class="md:flex mb-[40px] md:pb-[100px]">
+        <img v-if="$device.isMobile" class="w-full mb-[20px]" src="~/assets/images/hamgel-moon-phone.png">
+        <div class="md:w-2/5 flex items-center">
           <div>
             <div class="card-title">Send your favorite project to the moon</div>
-            <div class="card-desc mt-[20px]">very project you participate in will receive an extra portion of funding, and your personal donations have an amplified impact through the use of Quadratic Funding (QF) allocation mechanism.</div>
-            <button v-if="false" class="mt-[40px] start-today !text-[14px] !font-normal">Support <label class="font-light">(Soon)</label></button>
+            <div class="card-desc mt-[10px] md:mt-[20px]">very project you participate in will receive an extra portion of funding, and your personal donations have an amplified impact through the use of Quadratic Funding (QF) allocation mechanism.</div>
+            <button disabled="true" class="mt-[30px] md:mt-[40px] start-today !text-[14px] !font-normal">Support <label class="font-light">(Soon)</label></button>
           </div>
         </div>
-        <div class="w-3/5 pl-[60px]">
-          <img class="w-full" src="~/assets/images/Hamgel-pic.png">
+        <div v-if="!$device.isMobile" class="w-3/5 pl-[60px]">
+          <img class="w-full" src="~/assets/images/hamgel-moon.png">
         </div>
       </div>
       <div>
-        <div class="pb-[50px]">
-          <div class="card-title mb-[50px]">How it works?</div>
-          <div class="grid grid-cols-3 gap-36">
-            <div>
+        <div class="pb-[40px] md:pb-[50px]">
+          <div class="card-title mb-[40px] md:mb-[50px]">How it works?</div>
+          <div class="md:grid md:grid-cols-3 gap-36">
+            <div class="mb-[20px]">
               <div class="flex items-center">
                 <img class="h-[39px] mr-[20px]" src="~/assets/images/hamgel-work-1.png">
-                <div class="text-[18px]">1. Build a pool of funds</div>
+                <div class="text-[16px] md:text-[18px]">1. Build a pool of funds</div>
               </div>
-              <div class="card-desc">Hamster Foundation and other donors will send funds to the matching pool smart contract.</div>
+              <div class="card-desc mt-[10px] md:mt-0">Hamster Foundation and other donors will send funds to the matching pool smart contract.</div>
             </div>
-            <div>
+            <div class="mb-[20px]">
               <div class="flex items-center">
                 <img class="h-[39px] mr-[20px]" src="~/assets/images/hamgel-work-2.png">
-                <div class="text-[18px]">2. Make a donation</div>
+                <div class="text-[16px] md:text-[18px]">2. Make a donation</div>
               </div>
-              <div class="card-desc">Users make donations to projects they like.</div>
+              <div class="card-desc mt-[10px] md:mt-0">Users make donations to projects they like.</div>
             </div>
-            <div>
+            <div class="mb-[20px]">
               <div class="flex items-center">
                 <img class="h-[39px] mr-[20px]" src="~/assets/images/hamgel-work-3.png">
-                <div class="text-[18px]">3. Allocate funds</div>
+                <div class="text-[16px] md:text-[18px]">3. Allocate funds</div>
               </div>
-              <div class="card-desc">Once the round ends, the smart contract will distribute funds from the matching pool to projects weighted by the amount of their contributions.</div>
+              <div class="card-desc mt-[10px] md:mt-0">Once the round ends, the smart contract will distribute funds from the matching pool to projects weighted by the amount of their contributions.</div>
             </div>
           </div>
         </div>
-        <div class="hamgel-join-bg p-[50px]">
-          <div class="join-title">Join the next round of funding list</div>
+        <div class="hamgel-join-bg p-[20px] md:p-[50px] md:text-left text-center">
+          <div class="join-title font-extrabold md:font-bold md:w-[629px] text-[21px] md:text-[36px] leading-[25px] md:leading-[44px]">Join the next round of funding list</div>
           <div class="card-desc mt-[10px]">If you are working on a meaningful web3 project that just happens to lack funding, apply to join the next round of funding list as soon as possible.</div>
-          <button v-if="false" class="mt-[20px] start-today !text-[14px] !font-normal">Support <label class="font-light">(Soon)</label></button>
+          <button disabled="true" class="mt-[20px] start-today !text-[14px] !font-normal">Support <label class="font-light">(Soon)</label></button>
         </div>
-        <div class="text-center text-[40px] font-bold mt-[150px]">What is Hamgel Bounty?</div>
-        <div class="mt-[40px] flex justify-center text-center pb-[80px]">
+        <div class="text-center text-[25px] md:text-[40px] font-extrabold md:font-bold mt-[100px] md:mt-[150px]">What is Hamgel Bounty?</div>
+        <div class="mt-[30px] md:mt-[40px] flex justify-center text-center pb-[40px] md:pb-[80px]">
           <div class="text-[18px] w-[720px]">Hamgel Bounty refers to the bounty program on Hamgel platform. Through Hamgel Bounty, project parties can get support more easily. On Hamgel Bounty, you only need to pay a certain amount of ERC20 tokens, then you can publish tasks such as code writing, event planning, content editing and research topics. Users who complete the tasks will receive the bounty as a reward.</div>
         </div>
         <img class="w-full" src="~/assets/images/hamgel-pic.png">
-        <div class="text-center text-[40px] font-bold mt-[120px]">Project monitoring</div>
-        <div class="mt-[40px] flex justify-center text-center pb-[80px]">
-          <div class="text-[18px] w-[620px]">Hamgel will monitor projects in real time to reflect the actual situation of the projects as much as possible, in order to find the most outstanding and most in need of funding projects.</div>
+        <div class="text-center text-[25px] md:text-[40px] font-extrabold md:font-bold mt-[60px] md:mt-[120px] mb-[80px]">Project monitoring</div>
+        <div :class="{'hamgel-monit-bg' : !$device.isMobile}">
+          <div class="text-[14px] md:text-[18px] font-medium md:font-normal md:w-[370px] md:pt-[258px] md:pb-[202px] md:pl-[57px]">Hamgel will monitor projects in real time to reflect the actual situation of the projects as much as possible, in order to find the most outstanding and most in need of funding projects.</div>
         </div>
-        <img class="w-full" src="~/assets/images/hamgel-pic.png">
-        <div class="flex justify-center mt-[40px]">
-          <div class="text-css-color">No project yet?</div>
-        </div>
-        <div class="text-center pb-[120px]">
-          <button class="btn-css mt-[20px] md:mt-[40px]" @click="gotoAline">Start Building</button>
+        <img v-if="$device.isMobile" class="w-full mt-[40px] pb-[60px]" src="~/assets/images/hamgel-monit-phone.png">
+        <div v-if="!$device.isMobile">
+          <div class="flex justify-center mt-[40px]">
+            <div class="text-css-color">No project yet?</div>
+          </div>
+          <div class="text-center pb-[120px]">
+            <button class="btn-css mt-[20px] md:mt-[40px]" @click="gotoAline">Start Building</button>
+          </div>
         </div>
       </div>
     </div>
@@ -99,48 +102,44 @@ onMounted(()=>{
   background-size: contain;
 }
 .hamgel-top-bg-phone{
-  background: url("~/assets/images/Hamgel-Banner-logo.png") no-repeat center #000000;
+  background: url("~/assets/images/Hamgel-Banner-logo-phone.png") no-repeat center 70% #000000;
   background-size: contain;
 }
 .hamgel-join-bg{
   background: url("~/assets/images/Hamgel-pic.png") no-repeat center #000000;
-  background-size: 100% 80%;
+  background-size: 100% 100%;
+}
+.hamgel-monit-bg{
+  background: url("~/assets/images/hamgel-monit.png") no-repeat center #000000;
+  background-size: 100% 100%;
 }
 .title-text{
-  width: 977px;
-  height: 219px;
-  font-size: 60px;
   font-family: Montserrat-Bold, Montserrat;
-  font-weight: bold;
   color: #FFFFFF;
-  line-height: 73px;
   background: linear-gradient(137deg, #60638B 0%, #F9F9F9 18%, #FFFFFF 56%, #60638B 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .card-title{
-  font-size: 32px;
   font-family: Montserrat-Bold, Montserrat;
-  font-weight: bold;
-  color: #FFFFFF;
-  line-height: 39px;
 }
 .card-desc{
-  font-size: 18px;
   font-family: Montserrat-Light, Montserrat;
   font-weight: 300;
-  line-height: 30px;
 }
 .join-title{
-  width: 629px;
-  height: 44px;
-  font-size: 36px;
   font-family: Montserrat-Bold, Montserrat;
-  font-weight: bold;
   color: #FFFFFF;
-  line-height: 44px;
   background: linear-gradient(139deg, #60638B 0%, #F9F9F9 18%, #FFFFFF 55%, #60638B 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+</style>
+<style scoped>
+.card-title{
+  @apply text-[18px] md:text-[32px] font-extrabold md:font-bold text-[#FFFFFF]
+}
+.card-desc{
+  @apply text-[14px] md:text-[18px]
 }
 </style>
