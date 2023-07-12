@@ -114,7 +114,6 @@ onMounted(()=>{
   background-size: 100% 100%;
 }
 .title-text{
-  // height: 219px;
   font-family: Montserrat-Bold, Montserrat;
   color: #FFFFFF;
   background: linear-gradient(137deg, #60638B 0%, #F9F9F9 18%, #FFFFFF 56%, #60638B 100%);
@@ -129,13 +128,8 @@ onMounted(()=>{
   font-weight: 300;
 }
 .join-title{
-  // width: 629px;
-  // height: 44px;
-  // font-size: 36px;
   font-family: Montserrat-Bold, Montserrat;
-  // font-weight: bold;
   color: #FFFFFF;
-  // line-height: 44px;
   background: linear-gradient(139deg, #60638B 0%, #F9F9F9 18%, #FFFFFF 55%, #60638B 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
