@@ -181,11 +181,13 @@
 
       <div class="container mx-auto px-5 mb-[60px] md:mb-[120px]">
         <div class="area-title text-center mb-[40px] md:mb-[100px]">Partner Quotes</div>
-        <div class="relative overflow-hidden top-0 bottom-0 right-0 left-0 h-[478px] md:h-[321px]">
-          <div class="scroll-fadeout-bg scroll-fadeout-left !w-[20%] md:block hidden"></div>
-          <div class="scroll-fadeout-bg scroll-fadeout-right !w-[20%] md:block hidden"></div>
-          <div class="flex absolute h-[478px] md:h-[321px] md:-left-[40%] md:right-[40%]">
-            <div class="w-full md:w-3/5 flex-none" v-for="(item,key) in showQuotesList" :key="key">
+        <div class="md:relative overflow-hidden top-0 bottom-0 right-0 left-0 h-[473px] md:h-[321px]">
+          <div v-if="!$device.isMobile" v-for="(item,key) in showQuotesList" :key="key">
+            <div v-if="key === 0" @click="getQuotesName(item.imgName)" class="cursor-pointer scroll-fadeout-bg scroll-fadeout-left !w-[20%]"></div>
+            <div v-if="key === 2" @click="getQuotesName(item.imgName)" class="cursor-pointer scroll-fadeout-bg scroll-fadeout-right !w-[20%]"></div>
+          </div>
+          <div id="div-quotes" class="flex overflow-x-auto md:overflow-x-visible md:absolute h-[478px] md:h-[321px] md:-left-[40%] md:right-[40%]">
+            <div class="w-full md:w-3/5 flex-none cursor-pointer quotes-div-item" v-for="(item,key) in showQuotesList" :key="key" @click="getQuotesName(item.imgName)" :class="{'mr-[20px]' : key !== 5}">
               <div class="card-box-css md:mx-[20px]">
                 <div class="card-box-content cursor-pointer p-[40px] md:p-[50px]">
                   <img :src="getImageURL(`${item.imgName}.png`)" class="inline-block h-[38px]" />
@@ -197,9 +199,12 @@
             </div>
           </div>
         </div>
-        <div class="relative overflow-hidden top-0 bottom-0 right-0 left-0 h-[50px] mt-[50px] md:block hidden">
+        <div v-if="$device.isMobile" class="mt-[40px] flex">
+          <div v-for="item in 6" :id="`div-quotes-num${item}`" :class="{'add-item-style' : item === 1}" class="box-num-item"></div>
+        </div>
+        <div v-if="!$device.isMobile" class="relative overflow-hidden top-0 bottom-0 right-0 left-0 h-[50px] mt-[50px]">
           <div class="flex absolute h-[50px] w-[1000px] left-1/2 -ml-[500px] overflow-hidden">
-            <div v-for="(item,key) in showQuotesImgList" :key="key" @click="getQuotesName(item.imgName)" :class="[key === 2 ? 'card-img-checked' : 'opacity-[18%]']" class="w-[200px] flex-none cursor-pointer">
+            <div v-for="(item,key) in showQuotesImgList" :key="key" @click="getQuotesName(item.imgName)" :class="[key === 2 ? 'card-img-checked' : 'opacity-[18%]']" class="card-img w-[200px] flex-none cursor-pointer">
               <div class="flex justify-center">
                 <img :src="getImageURL(`${item.imgName}.png`)" class="inline-block h-[19px] md:h-[30px]" />
               </div>
@@ -253,6 +258,8 @@ import 'animate.css';
   })
 
   const { getImageURL } = useAssets()
+  const device = useDevice()
+  const isMobile = device.value.isMobile
 
   const showHeader = ref(true)
   const showHeaderBg = ref(false)
@@ -274,32 +281,62 @@ import 'animate.css';
     {imgName: 'Quotes-CESS', desc: 'Hamster\'s full-stack Web3 technology can help CESS store and access data more effectively. At the same time, data standardization and source deployment also help CESS\'s progress. Hamster has fully demonstrated its support for the CESS project.'},
     {imgName: 'Quotes-Admeta', desc: 'Hamster provides stable and efficient Middleware services. Through Hamster, more developers and community members can access and use AdMeta services, benefiting more developers.'},
   ]);
-  
-  const showQuotesImgList = ref(quotesList.value.slice(0,5));
-  const showQuotesList = ref(showQuotesImgList.value.slice(1,4));
-  const getQuotesName = (name) => {
-    let curKey = 0;
-    quotesList.value.filter(function (val, key) {
-      if (val.imgName === name) curKey = key;
-    })
-    if (curKey - 2 < 0) {
-      showQuotesImgList.value = quotesList.value.slice(4+curKey,6)
-      quotesList.value.filter(function (val, key) {
-        if (key < curKey + 3) {
-          showQuotesImgList.value.push(val);
-        } 
-      })
-    } else if (curKey - 2 < 2) {
-      showQuotesImgList.value = quotesList.value.slice(curKey - 2 , 3 + curKey)
+  const oldScrollNum = ref(0);
+  const showQuotesImgList = ref([]);
+  const showQuotesList = ref([]);
+  const setQuotesList = () => {
+    if (isMobile) {
+      showQuotesList.value = quotesList.value 
     } else {
-      showQuotesImgList.value = quotesList.value.slice(curKey - 2 , 6)
-      quotesList.value.filter(function (val, key) {
-        if (key < 6-showQuotesImgList.value.length) {
-          showQuotesImgList.value.push(val);
-        } 
-      }) 
+      showQuotesImgList.value = quotesList.value.slice(0, 5)
+      showQuotesList.value = showQuotesImgList.value.slice(1, 4)
     }
-    showQuotesList.value = showQuotesImgList.value.slice(1,4);
+  }
+  const addQuotesScroll = () => {
+    document.getElementById('div-quotes').addEventListener('scroll', (e) => {
+      
+      // e.target.scrollLeft 滚动条距离左边的距离（ps: 只有距离左边的和距离上面的距离，没有右边和下面的距离。）
+      // e.target.clientWidth  客户端显示宽度，高度大概同理，当距离左边的长度等于滚动条长度减去显示宽度即滚动到了最右边
+      
+
+      let left = e.target.scrollLeft;
+      let width = e.target.clientWidth;
+      let divNum = Math.round(left / width);
+      if (oldScrollNum.val > divNum) { //向左滑动
+        document.getElementById('div-quotes-num'+(divNum+2)).classList.remove("add-item-style");
+        document.getElementById('div-quotes-num'+(divNum+1)).classList.add("add-item-style");
+      } else { //向右滑动
+        document.getElementById('div-quotes-num'+divNum).classList.remove("add-item-style");
+        document.getElementById('div-quotes-num'+(divNum+1)).classList.add("add-item-style");
+      }
+      oldScrollNum.val = divNum;
+    })
+  }
+  const getQuotesName = (name) => {
+    if (!isMobile) {
+      let curKey = 0;
+      quotesList.value.filter(function (val, key) {
+        if (val.imgName === name) curKey = key;
+      })
+      if (curKey - 2 < 0) {
+        showQuotesImgList.value = quotesList.value.slice(4+curKey,6)
+        quotesList.value.filter(function (val, key) {
+          if (key < curKey + 3) {
+            showQuotesImgList.value.push(val);
+          } 
+        })
+      } else if (curKey - 2 < 2) {
+        showQuotesImgList.value = quotesList.value.slice(curKey - 2 , 3 + curKey)
+      } else {
+        showQuotesImgList.value = quotesList.value.slice(curKey - 2 , 6)
+        quotesList.value.filter(function (val, key) {
+          if (key < 6-showQuotesImgList.value.length) {
+            showQuotesImgList.value.push(val);
+          } 
+        }) 
+      }
+      showQuotesList.value = showQuotesImgList.value.slice(1,4);
+    }
   }
 
   const sendEmail = async () => {
@@ -351,6 +388,8 @@ import 'animate.css';
       } else {
         alineLink.value = "https://develop.hamster.newtouch.com";
       }
+      setQuotesList();
+      addQuotesScroll();
       // getEcology();
       getArticles();
     } catch (error) {
@@ -574,9 +613,25 @@ import 'animate.css';
   border-radius: 8px;
   background: #FEFEFE;
 }
+.box-num-item{
+  width: 16.66%;
+  height: 3px;
+  background: #EAEAEA;
+}
+.add-item-style{
+  background: #0A0A0A;
+}
 .card-img-checked{
   border-bottom: 3px solid #000000;
 }
+// .map-enter-from .card-img-checked{
+//   transform: translateX(-35px);
+//   opacity: 0;
+// }
+// .map-enter-active .card-img-checked
+// {
+//   transition: all 0.8s ease-in-out;
+// }
 </style>
 
 <style scoped>
