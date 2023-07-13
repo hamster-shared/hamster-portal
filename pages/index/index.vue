@@ -345,7 +345,7 @@ import 'animate.css';
       setTimeout(() => {
         scrollQuotesL.value = false;
         scrollQuotesR.value = false;
-      }, 1000);
+      }, 500);
     }
   }
 
@@ -635,8 +635,8 @@ import 'animate.css';
 
 }
 .box-show-right{
-  -webkit-animation: bounceR 1s 1;
-  animation: bounceR 1s 1;
+  -webkit-animation: bounceR 500ms 1;
+  animation: bounceR 500ms 1;
 }
 @keyframes bounceR {
   0% {
@@ -647,8 +647,8 @@ import 'animate.css';
   }
 }
 .box-show-left{
-  -webkit-animation: bounceL 1s 1;
-  animation: bounceL 1s 1;
+  -webkit-animation: bounceL 500ms 1;
+  animation: bounceL 500ms 1;
 }
 @keyframes bounceL {
   0% {
