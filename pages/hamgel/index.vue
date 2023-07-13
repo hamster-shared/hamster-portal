@@ -18,7 +18,7 @@
         <div class="md:w-2/5 flex items-center">
           <div>
             <div class="card-title">Send your favorite project to the moon</div>
-            <div class="card-desc mt-[10px] md:mt-[20px]">very project you participate in will receive an extra portion of funding, and your personal donations have an amplified impact through the use of Quadratic Funding (QF) allocation mechanism.</div>
+            <div class="card-desc mt-[10px] md:mt-[20px]">Every project you participate in will receive an extra portion of funding, and your personal donations have an amplified impact through the use of Quadratic Funding (QF) allocation mechanism.</div>
             <button disabled="true" class="mt-[30px] md:mt-[40px] start-today !text-[14px] !font-normal">Support <label class="font-light">(Soon)</label></button>
           </div>
         </div>
@@ -59,11 +59,12 @@
           <button disabled="true" class="mt-[20px] start-today !text-[14px] !font-normal">Support <label class="font-light">(Soon)</label></button>
         </div>
         <div class="text-center text-[25px] md:text-[40px] font-extrabold md:font-bold mt-[100px] md:mt-[150px]">What is Hamgel Bounty?</div>
-        <div class="mt-[30px] md:mt-[40px] flex justify-center text-center pb-[40px] md:pb-[80px]">
-          <div class="text-[18px] w-[720px]">Hamgel Bounty refers to the bounty program on Hamgel platform. Through Hamgel Bounty, project parties can get support more easily. On Hamgel Bounty, you only need to pay a certain amount of ERC20 tokens, then you can publish tasks such as code writing, event planning, content editing and research topics. Users who complete the tasks will receive the bounty as a reward.</div>
+        <div class="mt-[30px] md:mt-[40px] flex justify-center text-center">
+          <div class="text-[14px] md:text-[18px] w-[720px]">Hamgel Bounty refers to the bounty program on Hamgel platform. Through Hamgel Bounty, project parties can get support more easily. On Hamgel Bounty, you only need to pay a certain amount of ERC20 tokens, then you can publish tasks such as code writing, event planning, content editing and research topics. Users who complete the tasks will receive the bounty as a reward.</div>
         </div>
-        <img class="w-full" src="~/assets/images/hamgel-pic.png">
-        <div class="text-center text-[25px] md:text-[40px] font-extrabold md:font-bold mt-[60px] md:mt-[120px] mb-[80px]">Project monitoring</div>
+        <img v-if="$device.isMobile" class="w-full -mt-[60px]" src="~/assets/images/hamgel-bounty-phone.png">
+        <img v-else class="w-full -mt-[80px]" src="~/assets/images/hamgel-bounty.png">
+        <div class="text-center text-[25px] md:text-[40px] font-extrabold md:font-bold md:mt-[120px] my-[30px] md:mb-[80px]">Project monitoring</div>
         <div :class="{'hamgel-monit-bg' : !$device.isMobile}">
           <div class="text-[14px] md:text-[18px] font-medium md:font-normal md:w-[370px] md:pt-[258px] md:pb-[202px] md:pl-[57px]">Hamgel will monitor projects in real time to reflect the actual situation of the projects as much as possible, in order to find the most outstanding and most in need of funding projects.</div>
         </div>
@@ -106,8 +107,14 @@ onMounted(()=>{
   background-size: contain;
 }
 .hamgel-join-bg{
-  background: url("~/assets/images/Hamgel-pic.png") no-repeat center #000000;
-  background-size: 100% 100%;
+  // background: url("~/assets/images/Hamgel-pic.png") no-repeat center #000000;
+  // background-size: 100% 100%;
+  background: linear-gradient(180deg, #010314 0%, #030528 100%);
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background-image: linear-gradient(180deg, #010314 0%, #030528 100%),linear-gradient(90deg, rgba(92, 100, 255, 1), rgba(64, 236, 225, 1)) ;
+  background-clip: padding-box, border-box;
+  background-origin: border-box;
 }
 .hamgel-monit-bg{
   background: url("~/assets/images/hamgel-monit.png") no-repeat center #000000;
