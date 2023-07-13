@@ -181,19 +181,17 @@
 
       <div class="container mx-auto px-5 mb-[60px] md:mb-[120px]">
         <div class="area-title text-center mb-[40px] md:mb-[100px]">Partner Quotes</div>
-        <div class="md:relative overflow-hidden top-0 bottom-0 right-0 left-0 h-[473px] md:h-[321px]">
+        <div class="md:relative overflow-hidden top-0 bottom-0 right-0 left-0 h-[478px] md:h-[321px]">
           <div v-if="!$device.isMobile" v-for="(item,key) in showQuotesList" :key="key">
             <div v-if="key === 0" @click="getQuotesName(item.imgName)" class="cursor-pointer scroll-fadeout-bg scroll-fadeout-left !w-[20%]"></div>
             <div v-if="key === 2" @click="getQuotesName(item.imgName)" class="cursor-pointer scroll-fadeout-bg scroll-fadeout-right !w-[20%]"></div>
           </div>
-          <div id="div-quotes" class="flex overflow-x-auto md:overflow-x-visible md:absolute h-[478px] md:h-[321px] md:-left-[40%] md:right-[40%]">
+          <div id="div-quotes" class="quotes-scroll flex overflow-x-auto md:overflow-x-visible md:absolute h-[478px] md:h-[321px] md:-left-[40%] md:right-[40%]">
             <div class="w-full md:w-3/5 flex-none cursor-pointer" v-for="(item,key) in showQuotesList" :key="key" @click="getQuotesName(item.imgName)" :class="{'mr-[20px]' : key !== 5}">
-              <div class="card-box-css md:mx-[20px]">
-                <div class="card-box-content cursor-pointer p-[40px] md:p-[50px]">
-                  <img :src="getImageURL(`${item.imgName}.png`)" class="inline-block h-[38px]" />
-                  <div class="mt-[30px] md:mt-[20px] text-[#40425C] leading-[20px] font-medium">
-                    {{ item.desc }}
-                  </div>
+              <div class="card-box-css md:mx-[20px] cursor-pointer p-[40px] md:p-[50px]">
+                <img :src="getImageURL(`${item.imgName}.png`)" class="inline-block h-[38px]" />
+                <div class="mt-[30px] md:mt-[20px] text-[#40425C] leading-[20px] font-medium">
+                  {{ item.desc }}
                 </div>
               </div>
             </div>
@@ -601,17 +599,12 @@ import 'animate.css';
 
 .card-box-css{
   height: 100%;
-  height: 100%;
   box-shadow: 0px 9px 10px 0px rgba(172,174,192,0.14);
   border-radius: 8px;
-  padding: 0.8px;
-  background: linear-gradient(134deg, rgba(71, 77, 200, 1), rgba(50, 182, 177, 1)) ;
-}
-.card-box-content{
-  width: 100%; // calc(100% - 0.5px);
-  height: 100%;
-  border-radius: 8px;
-  background: #FEFEFE;
+  border: 1px solid transparent;
+  background-image: linear-gradient(#FEFEFE,#FEFEFE),linear-gradient(134deg, rgba(71, 77, 200, 1), rgba(50, 182, 177, 1));
+  background-clip: padding-box, border-box;
+  background-origin: border-box;
 }
 .box-num-item{
   width: 16.66%;
@@ -624,14 +617,11 @@ import 'animate.css';
 .card-img-checked{
   border-bottom: 3px solid #000000;
 }
-// .map-enter-from .card-img-checked{
-//   transform: translateX(-35px);
-//   opacity: 0;
-// }
-// .map-enter-active .card-img-checked
-// {
-//   transition: all 0.8s ease-in-out;
-// }
+.quotes-scroll::-webkit-scrollbar {
+
+  display: none; /*隐藏滚动条*/
+
+}
 </style>
 
 <style scoped>
