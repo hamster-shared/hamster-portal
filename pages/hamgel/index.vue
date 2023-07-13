@@ -1,14 +1,18 @@
 <template>
   <div class="bg-[#000000]">
-    <div class="container mx-auto px-5">
-      <div class="pt-[100px] pb-[300px] md:pb-[450px] md:pt-[180px]" :class="[$device.isMobile ? 'hamgel-top-bg-phone' : 'hamgel-top-bg']">
-        <div class="flex justify-center text-center">
-          <div class="title-text font-extrabold md:font-bold w-[357px] md:w-[977px] text-[24px] md:text-[60px] leading-[29px] md:leading-[73px]">Help web3 projects raise funds and encourage more people to participate in its development.</div>
-        </div>
-        <div class="mt-[20px] md:mt-[30px] flex justify-center text-center">
-          <div class="text-[16px] md:text-[18px] w-[318px] md:w-[690px]">Hamgel is a web3 project support platform initiated by Hamster together with various ecosystems.Through funding, donations, bounty tasks, project roadshows and other means, Hamgel gathers project parties, developers, users, communities and investors to create the best development environment for web3 projects.</div>
+    <div :class="{ 'hamgel-top-pic' : !$device.isMobile}">
+      <div class="container mx-auto px-5" :class="[$device.isMobile ? 'hamgel-top-bg-phone' : 'hamgel-top-bg']">
+        <div class="pt-[100px] pb-[300px] md:pb-[450px] md:pt-[180px]">
+          <div class="flex justify-center text-center">
+            <div class="title-text font-extrabold md:font-bold w-[357px] md:w-[977px] text-[24px] md:text-[60px] leading-[29px] md:leading-[73px]">Help web3 projects raise funds and encourage more people to participate in its development.</div>
+          </div>
+          <div class="mt-[20px] md:mt-[30px] flex justify-center text-center">
+            <div class="text-[16px] md:text-[18px] w-[318px] md:w-[690px]">Hamgel is a web3 project support platform initiated by Hamster together with various ecosystems.Through funding, donations, bounty tasks, project roadshows and other means, Hamgel gathers project parties, developers, users, communities and investors to create the best development environment for web3 projects.</div>
+          </div>
         </div>
       </div>
+    </div>
+    <div class="container mx-auto px-5"> 
       <div class="text-center text-[25px] md:text-[40px] font-bold">What is Hamgel Grants?</div>
       <div class="mt-[30px] md:mt-[40px] flex justify-center text-center pb-[95px]">
         <div class="text-[14px] md:text-[18px] md:w-[640px]">Hamgel Grants refers to the funding pool of Hamster Foundation to provide grants. The grant program has at least two rounds per year to help worthy web3 projects that match the grant purposes.</div>
@@ -98,17 +102,20 @@ onMounted(()=>{
 </script>
 <style scoped lang="less">
 
+.hamgel-top-pic{
+  background: url("~/assets/images/Hamgel-Banner-bg.png") no-repeat center #000000;
+  background-size: 100% 100%;
+}
 .hamgel-top-bg{
-  background: url("~/assets/images/Hamgel-Banner-logo.png") no-repeat center #000000;
-  background-size: contain;
+  background: url("~/assets/images/Hamgel-Banner-logo.png") no-repeat center 88%;
+  background-size: 80% auto;
+  background-position-x: 22%;
 }
 .hamgel-top-bg-phone{
-  background: url("~/assets/images/Hamgel-Banner-logo-phone.png") no-repeat center 70% #000000;
+  background: url("~/assets/images/Hamgel-Banner-logo-phone.png") no-repeat bottom #000000;
   background-size: contain;
 }
 .hamgel-join-bg{
-  // background: url("~/assets/images/Hamgel-pic.png") no-repeat center #000000;
-  // background-size: 100% 100%;
   background: linear-gradient(180deg, #010314 0%, #030528 100%);
   border-radius: 8px;
   border: 1px solid transparent;
