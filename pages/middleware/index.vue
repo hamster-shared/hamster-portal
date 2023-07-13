@@ -151,16 +151,6 @@ onMounted(()=>{
   background: url("~/assets/images/middleware-space-bg.png") no-repeat center #FFFFFF;
   background-size: 100% 100%;
 }
-.text-css-color{
-  font-size: 24px;
-  font-family: Montserrat-Bold, Montserrat;
-  font-weight: bold;
-  color: #5B7ED1;
-  line-height: 29px;
-  background: linear-gradient(221deg, #40ECE1 0%, #5C64FF 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
 .scroll-one1{
   animation-name: scrollOne1;
 }
