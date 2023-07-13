@@ -183,12 +183,12 @@
         <div class="area-title text-center mb-[40px] md:mb-[100px]">Partner Quotes</div>
         <div class="md:relative overflow-hidden top-0 bottom-0 right-0 left-0 h-[478px] md:h-[321px]">
           <div v-if="!$device.isMobile" v-for="(item,key) in showQuotesList" :key="key">
-            <div v-if="key === 0" @click="getQuotesName(item.imgName)" class="cursor-pointer scroll-fadeout-bg scroll-fadeout-left !w-[20%]"></div>
-            <div v-if="key === 2" @click="getQuotesName(item.imgName)" class="cursor-pointer scroll-fadeout-bg scroll-fadeout-right !w-[20%]"></div>
+            <div v-if="key === 0" @click="getQuotesName(item.imgName, key, 'card')" class="cursor-pointer scroll-fadeout-bg scroll-fadeout-left !w-[20%]"></div>
+            <div v-if="key === 2" @click="getQuotesName(item.imgName, key, 'card')" class="cursor-pointer scroll-fadeout-bg scroll-fadeout-right !w-[20%]"></div>
           </div>
           <div id="div-quotes" class="quotes-scroll flex overflow-x-auto md:overflow-x-visible md:absolute h-[478px] md:h-[321px] md:-left-[40%] md:right-[40%]">
-            <div class="w-full md:w-3/5 flex-none cursor-pointer" v-for="(item,key) in showQuotesList" :key="key" @click="getQuotesName(item.imgName)" :class="{'mr-[20px]' : key !== 5}">
-              <div class="card-box-css md:mx-[20px] cursor-pointer p-[40px] md:p-[50px]">
+            <div class="w-full md:w-3/5 flex-none cursor-pointer" v-for="(item,key) in showQuotesList" :key="key" @click="getQuotesName(item.imgName, key, 'card')" :class="{'mr-[20px]' : key !== 5}">
+              <div class="card-box-css md:mx-[20px] cursor-pointer p-[40px] md:p-[50px]" :class="[{'box-show-left' : !$device.isMobile && scrollQuotesL},{'box-show-right' : !$device.isMobile && scrollQuotesR}]">
                 <img :src="getImageURL(`${item.imgName}.png`)" class="inline-block h-[38px]" />
                 <div class="mt-[30px] md:mt-[20px] text-[#40425C] leading-[20px] font-medium">
                   {{ item.desc }}
@@ -202,7 +202,7 @@
         </div>
         <div v-if="!$device.isMobile" class="relative overflow-hidden top-0 bottom-0 right-0 left-0 h-[50px] mt-[50px]">
           <div class="flex absolute h-[50px] w-[1000px] left-1/2 -ml-[500px] overflow-hidden">
-            <div v-for="(item,key) in showQuotesImgList" :key="key" @click="getQuotesName(item.imgName)" :class="[key === 2 ? 'card-img-checked' : 'opacity-[18%]']" class="card-img w-[200px] flex-none cursor-pointer">
+            <div v-for="(item,key) in showQuotesImgList" :key="key" @click="getQuotesName(item.imgName, key, 'img')" :class="[key === 2 ? 'card-img-checked' : 'opacity-[18%]',{'box-show-left' : !$device.isMobile && scrollQuotesL},{'box-show-right' : !$device.isMobile && scrollQuotesR}]" class="card-img w-[200px] flex-none cursor-pointer">
               <div class="flex justify-center">
                 <img :src="getImageURL(`${item.imgName}.png`)" class="inline-block h-[19px] md:h-[30px]" />
               </div>
@@ -282,6 +282,8 @@ import 'animate.css';
   const oldScrollNum = ref(0);
   const showQuotesImgList = ref([]);
   const showQuotesList = ref([]);
+  const scrollQuotesL = ref(false);
+  const scrollQuotesR = ref(false);
   const setQuotesList = () => {
     if (isMobile) {
       showQuotesList.value = quotesList.value 
@@ -310,8 +312,13 @@ import 'animate.css';
       oldScrollNum.val = divNum;
     })
   }
-  const getQuotesName = (name) => {
+  const getQuotesName = (name, keyVal, type) => {
     if (!isMobile) {
+      if (type === 'img' && keyVal < 2 || type === 'card' && keyVal < 1) {
+        scrollQuotesR.value = true;
+      } else {
+        scrollQuotesL.value = true;
+      }
       let curKey = 0;
       quotesList.value.filter(function (val, key) {
         if (val.imgName === name) curKey = key;
@@ -333,7 +340,12 @@ import 'animate.css';
           } 
         }) 
       }
-      showQuotesList.value = showQuotesImgList.value.slice(1,4);
+      showQuotesList.value = showQuotesImgList.value.slice(1, 4);
+      
+      setTimeout(() => {
+        scrollQuotesL.value = false;
+        scrollQuotesR.value = false;
+      }, 500);
     }
   }
 
@@ -621,6 +633,30 @@ import 'animate.css';
 
   display: none; /*隐藏滚动条*/
 
+}
+.box-show-right{
+  -webkit-animation: bounceR 500ms 1;
+  animation: bounceR 500ms 1;
+}
+@keyframes bounceR {
+  0% {
+    transform: translate(-100%,0);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.box-show-left{
+  -webkit-animation: bounceL 500ms 1;
+  animation: bounceL 500ms 1;
+}
+@keyframes bounceL {
+  0% {
+    transform: translate(100%,0);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 </style>
 
