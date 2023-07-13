@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-[#000000]">
+  <div class="bg-[#010314]">
     <div :class="{ 'hamgel-top-pic' : !$device.isMobile}">
       <div class="container mx-auto px-5" :class="[$device.isMobile ? 'hamgel-top-bg-phone' : 'hamgel-top-bg']">
         <div class="pt-[100px] pb-[300px] md:pb-[450px] md:pt-[180px]">
@@ -67,7 +67,7 @@
           <div class="text-[14px] md:text-[18px] w-[720px]">Hamgel Bounty refers to the bounty program on Hamgel platform. Through Hamgel Bounty, project parties can get support more easily. On Hamgel Bounty, you only need to pay a certain amount of ERC20 tokens, then you can publish tasks such as code writing, event planning, content editing and research topics. Users who complete the tasks will receive the bounty as a reward.</div>
         </div>
         <img v-if="$device.isMobile" class="w-full -mt-[60px]" src="~/assets/images/hamgel-bounty-phone.png">
-        <img v-else class="w-full -mt-[80px]" src="~/assets/images/hamgel-bounty.png">
+        <img v-else class="w-full -mt-[70px]" src="~/assets/images/hamgel-bounty.png">
         <div class="text-center text-[25px] md:text-[40px] font-extrabold md:font-bold md:mt-[120px] my-[30px] md:mb-[80px]">Project monitoring</div>
         <div :class="{'hamgel-monit-bg' : !$device.isMobile}">
           <div class="text-[14px] md:text-[18px] font-medium md:font-normal md:w-[370px] md:pt-[258px] md:pb-[202px] md:pl-[57px]">Hamgel will monitor projects in real time to reflect the actual situation of the projects as much as possible, in order to find the most outstanding and most in need of funding projects.</div>
@@ -103,7 +103,7 @@ onMounted(()=>{
 <style scoped lang="less">
 
 .hamgel-top-pic{
-  background: url("~/assets/images/Hamgel-Banner-bg.png") no-repeat center #000000;
+  background: url("~/assets/images/Hamgel-Banner-bg.png") no-repeat center #010314;
   background-size: 100% 100%;
 }
 .hamgel-top-bg{
@@ -112,7 +112,7 @@ onMounted(()=>{
   background-position-x: 22%;
 }
 .hamgel-top-bg-phone{
-  background: url("~/assets/images/Hamgel-Banner-logo-phone.png") no-repeat bottom #000000;
+  background: url("~/assets/images/Hamgel-Banner-logo-phone.png") no-repeat bottom #010314;
   background-size: contain;
 }
 .hamgel-join-bg{
@@ -124,7 +124,7 @@ onMounted(()=>{
   background-origin: border-box;
 }
 .hamgel-monit-bg{
-  background: url("~/assets/images/hamgel-monit.png") no-repeat center #000000;
+  background: url("~/assets/images/hamgel-monit.png") no-repeat center #010314;
   background-size: 100% 100%;
 }
 .title-text{
