@@ -1,7 +1,7 @@
 <template>
   <div class="bg-[#010314]">
-    <div :class="{ 'hamgel-top-pic' : !$device.isMobile}">
-      <div class="container mx-auto px-5" :class="[$device.isMobile ? 'hamgel-top-bg-phone' : 'hamgel-top-bg']">
+    <div :class="[$device.isMobile ? 'hamgel-top-bg-phone' : 'hamgel-top-pic']">
+      <div class="container mx-auto px-5" :class="{'hamgel-top-bg' : !$device.isMobile }">
         <div class="pt-[100px] pb-[300px] md:pb-[450px] md:pt-[180px]">
           <div class="flex justify-center text-center">
             <div class="title-text font-extrabold md:font-bold w-[357px] md:w-[977px] text-[24px] md:text-[60px] leading-[29px] md:leading-[73px]">Help web3 projects raise funds and encourage more people to participate in its development.</div>
