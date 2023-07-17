@@ -113,7 +113,7 @@ onMounted(()=>{
 }
 .hamgel-top-bg-phone{
   background: url("~/assets/images/Hamgel-Banner-logo-phone.png") no-repeat bottom #010314;
-  background-size: contain;
+  background-size: 100%;
 }
 .hamgel-join-bg{
   background: linear-gradient(180deg, #010314 0%, #030528 100%);
