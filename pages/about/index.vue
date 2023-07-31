@@ -6,7 +6,7 @@
           <div class="text-color-css">OUR MISSION</div>
         </div>
         <div class="text-[16px] md:text-[24px] leading-[21px] md:leading-[35px] font-medium md:font-light text-[#FFFFFF] font-family-light flex justify-center">
-          <div class="md:w-[796px]">The Hamster platform provides an automated blockchain development environment, middleware engines, and multi-language development templates to support cross-language, cross-chain development and lower barriers to entry. The platform features code auditing, private key leakage protection, auto-deployment, real-time monitoring and other capabilities to fully safeguard smart contract security. We are committed to unleashing developer creativity to drive massive blockchain technology adoption.</div>
+          <div class="md:w-[796px]">The Hamster platform provides an automated blockchain development environment, middleware engines, and multi-language development templates to support cross-language, cross-chain development and lower barriers to entry. The platform features code auditing, private key leakage protection, auto-deployment, real-time monitoring and other capabilities to fully safeguard smart contract security. We are committed to unleashing developer creativity to drive massive blockchain technology adoption</div>
         </div>
       </div>
     </div>
