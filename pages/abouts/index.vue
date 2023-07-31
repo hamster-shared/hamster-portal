@@ -5,7 +5,7 @@
       <div class="text-center">
         <div class="mb-[50px] text-[24px] md:text-[50px] leading-[36px] md:leading-[74px] font-extrabold font-family-extraBold text-[#FFFFFF]">About Hamster</div>
         <div class="text-[16px] md:text-[24px] leading-[21px] md:leading-[35px] font-medium text-[#999999] font-family-medium flex justify-center">
-          <div class="md:mx-[60px]">One-Stop infrastructure, Developer Toolkit DevOps Framework in Web3.0, achieving automatic code/contract writing, build, check, deployment and more, empowering projects in Web3.0 to improve their coding and delivery speed, quality and efficiency, as well as product reliability & safety.</div>
+          <div class="md:mx-[60px]">The Hamster platform provides an automated blockchain development environment, middleware engines, and multi-language development templates to support cross-language, cross-chain development and lower barriers to entry. The platform features code auditing, private key leakage protection, auto-deployment, real-time monitoring and other capabilities to fully safeguard smart contract security. We are committed to unleashing developer creativity to drive massive blockchain technology adoption.</div>
         </div>
       </div>
       <div class="flex justify-center pt-[90px] md:pt-[200px] pb-[40px] md:pb-[60px]">
