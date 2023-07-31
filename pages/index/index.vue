@@ -30,7 +30,7 @@
             <div class="area-title">Modular Blockchain Development Protocol</div>
             <div class="flex  justify-center">
               <div class="area-desc md:w-[770px]">
-                Integrating AI and modular development into blockchain enables intelligent development, lowers the threshold, and advances blockchain technology.
+                Integrating AI and modular development into blockchain enables intelligent development, lowers the threshold, and advances blockchain technology
               </div>
             </div>
           </div>
