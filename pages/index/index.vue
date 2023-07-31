@@ -7,7 +7,7 @@
               <div class="text-2xl font-extrabold px-10 md:px-0 md:w-[560px] md:text-[50px] md:leading-[74px] font-family-extraBold">
                 Hamster empowers Web3.0 Explorer to build their dreams
               </div>
-              <div class="mt-5 mb-6 text-[16px] md:text-[21px] md:w-[560px] leading-[21px] md:leading-[30px] font-medium md:font-light text-[#999999] ">One-stop Toolkit and Middleware Platform for Web3.0 Developers</div>
+              <div class="mt-5 mb-6 text-[16px] md:text-[21px] md:w-[560px] leading-[21px] md:leading-[30px] font-medium md:font-light text-[#999999] ">One-stop Development Experience for Web3.0 Developers</div>
               <div class="hidden mb-6 md:block">
                 <span class="text-[#999999] text-base font-light font-family-light">Investors</span>
                 <img src="./images/waterdrip.png" class="w-[70px] h-[30px] inline-block ml-6"/>
@@ -27,10 +27,10 @@
       <div class="container mx-auto px-5 mb-[60px] md:mb-[160px]">
         <div>
           <div class="text-center">
-            <div class="area-title">Hamster DevOps Solution</div>
+            <div class="area-title">Modular Blockchain Development Protocol</div>
             <div class="flex  justify-center">
               <div class="area-desc md:w-[770px]">
-                Hamster offers the comprehensive approach to develop projects in Web3.0. We provide a developer-friendly platform for developers to build their blockchain ideas
+                Integrating AI and modular development into blockchain enables intelligent development, lowers the threshold, and advances blockchain technology.
               </div>
             </div>
           </div>
