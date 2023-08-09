@@ -8,17 +8,68 @@
                 Hamster empowers Web3.0 Explorer to build their dreams
               </div>
               <div class="mt-5 mb-6 text-[16px] md:text-[21px] md:w-[560px] leading-[21px] md:leading-[30px] font-medium md:font-light text-[#999999] ">One-stop Development Experience for Web3.0 Developers</div>
-              <div class="hidden mb-6 md:block">
-                <span class="text-[#999999] text-base font-light font-family-light">Investors</span>
-                <img src="./images/waterdrip.png" class="w-[70px] h-[30px] inline-block ml-6"/>
-                <img src="./images/stratified.png" class="w-[84px] h-[30px] inline-block ml-6"/>
+              <div class="hidden mb-[35px] md:block">
+                <div class="flex items-center">
+                  <div class="logo-title font-family-light">
+                    <div>Investors:</div>
+                    <div class="mt-4">Grant:</div>
+                  </div>
+                  <div>
+                    <div>
+                      <img src="./images/waterdrip.png" class="h-[30px] inline-block ml-4"/>
+                      <img src="./images/stratified.png" class="h-[23px] inline-block ml-4"/>
+                    </div>
+                    <div class="mt-4">
+                      <img src="~/assets/images/Grant-1.png" class="h-[24px] inline-block ml-4"/>
+                      <img src="~/assets/images/Grant-2.png" class="h-[27px] inline-block ml-4"/>
+                      <img src="~/assets/images/Grant-3.png" class="h-[27px] inline-block ml-4"/>
+                      <img src="~/assets/images/Grant-4.png" class="h-[18px] inline-block ml-4"/>
+                      <img src="~/assets/images/Grant-5.png" class="h-[23px] inline-block ml-4"/>
+                      <img src="~/assets/images/Grant-6.png" class="h-[23px] inline-block ml-4"/>
+                    </div>
+                  </div>
+                </div>
               </div>
               <button class="btn-css" @click="gotoAline">Start Building</button>
             </div>
-            <div class="flex justify-between absolute bottom-[35px] w-full md:hidden">
-              <span class="text-[#999999] text-base font-light font-family-light">Investors</span>
-              <img src="./images/waterdrip.png" class="w-[70px] h-[30px] inline-block ml-6"/>
-              <img src="./images/stratified.png" class="w-[84px] h-[30px] inline-block ml-6"/>
+            <div class="absolute bottom-[35px] w-full md:hidden">
+              <div class="flex justify-center items-center">
+                <div class="logo-title font-family-light">Investors:</div>
+                <img src="./images/waterdrip.png" class="h-[15px] inline-block ml-[10px]"/>
+                <img src="./images/stratified.png" class="h-[15px] inline-block ml-[10px]"/>
+              </div>
+              <div class="flex flex-wrap mt-[10px] justify-between items-center">
+                <div class="logo-title font-family-light">Grant:</div>
+                <img src="~/assets/images/Grant-1.png" class="h-[15px] inline-block ml-[10px]"/>
+                <img src="~/assets/images/Grant-2.png" class="h-[15px] inline-block ml-[10px]"/>
+                <img src="~/assets/images/Grant-3.png" class="h-[15px] inline-block ml-[10px]"/>
+                <img src="~/assets/images/Grant-4.png" class="h-[15px] inline-block ml-[10px]"/>
+                <img src="~/assets/images/Grant-5.png" class="h-[15px] inline-block ml-[10px]"/>
+                <img src="~/assets/images/Grant-6.png" class="h-[15px] inline-block ml-[10px]"/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div :class="{'automation-bg' : !$device.isMobile}">
+        <div class="container mx-auto px-5 mb-[60px] md:mb-[160px]">
+          <div>
+            <div class="text-center">
+              <div class="area-title">Web3.0 Development Automation</div>
+              <div class="flex  justify-center">
+                <div class="area-desc md:w-[600px]">
+                  Web3.0 + AI super middleware engine & data-driven incubation platform
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mt-[40px] md:mt-[100px] md:grid md:grid-cols-3 md:gap-[30px]">
+            <div v-for="(item,key) in automationList" :key="key" :class="[{'mt-[30px]' : key !== 0},{'group automation-card' : !$device.isMobile}]" class="relative h-[365px] md:h-[347px] text-[#000000] border border-solid border-[#F1F3FE] bg-[#FFFFFF] rounded-[8px] md:rounded-[12px] p-[20px]">
+              <img :src="getImageURL(`automation-icon-${key+1}.png`)" class="md:w-[50px] w-[70px] h-[70px] md:h-[50px]"/> 
+              <div class="my-[10px] text-[16px] md:text-[18px] font-bold leading-[30px]">{{ item.title }}</div>
+              <div class="font-light leading-[20px] text-[14px] md:text-[16px]">{{ item.desc }}</div>
+              <div class="automation-text-color absolute bottom-[40px] md:bottom-[30px] left-[20px] cursor-pointer md:hidden group-hover:block" @click="gotoPorject">Start building for free ></div>
             </div>
           </div>
         </div>
@@ -30,60 +81,20 @@
             <div class="area-title">Modular Blockchain Development Protocol</div>
             <div class="flex  justify-center">
               <div class="area-desc md:w-[770px]">
-                Integrating AI and modular development into blockchain enables intelligent development, lowers the threshold, and advances blockchain technology
+                Integrating AI and modular development into blockchain enables intelligent development, lowers the threshold, and advances blockchain technology.
               </div>
             </div>
           </div>
           <div :class="[$device.isMobile ? 'solutions-bg-phone my-[40px]' : 'solutions-bg']"> 
-            <div class="flex relative h-[460px] md:h-[610px] justify-end"> 
-              <div class=" w-[75%] md:w-full">
+            <div class="flex relative h-[320px] md:h-[610px] justify-start"> 
+              <div class=" w-[95%] md:w-full">
                 <div class="flex md:block justify-center">
-                  <div class="grid grid-cols-2 md:grid-cols-4 gap-2 h-[130px] md:h-auto mt-[80px] md:mt-[350px] md:ml-[276px] w-[236px] md:w-[430px] text-center">
-                    <div>
+                  <div class="grid grid-cols-4 md:grid-cols-7 gap-2 pt-[130px] md:pt-[300px] md:ml-[20px] lg:ml-[380px] w-[300px] md:w-[690px] lg:w-[630px] text-center">
+                    <div v-for="(item, index) in protocolList" :key="index" :class="item.class" @click="handleProtocol(item.title)">
                       <div class="flex justify-center">
-                        <img src="~/assets/images/template-market-logo.svg" class="w-[30px] md:w-[50px]">
+                        <img :src="getImageURL(`${item.imgName}.svg`)" class="w-[26px] md:w-[50px]">
                       </div>
-                      <div class="solution-text">Template Market</div>
-                    </div>
-                    <div>
-                      <div class="flex justify-center">
-                        <img src="~/assets/images/middleWare-logo.svg" class="w-[30px] md:w-[50px]">
-                      </div>
-                      <div class="solution-text">Middleware</div>
-                    </div>
-                    <div class="cursor-pointer" @click="goWorkflow">
-                      <div class="flex justify-center">
-                        <img src="~/assets/images/automate-workflow-logo.svg" class="w-[30px] md:w-[50px]">
-                      </div>
-                      <div class="solution-text">Automated Workflow</div>
-                    </div>
-                    <div class="cursor-pointer" @click="goDownload">
-                      <div class="flex justify-center">
-                        <img src="~/assets/images/decentralized-logo.svg" class="w-[30px] md:w-[50px]">
-                      </div>
-                      <div class="solution-text">Decentralized Computing Power</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="flex md:block justify-center">
-                  <div class="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-4 md:absolute w-[190px] md:w-[285px] md:right-[125px] md:bottom-[180px] text-center md:px-5 mt-[95px] md:mt-0"> 
-                    <div class="md:mr-2">
-                      <div class="flex justify-center">
-                        <img src="~/assets/images/contract-operation-logo.svg" class="w-[30px] md:w-[50px]">
-                      </div>
-                      <div class="solution-text">Contract Operation</div>
-                    </div>
-                    <div class="md:mr-2">
-                      <div class="flex justify-center">
-                        <img src="~/assets/images/service-operation-logo.svg" class="w-[30px] md:w-[50px]">
-                      </div>
-                      <div class="solution-text">Service Operation</div>
-                    </div>
-                    <div>
-                      <div class="flex justify-center">
-                        <img src="~/assets/images/data-monitoring-logo.svg" class="w-[30px] md:w-[50px]">
-                      </div>
-                      <div class="solution-text ">Data monitoring</div>
+                      <div class="solution-text">{{ item.title }}</div>
                     </div>
                   </div>
                 </div>
@@ -113,13 +124,14 @@
             </div>
           </div>
           <div class="flex">
-            <div class="w-[35%] md:w-[15%]">
+            <div class="w-[35%] md:w-[16%]">
               <div class="ecology-text">Layer 1&2</div>
               <div class="ecology-text  my-[30px] md:my-[50px]">Infrastructure</div>
               <div class="ecology-text">Security</div>
-              <div class="ecology-text  mt-[30px] md:mt-[50px]">DAO&Community</div>
+              <div class="ecology-text  my-[30px] md:my-[50px]">DAO&Community</div>
+              <div class="ecology-text !leading-[14px] md:!leading-[50px]">Supported Hackathon</div>
             </div>
-            <div class="w-[65%] md:w-[85%] relative">
+            <div class="w-[65%] md:w-[84%] relative">
               <div class="scroll-fadeout-bg scroll-fadeout-left"></div>
               <div class="scroll-fadeout-bg scroll-fadeout-right"></div>
               <div class="scroll-content">
@@ -148,7 +160,7 @@
                   <img class="ecology-img mx-5" v-for="(item, index) in 5" :key="index" :src="getImageURL(`Security-${item}.png`)"/>
                 </div>
               </div>
-              <div class="scroll-content mt-[30px] md:mt-[50px]">
+              <div class="scroll-content my-[30px] md:my-[50px]">
                 <div class=" scroll-img" :class="[$device.isMobile ? 'scroll-four-phone1' : 'scroll-four1']">
                   <img class="ecology-img mx-5" v-for="(item, index) in 6" :key="index" :src="getImageURL(`Community-${item}.png`)"/>
                 </div>
@@ -156,15 +168,25 @@
                   <img class="ecology-img mx-5" v-for="(item, index) in 6" :key="index" :src="getImageURL(`Community-${item}.png`)"/>
                 </div>
               </div>
+              <div class="scroll-content">
+                <div class=" scroll-img" :class="[$device.isMobile ? 'scroll-five-phone1' : 'scroll-five1']">
+                  <img class="ecology-img mx-5" v-for="(item, index) in 3" :key="index" :src="getImageURL(`Hackathon-${item}.png`)"/>
+                  <img class="ecology-img mx-5" v-for="(item, index) in 3" :key="index" :src="getImageURL(`Hackathon-${item}.png`)"/>
+                </div>
+                <div class=" scroll-img" :class="[$device.isMobile ? 'scroll-five-phone2' : 'scroll-five2']">
+                  <img class="ecology-img mx-5" v-for="(item, index) in 3" :key="index" :src="getImageURL(`Hackathon-${item}.png`)"/>
+                  <img class="ecology-img mx-5" v-for="(item, index) in 3" :key="index" :src="getImageURL(`Hackathon-${item}.png`)"/>
+                </div>
+              </div>
             </div>
           </div>
           <div class="md:flex md:justify-around mt-[60px] md:mt-[100px] text-center">
             <div class="md:flex md:text-left">
-              <div class="num-title">1K+</div>
+              <div class="num-title">2K+</div>
               <div class="num-desc md:ml-[10px]">Web3.0 Developers<br>on Hamster</div>
             </div>
             <div class="md:flex md:text-left mt-[40px] md:mt-0">
-              <div class="num-title">20+</div>
+              <div class="num-title">30+</div>
               <div class="num-desc md:ml-[10px]">Contract/FrontEnd<br>Templates</div>
             </div>
             <div class="md:flex md:text-left mt-[40px] md:mt-0">
@@ -172,7 +194,7 @@
               <div class="num-desc md:ml-[10px]">Supported Networks</div>
             </div>
             <div class="md:flex md:text-left mt-[40px] md:mt-0">
-              <div class="num-title">2K+</div>
+              <div class="num-title">10K+</div>
               <div class="num-desc md:ml-[10px]">Workflow Executions</div>
             </div>
           </div>
@@ -248,8 +270,8 @@
   import DefaultLayout from "~/layouts/default.vue"
   import Footer from "~/layouts/-components/footer.vue"
   import StartBuild from "./components/StartBuild.vue";
-import 'vue3-carousel/dist/carousel.css';
-import 'animate.css';
+  import 'vue3-carousel/dist/carousel.css';
+  import 'animate.css';
   
   definePageMeta({
     layout: false
@@ -278,6 +300,23 @@ import 'animate.css';
     {imgName: 'Quotes-KNN3', desc: 'Hamster has the prospect of becoming one of the most important infrastructure service providers in the Web3 ecosystem. Its technical strength, user experience and future planning in many aspects can meet KNN3\'s needs very well, and KNN3 is honored to reach a win-win cooperation relationship with Hamster.'},
     {imgName: 'Quotes-CESS', desc: 'Hamster\'s full-stack Web3 technology can help CESS store and access data more effectively. At the same time, data standardization and source deployment also help CESS\'s progress. Hamster has fully demonstrated its support for the CESS project.'},
     {imgName: 'Quotes-Admeta', desc: 'Hamster provides stable and efficient Middleware services. Through Hamster, more developers and community members can access and use AdMeta services, benefiting more developers.'},
+  ]);
+  const automationList = ref([
+    { title: 'Team collaboration', desc: 'Hamster provides powerful automated secure development flow services including version control, permission management, workflow management, etc., supporting global developers to collaboratively develop, deploy and manage smart contract and DApp code based on the same project. ' },
+    { title: 'Cross-chain development', desc: 'Hamster supports multiple public chain ecosystems including Ethereum, Aptos, Starknet, Sui, ICP, Cosmos, etc., and provides rich templates and sample codes to help developers choose different public chains to deploy and debug smart contracts.' },
+    { title: 'Front-loaded auditing', desc: 'Hamster integrates contract security audits into the automated workflows prior to deployment, deeply embedding security into every line of code and every facet of the DApp, and provides security references for crowdfunding platforms/exchanges before token offerings of large ecosystems.' },
+    { title: 'Keyless smart deployment', desc: 'Hamster enables visual configuration of smart contract deployment, unified management of contract dependencies, private key security and cross-chain deployment, etc., eliminating worries about script maintenance vulnerabilities. ' },
+    { title: 'Contract monitoring and alerting', desc: 'Hamster provides comprehensive contract operation and maintenance. It monitors contract invocations through behavior and threshold monitoring, sends alerts, and ensures contract security.' },
+    { title: 'Massive developer resources', desc: 'Hamster has already gathered 480,000 Web2.0 developers who are waiting to enter Web3.0. ' },
+  ]);
+  const protocolList = ref([
+    {imgName: 'template-market-logo', title: 'Template Market', class: ''},
+    {imgName: 'middleWare-logo', title: 'Middleware', class: ''},
+    {imgName: 'automate-workflow-logo', title: 'ALine', class: 'cursor-pointer'},
+    {imgName: 'decentralized-logo', title: 'Decentralized Computing Power', class: 'cursor-pointer'},
+    {imgName: 'contract-operation-logo', title: 'Contract Operation', class: ''},
+    {imgName: 'service-operation-logo', title: 'Service Operation', class: ''},
+    {imgName: 'data-monitoring-logo', title: 'Data monitoring', class: ''},
   ]);
   const oldScrollNum = ref(0);
   const showQuotesImgList = ref([]);
@@ -382,12 +421,22 @@ import 'animate.css';
   const gotoAline = () => {
     window.open(alineLink.value);
   }
+  const gotoPorject = () => {
+    window.open(alineLink.value+"/projects");
+  }
   const goDownload = () => {
     // window.open("https://hamsternet.io/download");
     window.location.href = "/download";
   }
   const goWorkflow = () => {
     window.location.href = "/workflow";
+  }
+  const handleProtocol = (title) => {
+    if (title === 'Decentralized Computing Power') {
+      goDownload();
+    } else if (title === 'ALine') {
+      goWorkflow();
+    }
   }
 
   onMounted(()=>{
@@ -458,9 +507,34 @@ import 'animate.css';
     background: url("~/assets/images/home-top-bg-phone.jpg") no-repeat center #000000;
     background-size: contain;
   }
+  .automation-bg{
+    background: url("~/assets/images/automation-bg.png") no-repeat center;
+    background-size: 100%;
+  }
+  .automation-card:hover{
+    height: 100%;
+    box-shadow: 0px 5px 12px 0px rgba(72,77,168,0.13);
+    border-radius: 12px;
+    border: 2px solid transparent;
+    background-image: linear-gradient(#FEFEFE,#FEFEFE),linear-gradient(133deg, rgba(88, 114, 251, 1), rgba(69, 213, 230, 1));
+    background-clip: padding-box, border-box;
+    background-origin: border-box;
+  }
+  .automation-text-color{
+    width: 200px;
+    height: 20px;
+    font-size: 16px;
+    font-family: Montserrat-Bold, Montserrat;
+    font-weight: bold;
+    color: #5B7ED1;
+    line-height: 19px;
+    background: linear-gradient(221deg, #00D3C6 0%, #5C64FF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
   .solutions-bg{
     background: url("~/assets/images/home-solutions-bg.png") no-repeat center;
-    background-size: 100% 100%;
+    background-size: 100% auto;
   }
   .solutions-bg-phone{
     background: url("~/assets/images/home-solutions-bg-phone.png") no-repeat center;
@@ -578,6 +652,34 @@ import 'animate.css';
   0%{left: 0px; top: 0px;}
   100%{left: -699px; top: 0px;}
 }
+.scroll-five1{
+  animation-name: scrollFive1;
+}
+.scroll-five2{
+  animation-name: scrollFive2;
+}
+@keyframes scrollFive1{
+  0%{left: 0px; top: 0px;}
+  100%{left: 976px; top: 0px;}
+}
+@keyframes scrollFive2{
+  0%{left: -976px; top: 0px;}
+  100%{left: 0px; top: 0px;}
+}
+.scroll-five-phone1{
+  animation-name: scrollFivePhone1;
+}
+.scroll-five-phone2{
+  animation-name: scrollFivePhone2;
+}
+@keyframes scrollFivePhone1{
+  0%{left: 0px; top: 0px;}
+  100%{left: 684px; top: 0px;}
+}
+@keyframes scrollFivePhone2{
+  0%{left: -684px; top: 0px;}
+  100%{left: 0px; top: 0px;}
+}
 .num-title{
   font-size: 60px;
   font-family: Montserrat-Bold, Montserrat;
@@ -661,6 +763,9 @@ import 'animate.css';
 </style>
 
 <style scoped>
+.logo-title{
+  @apply text-[#999999] text-base font-light;
+}
 .solution-text{
   @apply text-[7px] leading-[14px] md:text-[14px] md:leading-[19px] mt-[5px] md:mt-[10px];
   color: #DEDBFF;

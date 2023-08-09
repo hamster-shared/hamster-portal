@@ -34,7 +34,7 @@ const setGrowthData = () => {
   const year = timeOne.getFullYear();
   const month = timeOne.getMonth(); //不显示当前月份数据
   let yearAbbr = year.toString().substring(2, 4);
-  if (year === baseYear.value && month > baseMonth.value || year > baseYear.value || 1) {
+  if (year === baseYear.value && month > baseMonth.value || year > baseYear.value) {
     if (year > baseYear.value) {
       let tempYear = year - baseYear.value;
       for (let i = 0; i <= tempYear; i++) {
@@ -56,7 +56,7 @@ const setGrowthData = () => {
     xAxisData.value.splice(0, tempMonth)
     totalNumber.value.splice(0, tempMonth)
   } else {
-    totalNumber();
+    setTotalNumber();
   }
 }
 
