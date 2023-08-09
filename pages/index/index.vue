@@ -311,7 +311,7 @@
   ]);
   const protocolList = ref([
     {imgName: 'template-market-logo', title: 'Template Market', class: ''},
-    {imgName: 'middleWare-logo', title: 'Middleware', class: ''},
+    {imgName: 'middleWare-logo', title: 'Middleware', class: 'cursor-pointer'},
     {imgName: 'automate-workflow-logo', title: 'ALine', class: 'cursor-pointer'},
     {imgName: 'decentralized-logo', title: 'Decentralized Computing Power', class: 'cursor-pointer'},
     {imgName: 'contract-operation-logo', title: 'Contract Operation', class: ''},
@@ -436,6 +436,8 @@
       goDownload();
     } else if (title === 'ALine') {
       goWorkflow();
+    } else if (title === 'Middleware') {
+      window.location.href = "/Middleware";
     }
   }
 
