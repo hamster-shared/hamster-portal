@@ -65,11 +65,11 @@
             </div>
           </div>
           <div class="mt-[40px] md:mt-[100px] md:grid md:grid-cols-3 md:gap-[30px]">
-            <div v-for="(item,key) in automationList" :key="key" :class="[{'mt-[30px]' : key !== 0},{'group automation-card' : !$device.isMobile}]" class="relative h-[365px] md:h-[347px] text-[#000000] border border-solid border-[#F1F3FE] bg-[#FFFFFF] rounded-[8px] md:rounded-[12px] p-[20px]">
+            <div v-for="(item,key) in automationList" :key="key" :class="[{'mt-[30px] md:mt-0' : key !== 0},{'group automation-card' : !$device.isMobile}]" class="relative h-[365px] md:h-[370px] text-[#000000] border border-solid border-[#F1F3FE] bg-[#FFFFFF] rounded-[8px] md:rounded-[12px] p-[20px]">
               <img :src="getImageURL(`automation-icon-${key+1}.png`)" class="md:w-[50px] w-[70px] h-[70px] md:h-[50px]"/> 
               <div class="my-[10px] text-[16px] md:text-[18px] font-bold leading-[30px]">{{ item.title }}</div>
               <div class="font-light leading-[20px] text-[14px] md:text-[16px]">{{ item.desc }}</div>
-              <div class="automation-text-color absolute bottom-[40px] md:bottom-[30px] left-[20px] cursor-pointer md:hidden group-hover:block" @click="gotoPorject">Start building for free ></div>
+              <div class="automation-text-color absolute bottom-[40px] md:bottom-[30px] left-[20px] cursor-pointer md:hidden group-hover:block leading-[20px]" @click="gotoPorject">Start building for free ></div>
             </div>
           </div>
         </div>
@@ -89,7 +89,7 @@
             <div class="flex relative h-[320px] md:h-[610px] justify-start"> 
               <div class=" w-[95%] md:w-full">
                 <div class="flex md:block justify-center">
-                  <div class="grid grid-cols-4 md:grid-cols-7 gap-2 pt-[130px] md:pt-[300px] md:ml-[20px] lg:ml-[380px] w-[300px] md:w-[690px] lg:w-[630px] text-center">
+                  <div class="grid grid-cols-4 md:grid-cols-7 gap-2 pt-[130px] md:pt-[350px] md:ml-[20px] lg:ml-[380px] w-[300px] md:w-[690px] lg:w-[630px] text-center">
                     <div v-for="(item, index) in protocolList" :key="index" :class="item.class" @click="handleProtocol(item.title)">
                       <div class="flex justify-center">
                         <img :src="getImageURL(`${item.imgName}.svg`)" class="w-[26px] md:w-[50px]">
