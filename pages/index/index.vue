@@ -209,7 +209,7 @@
             <div v-if="key === 2" @click="getQuotesName(item.imgName, key, 'card')" class="cursor-pointer scroll-fadeout-bg scroll-fadeout-right !w-[20%]"></div>
           </div>
           <div id="div-quotes" class="quotes-scroll flex overflow-x-auto md:overflow-x-visible md:absolute h-[478px] md:h-[321px] md:-left-[40%] md:right-[40%]">
-            <div class="w-full md:w-3/5 flex-none cursor-pointer" v-for="(item,key) in showQuotesList" :key="key" @click="getQuotesName(item.imgName, key, 'card')" :class="{'mr-[20px]' : key !== 5}">
+            <div class="w-full md:w-3/5 flex-none cursor-pointer" v-for="(item,key) in showQuotesList" :key="key" @click="getQuotesName(item.imgName, key, 'card')" :class="{'mr-[20px]' : key !== 4}">
               <div class="card-box-css md:mx-[20px] cursor-pointer p-[40px] md:p-[50px]" :class="[{'box-show-left' : !$device.isMobile && scrollQuotesL},{'box-show-right' : !$device.isMobile && scrollQuotesR}]">
                 <img :src="getImageURL(`${item.imgName}.png`)" class="inline-block h-[38px]" />
                 <div class="mt-[30px] md:mt-[20px] text-[#40425C] leading-[20px] font-medium">
