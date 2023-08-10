@@ -56,8 +56,8 @@
         <div class="container mx-auto px-5 mb-[60px] md:mb-[160px]">
           <div>
             <div class="text-center">
-              <div class="area-title">Web3.0 Development Automation</div>
-              <div class="flex  justify-center">
+              <div class="area-title">What can Hamster do</div>
+              <div v-if="false" class="flex  justify-center">
                 <div class="area-desc md:w-[600px]">
                   Web3.0 + AI super middleware engine & data-driven incubation platform
                 </div>
@@ -220,7 +220,7 @@
           </div>
         </div>
         <div v-if="$device.isMobile" class="mt-[40px] flex">
-          <div v-for="item in 6" :id="`div-quotes-num${item}`" :class="{'add-item-style' : item === 1}" class="box-num-item"></div>
+          <div v-for="item in 5" :id="`div-quotes-num${item}`" :class="{'add-item-style' : item === 1}" class="box-num-item"></div>
         </div>
         <div v-if="!$device.isMobile" class="relative overflow-hidden top-0 bottom-0 right-0 left-0 h-[50px] mt-[50px]">
           <div class="flex absolute h-[50px] w-[1000px] left-1/2 -ml-[500px] overflow-hidden">
@@ -297,7 +297,7 @@
     {imgName: 'Quotes-Filecoin', desc: 'With abundant Web3 infrastructure capabilities, Hamster not only provides reliable and efficient data services for Filecoin, reduces the threshold for network usage and improves efficiency; its technology and business prospects are also trustworthy and have the prospect of long-term support for the prosperous development of the Filecoin ecosystem, and provide reliable assistance for the robust progress of the Filecoin community.'},
     {imgName: 'Quotes-Chainlink', desc: 'Hamster provides full-stack Web3 infrastructure services to support the development of the Chainlink ecosystem. The visualized tool Hamslink that it provides helps more developers to use Chainlink and promotes the development of Chainlink projects and thriving ecosystem.'},
     {imgName: 'Quotes-Dante', desc: 'Hamster has performed excellently by achieving cross-chain interoperability and strengthening the decentralized ecosystem. Its innovative technology and broad application prospects deserve attention and praise.'},
-    {imgName: 'Quotes-KNN3', desc: 'Hamster has the prospect of becoming one of the most important infrastructure service providers in the Web3 ecosystem. Its technical strength, user experience and future planning in many aspects can meet KNN3\'s needs very well, and KNN3 is honored to reach a win-win cooperation relationship with Hamster.'},
+    // {imgName: 'Quotes-KNN3', desc: 'Hamster has the prospect of becoming one of the most important infrastructure service providers in the Web3 ecosystem. Its technical strength, user experience and future planning in many aspects can meet KNN3\'s needs very well, and KNN3 is honored to reach a win-win cooperation relationship with Hamster.'},
     {imgName: 'Quotes-CESS', desc: 'Hamster\'s full-stack Web3 technology can help CESS store and access data more effectively. At the same time, data standardization and source deployment also help CESS\'s progress. Hamster has fully demonstrated its support for the CESS project.'},
     {imgName: 'Quotes-Admeta', desc: 'Hamster provides stable and efficient Middleware services. Through Hamster, more developers and community members can access and use AdMeta services, benefiting more developers.'},
   ]);
@@ -363,18 +363,21 @@
         if (val.imgName === name) curKey = key;
       })
       if (curKey - 2 < 0) {
-        showQuotesImgList.value = quotesList.value.slice(4+curKey,6)
+         // quotesList 注释了一条，将 slice(4+curKey,6) 改为 slice(3+curKey,5)
+        showQuotesImgList.value = quotesList.value.slice(3+curKey,5)
         quotesList.value.filter(function (val, key) {
           if (key < curKey + 3) {
             showQuotesImgList.value.push(val);
           } 
         })
-      } else if (curKey - 2 < 2) {
+      } else if (curKey - 2 < 1) { // quotesList 注释了一条，将 < 2 改为 < 1
         showQuotesImgList.value = quotesList.value.slice(curKey - 2 , 3 + curKey)
       } else {
-        showQuotesImgList.value = quotesList.value.slice(curKey - 2 , 6)
+        // quotesList 注释了一条，将 slice(curKey - 2, 6) 改为 slice(curKey - 2, 5)
+        showQuotesImgList.value = quotesList.value.slice(curKey - 2, 5);
+        let lenVal = showQuotesImgList.value.length;
         quotesList.value.filter(function (val, key) {
-          if (key < 6-showQuotesImgList.value.length) {
+          if (key < 5-lenVal) {
             showQuotesImgList.value.push(val);
           } 
         }) 
@@ -723,7 +726,8 @@
   background-origin: border-box;
 }
 .box-num-item{
-  width: 16.66%;
+  // width: 16.66%;
+  width: 20%;
   height: 3px;
   background: #EAEAEA;
 }

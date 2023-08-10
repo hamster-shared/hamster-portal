@@ -4,7 +4,7 @@
       <div class="relative">
         <div class="flex mt-[80px] md:mt-0">
           <img src="~/assets/images/solutions-workflow.svg" class="h-[40px] md:h-[50px]"/>
-          <div class="text-[14px] md:text-[24px] font-bold text-[#676767] leading-[40px] md:leading-[50px] ml-[10px] font-family-bold">Workflow</div>
+          <div class="text-[14px] md:text-[24px] font-bold text-[#676767] leading-[40px] md:leading-[50px] ml-[10px] font-family-bold">ALine</div>
         </div>
         <div class="md:flex">
           <div class="md:w-[55%] text-center md:text-left">

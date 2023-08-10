@@ -19,7 +19,7 @@ const isMobile = device.value.isMobile;
 const xAxisData = ref(['Apr-21', 'May-21', 'Jun-21', 'Jul-21', 'Aug-21', 'Sep-21', 'Oct-21', 'Nov-21', 'Dec-21', 'Jan-22', 'Feb-22', 'Mar-22', 'Apr-22', 'May-22','Jun-22','Jul-22','Aug-22','Sep-22','Oct-22','Nov-22','Dec-22','Jan-23','Feb-23','Mar-23','Apr-23']);
 const monthAbbr = ref(['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']);
 const baseNumber = ref(189649);
-const monthlyGrowthData = ref([ 0, 15175, 9911, 7854, 9509, 9723, 9856, 6991, 6442, 3932, 8875, 13165, 11696, 13010, 16297, 15475, 13356, 15212, 11390, 12535, 7915, 4814, 3771, 4300, 2863 ])
+const monthlyGrowthData = ref([ 0, 15175, 9911, 7854, 9509, 9723, 9856, 6991, 6442, 3932, 8875, 13165, 11696, 13010, 16297, 15475, 13356, 15212, 11390, 12535, 7915, 4814, 3771, 4300, 2863 ,2400 , 3600, 79117]) 
 const totalNumber = ref([]);
 const baseYear = ref(2023);
 const baseMonth = ref(4);
@@ -63,8 +63,9 @@ const setGrowthData = () => {
 const setNewData = (start, end, yearAbbr) => {
   for (let i = start; i < end; i++) {
     xAxisData.value.push(monthAbbr.value[i] + '-' + yearAbbr);
-    let random = (Math.random() * (1.3 - 0.7) + 0.7).toFixed(1);
-    monthlyGrowthData.value.push(parseInt(3000*random));
+    //每月提供具体数据，不需要计算
+    // let random = (Math.random() * (1.3 - 0.7) + 0.7).toFixed(1);
+    // monthlyGrowthData.value.push(parseInt(3000*random));
   }
 }
 
