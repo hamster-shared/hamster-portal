@@ -11,13 +11,15 @@
             platform for projects in Web3.0
           </span>
           <div class="flex items-center">
-            <img :src="getImageURL('aptos-grant.png')" class="lg:w-[16%] w-[20%] lg:mr-[5%] mr-[6.3%]"/>
-            <img :src="getImageURL('web3_foundation.png')" class="lg:w-[16%] w-[20%] lg:mr-[5%] mr-[6.3%]" />
-            <img :src="getImageURL('algorand.png')" class="lg:w-[16%] w-[20%] lg:mr-[5%] mr-[6.3%]"/>
-            <img :src="getImageURL('starknet.png')" class="lg:w-[16%] w-[20%]" />
-            <img :src="getImageURL('DFINITY.png')" class="w-[14%] ml-[5%] hidden lg:inline-block" />
+            <img :src="getImageURL('aptos-grant.png')" class="lg:w-[12.5%] w-[20%] lg:mr-[5%] mr-[6.3%]"/>
+            <img :src="getImageURL('web3_foundation.png')" class="lg:w-[12.5%] w-[20%] lg:mr-[5%] mr-[6.3%]" />
+            <img :src="getImageURL('algorand.png')" class="lg:w-[12.5%] w-[20%] lg:mr-[5%] mr-[6.3%]"/>
+            <img :src="getImageURL('starknet.png')" class="lg:w-[16.5%] w-[20%]" />
+            <img :src="getImageURL('DFINITY.png')" class="w-[11%] ml-[5%] hidden lg:inline-block" />
+            <img :src="getImageURL('GrantSUi.png')" class="w-[10%] ml-[5%] hidden lg:inline-block" />
           </div>
-          <img :src="getImageURL('DFINITY.png')" class="w-[18%] mt-4 inline-block lg:hidden" />
+          <img :src="getImageURL('DFINITY.png')" class="w-[18%] mr-[6.3%] mt-4 inline-block lg:hidden" />
+          <img :src="getImageURL('GrantSUi.png')" class="w-[18%] mr-[6.3%] mt-4 inline-block lg:hidden" />
         </div>
 
         <div class="flex lg:justify-end lg:items-end mt-8 lg:mt-0 font-family-medium font-medium">

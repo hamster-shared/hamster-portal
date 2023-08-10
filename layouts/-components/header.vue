@@ -22,7 +22,7 @@
                         <div class="pb-[20px] hover:text-[#5C64FF]">
                           <a href="/workflow" class="flex items-center mr-2" :class="{'menu-active' : `/${curMenu}` === '/workflow'}">
                             <img src="~/assets/images/solutions-workflow.svg" class="h-[40px] mr-4" />
-                            Automated Workflow
+                            ALine
                           </a>
                         </div>
                         <div class="hover:text-[#5C64FF]">
@@ -76,7 +76,7 @@
               <a href="/workflow">
                 <span class="text-sm flex items-center">
                   <img src="~/assets/images/solutions-workflow.svg" class="h-[24px] mr-4" />
-                  Automated Workflow
+                  ALine
                 </span>
               </a>
             </div>
