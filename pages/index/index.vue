@@ -7,7 +7,7 @@
               <div class="text-2xl font-extrabold px-10 md:px-0 md:w-[560px] md:text-[50px] md:leading-[74px] font-family-extraBold">
                 Hamster empowers Web3.0 Explorer to build their dreams
               </div>
-              <div class="mt-5 mb-6 text-[16px] md:text-[21px] md:w-[560px] leading-[21px] md:leading-[30px] font-medium md:font-light text-[#999999] ">One-stop Development Experience for Web3.0 Developers</div>
+              <div class="mt-5 mb-6 text-[16px] md:text-[21px] md:w-[560px] leading-[21px] md:leading-[30px] font-medium md:font-light text-[#999999] ">One-stop Development Automation Exprience with Process Safety and Privacy for Web3 Developers</div>
               <div class="hidden mb-[35px] md:block">
                 <div class="flex items-center">
                   <div class="logo-title font-family-light">
