@@ -75,7 +75,7 @@
     </div>
     <div class="mt-[60px] md:mt-[120px]">
       <div class="text-[12px] md:text-[24px] font-bold flex justify-center !mt-0 mb-[40px] md:mb-[100px]">
-        <div class="text-color-css">6 Issued Grants & 11 EcoSystems</div>
+        <div class="text-color-css">7 Issued Grants & 11 EcoSystems</div>
       </div>
       <!-- <img v-if="$device.isMobile" src="~/assets/images/about-logos-phone.png" class="w-full"/>
       <img v-else src="~/assets/images/about-logos.png" class="w-full"/> -->

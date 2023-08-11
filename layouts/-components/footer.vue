@@ -5,10 +5,8 @@
       <div class="grid grid-cols-1 lg:grid-cols-2 mb-[60px]">
         <div>
           <img class="h-[20px] md:h-[32px]" src="~/assets/images/header.png">
-          <span class="inline-block mt-4 mb-8 text-sm md:text-lg md:mt-7 md:mb-10 text-[#999999] font-family-medium font-medium md:leading-[22px] leading-[16px]"><!--md:mr-20-->
-            One-Stop infrastructure,development, <br>
-            operation and maintenance service <br>
-            platform for projects in Web3.0
+          <span class="inline-block mt-4 mb-8 text-sm md:text-lg md:mt-7 md:mb-10 text-[#999999] font-family-medium font-medium md:leading-[22px] leading-[16px] md:w-[380px]"><!--md:mr-20-->
+            One-stop Development Automation Experience with Process Safety and Privacy
           </span>
           <div class="flex items-center">
             <img :src="getImageURL('aptos-grant.png')" class="lg:w-[12.5%] w-[20%] lg:mr-[5%] mr-[6.3%]"/>
