@@ -6,7 +6,7 @@
           <div class="text-color-css">OUR MISSION</div>
         </div>
         <div class="text-[16px] md:text-[24px] leading-[21px] md:leading-[35px] font-medium md:font-light text-[#FFFFFF] font-family-light flex justify-center">
-          <div class="md:w-[796px]">The Hamster platform provides an automated blockchain development environment, middleware engines, and multi-language development templates to support cross-language, cross-chain development and lower barriers to entry. The platform features code auditing, private key leakage protection, auto-deployment, real-time monitoring and other capabilities to fully safeguard smart contract security. We are committed to unleashing developer creativity to drive massive blockchain technology adoption</div>
+          <div class="w-[286px] md:w-[780px]">The Hamster platform provides an automated blockchain development environment, middleware engines, and multi-language development templates to support cross-language, cross-chain development and lower barriers to entry. The platform features code auditing, private key leakage protection, auto-deployment, real-time monitoring and other capabilities to fully safeguard smart contract security. We are committed to unleashing developer creativity to drive massive blockchain technology adoption</div>
         </div>
       </div>
     </div>
@@ -16,7 +16,7 @@
       <img src="~/assets/images/stratified.png" class="h-[30px]"/>
     </div>
   </div>
-  <div class="container mx-auto px-5 my-[60px] md:my-[180px]">
+  <div class="container mx-auto px-5 mt-[60px] md-[30px] md:mt-[180px] md:mb-[140px]">
     <div>
       <div class="area-title text-center !mt-0 mb-[40px] md:mb-[100px]">Dashboard</div>
       <div id="dashboard-div" class="md:grid md:grid-cols-5 text-center">
@@ -75,35 +75,23 @@
     </div>
     <div class="mt-[60px] md:mt-[120px]">
       <div class="text-[12px] md:text-[24px] font-bold flex justify-center !mt-0 mb-[40px] md:mb-[100px]">
-        <div class="text-color-css">5 Issued Grants & 8 EcoSystems</div>
+        <div class="text-color-css">7 Issued Grants & 11 EcoSystems</div>
       </div>
-      <img v-if="$device.isMobile" src="~/assets/images/about-logos-phone.png" class="w-full"/>
-      <img v-else src="~/assets/images/about-logos.png" class="w-full"/>
-      <!-- <div class="md:flex justify-around">
-        <div class="flex justify-around md:w-3/5">
-          <img src="~/assets/images/Issued-Grants-1.png" class="about-logo-img1"/>
-          <img src="~/assets/images/Issued-Grants-2.png" class="about-logo-img1"/>
-          <img src="~/assets/images/Issued-Grants-3.png" class="about-logo-img1"/>
-        </div>
-        <div class="flex justify-around md:w-2/5 mt-[50px] md:mt-0">
-          <img src="~/assets/images/Issued-Grants-4.png" class="about-logo-img1"/>
-          <img src="~/assets/images/Issued-Grants-5.png" class="about-logo-img1"/>
+      <!-- <img v-if="$device.isMobile" src="~/assets/images/about-logos-phone.png" class="w-full"/>
+      <img v-else src="~/assets/images/about-logos.png" class="w-full"/> -->
+      <div class="flex flex-wrap justify-between md:w-full">
+        <div v-for="(item, index) in 6" :key="index" class="w-[33%] md:w-[16%] flex justify-center mb-[30px] md:mb-0">
+          <img :src="getImageURL(`Grant-about-${item}.png`)" class="h-[32px] md:h-[45px]"/>
         </div>
       </div>
-      <div class="md:flex justify-around mt-[50px] md:mt-[80px]">
-        <div class="flex md:w-1/2 justify-around">
-          <img src="~/assets/images/EcoSystems-1.png" class="about-logo-img2"/>
-          <img src="~/assets/images/EcoSystems-2.png" class="about-logo-img2"/>
-          <img src="~/assets/images/EcoSystems-3.png" class="about-logo-img2"/>
-          <img src="~/assets/images/EcoSystems-4.png" class="about-logo-img2"/>
+      <div class="flex flex-wrap md:w-full justify-center mt-[20px] md:mt-[80px]">
+        <div v-for="(item, index) in 11" :key="index" class="w-[25%] md:w-[14%] text-center mb-[30px] md:mb-[40px]">
+          <div class="flex justify-center">
+            <img :src="getImageURL(`Ethereum-${item}.png`)" class="h-[55px]"/>
+          </div>
+          <div class="text-[14px] md:text-[18px] text-[#40425C] leading-[30px] font-light">{{ ethereumText[index] }}</div>
         </div>
-        <div class="flex justify-around md:w-1/2 mt-[50px] md:mt-0">
-          <img src="~/assets/images/EcoSystems-5.png" class="about-logo-img2"/>
-          <img src="~/assets/images/EcoSystems-6.png" class="about-logo-img2"/>
-          <img src="~/assets/images/EcoSystems-7.png" class="about-logo-img2"/>
-          <img src="~/assets/images/EcoSystems-8.png" class="about-logo-img2"/>
-        </div>
-      </div> -->
+      </div>
     </div>
   </div>
   <StartBuild></StartBuild>
@@ -112,11 +100,13 @@
 import StartBuild from "../index/components/StartBuild.vue";
 import TransitionText from "./components/TransitionText.vue";
 
+const { getImageURL } = useAssets()
+const ethereumText = ref(['Ethereum','Polkadot','Sui','The Graph','Chainlink','BNB','Filecoin','Aptos','Scroll','Arbitrum','Moonbean']);
 const dashboardList = ref([
-  {title: 'Developers', number: '1K+'},
-  {title: 'Workflows', number: '2K+'},
-  {title: 'EcoSystems', number: '8'},
-  {title: 'Templates', number: '20+'},
+  {title: 'Developers', number: '2K+'},
+  {title: 'Workflows', number: '10K+'},
+  {title: 'EcoSystems', number: '11'},
+  {title: 'Templates', number: '30+'},
   {title: 'Blockchains', number: '10+'},
 ])
 const showDashboardNumber = ref(false);
@@ -197,12 +187,6 @@ onUnmounted(() => {
 .about-board-text{
   @apply text-[14px] md:text-[21px] font-medium md:font-bold leading-[20px] md:leading-[25px] text-[#40425C] md:text-[#959595] mb-[50px] md:mb-0 mt-0 md:mt-[20px];
   font-family: Montserrat-Bold, Montserrat;
-}
-.about-logo-img1{
-  @apply h-[32px] md:h-[45px]
-}
-.about-logo-img2{
-  @apply h-[37px] md:h-[53px]
 }
 .about-key-img{
   @apply h-[175px];
