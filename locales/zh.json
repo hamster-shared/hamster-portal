@@ -5,7 +5,7 @@
   "meta": {
     "title": "Hamster - Web3+AI Modular Blockchain Development Protocol",
     "description": "Hamster",
-    "introduced": "Hamster is committed to providing a safe, efficient, and open modular blockchain development protocol, a one-click middleware engine and a multi-language development template market"
+    "introduced": "Supports team collaboration, rapid cross-language and cross-chain development，deployment of multi-contracts without private keys，quickly launch private testnets and fund test accounts for sandbox simulations"
   },
   "home":{
     "helloWorld": "你好，世界",
