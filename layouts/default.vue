@@ -6,7 +6,7 @@
       <Link rel="shortcut icon" type="image/png" :href="getImageURL('logo.png')" />
       <Link href='https://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'/>
     </Head>
-    <Header :showHeader="showHeader" :showHeaderBg="showHeaderBg" />
+    <Header v-if="showHeader" :showHeader="showHeader" :showHeaderBg="showHeaderBg" />
     <div>
       <slot />
     </div>
