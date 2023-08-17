@@ -1,5 +1,8 @@
 <template>
-  <div class="absolute inset-x-0 top-0 z-[100] md:z-[1000]  bg-black">
+  <div class="title-activity">
+    Integrating AI and modular development into blockchain enables intelligent development
+  </div>
+  <div class="absolute inset-x-0 top-[60px] md:top-[38px] z-[100] md:z-[1000]  bg-black">
     <div class="m-auto">
       <div class="container mx-auto px-5 py-4 font-family-light font-light">
         <div class="relative flex flex-row items-center justify-between text-center text-white">
@@ -220,6 +223,20 @@ onUnmounted(() => {
 </script>
 
 <style>
+.title-activity{
+  width: 100%;
+  background: linear-gradient(281deg, #BC006B 0%, #454CDA 100%);
+  font-size: 14px;
+  font-family: Montserrat-Regular, Montserrat;
+  color: #FFFFFF;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  z-index: 99999;
+  cursor: pointer;
+  padding: 8px 0;
+}
+
 .choose-locale-active {
   @apply relative text-[#807D7C] bg-[#2E2A28];
 }
