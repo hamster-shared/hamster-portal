@@ -1,6 +1,6 @@
 <template>
   <div class="title-activity">
-    Integrating AI and modular development into blockchain enables intelligent development
+    Joint Scroll & Hamster NFT airdrop is on, join now>>
   </div>
   <div class="absolute inset-x-0 top-[60px] md:top-[38px] z-[100] md:z-[1000]  bg-black">
     <div class="m-auto">
@@ -235,6 +235,7 @@ onUnmounted(() => {
   z-index: 99999;
   cursor: pointer;
   padding: 8px 0;
+  font-weight: bold;
 }
 
 .choose-locale-active {
