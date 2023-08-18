@@ -1,5 +1,5 @@
 <template>
-  <div class="title-activity">
+  <div class="title-activity" @click="jumpNftActivity">
     Joint Scroll & Hamster NFT airdrop is on, join now>>
   </div>
   <div class="absolute inset-x-0 top-[60px] md:top-[38px] z-[100] md:z-[1000]  bg-black">
@@ -203,6 +203,10 @@ const openNewUrl = (val, link) => {
   } else {
     window.open(link);
   }
+}
+
+const jumpNftActivity = ()=>{
+  // window.open()
 }
 
 onMounted(() => {
