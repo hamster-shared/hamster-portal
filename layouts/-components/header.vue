@@ -206,7 +206,8 @@ const openNewUrl = (val, link) => {
 }
 
 const jumpNftActivity = ()=>{
-  // window.open()
+  // 无论生成和测试都是跳活动的线上网址
+  window.open('https://activity.hamsternet.io/')
 }
 
 onMounted(() => {
