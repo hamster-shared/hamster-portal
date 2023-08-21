@@ -1,5 +1,8 @@
 <template>
-  <div class="absolute inset-x-0 top-0 z-[100] md:z-[1000]  bg-black">
+  <div class="title-activity text-[12px] md:text-[14px]" @click="jumpNftActivity">
+    Joint Scroll & Hamster NFT airdrop is on, join now>>
+  </div>
+  <div class="absolute inset-x-0 top-[38px] z-[100] md:z-[1000]  bg-black">
     <div class="m-auto">
       <div class="container mx-auto px-5 py-4 font-family-light font-light">
         <div class="relative flex flex-row items-center justify-between text-center text-white">
@@ -202,6 +205,11 @@ const openNewUrl = (val, link) => {
   }
 }
 
+const jumpNftActivity = ()=>{
+  // 无论生成和测试都是跳活动的线上网址
+  window.open('https://activity.hamsternet.io/')
+}
+
 onMounted(() => {
   window.addEventListener("scroll", handleScroll)
   handleScroll();
@@ -220,6 +228,21 @@ onUnmounted(() => {
 </script>
 
 <style>
+.title-activity{
+  width: 100%;
+  background: linear-gradient(281deg, #BC006B 0%, #454CDA 100%);
+  /* font-size: 14px; */
+  font-family: Montserrat-Regular, Montserrat;
+  color: #FFFFFF;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  z-index: 99999;
+  cursor: pointer;
+  padding: 8px 0;
+  font-weight: bold;
+}
+
 .choose-locale-active {
   @apply relative text-[#807D7C] bg-[#2E2A28];
 }
