@@ -509,7 +509,7 @@
     background-size: contain;
   }
   .top-bg-phone{
-    background: url("~/assets/images/home-top-bg-phone.jpg") no-repeat center #000000;
+    background: url("~/assets/images/home-top-bg-phone.png") no-repeat center #000000;
     background-size: contain;
   }
   .automation-bg{
