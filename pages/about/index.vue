@@ -81,7 +81,7 @@
       <img v-else src="~/assets/images/about-logos.png" class="w-full"/> -->
       <div class="flex flex-wrap justify-center md:w-full">
         <div v-for="(item, index) in 7" :key="index" class="w-[25%] md:w-[14%] flex justify-center items-center mb-[30px] md:mb-0">
-          <img :src="getImageURL(`Grant-about-${item}.png`)" :class="[item === 7 ? 'h-[14px] md:h-[22px]' : 'h-[26px] md:h-[42px]']"/>
+          <img :src="getImageURL(`Grant-about-${item}.png`)" :class="[item === 7 ? 'h-[14px] md:h-[22px]' : item === 3 ? 'h-[22px] md:h-[36px]' : 'h-[26px] md:h-[42px]']"/>
         </div>
       </div>
       <div class="flex flex-wrap md:w-full justify-center mt-[20px] md:mt-[80px]">
