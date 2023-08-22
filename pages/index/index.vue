@@ -2,7 +2,7 @@
   <DefaultLayout :showFooter="false" :showHeader="showHeader" :showHeaderBg="showHeaderBg">
       <div class=" top-bg-color" :class="[{'!bg-bottom' : $device.isMobile},[$device.isMobile ? 'top-bg-phone' : 'top-bg']]">
         <div class="container mx-auto px-5 h-screen flex ">
-          <div class="md:flex md:items-center relative">
+          <div class="md:flex md:items-center relative md:mt-[80px]">
             <div class=" text-center md:text-left mt-[110px] md:mt-0">
               <div class="text-2xl font-extrabold px-10 md:px-0 md:w-[560px] md:text-[50px] md:leading-[74px] font-family-extraBold">
                 Hamster empowers Web3.0 Explorer to build their dreams
