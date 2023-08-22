@@ -75,13 +75,13 @@
     </div>
     <div class="mt-[60px] md:mt-[120px]">
       <div class="text-[12px] md:text-[24px] font-bold flex justify-center !mt-0 mb-[40px] md:mb-[100px]">
-        <div class="text-color-css">7 Issued Grants & 11 EcoSystems</div>
+        <div class="text-color-css">8 Issued Grants & 11 EcoSystems</div>
       </div>
       <!-- <img v-if="$device.isMobile" src="~/assets/images/about-logos-phone.png" class="w-full"/>
       <img v-else src="~/assets/images/about-logos.png" class="w-full"/> -->
-      <div class="flex flex-wrap justify-between md:w-full">
-        <div v-for="(item, index) in 6" :key="index" class="w-[33%] md:w-[16%] flex justify-center mb-[30px] md:mb-0">
-          <img :src="getImageURL(`Grant-about-${item}.png`)" class="h-[32px] md:h-[45px]"/>
+      <div class="flex flex-wrap justify-center md:w-full">
+        <div v-for="(item, index) in 7" :key="index" class="w-[25%] md:w-[14%] flex justify-center items-center mb-[30px] md:mb-0">
+          <img :src="getImageURL(`Grant-about-${item}.png`)" :class="[item === 7 ? 'h-[14px] md:h-[22px]' : 'h-[26px] md:h-[42px]']"/>
         </div>
       </div>
       <div class="flex flex-wrap md:w-full justify-center mt-[20px] md:mt-[80px]">

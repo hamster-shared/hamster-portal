@@ -9,7 +9,7 @@
               </div>
               <div class="mt-5 mb-6 text-[16px] md:text-[21px] md:w-[560px] leading-[21px] md:leading-[30px] font-medium md:font-light text-[#999999] ">One-stop Development Automation Experience with Process Safety and Privacy</div>
               <div class="hidden mb-[35px] md:block">
-                <div class="flex items-center">
+                <div class="flex ">
                   <div class="logo-title font-family-light">
                     <div>Investors:</div>
                     <div class="mt-4">Grants:</div>
@@ -25,27 +25,37 @@
                       <img src="~/assets/images/Grant-3.png" class="h-[27px] inline-block ml-4"/>
                       <img src="~/assets/images/Grant-4.png" class="h-[18px] inline-block ml-4"/>
                       <img src="~/assets/images/Grant-5.png" class="h-[23px] inline-block ml-4"/>
+                    </div>
+                    <div class="mt-4">
                       <img src="~/assets/images/Grant-6.png" class="h-[23px] inline-block ml-4"/>
+                      <img src="~/assets/images/Grant-7.png" class="h-[13px] inline-block ml-6"/>
                     </div>
                   </div>
                 </div>
               </div>
               <button class="btn-css" @click="gotoAline">Start Building</button>
             </div>
-            <div class="absolute bottom-[35px] w-full md:hidden">
+            <div class="absolute bottom-[13px] w-full md:hidden">
               <div class="flex justify-center items-center">
                 <div class="logo-title font-family-light">Investors:</div>
-                <img src="./images/waterdrip.png" class="h-[15px] inline-block ml-[10px]"/>
-                <img src="./images/stratified.png" class="h-[15px] inline-block ml-[10px]"/>
+                <img src="./images/waterdrip.png" class="h-[20px] inline-block ml-[16px]"/>
+                <img src="./images/stratified.png" class="h-[20px] inline-block ml-[16px]"/>
               </div>
-              <div class="flex flex-wrap mt-[10px] justify-between items-center">
+              <div class="flex flex-wrap mt-[8px] justify-center ">
                 <div class="logo-title font-family-light">Grant:</div>
-                <img src="~/assets/images/Grant-1.png" class="h-[15px] inline-block ml-[10px]"/>
-                <img src="~/assets/images/Grant-2.png" class="h-[15px] inline-block ml-[10px]"/>
-                <img src="~/assets/images/Grant-3.png" class="h-[15px] inline-block ml-[10px]"/>
-                <img src="~/assets/images/Grant-4.png" class="h-[15px] inline-block ml-[10px]"/>
-                <img src="~/assets/images/Grant-5.png" class="h-[15px] inline-block ml-[10px]"/>
-                <img src="~/assets/images/Grant-6.png" class="h-[15px] inline-block ml-[10px]"/>
+                <div>
+                  <div>
+                    <img src="~/assets/images/Grant-1.png" class="h-[17px] inline-block ml-[16px]"/>
+                    <img src="~/assets/images/Grant-2.png" class="h-[17px] inline-block ml-[16px]"/>
+                    <img src="~/assets/images/Grant-3.png" class="h-[17px] inline-block ml-[16px]"/>
+                    <img src="~/assets/images/Grant-4.png" class="h-[13px] inline-block ml-[16px]"/>
+                    <img src="~/assets/images/Grant-5.png" class="h-[16px] inline-block ml-[16px]"/>
+                  </div>
+                  <div class=" mt-[5px]">
+                    <img src="~/assets/images/Grant-6.png" class="h-[16px] inline-block ml-[16px]"/>
+                    <img src="~/assets/images/Grant-7.png" class="h-[8px] inline-block ml-[16px]"/>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

@@ -144,7 +144,7 @@ const navLinks = computed(() => [
   // { title: t('header.dashboard'), path: '/dashboard' },
   // { title: 'Grant', path: "" }, //
   // { title: 'Pricing', path: "" }, //
-  { title: 'Hamgel', path: "/hamgel", target: '_self' },
+  { title: 'Incubator', path: "/incubator", target: '_self' },
   { title: 'Community', path: "/community", target: '_self' },
   { title: 'About', path: "/about", target: '_self' },
   { title: t('header.docs'), path: "https://hamsternet.io/docs/", target: '_bank' },
@@ -198,7 +198,7 @@ const gotoAline = function () {
 }
 
 const openNewUrl = (val, link) => {
-  if (val === 'About' || val === 'Community' || val === 'Hamgel') {
+  if (val === 'About' || val === 'Community' || val === 'Incubator') {
     window.location.href = link;
   } else {
     window.open(link);
