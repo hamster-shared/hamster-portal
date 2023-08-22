@@ -4,7 +4,7 @@
       <div class="flex justify-center text-center">
         <div class="md:w-[760px]">
           <div class="text-[24px] md:text-[48px] leading-[36px] md:leading-[60px] font-extrabold font-family-extraBold mb-[20px]">Make it easier for developers to enter web3.0</div>
-          <div class="text-[#999999] text-[16px] md:text-[21px] leading-[21px] md:leading-[30px] font-light font-family-light">Backed by a wealth of 420,000+ developer resources, Hamster has a deep understanding of the pain points of web3.0 development, and actively helps more web2.0 developers enter web3.0</div>
+          <div class="text-[#999999] text-[16px] md:text-[21px] leading-[21px] md:leading-[30px] font-light font-family-light">Backed by a wealth of 480,000+ developer resources, Hamster has a deep understanding of the pain points of web3.0 development, and actively helps more web2.0 developers enter web3.0</div>
         </div>
       </div>
     </div>
