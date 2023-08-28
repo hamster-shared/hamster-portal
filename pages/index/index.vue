@@ -96,6 +96,7 @@
               <div class="provides-title">{{ item.title }}</div>
               <div class="provides-desc">{{ item.desc }}</div>
               <div v-for="(subItem,subKey) in item.subList" :key="subKey" class="provides-sub">
+                <img src="~/assets/images/ecosystem-sub.png" class="h-[20px] w-[20px] mr-[10px]"/>
                 <div>{{ subItem.content }}</div>
               </div>
               <div class="automation-text-color flex provides-btn" @click="gotoPorject">Talk to us ></div>
