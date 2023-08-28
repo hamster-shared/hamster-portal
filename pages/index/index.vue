@@ -99,7 +99,11 @@
                 <img src="~/assets/images/ecosystem-sub.png" class="h-[20px] w-[20px] mr-[10px]"/>
                 <div>{{ subItem.content }}</div>
               </div>
-              <div class="automation-text-color flex provides-btn" @click="gotoPorject">Talk to us ></div>
+              <div class="automation-text-color flex provides-btn left-[20px]">Talk to us ></div>
+              <div class="provides-btn !bottom-[30px] md:!bottom-[20px] right-[20px] view-btn flex justify-center items-center">
+                <img src="~/assets/images/ecosystem-video.png" class="h-[20px] mr-[10px]"/>
+                View example
+              </div>
             </div>
           </div>
         </div>
@@ -865,6 +869,14 @@
   font-family: Montserrat-Regular, Montserrat;
 }
 .provides-btn{
-  @apply absolute bottom-[40px] md:bottom-[30px] left-[20px] cursor-pointer leading-[20px];
+  @apply absolute bottom-[40px] md:bottom-[30px] cursor-pointer leading-[20px];
+}
+.view-btn{
+  background: #FFFFFF;
+  box-shadow: 0px 5px 15px 0px rgba(182,184,212,0.3);
+  border-radius: 20px;
+  width: 179px;
+  height: 40px;
+  font-weight: 600;
 }
 </style>
