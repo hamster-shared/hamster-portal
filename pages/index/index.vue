@@ -146,10 +146,10 @@
               <div class="scroll-fadeout-bg scroll-fadeout-right"></div>
               <div class="scroll-content">
                 <div class="scroll-img" :class="[$device.isMobile ? 'scroll-one-phone1' : 'scroll-one1']">
-                  <img class="ecology-img mx-5" v-for="(item, index) in 8" :key="index" :src="getImageURL(`Layer-${item}.png`)"/>
+                  <img class="ecology-img mx-5" v-for="(item, index) in 10" :key="index" :src="getImageURL(`Layer-${item}.png`)"/>
                 </div>
                 <div class="scroll-img" :class="[$device.isMobile ? 'scroll-one-phone2' : 'scroll-one2']">
-                  <img class="ecology-img mx-5" v-for="(item, index) in 8" :key="index" :src="getImageURL(`Layer-${item}.png`)"/>
+                  <img class="ecology-img mx-5" v-for="(item, index) in 10" :key="index" :src="getImageURL(`Layer-${item}.png`)"/>
                 </div>
               </div>
               <div class="scroll-content my-[30px] md:my-[50px]">
@@ -563,10 +563,10 @@
 }
 @keyframes scrollOne1{
   0%{left: 0px; top: 0px;}
-  100%{left: 1275px; top: 0px;}
+  100%{left: 1588px; top: 0px;}
 }
 @keyframes scrollOne2{
-  0%{left: -1275px; top: 0px;}
+  0%{left: -1588px; top: 0px;}
   100%{left: 0px; top: 0px;}
 }
 .scroll-one-phone1{
@@ -577,10 +577,10 @@
 }
 @keyframes scrollOnePhone1{
   0%{left: 0px; top: 0px;}
-  100%{left: 894px; top: 0px;}
+  100%{left: 1114px; top: 0px;}
 }
 @keyframes scrollOnePhone2{
-  0%{left: -894px; top: 0px;}
+  0%{left: -1114px; top: 0px;}
   100%{left: 0px; top: 0px;}
 }
 .scroll-two1{
