@@ -72,14 +72,33 @@
                   Web3.0 + AI super middleware engine & data-driven incubation platform
                 </div>
               </div>
+              <div class="mt-[40px] md:mt-[20px] flex justify-center">
+                <div :class="{ 'hidden' : $device.isMobile}" class="flex border border-solid border-[#E4E8FD] cursor-pointer rounded-[19px] text-[16px] text-[#000000] leading-[30px] px-[4px] py-[3px]">
+                  <div :class="{ 'tab-checked' : providesIndex === 1}" @click="setProvidesValue(1)" class="tab-init">For Developers</div>
+                  <div :class="{ 'tab-checked' : providesIndex === 2}" @click="setProvidesValue(2)" class="tab-init">For Ecosystems</div>
+                </div>
+                <div :class="{ 'hidden' : !$device.isMobile}" class="tab-checked tab-phone-init">For Developers</div>
+              </div>
             </div>
           </div>
-          <div class="mt-[40px] md:mt-[100px] md:grid md:grid-cols-3 md:gap-[30px]">
-            <div v-for="(item,key) in automationList" :key="key" :class="[{'mt-[30px] md:mt-0' : key !== 0},{'group automation-card' : !$device.isMobile}]" class="relative h-[365px] md:h-[370px] text-[#000000] border border-solid border-[#F1F3FE] bg-[#FFFFFF] rounded-[8px] md:rounded-[12px] p-[20px]">
-              <img :src="getImageURL(`automation-icon-${key+1}.png`)" class="md:w-[50px] w-[70px] h-[70px] md:h-[50px]"/> 
-              <div class="my-[10px] text-[16px] md:text-[18px] font-bold leading-[30px]">{{ item.title }}</div>
-              <div class="font-light leading-[20px] text-[14px] md:text-[16px]">{{ item.desc }}</div>
-              <div class="automation-text-color absolute bottom-[40px] md:bottom-[30px] left-[20px] cursor-pointer md:hidden group-hover:block leading-[20px]" @click="gotoPorject">Start building for free ></div>
+          <div class="mt-[40px] md:grid md:grid-cols-3 md:gap-[30px]">
+            <div v-if="providesIndex === 1 || $device.isMobile" v-for="(item,key) in automationList" :key="key" :class="[{'mt-[30px] md:mt-0' : key !== 0},{'group automation-card' : !$device.isMobile}]" class="relative h-[365px] md:h-[370px] provides-card">
+              <img :src="getImageURL(`automation-icon-${key+1}.png`)" class="provides-logo"/> 
+              <div class="provides-title">{{ item.title }}</div>
+              <div class="provides-desc">{{ item.desc }}</div>
+              <div class="automation-text-color w-[200px] provides-btn md:hidden group-hover:block" @click="gotoPorject">Start building for free ></div>
+            </div>
+            <div :class="{ 'hidden' : !$device.isMobile}" class="mt-[50px] flex justify-center">
+              <div class="tab-checked tab-phone-init text-center">For Ecosystems</div>
+            </div>
+            <div v-if="providesIndex === 2 || $device.isMobile" v-for="(item,key) in ecosystemsList" :key="key" :class="[{'group automation-card' : !$device.isMobile}]" class="mt-[30px] md:mt-0 relative h-[525px] md:h-[500px] provides-card">
+              <img :src="getImageURL(`ecosystem-icon-${key+1}.png`)" class="provides-logo"/> 
+              <div class="provides-title">{{ item.title }}</div>
+              <div class="provides-desc">{{ item.desc }}</div>
+              <div v-for="(subItem,subKey) in item.subList" :key="subKey" class="provides-sub">
+                <div>{{ subItem.content }}</div>
+              </div>
+              <div class="automation-text-color flex provides-btn" @click="gotoPorject">Talk to us ></div>
             </div>
           </div>
         </div>
@@ -291,6 +310,8 @@
   const device = useDevice()
   const isMobile = device.value.isMobile
 
+  const providesIndex = ref(1);
+
   const showHeader = ref(true)
   const showHeaderBg = ref(false)
 
@@ -318,6 +339,11 @@
     { title: 'Keyless smart deployment', desc: 'Hamster enables visual configuration of smart contract deployment, unified management of contract dependencies, private key security and cross-chain deployment, etc., eliminating worries about script maintenance vulnerabilities. ' },
     { title: 'Contract monitoring and alerting', desc: 'Hamster provides comprehensive contract operation and maintenance. It monitors contract invocations through behavior and threshold monitoring, sends alerts, and ensures contract security.' },
     { title: 'Massive developer resources', desc: 'Hamster has already gathered 480,000 Web2.0 developers who are waiting to enter Web3.0. ' },
+  ]);
+  const ecosystemsList = ref([
+    { title: 'ALineEDU', desc: 'Based on Hamster\'s ALine, Hamster provides a series of gamified educational services to attract more developers into the corresponding ecosystem.', subList: [{ content: 'Customize gamification tasks based on Hamster ALine' }, { content: 'Jointly issued NFTs together with the ecosystems' }]},
+    { title: 'ALineHack', desc: 'ALineHack is a comprehensive service product to empower hackathons for the ecosystems, helping developers complete the competition with high quality and efficiency.', subList: [{ content: 'A series of educational services based on Hamster ALine' }, { content: 'The entire planning, promotion, and holding of the hackathon' }, { content: 'Hackathon training and mentoring for developers' }]},
+    { title: 'ALineHack+', desc: 'ALineHack+ is a comprehensive service product for hackerhouse empowerment chain ecology, which helps developers complete their demos efficiently and provides infrastructure and resources for subsequent incubation.', subList: [{ content: 'A series of educational services based on Hamster ALine' }, { content: 'The entire planning, promotion, and holding of the hackerhouse' }, { content: 'Hackerhouse training and mentoring for developers' }]},
   ]);
   const protocolList = ref([
     {imgName: 'template-market-logo', title: 'Template Market', class: ''},
@@ -453,6 +479,10 @@
       window.location.href = "/Middleware";
     }
   }
+  
+  const setProvidesValue = (val) => {
+    providesIndex.value = val;
+  }
 
   onMounted(()=>{
     // Init fullpage
@@ -504,6 +534,25 @@
 </script>
 
 <style lang="less" scoped>
+  .tab-checked{
+    background: linear-gradient(132deg, #E9E7FA 0%, #FAEAF8 100%);
+    border-radius: 19px;
+  }
+  .tab-phone-init{
+    color: #000000;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 30px;
+    height: 30px;
+    width: 150px;
+  }
+  .tab-init{
+    width: 200px;
+    font-weight: bold;
+  }
+  .tab-init:hover{ 
+    color: #898989;
+  }
   .transparent {
     opacity: 0
   }
@@ -536,7 +585,6 @@
     background-origin: border-box;
   }
   .automation-text-color{
-    width: 200px;
     height: 20px;
     font-size: 16px;
     font-family: Montserrat-Bold, Montserrat;
@@ -796,5 +844,26 @@
 }
 .ecology-img{
   @apply h-[30px] md:h-[50px];
+}
+
+.provides-card{
+  @apply text-[#000000] border border-solid border-[#F1F3FE] bg-[#FFFFFF] rounded-[8px] md:rounded-[12px] p-[20px];
+}
+.provides-logo{
+  @apply md:w-[50px] w-[70px] h-[70px] md:h-[50px];
+}
+.provides-title{
+  @apply my-[10px] text-[16px] md:text-[18px] font-bold leading-[30px];
+}
+.provides-desc{
+  @apply font-light leading-[20px] text-[14px] md:text-[16px] text-[#474959];
+  font-family: Montserrat-Light, Montserrat;
+}
+.provides-sub{
+  @apply flex mt-[20px] text-[#474959] leading-[20px];
+  font-family: Montserrat-Regular, Montserrat;
+}
+.provides-btn{
+  @apply absolute bottom-[40px] md:bottom-[30px] left-[20px] cursor-pointer leading-[20px];
 }
 </style>
