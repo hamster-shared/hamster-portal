@@ -476,7 +476,7 @@
     window.location.href = "/workflow";
   }
   const goEmail = () => {
-    window.location.href = "/email";
+    // window.location.href = "/email";
   }
   const handleProtocol = (title) => {
     if (title === 'Decentralized Computing Power') {
