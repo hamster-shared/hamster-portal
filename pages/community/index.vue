@@ -23,7 +23,7 @@
       </div>
     </div>
   </div>
-  <div class="bg-[#000000] relative">
+  <div v-if="false" class="bg-[#000000] relative">
     <div class="community-bg-cost2">
     <img src="~/assets/images/community-bg-cost.png" class="h-full w-full absolute" />
       <div class="container mx-auto px-5 pb-[100px] md:pb-[120px]">

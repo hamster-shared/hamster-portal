@@ -1,5 +1,5 @@
 <template>
-  <div :class="[$device.isMobile ? 'email-top-bg-phone' : 'email-top-bg']">
+  <div v-if="false" :class="[$device.isMobile ? 'email-top-bg-phone' : 'email-top-bg']">
     <div class="container mx-auto px-5 md:h-screen md:flex md:items-center">
       <div class="pt-[130px] md:pt-0">
         <div class="md:flex md:px-[5%]">
@@ -13,6 +13,7 @@
           <div class="md:w-[45%] flex justify-end">
             <div class="mt-[50px] mb-[60px] md:mb-0 md:mt-[80px]">
               <div class="flex justify-center">
+                <img src="~/assets/images/email-icon.png" class="w-[40px] h-[40px] mr-[10px]"/>
                 <div class="text-color-css text-[18px] md:text-[24px] font-bold mb-[25px]">Talk to us</div>
               </div>
               <div class="rounded-[13px] bg-[#FFFFFF] px-[30px] md:px-[40px] py-[10px]  text-[#151210] text-[14px] font-family-regular">
@@ -62,8 +63,6 @@
   </div>
 </template>
 <script setup lang="ts">
-import { json } from 'stream/consumers';
-
 
   const device = useDevice()
   const isDisabled = ref(true);
@@ -89,19 +88,6 @@ import { json } from 'stream/consumers';
     {value: 'Discord', label: 'Discord'},
     {value: 'Telegram', label: 'Telegram'},
     {value: 'Youtube', label: 'Youtube'},
-    {value: 'Others', label: 'Others'},
-  ]);
-  const optionsCategory = ref([
-    {value: '', label: 'Make a selection'},
-    {value: 'RPC', label: 'RPC'},
-    {value: 'Oracle', label: 'Oracle'},
-    {value: 'Security audit', label: 'Security audit'},
-    {value: 'Index query', label: 'Index query'},
-    {value: 'API', label: 'API'},
-    {value: 'Storage', label: 'Storage'},
-    {value: 'DEFI', label: 'DEFI'},
-    {value: 'DAO', label: 'DAO'},
-    {value: 'DID', label: 'DID'},
     {value: 'Others', label: 'Others'},
   ]);
   const setOptionVal = (obj: any, column: string) => {
