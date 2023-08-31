@@ -75,12 +75,12 @@
     </div>
     <div class="mt-[60px] md:mt-[120px]">
       <div class="text-[12px] md:text-[24px] font-bold flex justify-center !mt-0 mb-[40px] md:mb-[100px]">
-        <div class="text-color-css">8 Issued Grants & 11 EcoSystems</div>
+        <div class="text-color-css">9 Issued Grants & 11 EcoSystems</div>
       </div>
       <!-- <img v-if="$device.isMobile" src="~/assets/images/about-logos-phone.png" class="w-full"/>
       <img v-else src="~/assets/images/about-logos.png" class="w-full"/> -->
       <div class="flex flex-wrap justify-center md:w-full">
-        <div v-for="(item, index) in 7" :key="index" class="w-[25%] md:w-[14%] flex justify-center items-center mb-[30px] md:mb-0">
+        <div v-for="(item, index) in 8" :key="index" :class="[item === 8 ? 'md:w-[9%]' : 'md:w-[13%]']" class="w-[25%]  flex justify-center items-center mb-[30px] md:mb-0">
           <img :src="getImageURL(`Grant-about-${item}.png`)" :class="[item === 7 ? 'h-[14px] md:h-[22px]' : item === 3 ? 'h-[22px] md:h-[36px]' : 'h-[26px] md:h-[42px]']"/>
         </div>
       </div>

@@ -29,6 +29,7 @@
                     <div class="mt-4">
                       <img src="~/assets/images/Grant-6.png" class="h-[23px] inline-block ml-4"/>
                       <img src="~/assets/images/Grant-7.png" class="h-[16px] inline-block ml-6"/>
+                      <img src="~/assets/images/Grant-8.png" class="h-[20px] inline-block ml-6"/>
                     </div>
                   </div>
                 </div>
@@ -100,7 +101,7 @@
                 <div>{{ subItem.content }}</div>
               </div>
               <div class="automation-text-color flex provides-btn left-[20px]" @click="goEmail">Talk to us ></div>
-              <div v-if="key === 1" class="provides-btn !bottom-[30px] md:!bottom-[20px] right-[20px] view-btn flex justify-center items-center">
+              <div v-if="key === 1" @click="gotoViewExample" class="provides-btn !bottom-[30px] md:!bottom-[20px] right-[20px] view-btn flex justify-center items-center">
                 <img src="~/assets/images/ecosystem-video.png" class="h-[20px] mr-[10px]"/>
                 View example
               </div>
@@ -467,6 +468,9 @@
   }
   const gotoPorject = () => {
     window.open(alineLink.value+"/projects");
+  }
+  const gotoViewExample = () => {
+    window.open("https://www.youtube.com/watch?v=FeMMujzI2U0");
   }
   const goDownload = () => {
     // window.open("https://hamsternet.io/download");
