@@ -27,7 +27,7 @@
 <script setup lang="ts">
 
 const buildTeamList = ref([
-  { title: 'Flexible contract', desc: 'Hire independent informal contractors and freelancers . We handle payments and human resource management to reduce your workload', subList: [{ content: 'Sign compliant flexible employment agreements' }, { content: 'Support USD/token payments' }, { content: 'Mainland China employees can opt in for social insurance on demand' }, { content: 'Collect <label class="font-bold text-[#FFFFFF]">8-20% service fee</label> monthly' }] },
+  { title: 'Flexible contract', desc: 'Hire independent informal contractors and freelancers . We handle payments and human resource management to reduce your workload', subList: [{ content: 'Sign compliant flexible employment agreements' }, { content: 'Support USD/token payments' }, { content: 'Mainland China employees can opt in for social insurance on demand' }, { content: '<label class="font-bold text-[#FFFFFF]">8-20% service fee</label>' }] },
   { title: 'Full-time contract', desc: 'Quickly hire employees from around the world. We handle the entire recruiting process so you can focus on development of your business.', subList: [{ content: 'Sign employment contracts with hiring parties'}, { content: 'Support USD/token payments'}, { content: 'Junior position service fee: <label class="font-bold text-[#FFFFFF]">$415/person </label>'}, { content: 'Mid-level position service fee: <label class="font-bold text-[#FFFFFF]">$830/person </label>'}, { content: 'Senior position service fee: <label class="font-bold text-[#FFFFFF]">$1245/person </label>'}]}
 ]);
 </script>

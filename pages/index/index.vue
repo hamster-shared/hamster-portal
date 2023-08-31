@@ -100,7 +100,7 @@
                 <div>{{ subItem.content }}</div>
               </div>
               <div class="automation-text-color flex provides-btn left-[20px]" @click="goEmail">Talk to us ></div>
-              <div class="provides-btn !bottom-[30px] md:!bottom-[20px] right-[20px] view-btn flex justify-center items-center">
+              <div v-if="key === 1" class="provides-btn !bottom-[30px] md:!bottom-[20px] right-[20px] view-btn flex justify-center items-center">
                 <img src="~/assets/images/ecosystem-video.png" class="h-[20px] mr-[10px]"/>
                 View example
               </div>
@@ -476,7 +476,7 @@
     window.location.href = "/workflow";
   }
   const goEmail = () => {
-    // window.location.href = "/email";
+    window.location.href = "/email";
   }
   const handleProtocol = (title) => {
     if (title === 'Decentralized Computing Power') {

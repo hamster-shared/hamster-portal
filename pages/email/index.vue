@@ -1,5 +1,5 @@
 <template>
-  <div v-if="false" :class="[$device.isMobile ? 'email-top-bg-phone' : 'email-top-bg']">
+  <div :class="[$device.isMobile ? 'email-top-bg-phone' : 'email-top-bg']">
     <div class="container mx-auto px-5 md:h-screen md:flex md:items-center">
       <div class="pt-[130px] md:pt-0">
         <div class="md:flex md:px-[5%]">
