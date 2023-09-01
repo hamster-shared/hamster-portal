@@ -18,24 +18,24 @@
               </div>
               <div class="rounded-[13px] bg-[#FFFFFF] px-[30px] md:px-[40px] py-[10px]  text-[#151210] text-[14px] font-family-regular">
                 <div class="form-label"><span class="text-[#FF4A4A] mr-2">*</span>Your Name</div>
-                <input @change="checkFormData('name')" type="text" name="name" v-model="formData.name" placeholder="Please enter Your Name" autocomplete="off" />
+                <input @change="checkFormData('contactName')" type="text" name="contactName" v-model="formData.contactName" placeholder="Please enter Your Name" autocomplete="off" />
                 <div class="form-label"><span class="text-[#FF4A4A] mr-2">*</span>Email Address</div>
-                <input :class="{'input-error':emailErr}" @change="checkFormData('email')" type="text" name="email" v-model="formData.email" placeholder="Please enter Email Address" autocomplete="off" />
+                <input :class="{'input-error':emailErr}" @change="checkFormData('contactEmailAddress')" type="text" name="contactEmailAddress" v-model="formData.contactEmailAddress" placeholder="Please enter Email Address" autocomplete="off" />
                 <div v-if="emailErr" class="input-error-label">Email formal error !</div>
-                <div class="form-label"><span class="text-[#FF4A4A] mr-2">*</span>Social Account</div>
+                <div class="form-label">Social Account</div>
                 <div class="flex">
                   <div class="relative !w-[40%]">
-                  <div class="select-div !rounded-r-none" :class="{'select-active' : showOptions.socialPlatform}" @click="showOptions.socialPlatform = !showOptions.socialPlatform">{{ optionLabel.socialPlatform }}
+                  <div class="select-div !rounded-r-none" :class="{'select-active' : showOptions.contactPlatform}" @click="showOptions.contactPlatform = !showOptions.contactPlatform">{{ optionLabel.contactPlatform || optionsSocial[0]}}
                     <img src="~/assets/images/select-down.svg" class="w-[15px] up-tran"/>
                   </div>
-                  <div class="option-div" v-if="showOptions.socialPlatform" @touchstart="optionEnter" @touchend="optionLeave" @mouseleave="optionLeave"  @mouseenter="optionEnter">
-                    <div @click="setOptionVal(item, 'socialPlatform')" v-for="(item,index) in optionsSocial" :key="index" :value="item.value" :class="{'option-active':item.value==formData.socialPlatform}">{{ item.label }}</div>
+                  <div class="option-div" v-if="showOptions.contactPlatform" @touchstart="optionEnter" @touchend="optionLeave" @mouseleave="optionLeave"  @mouseenter="optionEnter">
+                    <div @click="setOptionVal(item, 'contactPlatform')" v-for="(item,index) in optionsSocial" :key="index" :value="item" :class="{'option-active':item==formData.contactPlatform}">{{ item }}</div>
                   </div>
                 </div>
-                <input @change="checkFormData('socialAccount')" class="!w-[60%] !rounded-l-none" type="text" name="socialAccount" v-model="formData.socialAccount" placeholder="Your Account..." autocomplete="off" />
+                <input @change="checkFormData('contactInformation')" class="!w-[60%] !rounded-l-none" type="text" name="contactInformation" v-model="formData.contactInformation" placeholder="Your Account..." autocomplete="off" />
                 </div>
                 <div class="form-label">Topic</div>
-                <textarea name="middlewareInformation" maxlength="200" v-model="formData.middlewareInformation" rows="2" placeholder=""></textarea>
+                <textarea name="middlewareInformation" maxlength="200" v-model="formData.topic" rows="2" placeholder=""></textarea>
                 
                 <button class="btn-css my-[10px] w-full text-white" :disabled="isDisabled" @click="handleSubmit">Submit</button>
               </div>
@@ -70,29 +70,23 @@
   const isShowModal = ref(false);
   const isShowError = ref(false);
   const isOptionMouse = ref(false);
+  const optionsSocial = ref([]);
   const showOptions = reactive({
-    'socialPlatform': false,
+    'contactPlatform': false,
   });
   const optionLabel = reactive({
-    'socialPlatform': "Twitter",
+    'contactPlatform': '',
   });
   const formData = reactive({
-    name: '',
-    email: '',
-    socialPlatform: 'Twitter',
-    socialAccount: '',
-    middlewareInformation: '',
+    contactName: '',
+    contactEmailAddress: '',
+    contactPlatform: '',
+    contactInformation: '',
+    topic: '',
   })
-  const optionsSocial = ref([
-    {value: 'Twitter', label: 'Twitter'},
-    {value: 'Discord', label: 'Discord'},
-    {value: 'Telegram', label: 'Telegram'},
-    {value: 'Youtube', label: 'Youtube'},
-    {value: 'Others', label: 'Others'},
-  ]);
   const setOptionVal = (obj: any, column: string) => {
-    optionLabel[column] = obj.label;
-    formData[column] = obj.value;
+    optionLabel[column] = obj;
+    formData[column] = obj;
     showOptions[column] = false;
     isOptionMouse.value = false;
     checkFormData(column);
@@ -104,29 +98,45 @@
     return false;
   }
   const checkFormData = (column: string) => {
-    if (column === 'email' && checkEmpty(formData.email)) {
+    if (column === 'contactEmailAddress' && checkEmpty(formData.contactEmailAddress)) {
       var reg = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;
-      if (!reg.test(formData.email)){
+      if (!reg.test(formData.contactEmailAddress)){
         //邮箱格式错误
         emailErr.value = true;
       } else {
         emailErr.value = false;
       }
     }
-    if (checkEmpty(formData.name) && checkEmpty(formData.email) && checkEmpty(formData.socialAccount)) {
+    if (checkEmpty(formData.contactName) && checkEmpty(formData.contactEmailAddress) && emailErr.value === false) {
       isDisabled.value = false;
     } else {
       isDisabled.value = true;
     }
   }
 const handleSubmit = async () => {
-  const url = '/JoinMiddleware';
+  isDisabled.value = true;
+  const url = '/api/contact/ecosystems';
   await $fetch(url, {
     method: "POST",
     body: JSON.stringify(formData)
-  }).then((res) => {
-    console.log('res:', res)
-    isShowModal.value = true;
+  }).then((res:any) => {
+    isDisabled.value = false;
+    if (res.code == 200) {
+      isShowModal.value = true;
+    }
+  }).catch((err) => {
+    isDisabled.value = false;
+    console.log(err)
+    isShowError.value = true;
+  })
+}
+const getPlatform = async () => {
+  const url = '/api/contact/platform';
+  await $fetch(url, {
+    method: "GET"
+  }).then((res:any) => {
+    optionsSocial.value = res.data;
+    formData.contactPlatform = optionsSocial.value[0];
   }).catch((err) => {
     console.log(err)
     isShowError.value = true;
@@ -146,6 +156,7 @@ const handleSubmit = async () => {
     }
   } 
   onMounted(() => {
+    getPlatform();
     if (device.value.isMobile) {
       window.addEventListener("touchstart", handleMouseDown)
     } else {
