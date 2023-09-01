@@ -30,6 +30,7 @@ export default defineNuxtConfig({
     dashboardsProxyTarget: "http://61.172.179.6:30312",
     hamsterProxyTarget: "http://61.172.179.6:30312",
     articlesProxyTarget: "https://media.c.alpha.hamsternet.io",
+    contractProxyTarget: "http://61.172.179.6:30317",
 
     // hamsterProxyTarget: "http://183.66.65.207:8003",
     public: {

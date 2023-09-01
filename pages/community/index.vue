@@ -22,13 +22,13 @@
         </div>
       </div>
     </div>
-      
-      
   </div>
+  <Contract></Contract>
 </template>
 <script setup>
 import EchartPie from './components/EchartPie.vue';
 import EchartLineBar from './components/EchartLineBar.vue';
+import Contract from './components/Contract.vue'
 
 const jobData = ref([
   { value: 88010, name: 'Back-end' },
@@ -58,7 +58,6 @@ const genderData = ref([
   { value: 79427, name: 'Female' },
   { value: 87686, name: 'Unknown' },
 ]);
-
 </script>
 <style scoped lang="less"> 
 
@@ -74,5 +73,8 @@ const genderData = ref([
     background: #FEFEFE;
     box-shadow: 0px 12px 15px 0px rgba(63,71,157,0.14);
     border-radius: 12px;
+  }
+  .font-family-Light{
+    font-family: Montserrat-Light, Montserrat;
   }
 </style>
