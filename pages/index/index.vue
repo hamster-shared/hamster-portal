@@ -55,7 +55,7 @@
                   <div class=" mt-[5px]">
                     <img src="~/assets/images/Grant-6.png" class="h-[16px] inline-block ml-[16px]"/>
                     <img src="~/assets/images/Grant-7.png" class="h-[11px] inline-block ml-[16px]"/>
-                    <img src="~/assets/images/Grant-8.png" class="h-[13px] inline-block ml-[16px]"/>
+                    <img src="~/assets/images/Grant-8.png" class="h-[13px] mt-[1.5px] inline-block ml-[16px]"/>
                   </div>
                 </div>
               </div>
@@ -88,8 +88,11 @@
               <img :src="getImageURL(`automation-icon-${key+1}.png`)" class="provides-logo"/> 
               <div class="provides-title">{{ item.title }}</div>
               <div class="provides-desc">{{ item.desc }}</div>
-              <div class="automation-text-color w-[200px] provides-btn md:hidden group-hover:block" @click="gotoPorject">
-                <div class="flex items-center">Start building for free ></div>
+              <div class="provides-btn md:hidden group-hover:block" @click="gotoPorject">
+                <div class="flex items-center">
+                  <div class="automation-text-color">Start building for free</div>
+                  <img src="~/assets/images/right-color.svg" class="h-[12px] ml-[10px]"/>
+                </div>
               </div>
             </div>
             <div :class="{ 'hidden' : !$device.isMobile}" class="mt-[50px] flex justify-center">
@@ -103,7 +106,10 @@
                 <img src="~/assets/images/ecosystem-sub.png" class="h-[20px] w-[20px] mr-[10px]"/>
                 <div>{{ subItem.content }}</div>
               </div>
-              <div class="automation-text-color flex provides-btn left-[20px] items-center" @click="goEmail">Talk to us ></div>
+              <div class="provides-btn left-[20px] flex items-center" @click="goEmail">
+                <div class="automation-text-color">Talk to us</div>
+                <img src="~/assets/images/right-color.svg" class="h-[12px] ml-[10px]"/>
+              </div>
               <div v-if="key === 1" @click="gotoViewExample" class="provides-btn !bottom-[30px] md:!bottom-[20px] right-[20px] view-btn flex justify-center items-center">
                 <img src="~/assets/images/ecosystem-video.png" class="h-[20px] mr-[10px]"/>
                 View example
@@ -600,6 +606,7 @@
     background-origin: border-box;
   }
   .automation-text-color{
+    display: flex;
     height: 20px;
     font-size: 16px;
     font-family: Montserrat-Bold, Montserrat;
