@@ -55,6 +55,7 @@
                   <div class=" mt-[5px]">
                     <img src="~/assets/images/Grant-6.png" class="h-[16px] inline-block ml-[16px]"/>
                     <img src="~/assets/images/Grant-7.png" class="h-[11px] inline-block ml-[16px]"/>
+                    <img src="~/assets/images/Grant-8.png" class="h-[13px] inline-block ml-[16px]"/>
                   </div>
                 </div>
               </div>
