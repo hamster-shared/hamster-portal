@@ -88,7 +88,9 @@
               <img :src="getImageURL(`automation-icon-${key+1}.png`)" class="provides-logo"/> 
               <div class="provides-title">{{ item.title }}</div>
               <div class="provides-desc">{{ item.desc }}</div>
-              <div class="automation-text-color w-[200px] provides-btn md:hidden group-hover:block" @click="gotoPorject">Start building for free ></div>
+              <div class="automation-text-color w-[200px] provides-btn md:hidden group-hover:block" @click="gotoPorject">
+                <div class="flex items-center">Start building for free ></div>
+              </div>
             </div>
             <div :class="{ 'hidden' : !$device.isMobile}" class="mt-[50px] flex justify-center">
               <div class="tab-checked tab-phone-init text-center">For Ecosystems</div>
@@ -101,7 +103,7 @@
                 <img src="~/assets/images/ecosystem-sub.png" class="h-[20px] w-[20px] mr-[10px]"/>
                 <div>{{ subItem.content }}</div>
               </div>
-              <div class="automation-text-color flex provides-btn left-[20px]" @click="goEmail">Talk to us ></div>
+              <div class="automation-text-color flex provides-btn left-[20px] items-center" @click="goEmail">Talk to us ></div>
               <div v-if="key === 1" @click="gotoViewExample" class="provides-btn !bottom-[30px] md:!bottom-[20px] right-[20px] view-btn flex justify-center items-center">
                 <img src="~/assets/images/ecosystem-video.png" class="h-[20px] mr-[10px]"/>
                 View example
