@@ -236,7 +236,8 @@ onUnmounted(() => {
   font-family: Montserrat-Regular, Montserrat;
   color: #FFFFFF;
   text-align: center;
-  position: fixed;
+  /* position: fixed; */
+  position: absolute;
   top: 0;
   z-index: 99999;
   cursor: pointer;

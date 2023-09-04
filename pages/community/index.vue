@@ -23,7 +23,6 @@
       </div>
     </div>
   </div>
-  <a name="location" />
   <Contract></Contract>
 </template>
 <script setup>
@@ -31,6 +30,8 @@ import EchartPie from './components/EchartPie.vue';
 import EchartLineBar from './components/EchartLineBar.vue';
 import Contract from './components/Contract.vue'
 const route = useRoute();
+const device = useDevice()
+const isMobile = device.value.isMobile
 
 const jobData = ref([
   { value: 88010, name: 'Back-end' },
@@ -60,10 +61,25 @@ const genderData = ref([
   { value: 79427, name: 'Female' },
   { value: 87686, name: 'Unknown' },
 ]);
+
+
+function handleScroll() {
+  let scrollH = document.body.scrollTop || document.documentElement.scrollTop; //滚动的高度
+  console.log("scrollH:", scrollH);
+}
+
 onMounted(() => {
   if (route.query.location == 2) {
-    location.href = "#location";
+    setTimeout(() => {
+      if (isMobile) {
+        document.documentElement.scrollTop = 1420;
+      } else {
+        document.documentElement.scrollTop = 1295;
+      }
+    }, 100);
+    
   }
+  
 })
 </script>
 <style scoped lang="less"> 
