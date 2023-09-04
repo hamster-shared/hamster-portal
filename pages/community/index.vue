@@ -23,12 +23,14 @@
       </div>
     </div>
   </div>
+  <a name="location" />
   <Contract></Contract>
 </template>
 <script setup>
 import EchartPie from './components/EchartPie.vue';
 import EchartLineBar from './components/EchartLineBar.vue';
 import Contract from './components/Contract.vue'
+const route = useRoute();
 
 const jobData = ref([
   { value: 88010, name: 'Back-end' },
@@ -58,6 +60,11 @@ const genderData = ref([
   { value: 79427, name: 'Female' },
   { value: 87686, name: 'Unknown' },
 ]);
+onMounted(() => {
+  if (route.query.location == 2) {
+    location.href = "#location";
+  }
+})
 </script>
 <style scoped lang="less"> 
 
