@@ -1,6 +1,6 @@
 <template>
   <div class="title-activity text-[12px] md:text-[14px]" @click="jumpNftActivity">
-    Joint Scroll & Hamster NFT airdrop is on, join now>>
+    Build your team quickly, worry-free and at low cost >>
   </div>
   <div class="absolute inset-x-0 top-[38px] z-[100] md:z-[1000]  bg-black">
     <div class="m-auto">
@@ -207,7 +207,8 @@ const openNewUrl = (val, link) => {
 
 const jumpNftActivity = ()=>{
   // 无论生成和测试都是跳活动的线上网址
-  window.open('https://activity.hamsternet.io/')
+  // window.open('https://activity.hamsternet.io/')
+  window.location.href = '/community?location=2'; 
 }
 
 onMounted(() => {
@@ -235,7 +236,8 @@ onUnmounted(() => {
   font-family: Montserrat-Regular, Montserrat;
   color: #FFFFFF;
   text-align: center;
-  position: fixed;
+  /* position: fixed; */
+  position: absolute;
   top: 0;
   z-index: 99999;
   cursor: pointer;
