@@ -110,7 +110,7 @@
                 <div class="automation-text-color">Talk to us</div>
                 <img src="~/assets/images/right-color.svg" class="h-[12px] ml-[10px]"/>
               </div>
-              <div v-if="key === 1" @click="gotoViewExample" class="provides-btn !bottom-[30px] md:!bottom-[20px] right-[20px] view-btn flex justify-center items-center">
+              <div v-if="key < 2" @click="gotoViewExample(key)" class="provides-btn !bottom-[30px] md:!bottom-[20px] right-[20px] view-btn flex justify-center items-center">
                 <img src="~/assets/images/ecosystem-video.png" class="h-[20px] mr-[10px]"/>
                 View example
               </div>
@@ -478,8 +478,12 @@
   const gotoPorject = () => {
     window.open(alineLink.value+"/projects");
   }
-  const gotoViewExample = () => {
-    window.open("https://www.youtube.com/watch?v=FeMMujzI2U0");
+  const gotoViewExample = (key) => {
+    if (key == 1) {
+      window.open("https://www.youtube.com/watch?v=FeMMujzI2U0");
+    } else {
+      window.open("https://activity-example.hamsternet.io/");
+    }
   }
   const goDownload = () => {
     // window.open("https://hamsternet.io/download");
