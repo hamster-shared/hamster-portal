@@ -111,8 +111,8 @@
                 <img src="~/assets/images/right-color.svg" class="h-[12px] ml-[10px]"/>
               </div>
               <div v-if="key < 2" @click="gotoViewExample(key)" class="provides-btn !bottom-[30px] md:!bottom-[20px] right-[20px] view-btn flex justify-center items-center">
-                <!-- <img v-if="key == 0" src="~/assets/images/ecosystem-video0.png" class="h-[20px] mr-[10px]"/> -->
-                <img src="~/assets/images/ecosystem-video.png" class="h-[20px] mr-[10px]"/>
+                <img v-if="key == 0" src="~/assets/images/ecosystem-video0.png" class="h-[20px] mr-[10px]"/>
+                <img v-if="key == 1" src="~/assets/images/ecosystem-video.png" class="h-[20px] mr-[10px]"/>
                 View example
               </div>
             </div>
