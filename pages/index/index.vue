@@ -65,10 +65,10 @@
       </div>
 
       <div :class="{'automation-bg' : !$device.isMobile}">
-        <div class="container mx-auto px-5 mb-[60px] md:mb-[160px]">
+        <div class="container mx-auto px-5 pb-[60px] md:pb-[160px]">
           <div>
             <div class="text-center">
-              <div class="area-title">What Hamster Provides</div>
+              <div class="area-title pt-[60px] md:pt-[80px] !mt-0">What Hamster Provides</div>
               <div v-if="false" class="flex  justify-center">
                 <div class="area-desc md:w-[600px]">
                   Web3.0 + AI super middleware engine & data-driven incubation platform
@@ -110,8 +110,9 @@
                 <div class="automation-text-color">Talk to us</div>
                 <img src="~/assets/images/right-color.svg" class="h-[12px] ml-[10px]"/>
               </div>
-              <div v-if="key === 1" @click="gotoViewExample" class="provides-btn !bottom-[30px] md:!bottom-[20px] right-[20px] view-btn flex justify-center items-center">
-                <img src="~/assets/images/ecosystem-video.png" class="h-[20px] mr-[10px]"/>
+              <div v-if="key < 2" @click="gotoViewExample(key)" class="provides-btn !bottom-[30px] md:!bottom-[20px] right-[20px] view-btn flex justify-center items-center">
+                <img v-if="key == 0" src="~/assets/images/ecosystem-video0.png" class="h-[20px] mr-[10px]"/>
+                <img v-if="key == 1" src="~/assets/images/ecosystem-video.png" class="h-[20px] mr-[10px]"/>
                 View example
               </div>
             </div>
@@ -478,8 +479,12 @@
   const gotoPorject = () => {
     window.open(alineLink.value+"/projects");
   }
-  const gotoViewExample = () => {
-    window.open("https://www.youtube.com/watch?v=FeMMujzI2U0");
+  const gotoViewExample = (key) => {
+    if (key == 1) {
+      window.open("https://www.youtube.com/watch?v=FeMMujzI2U0");
+    } else {
+      window.open("https://activity-example.hamsternet.io/");
+    }
   }
   const goDownload = () => {
     // window.open("https://hamsternet.io/download");
@@ -584,12 +589,12 @@
     background-color: #000000;
   }
   .top-bg{
-    background: url("~/assets/images/home-top-bg.jpg") no-repeat center #000000;
+    background: url("~/assets/images/home-top-bg-demo.jpg") no-repeat center #000000;
     // background: url("~/assets/images/home-top-bg.png") no-repeat 70% #000000;
     background-size: contain;
   }
   .top-bg-phone{
-    background: url("~/assets/images/home-top-bg-phone.png") no-repeat center #000000;
+    background: url("~/assets/images/home-top-bg-phone-demo.jpg") no-repeat center #000000;
     background-size: contain;
   }
   .automation-bg{
