@@ -589,12 +589,12 @@
     background-color: #000000;
   }
   .top-bg{
-    background: url("~/assets/images/home-top-bg.jpg") no-repeat center #000000;
+    background: url("~/assets/images/home-top-bg-demo.jpg") no-repeat center #000000;
     // background: url("~/assets/images/home-top-bg.png") no-repeat 70% #000000;
     background-size: contain;
   }
   .top-bg-phone{
-    background: url("~/assets/images/home-top-bg-phone.png") no-repeat center #000000;
+    background: url("~/assets/images/home-top-bg-phone-demo.jpg") no-repeat center #000000;
     background-size: contain;
   }
   .automation-bg{
