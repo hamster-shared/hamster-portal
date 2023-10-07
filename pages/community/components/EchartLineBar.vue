@@ -19,7 +19,7 @@ const isMobile = device.value.isMobile;
 const xAxisData = ref(['Apr-21', 'May-21', 'Jun-21', 'Jul-21', 'Aug-21', 'Sep-21', 'Oct-21', 'Nov-21', 'Dec-21', 'Jan-22', 'Feb-22', 'Mar-22', 'Apr-22', 'May-22','Jun-22','Jul-22','Aug-22','Sep-22','Oct-22','Nov-22','Dec-22','Jan-23','Feb-23','Mar-23','Apr-23']);
 const monthAbbr = ref(['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']);
 const baseNumber = ref(189649);
-const monthlyGrowthData = ref([ 0, 15175, 9911, 7854, 9509, 9723, 9856, 6991, 6442, 3932, 8875, 13165, 11696, 13010, 16297, 15475, 13356, 15212, 11390, 12535, 7915, 4814, 3771, 4300, 2863 ,2400 , 3600, 79117,8621]) 
+const monthlyGrowthData = ref([ 0, 15175, 9911, 7854, 9509, 9723, 9856, 6991, 6442, 3932, 8875, 13165, 11696, 13010, 16297, 15475, 13356, 15212, 11390, 12535, 7915, 4814, 3771, 4300, 2863 ,2400 , 3600, 79117,8621,8392]) 
 const totalNumber = ref([]);
 const baseYear = ref(2023);
 const baseMonth = ref(4);
@@ -33,7 +33,7 @@ const setGrowthData = () => {
   const timeOne = new Date()
   const year = timeOne.getFullYear();
   // const month = timeOne.getMonth(); //不显示当前月份数据
-  const month = 8; //数组需要手动赋值，同时赋值月份
+  const month = 9; //数组需要手动赋值，同时赋值月份
   let yearAbbr = year.toString().substring(2, 4);
   if (year === baseYear.value && month > baseMonth.value || year > baseYear.value) {
     if (year > baseYear.value) {
