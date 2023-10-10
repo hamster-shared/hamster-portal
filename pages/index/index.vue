@@ -5,7 +5,7 @@
           <div class="md:flex md:items-center relative md:mt-[80px]">
             <div class=" text-center md:text-left mt-[110px] md:mt-0">
               <div class="text-2xl font-extrabold px-10 md:px-0 md:w-[560px] md:text-[50px] md:leading-[74px] font-family-extraBold">
-                Build Web3 collaboratively with the power of AI, fast.
+                Build Web3.0 collaboratively with the power of AI, fast.
               </div>
               <div class="mt-5 mb-6 text-[16px] md:text-[21px] md:w-[560px] leading-[21px] md:leading-[30px] font-medium md:font-light text-[#999999] ">One-stop Development Automation Experience with Process Safety and Privacy</div>
               <div class="hidden mb-[35px] md:block">
