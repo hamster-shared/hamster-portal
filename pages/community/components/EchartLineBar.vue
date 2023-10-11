@@ -20,7 +20,7 @@ const xAxisData = ref(['Apr-21', 'May-21', 'Jun-21', 'Jul-21', 'Aug-21', 'Sep-21
 const monthAbbr = ref(['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']);
 const baseNumber = ref(189649);
 //月份数值
-const monthlyGrowthData = ref([ 0, 15175, 9911, 7854, 9509, 9723, 9856, 6991, 6442, 3932, 8875, 13165, 11696, 13010, 16297, 15475, 13356, 15212, 11390, 12535, 7915, 4814, 3771, 4300, 2863 ,2400 , 3600, 79117,8621,8392]) 
+const monthlyGrowthData = ref([ 0, 15175, 9911, 7854, 9509, 9723, 9856, 6991, 6442, 3932, 8875, 13165, 11696, 13010, 16297, 15475, 13356, 15212, 11390, 12535, 7915, 4814, 3771, 4300, 2863 ,2400 , 3600, 79117,96538,77264]) 
 const totalNumber = ref([]);
 const baseYear = ref(2023);
 const baseMonth = ref(4);
