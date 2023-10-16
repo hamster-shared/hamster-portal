@@ -2,7 +2,7 @@
   <div class="title-activity text-[12px] md:text-[14px]" @click="jumpNftActivity">
     Build your team quickly, worry-free and at low cost >>
   </div>
-  <div class="absolute inset-x-0 top-[38px] z-[100] md:z-[1000]  bg-black">
+  <div class="absolute inset-x-0 top-[38px] z-[100] md:z-[1000]  bg-black" :class="{'bg-opacity-0' : curMenu === ''}">
     <div class="m-auto">
       <div class="container mx-auto px-5 py-4 font-family-light font-light">
         <div class="relative flex flex-row items-center justify-between text-center text-white">

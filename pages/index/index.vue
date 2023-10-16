@@ -1,14 +1,14 @@
 <template>
   <DefaultLayout :showFooter="false" :showHeader="showHeader" :showHeaderBg="showHeaderBg">
       <div class=" top-bg-color" :class="[{'!bg-bottom' : $device.isMobile},[$device.isMobile ? 'top-bg-phone' : 'top-bg']]">
-        <div class="container mx-auto px-5 h-screen flex ">
+        <div class="container mx-auto px-5 md:h-screen flex ">
           <div class="md:flex md:items-center relative md:mt-[80px]">
-            <div class=" text-center md:text-left mt-[110px] md:mt-0">
-              <div class="text-2xl font-extrabold px-10 md:px-0 md:w-[560px] md:text-[50px] md:leading-[74px] font-family-extraBold">
+            <div class=" mt-[110px] md:mt-0">
+              <div class="text-2xl font-extrabold md:w-[970px] md:text-[50px] md:leading-[74px] font-family-extraBold">
                 Build Web3.0 collaboratively with the power of AI, fast.
               </div>
-              <div class="mt-5 mb-6 text-[16px] md:text-[21px] md:w-[560px] leading-[21px] md:leading-[30px] font-medium md:font-light text-[#999999] ">One-stop Development Automation Experience with Process Safety and Privacy</div>
-              <div class="hidden mb-[35px] md:block">
+              <div class="mt-5 mb-6 text-[16px] md:text-[21px] md:w-[500px] leading-[21px] md:leading-[30px] font-medium md:font-light text-[#999999] ">One-stop Development Automation Experience with Process Safety and Privacy</div>
+              <div v-if="false" class="hidden mb-[35px] md:block">
                 <div class="flex ">
                   <div class="logo-title font-family-light">
                     <!-- <div>Investors:</div> -->
@@ -35,8 +35,43 @@
                 </div>
               </div>
               <button class="btn-css" @click="gotoAline">Start Building</button>
+              <div class="mt-[60px] md:mt-[70px] text-[14px] md:text-[16px] font-light">Powered by 29yrs fintech experience elite & 6000+ IT engineers of listed company</div>
+              <div class="md:flex">
+                <div class="top-card-border flex items-center">
+                  <div class="top-card-title top-card-title-color1">52K+</div>
+                  <div class="text-[14px] font-light whitespace-nowrap">Deployed Contracts</div>
+                </div>
+                <div class="top-card-border pt-[12px] pb-[20px] md:py-0 md:ml-[30px] md:flex">
+                  <div class=" flex items-center">
+                    <div class="top-card-title top-card-title-color2">10+</div>
+                    <div class="text-[14px] font-light">Grants</div>
+                  </div>
+                  <div class="flex flex-wrap items-center">
+                    <div v-for="(item, index) in 8" :key="index"  class="md:w-auto md:ml-[20px] h-[24px] md:mt-0 mt-[20px] flex item-center justify-center" :class="{ 'ml-[5%]' : $device.isMobile && item != 1 && item != 5},[item == 3 ? 'w-[35%]' : item == 4 ? 'w-[16%]' : item == 7 ? 'w-[30%]' : 'w-[17%]']">
+                      <img :src="getImageURL(`Grant-top-${item}.png`)" class="h-auto w-auto"/> 
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="md:flex md:pb-0 pb-[50px]"> 
+                <div class="top-card-border flex items-center">
+                  <div class="top-card-title top-card-title-color2">620K+</div>
+                  <div class="text-[14px] font-light whitespace-nowrap">IT Candidates</div>
+                </div>
+                <div class="top-card-border pt-[12px] pb-[20px] md:py-0 md:ml-[30px] md:flex">
+                  <div class=" flex items-center">
+                    <div class="top-card-title top-card-title-color1">11</div>
+                    <div class="text-[14px] font-light">EcoSystems</div>
+                  </div>
+                  <div class="flex flex-wrap items-center">
+                    <div v-for="(item, index) in 11" :key="index"  class="w-[12.5%] md:w-auto h-[35px] md:mt-0 mt-[20px] flex item-center justify-center" :class="{ 'ml-[5%]' : $device.isMobile && item != 1 && item != 7},{'ml-[23px]': !$device.isMobile}">
+                      <img :src="getImageURL(`EcoSystems-top-${item}.png`)" class="h-full w-auto"/> 
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="absolute bottom-[13px] w-full md:hidden">
+            <div v-if="false" class="absolute bottom-[13px] w-full md:hidden">
               <!-- <div class="flex justify-center items-center">
                 <div class="logo-title font-family-light">Investors:</div>
                 <img src="./images/waterdrip.png" class="h-[20px] inline-block ml-[16px]"/>
@@ -589,13 +624,60 @@
     background-color: #000000;
   }
   .top-bg{
-    background: url("~/assets/images/home-top-bg-demo.jpg") no-repeat center #000000;
+    background: url("~/assets/images/home-top-bg-1.jpg") no-repeat center #000000;
     // background: url("~/assets/images/home-top-bg.png") no-repeat 70% #000000;
-    background-size: contain;
+    background-size: 100% 100%;
   }
   .top-bg-phone{
-    background: url("~/assets/images/home-top-bg-phone-demo.jpg") no-repeat center #000000;
-    background-size: contain;
+    background: url("~/assets/images/home-top-bg-phone-1.jpg") no-repeat center #000000;
+    background-size: 100% 100%;
+  }
+  
+  .top-card-border{
+    // position: relative;
+    overflow: hidden;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.5);
+  }
+  .top-card-border::before{
+    // height: 100%;
+    // box-shadow: 0px 5px 12px 0px rgba(255,255,255,0.1);
+    // border-radius: 100px;
+    // border: 1px solid transparent;
+    // background-image: linear-gradient(rgba(255,255,255,0.1),rgba(255,255,255,0.1)),linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.09));
+    // background-clip: content-box, border-box;
+    // background-origin: border-box;
+
+    // content: "";
+    // position: absolute;
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
+    // background: rgba(255,255,255,0.1);
+    // border: 10px solid;
+    // border-image: linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.09)) 1 1;
+    // backdrop-filter: blur(30px);
+    // width: 100%;
+    // height: 100%;
+    // z-index: -1;
+  }
+  .top-card-title{
+    display: flex;
+    font-size: 30px;
+    font-family: Montserrat-Bold, Montserrat;
+    font-weight: bold;
+    color: #FFFFFF;
+    margin-right: 10px;
+  }
+  .top-card-title-color1{
+    background: linear-gradient(270deg, #5C64FF 0%, #00E5D7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .top-card-title-color2{
+    background: linear-gradient(270deg, #B600DE 0%, #FB00D9 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
   .automation-bg{
     background: url("~/assets/images/automation-bg.png") no-repeat center;
@@ -854,6 +936,9 @@
 </style>
 
 <style scoped>
+.top-card-border{
+  @apply px-[20px] md:px-[30px] min-h-[70px] md:min-h-[50px] mt-[30px] md:mt-[20px] rounded-[10px] md:rounded-[100px];
+}
 .logo-title{
   @apply text-[#999999] text-base font-light;
 }
