@@ -2,7 +2,7 @@
   <div :class="[$device.isMobile ? 'ware-top-bg-phone' : 'ware-top-bg']">
     <div class="container mx-auto px-5 md:flex md:items-center md:mt-[30px] h-screen flex ">
       <div class="relative">
-        <div class="flex mt-[80px] md:mt-0">
+        <div class="flex mt-[100px] md:mt-0">
           <img src="~/assets/images/solutions-middleware.svg" class="h-[40px] md:h-[50px]"/>
           <div class="text-[14px] md:text-[24px] font-bold text-[#676767] leading-[40px] md:leading-[50px] ml-[10px] font-family-bold">Middleware</div>
         </div>
