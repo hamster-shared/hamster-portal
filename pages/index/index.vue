@@ -34,7 +34,10 @@
                   </div>
                 </div>
               </div>
-              <button class="btn-css" @click="gotoAline">Start Building</button>
+              <div class="md:flex">
+                <button class="btn-css" @click="gotoAline">Start Building</button>
+                <button class="btn-css mt-[30px] md:mt-0 md:ml-[20px] !text-[#5C64FF] !bg-transparent" @click="gotoEmail">Join Hamster Agent W</button>
+              </div>
               <div class="mt-[60px] md:mt-[70px] text-[14px] md:text-[16px] font-light font-family-light">Powered by 29yrs fintech experience elite & 6000+ IT engineers of listed company</div>
               <div class="md:flex">
                 <div class="top-card-border flex items-center">
@@ -510,6 +513,9 @@
   const alineLink = ref('')
   const gotoAline = () => {
     window.open(alineLink.value);
+  }
+  const gotoEmail = () => {
+    window.location.href = "/email?show=topic";
   }
   const gotoPorject = () => {
     window.open(alineLink.value+"/projects");

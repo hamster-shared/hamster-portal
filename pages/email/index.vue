@@ -64,6 +64,7 @@
 </template>
 <script setup lang="ts">
 
+  const route = useRoute();
   const device = useDevice()
   const isDisabled = ref(true);
   const emailErr = ref(false);
@@ -161,6 +162,9 @@ const getPlatform = async () => {
       window.addEventListener("touchstart", handleMouseDown)
     } else {
       window.addEventListener("mousedown", handleMouseDown)
+    }
+    if (route.query.show == 'topic') {
+      formData.topic = 'Join the Hamster Agent waitlist';
     }
   })
   onUnmounted(() => {
