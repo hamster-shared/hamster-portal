@@ -35,16 +35,16 @@
                 </div>
               </div>
               <button class="btn-css" @click="gotoAline">Start Building</button>
-              <div class="mt-[60px] md:mt-[70px] text-[14px] md:text-[16px] font-light">Powered by 29yrs fintech experience elite & 6000+ IT engineers of listed company</div>
+              <div class="mt-[60px] md:mt-[70px] text-[14px] md:text-[16px] font-light font-family-light">Powered by 29yrs fintech experience elite & 6000+ IT engineers of listed company</div>
               <div class="md:flex">
                 <div class="top-card-border flex items-center">
                   <div class="top-card-title top-card-title-color1">52K+</div>
-                  <div class="text-[14px] font-light whitespace-nowrap">Deployed Contracts</div>
+                  <div class="top-card-content whitespace-nowrap">Deployed Contracts</div>
                 </div>
                 <div class="top-card-border pt-[12px] pb-[20px] md:py-0 md:ml-[30px] md:flex">
                   <div class=" flex items-center">
                     <div class="top-card-title top-card-title-color2">10+</div>
-                    <div class="text-[14px] font-light">Grants</div>
+                    <div class="top-card-content">Grants</div>
                   </div>
                   <div class="flex flex-wrap items-center">
                     <div v-for="(item, index) in 8" :key="index"  class="md:w-auto md:ml-[20px] h-[24px] md:mt-0 mt-[20px] flex item-center justify-center" :class="{ 'ml-[5%]' : $device.isMobile && item != 1 && item != 5},[item == 3 ? 'w-[35%]' : item == 4 ? 'w-[16%]' : item == 7 ? 'w-[30%]' : 'w-[17%]']">
@@ -56,12 +56,12 @@
               <div class="md:flex md:pb-0 pb-[50px]"> 
                 <div class="top-card-border flex items-center">
                   <div class="top-card-title top-card-title-color2">620K+</div>
-                  <div class="text-[14px] font-light whitespace-nowrap">IT Candidates</div>
+                  <div class="top-card-content whitespace-nowrap">IT Candidates</div>
                 </div>
                 <div class="top-card-border pt-[12px] pb-[20px] md:py-0 md:ml-[30px] md:flex">
                   <div class=" flex items-center">
                     <div class="top-card-title top-card-title-color1">11</div>
-                    <div class="text-[14px] font-light">EcoSystems</div>
+                    <div class="top-card-content">EcoSystems</div>
                   </div>
                   <div class="flex flex-wrap items-center">
                     <div v-for="(item, index) in 11" :key="index"  class="w-[12.5%] md:w-auto h-[35px] md:mt-0 mt-[20px] flex item-center justify-center" :class="{ 'ml-[5%]' : $device.isMobile && item != 1 && item != 7},{'ml-[23px]': !$device.isMobile}">
@@ -657,6 +657,11 @@
     background: linear-gradient(270deg, #B600DE 0%, #FB00D9 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+  }
+  .top-card-content{
+    font-size: 14px;
+    font-weight: 300;
+    font-family: Montserrat-Light, Montserrat;
   }
   .automation-bg{
     background: url("~/assets/images/automation-bg.png") no-repeat center;
