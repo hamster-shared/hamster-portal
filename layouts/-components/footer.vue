@@ -54,7 +54,7 @@
             Harbour Plaza, 103 South Church Street Grand Cayman, Cayman Islands
           </div>
           <div class="font-light font-family-light">
-            <div class="inline-block text-sm mlgd:text-base">+49 17647 082974</div>
+            <!-- <div class="inline-block text-sm mlgd:text-base">+49 17647 082974</div> -->
             <div class="text-sm lg:text-base">Email: hamster@hamsternet.io</div>
           </div>
         </div>
