@@ -45,7 +45,7 @@
       </div>
     </div>
   </div>
-  <div class="modal-error md:w-auto w-[90%] md:top-[100px] top-[70px]" v-if="isShowError">
+  <div class="modal-error md:w-auto w-[90%] md:top-[130px] top-[100px]" v-if="isShowError">
     <div class="flex items-center py-[15px] px-[20px]">
       <div>“You have submitted middleware information before, please do not submit it repeatedly.”</div>
       <div class="ml-[20px] cursor-pointer" @click="isShowError = false">X</div>
@@ -64,6 +64,7 @@
 </template>
 <script setup lang="ts">
 
+  const route = useRoute();
   const device = useDevice()
   const isDisabled = ref(true);
   const emailErr = ref(false);
@@ -161,6 +162,9 @@ const getPlatform = async () => {
       window.addEventListener("touchstart", handleMouseDown)
     } else {
       window.addEventListener("mousedown", handleMouseDown)
+    }
+    if (route.query.show == 'topic') {
+      formData.topic = 'Join the Hamster Agent waitlist';
     }
   })
   onUnmounted(() => {
