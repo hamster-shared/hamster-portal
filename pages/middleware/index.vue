@@ -1,22 +1,26 @@
 <template>
   <div :class="[$device.isMobile ? 'ware-top-bg-phone' : 'ware-top-bg']">
-    <div class="container mx-auto px-5 md:flex md:items-center md:mt-[30px] h-screen flex ">
+    <div class="container mx-auto px-5 md:items-center md:mt-[30px] h-screen flex  md:justify-between">
+     
       <div class="relative">
         <div class="flex mt-[100px] md:mt-0">
           <img src="~/assets/images/solutions-middleware.svg" class="h-[40px] md:h-[50px]"/>
           <div class="text-[14px] md:text-[24px] font-bold text-[#676767] leading-[40px] md:leading-[50px] ml-[10px] font-family-bold">Middleware</div>
         </div>
         <div class="md:flex">
-          <div class="md:w-[65%] text-center md:text-left">
+          <div class=" text-center md:text-left">
             <div class="mt-[10px] mb-[20px] text-[24px] md:text-[48px] leading-[36px] md:leading-[60px] font-extrabold font-family-extraBold text-[#00044C]">One-stop middleware service platform</div>
             <div class="text-[16px] md:text-[24px] leading-[21px] md:leading-[30px] font-light text-[#40425C] font-family-light md:w-[500px]">
             Comprehensive / convenient / visual
             </div>
           </div>
         </div>
-        <div class="md:mt-[20px] text-center md:text-left w-full absolute md:static bottom-[35px]">
+        <div class="md:mt-[20px] text-center md:text-left md:w-auto w-full absolute md:static bottom-[35px]">
             <button class="btn-css " @click="gotoAlineMw">Get Started</button>
         </div>
+      </div>
+      <div class="md:inline-block hidden w-[80%]">
+        <img src="~/assets/images/middleware-top-bg.png" class="h-full"/>
       </div>
     </div>
   </div>
@@ -139,9 +143,9 @@ onMounted(()=>{
 </script>
 <style lang="less" scoped>
 .ware-top-bg{
-  background: url("~/assets/images/middleware-top-bg.png") no-repeat 90% #FFFFFF;
-  // background-size: contain;
-  background-size: auto 90%;
+  // background: url("~/assets/images/middleware-top-bg.png") no-repeat 90% #FFFFFF;
+  // // background-size: contain;
+  // background-size: auto 90%;
 }
 .ware-top-bg-phone{
   background: url("~/assets/images/middleware-top-bg-phone.png") no-repeat center 76% #FFFFFF;
