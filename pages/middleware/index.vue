@@ -20,7 +20,7 @@
         </div>
       </div>
       <div class="md:inline-block hidden w-[80%]">
-        <img src="~/assets/images/middleware-top-bg.png" class="h-full"/>
+        <img src="~/assets/images/middleware-top-bg.png" class="w-full"/>
       </div>
     </div>
   </div>
