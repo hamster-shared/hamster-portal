@@ -18,15 +18,30 @@
             <div v-else class="menu">
               <div>
                 <div>
+                  <!-- <div @mouseleave="menuMouseLeave"  @mouseenter="subMenuDropdownShow=true" :class="{'menu-dropdown-opened':subMenuDropdownShow}" class="flex items-center px-4 menu-dropdown-hover">Solutions<DownOutlined class="ml-2" /></div> -->
                   <div @mouseleave="menuMouseLeave" @mouseenter="subMenuDropdownShow = true"
                     :class="{ 'menu-dropdown-opened': subMenuDropdownShow }"
                     class="flex items-center px-4 menu-dropdown-hover">Features
                     <DownOutlined class="ml-2" />
                   </div>
                   <div :class="[subMenuDropdownShow === true ? 'block' : 'hidden']"
-                    class="absolute z-[999] text-[#00044C] text-[16px] font-medium font-family-medium pt-[10px] w-full left-[0]">
-                    <div @mouseleave="subMenuMouseLeave" @mouseenter="subMenuMouseEnter" class=" box-dropdown">
-                      <div class="bg-[white] p-[30px] rounded-[5px] text-base">
+                    class="absolute z-[999] text-[#00044C] text-[16px] font-medium font-family-medium pt-[10px]">
+                    <div @mouseleave="subMenuMouseLeave" @mouseenter="subMenuMouseEnter" class=" box-dropdown w-max">
+                      <div class="bg-[white] p-[20px] rounded-[5px] text-base">
+                        <!-- <div class="pb-[20px] hover:text-[#5C64FF]">
+                          <a href="/workflow" class="flex items-center mr-2"
+                            :class="{ 'menu-active': `/${curMenu}` === '/workflow' }">
+                            <img src="~/assets/images/solutions-workflow.svg" class="h-[40px] mr-4" />
+                            ALine
+                          </a>
+                        </div> -->
+                        <!-- <div class="hover:text-[#5C64FF]">
+                          <a href="/middleware" class="flex items-center mr-2"
+                            :class="{ 'menu-active': `/${curMenu}` === '/middleware' }">
+                            <img src="~/assets/images/solutions-middleware.svg" class="h-[40px] mr-4" />
+                            Middleware
+                          </a>
+                        </div> -->
                         <Menu></Menu>
                       </div>
                     </div>
@@ -169,9 +184,8 @@ const menuMouseLeave = () => {
 }
 
 const subMenuMouseLeave = () => {
-  // subMenuDropdownShow.value = false;
-  // subMenuDropdownHover.value = false;
-  subMenuDropdownHover.value = true;
+  subMenuDropdownShow.value = false;
+  subMenuDropdownHover.value = false;
 }
 
 const subMenuMouseEnter = () => {
