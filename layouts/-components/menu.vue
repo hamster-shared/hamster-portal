@@ -1,49 +1,51 @@
 <template>
   <div class="flex menu">
-    <Menu style="width: 456px" mode="inline" :openKeys="openKeys" v-model:selectedKeys="selectedKeys"
-      @openChange="onOpenChange">
+    <Menu style="width: 233px" mode="inline" :openKeys="openKeys" v-model:selectedKeys="selectedKeys"
+      @openChange="onOpenChange" @click="handleClick">
       <template #expandIcon></template>
-      <SubMenu key="smartContract" disabled>
+      <SubMenu key="Smart Contract" disabled>
         <template #icon>
           <img src="../../assets/images/smartContract.png" class="w-[15px]" />
         </template>
         <template #title>Smart Contract</template>
-        <MenuItem key="smartContractDevelopment">Development</MenuItem>
-        <MenuItem key="smartContractSecureCode">Secure Code</MenuItem>
-        <MenuItem key="smartContractSecureDeploy">Secure Deploy</MenuItem>
+        <MenuItem key="smartContractDevelopment" dataKey="Development">Development</MenuItem>
+        <MenuItem key="smartContractSecureCode" dataKey="Secure Code">Secure Code</MenuItem>
+        <MenuItem key="smartContractSecureDeploy" dataKey="Secure Deploy">Secure Deploy</MenuItem>
       </SubMenu>
-      <SubMenu key="frontEnd" disabled>
+      <SubMenu key="Front End" disabled>
         <template #icon>
           <img src="../../assets/images/frontEnd.png" class="w-[17px]" />
         </template>
         <template #title>Front End</template>
-        <MenuItem key="frontEndDevelopment">Development</MenuItem>
-        <MenuItem key="frontEndSecureCode">Secure Code</MenuItem>
-        <MenuItem key="frontEndFastDeploy">Fast Deploy</MenuItem>
+        <MenuItem key="frontEndDevelopment" dataKey="Development">Development</MenuItem>
+        <MenuItem key="frontEndSecureCode" dataKey="Secure Code">Secure Code</MenuItem>
+        <MenuItem key="frontEndFastDeploy" dataKey="Fast Deploy">Fast Deploy</MenuItem>
       </SubMenu>
-      <SubMenu key="node" disabled>
+      <SubMenu key="Node" disabled>
         <template #icon>
           <img src="../../assets/images/node.png" class="w-[17px]" />
         </template>
         <template #title>Node</template>
-        <MenuItem key="nodeDevelopment">Development</MenuItem>
-        <MenuItem key="nodeSecureDeploy">Secure Deploy</MenuItem>
+        <MenuItem key="nodeDevelopment" dataKey="Development">Development</MenuItem>
+        <MenuItem key="nodeSecureDeploy" dataKey="Secure Deploy">Secure Deploy</MenuItem>
       </SubMenu>
-      <SubMenu key="market" disabled>
+      <SubMenu key="Market" disabled>
         <template #icon>
           <img src="../../assets/images/market.png" class="w-[17px]" />
         </template>
         <template #title>Market</template>
-        <MenuItem key="marketTemplateMarket">Template Market</MenuItem>
-        <MenuItem key="marketMiddleware">Middleware</MenuItem>
+        <MenuItem key="marketTemplateMarket" dataKey="Template Market">Template Market</MenuItem>
+        <MenuItem key="marketMiddleware" dataKey="Middleware">Middleware</MenuItem>
       </SubMenu>
     </Menu>
     <div class="pl-[30px]">
-      <div class="grid grid-cols-3 gap-8 ">
-        <div v-for="item in smartContractDevelopment" :key="item.name" class="item ">
+      <navigation :levelOne="levelOne" :levelTwo="levelTwo"></navigation>
+      <div class="grid grid-cols-3 gap-2 ">
+        <div v-for="item in selectedData" :key="item.name" class="item ">
           <div class="flex">
-            <img :src="item.img" class="w-[34px] mr-[8px]" />
+            <img :src="item.img" class="w-[34px] h-[34px] mr-[8px]" />
             <div class="text-[#051336] text-[18px] font-bold">{{ item.title }}</div>
+            <img v-if="item.isNew" src="../../assets/images/newTag.png" class="w-[34px] h-[16px] mt-[10px] ml-[8px]" />
           </div>
 
           <div class="text-[#79788F] text-[12px] leading-[15px] mt-[10px] mb-[10px]">{{ item.description }}</div>
@@ -61,15 +63,15 @@
 <script setup>
 import { ref } from 'vue';
 import { Menu, SubMenu, MenuItem } from 'ant-design-vue';
-import { smartContractDevelopment, smartContractSecureCode, smartContractSecureDeploy } from '../../layouts/Features.ts'
+import { featuresDatas } from '../../layouts/Features.ts'
+import navigation from './navigation.vue';
 
-const rootSubmenuKeys = ref(['smartContract', 'frontEnd', 'node', 'market']);
-const openKeys = ref(['smartContract', 'frontEnd', 'node', 'market']);
+const rootSubmenuKeys = ref(['Smart Contract', 'Front End', 'Node', 'Market']);
+const openKeys = ref(['Smart Contract', 'Front End', 'Node', 'Market']);
 const selectedKeys = ref(['smartContractDevelopment']);
-
-// const data = `${selectedKeys.value[0]}`
-
-// console.log(data, 'data')
+const selectedData = ref(featuresDatas[0].data);
+const levelOne = ref('Smart Contract');
+const levelTwo = ref('Development');
 
 const onOpenChange = (openKeys) => {
   let latestOpenKey = openKeys.find(key => state.openKeys.indexOf(key) === -1);
@@ -80,18 +82,27 @@ const onOpenChange = (openKeys) => {
   }
 };
 
-// console.log(smartContractDevelopment)
+const handleClick = (val) => {
+  const { item, key, keyPath } = val;
+  featuresDatas.forEach(item => {
+    if (item.name === key) {
+      selectedData.value = item.data
+    }
+  })
+
+  levelOne.value = keyPath[0];
+  levelTwo.value = item.dataKey;
+
+  // console.log(item, key, keyPath, 'val')
+}
 
 
 </script>
 <style scoped>
-/* .menu .ant-menu {
-  margin-top: 120px;
-} */
 .menu {
   cursor: default;
   align-items: start;
-  text-align: left
+  text-align: left;
 }
 
 .menu :deep(.ant-menu) {
@@ -118,9 +129,18 @@ const onOpenChange = (openKeys) => {
   background: linear-gradient(136deg, #EDEFFF 0%, #FFF5FE 100%);
 }
 
+.menu :deep(.ant-menu-inline .ant-menu-item::after) {
+  border: none;
 
+}
 
-/* .menu .ant-menu .ant-menu-item {
-  color: #000000 !important;
-} */
+.menu :deep(.ant-menu-light .ant-menu-item:hover) {
+  color: #3B4DF0;
+}
+
+:deep(.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected) {
+  border-radius: 10px;
+  background-color: #EAECFF;
+  color: #3B4DF0;
+}
 </style>

@@ -48,7 +48,7 @@
       </div>
     </div>
   </div>
-  <div v-if="showPhoneMenu" class="inset-x-0 top-0 fixed z-[300] py-4 px-6 bg-black">
+  <div v-if="showPhoneMenu" class="inset-x-0 top-[34px] fixed z-[300] py-4 px-5 bg-black">
     <div class="relative flex justify-start">
       <img class="h-4 md:h-[24px]" src="~/assets/images/header.png">
       <div class="absolute right-[-1px] top-0" @click="showPhoneMenu = false;">
@@ -57,9 +57,11 @@
     </div>
     <div class="my-[20px]">
       <div>
-        <div class="relative cursor-pointer select-none" @click="subMenuDropdownShow = !subMenuDropdownShow">
-          <div class="h-[32px] text-base flex justify-between items-center hover:color-[#27FFB8]">
-            <div>Solutions</div>
+        <!-- <div class="relative cursor-pointer select-none" @click="subMenuDropdownShow = !subMenuDropdownShow"> -->
+        <div class="relative cursor-pointer select-none">
+          <div class="h-[32px] text-base flex justify-between items-center hover:color-[#27FFB8]"
+            @click="subMenuDropdownShow = !subMenuDropdownShow">
+            <div>Features</div>
             <img src="~/assets/images/chervon-right.svg" class="w-6 h-6 ml-2"
               :class="{ 'rotate-dropdown-icon-mobile': subMenuDropdownShow }">
           </div>
@@ -104,6 +106,7 @@
 import { computed, ref } from "vue"
 import { DownOutlined } from '@ant-design/icons-vue';
 import Menu from './menu.vue';
+import Collapse from "./collapse.vue";
 const props = defineProps({
   showHeader: {
     type: Boolean,
