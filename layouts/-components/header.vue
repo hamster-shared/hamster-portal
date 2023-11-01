@@ -172,9 +172,8 @@ const menuMouseLeave = () => {
 }
 
 const subMenuMouseLeave = () => {
-  // subMenuDropdownShow.value = false;
-  // subMenuDropdownHover.value = false;
-  subMenuDropdownHover.value = true;
+  subMenuDropdownShow.value = false;
+  subMenuDropdownHover.value = false;
 }
 
 const subMenuMouseEnter = () => {
