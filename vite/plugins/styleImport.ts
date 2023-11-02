@@ -14,9 +14,12 @@ export function configStyleImportPlugin() {
           const ignoreList = [
             'anchor-link',
             'sub-menu',
+            'menu',
             'menu-item',
             'menu-divider',
             'menu-item-group',
+            'collapse',
+            'collapse-panel',
             'breadcrumb-item',
             'breadcrumb-separator',
             'form-item',
