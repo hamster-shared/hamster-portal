@@ -13,7 +13,7 @@
           </div>
 
           <div class="flex flex-row justify-center md:ml-auto">
-            <img @click="showPhoneMenu = true;" v-if="isMobile" class="h-4 ml-[82vw]"
+            <img @click="showPhoneMenu = true; subMenuDropdownShow = false;" v-if="isMobile" class="h-4 ml-[82vw]"
               src="~/assets/images/head-menu-down.svg">
             <div v-else class="menu">
               <div>
@@ -24,7 +24,7 @@
                     <DownOutlined class="ml-2" />
                   </div>
                   <div :class="[subMenuDropdownShow === true ? 'block' : 'hidden']"
-                    class="absolute z-[999] text-[#00044C] text-[16px] font-medium font-family-medium pt-[10px] w-full left-[0]">
+                    class="sub-menu-dropdown absolute z-[999] text-[#00044C] text-[16px] font-medium font-family-medium pt-[20px] w-full left-[0]">
                     <div @mouseleave="subMenuMouseLeave" @mouseenter="subMenuMouseEnter" class=" box-dropdown">
                       <div class="bg-[white] p-[30px] rounded-[5px] text-base">
                         <Menu></Menu>
@@ -66,26 +66,7 @@
               :class="{ 'rotate-dropdown-icon-mobile': subMenuDropdownShow }">
           </div>
           <div class="text-[#CECFD0] w-[100%]" v-if="subMenuDropdownShow">
-            <div class="my-4">
-              <a href="/workflow">
-                <span class="flex items-center text-sm">
-                  <img src="~/assets/images/solutions-workflow.svg" class="h-[24px] mr-4" />
-                  ALine
-                </span>
-              </a>
-            </div>
-            <div class="my-4">
-              <a href="/middleware">
-                <span class="flex items-center text-sm">
-                  <img src="~/assets/images/solutions-middleware.svg" class="h-[24px] mr-4" />
-                  Middleware
-                </span>
-              </a>
-            </div>
-            <!-- <div class="my-4">
-              <img src="~/assets/images/decentralized-computing-mobile.png" class="inline-block w-4 h-4"/>
-              <span class="text-sm align-middle"> Decentralized Computing Power Network</span>
-            </div> -->
+            <Collapse></Collapse>
           </div>
         </div>
         <a v-for="link in navLinks" :key="link.path" :href="link.path">
@@ -182,6 +163,7 @@ const subMenuMouseEnter = () => {
 
 function handleScroll() {
   showPhoneMenu.value = false;
+  subMenuDropdownShow.value = false;
 }
 
 const gotoAline = function () {
@@ -292,6 +274,18 @@ onUnmounted(() => {
 .menu-dropdown-opened {
   font-family: Montserrat-Medium, Montserrat;
   font-weight: 500;
+}
+
+.sub-menu-dropdown::after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 42%;
+  width: 0;
+  height: 0;
+  border-width: 8px;
+  border-style: solid;
+  border-color: transparent transparent #ffffff transparent;
 }
 
 .menu-hover:hover {

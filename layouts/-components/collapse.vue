@@ -5,13 +5,11 @@
         <template #header>
           <div class="flex">
             <div class="flex left">
-              <img :src="item.img" class="collapse-header-img w-[15px] h-[15px]" />
+              <img :src="item.img" class="collapse-header-img w-[17px] h-[17px]" />
               <div class="collapse-header-title">{{ item.title }}</div>
             </div>
-
             <div class="collapse-header-line right"></div>
           </div>
-
         </template>
         <div v-for="it in item.children">
           <div class="text-[18px] text-[#A1A4BB] font-bold mb-[20px]">
@@ -41,8 +39,6 @@ import { ref } from "vue";
 import { Collapse, CollapsePanel } from "ant-design-vue";
 import { featuresCollapseDatas } from '../../layouts/Features.ts'
 
-// console.log(featuresCollapseDatas, 'data')
-
 const activeKey = ref([]);
 </script>
 <style scoped>
@@ -61,13 +57,13 @@ const activeKey = ref([]);
 
 .collapse-header-img {
   vertical-align: middle;
-  margin-right: 8px;
-  margin-top: 6px;
+  margin-right: 10px;
+  margin-top: 4px;
 }
 
 .collapse-header-title {
   vertical-align: middle;
-  margin-right: 8px;
+  margin-right: 12px;
 }
 
 .collapse-header-line {
@@ -75,7 +71,8 @@ const activeKey = ref([]);
   height: 1px;
   background-color: #9193A6;
   margin-top: 12px;
-  margin-right: 36px;
+  margin-right: 38px;
+  opacity: 0.5;
 }
 
 .left {
