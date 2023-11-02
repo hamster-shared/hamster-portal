@@ -15,6 +15,7 @@ export function configStyleImportPlugin() {
             'anchor-link',
             'menu',
             'sub-menu',
+            'sub-menu-list',
             'menu-item',
             'menu-divider',
             'menu-item-group',
