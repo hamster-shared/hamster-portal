@@ -1,11 +1,11 @@
 <template>
   <div class="flex menu">
-    <!-- <Menu style="width: 233px" mode="inline" :openKeys="openKeys" v-model:selectedKeys="selectedKeys"
+    <Menu style="width: 233px" mode="inline" :openKeys="openKeys" v-model:selectedKeys="selectedKeys"
       @openChange="onOpenChange" @click="handleClick">
       <template #expandIcon></template>
       <SubMenu key="Smart Contract" disabled>
         <template #icon>
-          <img src="../../assets/images/smartContract.png" class="w-[15px]" />
+          <img src="~/assets/images/smartContract.png" class="w-[15px]" />
         </template>
         <template #title>Smart Contract</template>
         <MenuItem key="smartContractDevelopment" dataKey="Development">Development</MenuItem>
@@ -14,7 +14,7 @@
       </SubMenu>
       <SubMenu key="Front End" disabled>
         <template #icon>
-          <img src="../../assets/images/frontEnd.png" class="w-[17px]" />
+          <img src="~/assets/images/frontEnd.png" class="w-[17px]" />
         </template>
         <template #title>Front End</template>
         <MenuItem key="frontEndDevelopment" dataKey="Development">Development</MenuItem>
@@ -23,7 +23,7 @@
       </SubMenu>
       <SubMenu key="Node" disabled>
         <template #icon>
-          <img src="../../assets/images/node.png" class="w-[17px]" />
+          <img src="~/assets/images/node.png" class="w-[17px]" />
         </template>
         <template #title>Node</template>
         <MenuItem key="nodeDevelopment" dataKey="Development">Development</MenuItem>
@@ -31,13 +31,13 @@
       </SubMenu>
       <SubMenu key="Market" disabled>
         <template #icon>
-          <img src="../../assets/images/market.png" class="w-[17px]" />
+          <img src="~/assets/images/market.png" class="w-[17px]" />
         </template>
         <template #title>Market</template>
         <MenuItem key="marketTemplateMarket" dataKey="Template Market">Template Market</MenuItem>
         <MenuItem key="marketMiddleware" dataKey="Middleware">Middleware</MenuItem>
       </SubMenu>
-    </Menu> -->
+    </Menu>
     <div class="pl-[30px]">
       <navigation :levelOne="levelOne" :levelTwo="levelTwo"></navigation>
       <div class="grid grid-cols-3 gap-2 ">
@@ -45,7 +45,7 @@
           <div class="flex">
             <img :src="item.img" class="w-[34px] h-[34px] mr-[8px]" />
             <div class="text-[#051336] text-[18px] font-bold">{{ item.title }}</div>
-            <img v-if="item.isNew" src="../../assets/images/newTag.png" class="w-[34px] h-[16px] mt-[10px] ml-[8px]" />
+            <img v-if="item.isNew" src="~/assets/images/newTag.png" class="w-[34px] h-[16px] mt-[10px] ml-[8px]" />
           </div>
 
           <div class="text-[#79788F] text-[12px] leading-[15px] mt-[10px] mb-[10px]">{{ item.description }}</div>
@@ -62,7 +62,7 @@
 </template>
 <script setup>
 import { ref } from 'vue';
-// import { Menu, SubMenu, MenuItem } from 'ant-design-vue';
+import { Menu, SubMenu, MenuItem } from 'ant-design-vue';
 import { featuresDatas } from '../../layouts/Features.ts'
 import navigation from './navigation.vue';
 

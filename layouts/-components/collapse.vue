@@ -21,7 +21,7 @@
             <div class="flex">
               <img :src="val.img" class="w-[34px] h-[34px] mr-[8px]" />
               <div class="text-[14px] text-[#ffffff] font-semibold leading-[34px]">{{ val.title }}</div>
-              <img v-if="val.isNew" src="../../assets/images/newTag.png" class="w-[34px] h-[16px] mt-[10px] ml-[8px]" />
+              <img v-if="val.isNew" src="~/assets/images/newTag.png" class="w-[34px] h-[16px] mt-[10px] ml-[8px]" />
             </div>
             <div class="text-[#79788F] text-[12px] leading-[15px] mt-[10px] mb-[10px]">{{ val.description }}</div>
             <div class="mb-[30px]">
