@@ -1,6 +1,6 @@
 <template>
   <div class="flex menu">
-    <Menu style="width: 233px" mode="inline" :openKeys="openKeys" v-model:selectedKeys="selectedKeys"
+    <!-- <Menu style="width: 233px" mode="inline" :openKeys="openKeys" v-model:selectedKeys="selectedKeys"
       @openChange="onOpenChange" @click="handleClick">
       <template #expandIcon></template>
       <SubMenu key="Smart Contract" disabled>
@@ -37,7 +37,7 @@
         <MenuItem key="marketTemplateMarket" dataKey="Template Market">Template Market</MenuItem>
         <MenuItem key="marketMiddleware" dataKey="Middleware">Middleware</MenuItem>
       </SubMenu>
-    </Menu>
+    </Menu> -->
     <div class="pl-[30px]">
       <navigation :levelOne="levelOne" :levelTwo="levelTwo"></navigation>
       <div class="grid grid-cols-3 gap-2 ">
@@ -62,7 +62,7 @@
 </template>
 <script setup>
 import { ref } from 'vue';
-import { Menu, SubMenu, MenuItem } from 'ant-design-vue';
+// import { Menu, SubMenu, MenuItem } from 'ant-design-vue';
 import { featuresDatas } from '../../layouts/Features.ts'
 import navigation from './navigation.vue';
 
