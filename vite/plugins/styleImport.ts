@@ -13,8 +13,8 @@ export function configStyleImportPlugin() {
         resolveStyle: (name) => {
           const ignoreList = [
             'anchor-link',
-            'sub-menu',
             'menu',
+            'sub-menu',
             'menu-item',
             'menu-divider',
             'menu-item-group',
@@ -29,7 +29,6 @@ export function configStyleImportPlugin() {
             'select-opt-group',
             'card-grid',
             'card-meta',
-            'collapse-panel',
             'descriptions-item',
             'list-item',
             'list-item-meta',
