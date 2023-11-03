@@ -174,7 +174,7 @@ const closeDropdownMenu = () => {
   document.body.removeEventListener("touchmove", handleMove, { passive: false })
 }
 
-const handleMove = (e) => {
+const handleMove = (event) => {
   let e = e || event;
   e.preventDefault();
 }
