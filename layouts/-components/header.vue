@@ -165,13 +165,13 @@ const showDropdownMenu = () => {
   showPhoneMenu.value = true;
   subMenuDropdownShow.value = false;
   document.body.style.overflow = 'hidden';
-  document.body.addEventListener("touchmove", handleMove, { passive: false })
+  document.addEventListener("touchmove", handleMove, { passive: false })
 }
 
 const closeDropdownMenu = () => {
   showPhoneMenu.value = false;
   document.body.style.overflow = 'auto';
-  document.body.removeEventListener("touchmove", handleMove, { passive: false })
+  document.removeEventListener("touchmove", handleMove, { passive: false })
 }
 
 const handleMove = (event) => {
