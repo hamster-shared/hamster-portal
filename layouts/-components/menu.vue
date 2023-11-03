@@ -1,49 +1,26 @@
 <template>
   <div class="flex menu">
-    <!-- <Menu style="width: 233px" mode="inline" :openKeys="openKeys" v-model:selectedKeys="selectedKeys"
-      @openChange="onOpenChange" @click="handleClick">
-      <template #expandIcon></template>
-      <SubMenu key="Smart Contract" disabled>
-        <template #icon>
-          <img src="~/assets/images/smartContract.png" class="w-[15px]" />
-        </template>
-        <template #title>Smart Contract</template>
-        <MenuItem key="smartContractDevelopment" dataKey="Development">Development</MenuItem>
-        <MenuItem key="smartContractSecureCode" dataKey="Secure Code">Secure Code</MenuItem>
-        <MenuItem key="smartContractSecureDeploy" dataKey="Secure Deploy">Secure Deploy</MenuItem>
-      </SubMenu>
-      <SubMenu key="Front End" disabled>
-        <template #icon>
-          <img src="~/assets/images/frontEnd.png" class="w-[17px]" />
-        </template>
-        <template #title>Front End</template>
-        <MenuItem key="frontEndDevelopment" dataKey="Development">Development</MenuItem>
-        <MenuItem key="frontEndSecureCode" dataKey="Secure Code">Secure Code</MenuItem>
-        <MenuItem key="frontEndFastDeploy" dataKey="Fast Deploy">Fast Deploy</MenuItem>
-      </SubMenu>
-      <SubMenu key="Node" disabled>
-        <template #icon>
-          <img src="~/assets/images/node.png" class="w-[17px]" />
-        </template>
-        <template #title>Node</template>
-        <MenuItem key="nodeDevelopment" dataKey="Development">Development</MenuItem>
-        <MenuItem key="nodeSecureDeploy" dataKey="Secure Deploy">Secure Deploy</MenuItem>
-      </SubMenu>
-      <SubMenu key="Market" disabled>
-        <template #icon>
-          <img src="~/assets/images/market.png" class="w-[17px]" />
-        </template>
-        <template #title>Market</template>
-        <MenuItem key="marketTemplateMarket" dataKey="Template Market">Template Market</MenuItem>
-        <MenuItem key="marketMiddleware" dataKey="Middleware">Middleware</MenuItem>
-      </SubMenu>
-    </Menu> -->
+    <div class="menu-nav-title">
+      <div v-for="item in navigationList" :key="item.name">
+        <div class="flex mb-[6px]">
+          <img :src="getImageURL(`${item.srcName}.png`)" class="w-[17px] h-[17px] mt-[7px] mr-[10px]" />
+          <div class="text-[16px] text-[#A1A4BB] ">{{ item.name }}</div>
+        </div>
+
+        <div v-for="val in item.data">
+          <div :class="selectedKeys === val.type ? 'selectedCss' : ''" @click="selectedClick(item.name, val)"
+            class="menu-nav-item-title text-[18px] text-[#051336] font-semibold cursor-pointer hover:text-[#3B4DF0] w-[200px] mb-[8px]">
+            {{
+              val.name }}</div>
+        </div>
+      </div>
+    </div>
     <div class="pl-[30px]">
       <navigation :levelOne="levelOne" :levelTwo="levelTwo"></navigation>
       <div class="grid grid-cols-3 gap-2 ">
         <div v-for="item in selectedData" :key="item.name" class="item ">
           <div class="flex">
-            <img :src="item.img" class="w-[34px] h-[34px] mr-[8px]" />
+            <img :src="getImageURL(`${item.srcName}.png`)" class="w-[34px] h-[34px] mr-[8px]" />
             <div class="text-[#051336] text-[18px] font-bold">{{ item.title }}</div>
             <img v-if="item.isNew" src="~/assets/images/newTag.png" class="w-[34px] h-[16px] mt-[10px] ml-[8px]" />
           </div>
@@ -66,21 +43,43 @@ import { ref } from 'vue';
 import { featuresDatas } from '../../layouts/Features.ts'
 import navigation from './navigation.vue';
 
+const { getImageURL } = useAssets()
+
 const rootSubmenuKeys = ref(['Smart Contract', 'Front End', 'Node', 'Market']);
 const openKeys = ref(['Smart Contract', 'Front End', 'Node', 'Market']);
-const selectedKeys = ref(['smartContractDevelopment']);
+// const selectedKeys = ref(['smartContractDevelopment']);
+const selectedKeys = ref('smartContractDevelopment')
 const selectedData = ref(featuresDatas[0].data);
 const levelOne = ref('Smart Contract');
 const levelTwo = ref('Development');
 
-const onOpenChange = (openKeys) => {
-  let latestOpenKey = openKeys.find(key => state.openKeys.indexOf(key) === -1);
-  if (rootSubmenuKeys.value.indexOf(latestOpenKey) !== -1) {
-    openKeys.value = openKeys;
-  } else {
-    openKeys.value = latestOpenKey ? [latestOpenKey] : [];
-  }
-};
+const navigationList = ref([
+  { name: 'Smart Contract', srcName: 'smartContract', data: [{ name: 'Development', type: 'smartContractDevelopment' }, { name: 'Secure Code', type: 'smartContractSecureCode' }, { name: 'Secure Deploy', type: 'smartContractSecureDeploy' }] },
+  { name: 'Front End', srcName: 'frontEnd', data: [{ name: 'Development', type: 'frontEndDevelopment' }, { name: 'Secure Code', type: 'frontEndSecureCode' }, { name: 'Fast Deploy', type: 'frontEndFastDeploy' }] },
+  { name: 'Node', srcName: 'node', data: [{ name: 'Development', type: 'nodeDevelopment' }, { name: 'Secure Deploy', type: 'nodeSecureDeploy' }] },
+  { name: 'Market', srcName: 'market', data: [{ name: 'Template Market', type: 'marketTemplateMarket' }, { name: 'Middleware', type: 'marketMiddleware' }] },
+])
+
+const selectedClick = (name, val) => {
+  selectedKeys.value = val.type;
+  featuresDatas.forEach(item => {
+    if (item.name === val.type) {
+      selectedData.value = item.data
+    }
+  })
+
+  levelOne.value = name;
+  levelTwo.value = val.name;
+}
+
+// const onOpenChange = (openKeys) => {
+//   let latestOpenKey = openKeys.find(key => state.openKeys.indexOf(key) === -1);
+//   if (rootSubmenuKeys.value.indexOf(latestOpenKey) !== -1) {
+//     openKeys.value = openKeys;
+//   } else {
+//     openKeys.value = latestOpenKey ? [latestOpenKey] : [];
+//   }
+// };
 
 const handleClick = (val) => {
   const { item, key, keyPath } = val;
@@ -103,6 +102,22 @@ const handleClick = (val) => {
   cursor: default;
   align-items: start;
   text-align: left;
+}
+
+.menu-nav-title:not(:first-child) {
+  margin-top: 10px;
+}
+
+.menu-nav-item-title {
+  height: 42px;
+  line-height: 42px;
+  padding: 0 20px 0;
+  border-radius: 10px;
+}
+
+.selectedCss {
+  background-color: #EAECFF;
+  color: #3B4DF0;
 }
 
 .menu :deep(.ant-menu) {
