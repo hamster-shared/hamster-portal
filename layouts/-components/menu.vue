@@ -2,20 +2,20 @@
   <div class="flex menu">
     <div class="menu-nav-title">
       <div v-for="item in navigationList" :key="item.name">
-        <div class="flex mb-[6px]">
-          <img :src="getImageURL(`${item.srcName}.png`)" class="w-[17px] h-[17px] mt-[7px] mr-[10px]" />
+        <div class="flex h-[42px] leading-[42px]">
+          <img :src="getImageURL(`${item.srcName}.png`)" class="w-[17px] h-[17px] mt-[12px] mr-[10px]" />
           <div class="text-[16px] text-[#A1A4BB] ">{{ item.name }}</div>
         </div>
 
         <div v-for="val in item.data">
           <div :class="selectedKeys === val.type ? 'selectedCss' : ''" @click="selectedClick(item.name, val)"
-            class="menu-nav-item-title text-[18px] text-[#051336] font-semibold cursor-pointer hover:text-[#3B4DF0] w-[200px] mb-[8px]">
+            class="menu-nav-item-title text-[18px] text-[#051336] font-semibold cursor-pointer hover:text-[#3B4DF0] w-[196px] mb-[8px]">
             {{
               val.name }}</div>
         </div>
       </div>
     </div>
-    <div class="pl-[30px]">
+    <div class="pl-[16px]">
       <navigation :levelOne="levelOne" :levelTwo="levelTwo"></navigation>
       <div class="grid grid-cols-3 gap-2 ">
         <div v-for="item in selectedData" :key="item.name" class="item ">
@@ -31,7 +31,6 @@
               item.version
             }}</span>
           </div>
-
         </div>
       </div>
     </div>
@@ -39,15 +38,11 @@
 </template>
 <script setup>
 import { ref } from 'vue';
-// import { Menu, SubMenu, MenuItem } from 'ant-design-vue';
 import { featuresDatas } from '../../layouts/Features.ts'
 import navigation from './navigation.vue';
 
 const { getImageURL } = useAssets()
 
-const rootSubmenuKeys = ref(['Smart Contract', 'Front End', 'Node', 'Market']);
-const openKeys = ref(['Smart Contract', 'Front End', 'Node', 'Market']);
-// const selectedKeys = ref(['smartContractDevelopment']);
 const selectedKeys = ref('smartContractDevelopment')
 const selectedData = ref(featuresDatas[0].data);
 const levelOne = ref('Smart Contract');
@@ -72,28 +67,6 @@ const selectedClick = (name, val) => {
   levelTwo.value = val.name;
 }
 
-// const onOpenChange = (openKeys) => {
-//   let latestOpenKey = openKeys.find(key => state.openKeys.indexOf(key) === -1);
-//   if (rootSubmenuKeys.value.indexOf(latestOpenKey) !== -1) {
-//     openKeys.value = openKeys;
-//   } else {
-//     openKeys.value = latestOpenKey ? [latestOpenKey] : [];
-//   }
-// };
-
-const handleClick = (val) => {
-  const { item, key, keyPath } = val;
-  featuresDatas.forEach(item => {
-    if (item.name === key) {
-      selectedData.value = item.data
-    }
-  })
-
-  levelOne.value = keyPath[0];
-  levelTwo.value = item.dataKey;
-
-  // console.log(item, key, keyPath, 'val')
-}
 
 
 </script>

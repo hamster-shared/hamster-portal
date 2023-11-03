@@ -1,11 +1,10 @@
 <template>
   <div>
     <Collapse v-model:activeKey="activeKey" accordion expandIconPosition="right" ghost="true">
-      <CollapsePanel v-for="item in featuresCollapseDatas" :key="item.title">
+      <CollapsePanel v-for="item in featuresCollapseDatas" :key="item.title" class="my-[16px]">
         <template #header>
           <div class="flex">
             <div class="flex left">
-              <!-- <img :src="item.img" class="collapse-header-img w-[17px] h-[17px]" /> -->
               <img :src="getImageURL(`${item.srcName}.png`)" class="w-[17px] h-[17px] mt-[6px] mr-[10px]" />
               <div class="collapse-header-title">{{ item.title }}</div>
             </div>
@@ -61,6 +60,10 @@ const activeKey = ref([]);
   position: absolute;
   top: 4px;
   right: 12px;
+}
+
+:deep(.ant-collapse-content-box) {
+  padding: 4px 0 0 26px;
 }
 
 .collapse-header-img {
