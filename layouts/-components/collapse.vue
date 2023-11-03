@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Collapse v-model:activeKey="activeKey" accordion expandIconPosition="right" ghost="true">
+    <Collapse v-model:activeKey="activeKey" accordion expandIconPosition="right" ghost="true" @change="handleChange">
       <CollapsePanel v-for="item in featuresCollapseDatas" :key="item.title" class="my-[16px]">
         <template #header>
           <div class="flex">
@@ -40,6 +40,13 @@ import { Collapse, CollapsePanel } from "ant-design-vue";
 import { featuresCollapseDatas } from '../../layouts/Features.ts'
 const { getImageURL } = useAssets()
 const activeKey = ref([]);
+
+const emits = defineEmits(['cancelModal']);
+const handleChange = () => {
+  console.log('kk')
+  // document.body.scrollTop = 0
+  emits("handleChange");
+}
 </script>
 <style scoped>
 :deep(.ant-collapse > .ant-collapse-item > .ant-collapse-header) {

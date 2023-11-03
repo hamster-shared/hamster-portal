@@ -13,8 +13,9 @@
           </div>
 
           <div class="flex flex-row justify-center md:ml-auto">
-            <img @click="showPhoneMenu = true; subMenuDropdownShow = false;" v-if="isMobile" class="h-4 ml-[82vw]"
-              src="~/assets/images/head-menu-down.svg">
+            <img @click="showDropdownMenu" v-if="isMobile" class="h-4 ml-[82vw]" src="~/assets/images/head-menu-down.svg">
+            <!-- <img @click="showPhoneMenu = true; subMenuDropdownShow = false;" v-if="isMobile" class="h-4 ml-[82vw]"
+              src="~/assets/images/head-menu-down.svg"> -->
             <div v-else class="menu">
               <div>
                 <div>
@@ -62,14 +63,17 @@
       </div>
     </div>
   </div>
-  <div v-if="showPhoneMenu" class="inset-x-0 top-[34px] fixed z-[300] py-4 px-5 bg-black">
+  <div v-if="showPhoneMenu" class="inset-x-0 top-[34px] fixed z-[300] py-4 px-5 bg-black ">
     <div class="relative flex justify-start">
       <img class="h-4 md:h-[24px]" src="~/assets/images/header.png">
-      <div class="absolute right-[-1px] top-0" @click="showPhoneMenu = false;">
+      <!-- <div class="absolute right-[-1px] top-0" @click="showPhoneMenu = false;">
+        <img class="h-[24px] ml-[36vw]" src="~/assets/images/menu-close.svg" />
+      </div> -->
+      <div class="absolute right-[-1px] top-0" @click="closeDropdownMenu">
         <img class="h-[24px] ml-[36vw]" src="~/assets/images/menu-close.svg" />
       </div>
     </div>
-    <div class="my-[20px]">
+    <div class="my-[20px] overflow-y-auto overscroll-contain phone-scroll-box" ref="phoneScrollBox">
       <div>
         <!-- <div class="relative cursor-pointer select-none" @click="subMenuDropdownShow = !subMenuDropdownShow"> -->
         <div class="relative cursor-pointer select-none">
@@ -80,7 +84,7 @@
               :class="{ 'rotate-dropdown-icon-mobile': subMenuDropdownShow }">
           </div>
           <div class="text-[#CECFD0] w-[100%]" v-if="subMenuDropdownShow">
-            <Collapse></Collapse>
+            <Collapse @handleChange="handleChange"></Collapse>
           </div>
         </div>
         <a v-for="link in navLinks" :key="link.path" :href="link.path">
@@ -122,6 +126,7 @@ const localeOptions = availableLocales.map((lang) => {
   return { name, value: lang }
 })
 
+const phoneScrollBox = ref();
 const linkValue = ref('');
 const alineLink = computed(() => linkValue.value + "/login")
 const dashboardLink = computed(() => linkValue.value + "/middleware/dashboard")
@@ -166,10 +171,29 @@ const menuMouseLeave = () => {
   }, 100);
 }
 
+
+const showDropdownMenu = () => {
+  showPhoneMenu.value = true;
+  subMenuDropdownShow.value = false;
+  document.body.style.overflow = 'hidden';
+}
+
+const closeDropdownMenu = () => {
+  showPhoneMenu.value = false;
+  document.body.style.overflow = 'auto';
+}
+
+
+const handleChange = () => {
+  phoneScrollBox.value.scrollTop = 0;
+
+}
+
+
 const subMenuMouseLeave = () => {
   subMenuDropdownShow.value = false;
   subMenuDropdownHover.value = false;
-  // subMenuDropdownHover.value = true;
+
 }
 
 const subMenuMouseEnter = () => {
@@ -177,8 +201,8 @@ const subMenuMouseEnter = () => {
 }
 
 function handleScroll() {
-  showPhoneMenu.value = false;
-  subMenuDropdownShow.value = false;
+  // showPhoneMenu.value = false;
+  // subMenuDropdownShow.value = false;
 }
 
 const gotoAline = function () {
@@ -201,8 +225,8 @@ const jumpNftActivity = () => {
 }
 
 onMounted(() => {
-  window.addEventListener("scroll", handleScroll)
-  handleScroll();
+  // window.addEventListener("scroll", handleScroll, false)
+  // handleScroll();
 
   curMenu.value = route.path.substring(1);
 
@@ -213,7 +237,7 @@ onMounted(() => {
   }
 })
 onUnmounted(() => {
-  window.removeEventListener("scroll", handleScroll)
+  // window.removeEventListener("scroll", handleScroll)
 })
 </script>
 
@@ -232,6 +256,10 @@ onUnmounted(() => {
   cursor: pointer;
   padding: 8px 0;
   font-weight: bold;
+}
+
+.phone-scroll-box {
+  max-height: calc(100vh - 120px);
 }
 
 .choose-locale-active {

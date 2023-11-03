@@ -9,7 +9,7 @@
 
         <div v-for="val in item.data">
           <div :class="selectedKeys === val.type ? 'selectedCss' : ''" @click="selectedClick(item.name, val)"
-            class="menu-nav-item-title text-[18px] text-[#051336] font-semibold cursor-pointer hover:text-[#3B4DF0] w-[196px] mb-[8px]">
+            class="menu-nav-item-title text-[16px] text-[#051336] font-semibold cursor-pointer hover:text-[#3B4DF0] w-[196px] mb-[8px]">
             {{
               val.name }}</div>
         </div>
@@ -21,7 +21,7 @@
         <div v-for="item in selectedData" :key="item.name" class="item ">
           <div class="flex">
             <img :src="getImageURL(`${item.srcName}.png`)" class="w-[34px] h-[34px] mr-[8px]" />
-            <div class="text-[#051336] text-[18px] font-bold">{{ item.title }}</div>
+            <div class="text-[#051336] text-[16px] font-bold">{{ item.title }}</div>
             <img v-if="item.isNew" src="~/assets/images/newTag.png" class="w-[34px] h-[16px] mt-[10px] ml-[8px]" />
           </div>
 
@@ -66,6 +66,7 @@ const selectedClick = (name, val) => {
   levelOne.value = name;
   levelTwo.value = val.name;
 }
+
 
 
 
