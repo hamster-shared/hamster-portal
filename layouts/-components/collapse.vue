@@ -5,7 +5,8 @@
         <template #header>
           <div class="flex">
             <div class="flex left">
-              <img :src="item.img" class="collapse-header-img w-[17px] h-[17px]" />
+              <!-- <img :src="item.img" class="collapse-header-img w-[17px] h-[17px]" /> -->
+              <img :src="getImageURL(`${item.srcName}.png`)" class="w-[17px] h-[17px] mt-[6px] mr-[10px]" />
               <div class="collapse-header-title">{{ item.title }}</div>
             </div>
             <div class="collapse-header-line right"></div>
@@ -19,7 +20,7 @@
           </div>
           <div v-for="val in it.data">
             <div class="flex">
-              <img :src="val.img" class="w-[34px] h-[34px] mr-[8px]" />
+              <img :src="getImageURL(`${val.srcName}.png`)" class="w-[34px] h-[34px] mr-[8px]" />
               <div class="text-[14px] text-[#ffffff] font-semibold leading-[34px]">{{ val.title }}</div>
               <img v-if="val.isNew" src="~/assets/images/newTag.png" class="w-[34px] h-[16px] mt-[10px] ml-[8px]" />
             </div>
@@ -38,7 +39,7 @@
 import { ref } from "vue";
 import { Collapse, CollapsePanel } from "ant-design-vue";
 import { featuresCollapseDatas } from '../../layouts/Features.ts'
-
+const { getImageURL } = useAssets()
 const activeKey = ref([]);
 </script>
 <style scoped>
@@ -48,11 +49,18 @@ const activeKey = ref([]);
   background-color: #000000;
   padding-left: 0px;
   padding-right: 0px;
-  display: block;
+  position: relative;
+  margin-bottom: 10px;
 }
 
 :deep(.ant-collapse-content) {
   background-color: #000000;
+}
+
+:deep(.anticon.anticon-right.ant-collapse-arrow) {
+  position: absolute;
+  top: 4px;
+  right: 12px;
 }
 
 .collapse-header-img {
