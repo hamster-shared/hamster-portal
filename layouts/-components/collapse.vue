@@ -43,8 +43,6 @@ const activeKey = ref([]);
 
 const emits = defineEmits(['cancelModal']);
 const handleChange = () => {
-  console.log('kk')
-  // document.body.scrollTop = 0
   emits("handleChange");
 }
 </script>
