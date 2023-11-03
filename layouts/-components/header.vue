@@ -65,7 +65,10 @@
   </div>
   <div v-if="showPhoneMenu" class="inset-x-0 top-[34px] fixed z-[300] py-4 px-5 bg-black ">
     <div class="relative flex justify-start">
-      <img class="h-4 md:h-[24px]" src="~/assets/images/header.png">
+      <nuxt-link to="/">
+        <img class="h-4 md:h-[24px]" src="~/assets/images/header.png">
+      </nuxt-link>
+      <!-- <img class="h-4 md:h-[24px]" src="~/assets/images/header.png"> -->
       <!-- <div class="absolute right-[-1px] top-0" @click="showPhoneMenu = false;">
         <img class="h-[24px] ml-[36vw]" src="~/assets/images/menu-close.svg" />
       </div> -->
@@ -176,11 +179,18 @@ const showDropdownMenu = () => {
   showPhoneMenu.value = true;
   subMenuDropdownShow.value = false;
   document.body.style.overflow = 'hidden';
+  document.body.addEventListener("touchmove", handleMove, { passive: false })
 }
 
 const closeDropdownMenu = () => {
   showPhoneMenu.value = false;
   document.body.style.overflow = 'auto';
+  document.body.removeEventListener("touchmove", handleMove, { passive: false })
+}
+
+const handleMove = (e) => {
+  let e = e || event;
+  e.preventDefault();
 }
 
 
