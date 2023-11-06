@@ -233,10 +233,10 @@ const subMenuMouseEnter = () => {
   subMenuDropdownHover.value = true;
 }
 
-function handleScroll() {
-  // showPhoneMenu.value = false;
-  // subMenuDropdownShow.value = false;
-}
+// function handleScroll() {
+//   // showPhoneMenu.value = false;
+//   // subMenuDropdownShow.value = false;
+// }
 
 const gotoAline = function () {
   const w = window.open("about:blank");
