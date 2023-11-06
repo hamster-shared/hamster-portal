@@ -81,6 +81,7 @@ const getMenuList = async () => {
 }
 
 const getMenuContentList = async (id) => {
+  selectedData.value = []
   const url = `/api/navbar/${id}/content`;
   await $fetch(url, {
     method: "GET",
