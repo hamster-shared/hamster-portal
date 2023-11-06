@@ -18,7 +18,7 @@
             <span>{{ it.activityName }}</span>
           </div>
           <div v-for="val in it.children">
-            <a :href="val.path">
+            <div @click="changePage(val.path)">
               <div class="flex">
                 <img :src="val.introduce" class="w-[34px] h-[34px] mr-[8px]" />
                 <div class="text-[14px] text-[#ffffff] font-semibold leading-[34px]">{{ val.title }}</div>
@@ -29,7 +29,7 @@
                 <span class="text-[#828CE7] text-[12px] font-semibold bg-[#ECEEFF] px-[15px] py-[2px] rounded-[10px] ">{{
                   val.version }}</span>
               </div>
-            </a>
+            </div>
 
           </div>
         </div>
@@ -84,6 +84,14 @@ const getMenuContentList = async (id) => {
     }
   })
   return selectedData.value
+}
+
+const changePage = (path) => {
+  if (path == 'NA') {
+    return
+  } else {
+    window.open(path)
+  }
 }
 
 onBeforeMount(() => {

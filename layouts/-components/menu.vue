@@ -19,7 +19,7 @@
       <navigation :levelOne="levelOne" :levelTwo="levelTwo"></navigation>
       <div class="grid grid-cols-3 gap-2 ">
         <div v-for="item in selectedData" :key="item.name" class="item ">
-          <a :href="item.path" target="_bank">
+          <div @click="changePage(item.path)">
             <div class="flex">
               <img :src="item.introduce" class="w-[34px] h-[34px] mr-[8px]" />
               <div class="text-[#051336] text-[16px] font-bold">{{ item.title }}</div>
@@ -32,7 +32,7 @@
                 item.version
               }}</span>
             </div>
-          </a>
+          </div>
 
         </div>
       </div>
@@ -89,6 +89,14 @@ const getMenuContentList = async (id) => {
       selectedData.value = res.data
     }
   })
+}
+
+const changePage = (path) => {
+  if (path == 'NA') {
+    return
+  } else {
+    window.open(path, '_blank')
+  }
 }
 
 onBeforeMount(() => {
