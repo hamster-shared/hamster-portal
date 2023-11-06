@@ -49,23 +49,13 @@ const selectedData = ref([]);
 const levelOne = ref('Smart Contract');
 const levelTwo = ref('Development');
 
-const navigationList = ref([
-  // { name: 'Smart Contract', srcName: 'smartContract', data: [{ name: 'Development', type: 'smartContractDevelopment' }, { name: 'Secure Code', type: 'smartContractSecureCode' }, { name: 'Secure Deploy', type: 'smartContractSecureDeploy' }] },
-  // { name: 'Front End', srcName: 'frontEnd', data: [{ name: 'Development', type: 'frontEndDevelopment' }, { name: 'Secure Code', type: 'frontEndSecureCode' }, { name: 'Fast Deploy', type: 'frontEndFastDeploy' }] },
-  // { name: 'Node', srcName: 'node', data: [{ name: 'Development', type: 'nodeDevelopment' }, { name: 'Secure Deploy', type: 'nodeSecureDeploy' }] },
-  // { name: 'Market', srcName: 'market', data: [{ name: 'Template Market', type: 'marketTemplateMarket' }, { name: 'Middleware', type: 'marketMiddleware' }] },
-])
+const navigationList = ref([])
 
 const selectedClick = (name, val) => {
   selectedKeys.value = val.id;
-  featuresDatas.forEach(item => {
-    if (item.id === val.id) {
-      selectedData.value = item.children
-    }
-  })
-
   levelOne.value = name;
   levelTwo.value = val.activityName;
+  getMenuContentList(val.id)
 }
 
 
