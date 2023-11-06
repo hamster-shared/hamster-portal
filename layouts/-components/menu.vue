@@ -3,7 +3,7 @@
     <div class="menu-nav-title">
       <div v-for="item in navigationList" :key="item.id">
         <div class="flex h-[42px] leading-[42px]">
-          <img :src="item.path" class="w-[17px] h-[17px] mt-[12px] mr-[10px]" />
+          <img :src="item.introduce" class="w-[17px] h-[17px] mt-[12px] mr-[10px]" />
           <div class="text-[16px] text-[#A1A4BB] ">{{ item.activityName }}</div>
         </div>
 
@@ -19,18 +19,21 @@
       <navigation :levelOne="levelOne" :levelTwo="levelTwo"></navigation>
       <div class="grid grid-cols-3 gap-2 ">
         <div v-for="item in selectedData" :key="item.name" class="item ">
-          <div class="flex">
-            <img :src="item.path" class="w-[34px] h-[34px] mr-[8px]" />
-            <div class="text-[#051336] text-[16px] font-bold">{{ item.title }}</div>
-            <img v-if="item.newFlag" src="~/assets/images/newTag.png" class="w-[34px] h-[16px] mt-[10px] ml-[8px]" />
-          </div>
+          <a :href="item.path" target="_bank">
+            <div class="flex">
+              <img :src="item.introduce" class="w-[34px] h-[34px] mr-[8px]" />
+              <div class="text-[#051336] text-[16px] font-bold">{{ item.title }}</div>
+              <img v-if="item.newFlag" src="~/assets/images/newTag.png" class="w-[34px] h-[16px] mt-[10px] ml-[8px]" />
+            </div>
 
-          <div class="text-[#79788F] text-[12px] leading-[15px] mt-[10px] mb-[10px]">{{ item.content }}</div>
-          <div>
-            <span class="text-[#828CE7] text-[12px] font-semibold bg-[#E5E7FF] px-[15px] py-[2px] rounded-[10px]">{{
-              item.version
-            }}</span>
-          </div>
+            <div class="text-[#79788F] text-[12px] leading-[15px] mt-[10px] mb-[10px]">{{ item.content }}</div>
+            <div>
+              <span class="text-[#828CE7] text-[12px] font-semibold bg-[#E5E7FF] px-[15px] py-[2px] rounded-[10px]">{{
+                item.version
+              }}</span>
+            </div>
+          </a>
+
         </div>
       </div>
     </div>

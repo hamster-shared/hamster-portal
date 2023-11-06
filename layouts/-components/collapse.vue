@@ -5,7 +5,7 @@
         <template #header>
           <div class="flex">
             <div class="flex left">
-              <img :src="item.path" class="w-[17px] h-[17px] mt-[6px] mr-[10px]" />
+              <img :src="item.introduce" class="w-[17px] h-[17px] mt-[6px] mr-[10px]" />
               <div class="collapse-header-title">{{ item.activityName }}</div>
             </div>
             <div class="collapse-header-line right"></div>
@@ -18,16 +18,19 @@
             <span>{{ it.activityName }}</span>
           </div>
           <div v-for="val in it.children">
-            <div class="flex">
-              <img :src="getImageURL(`${val.path}.png`)" class="w-[34px] h-[34px] mr-[8px]" />
-              <div class="text-[14px] text-[#ffffff] font-semibold leading-[34px]">{{ val.title }}</div>
-              <img v-if="val.newFlag" src="~/assets/images/newTag.png" class="w-[34px] h-[16px] mt-[10px] ml-[8px]" />
-            </div>
-            <div class="text-[#79788F] text-[12px] leading-[15px] mt-[10px] mb-[10px]">{{ val.content }}</div>
-            <div class="mb-[30px]">
-              <span class="text-[#828CE7] text-[12px] font-semibold bg-[#ECEEFF] px-[15px] py-[2px] rounded-[10px] ">{{
-                val.version }}</span>
-            </div>
+            <a :href="val.path">
+              <div class="flex">
+                <img :src="val.introduce" class="w-[34px] h-[34px] mr-[8px]" />
+                <div class="text-[14px] text-[#ffffff] font-semibold leading-[34px]">{{ val.title }}</div>
+                <img v-if="val.newFlag" src="~/assets/images/newTag.png" class="w-[34px] h-[16px] mt-[10px] ml-[8px]" />
+              </div>
+              <div class="text-[#79788F] text-[12px] leading-[15px] mt-[10px] mb-[10px]">{{ val.content }}</div>
+              <div class="mb-[30px]">
+                <span class="text-[#828CE7] text-[12px] font-semibold bg-[#ECEEFF] px-[15px] py-[2px] rounded-[10px] ">{{
+                  val.version }}</span>
+              </div>
+            </a>
+
           </div>
         </div>
       </CollapsePanel>
