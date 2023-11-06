@@ -63,7 +63,7 @@ const getMenuList = async () => {
           navigationList.value = item.children;
           item.children.forEach(it => {
             it.children.forEach(async val => {
-              val.children = await getMenuContentList(val.id);
+              // val.children = await getMenuContentList(val.id);
               // console.log(val.children, 'hh')
             })
           })
@@ -74,16 +74,16 @@ const getMenuList = async () => {
 }
 
 const getMenuContentList = async (id) => {
-  const url = `/api/navbar/${id}/content`;
-  await $fetch(url, {
-    method: "GET",
-  }).then(res => {
-    if (res.code === 200) {
-      // console.log(res, 'res')
-      selectedData.value = res.data
-    }
-  })
-  return selectedData.value
+  // const url = `/api/navbar/${id}/content`;
+  // await $fetch(url, {
+  //   method: "GET",
+  // }).then(res => {
+  //   if (res.code === 200) {
+  //     // console.log(res, 'res')
+  //     selectedData.value = res.data
+  //   }
+  // })
+  // return selectedData.value
 }
 
 const changePage = (path) => {
