@@ -81,14 +81,14 @@ const getMenuList = async () => {
 }
 
 const getMenuContentList = async (id) => {
-  // const url = `/api/navbar/${id}/content`;
-  // await $fetch(url, {
-  //   method: "GET",
-  // }).then(res => {
-  //   if (res.code === 200) {
-  //     selectedData.value = res.data
-  //   }
-  // })
+  const url = `/api/navbar/${id}/content`;
+  await $fetch(url, {
+    method: "GET",
+  }).then(res => {
+    if (res.code === 200) {
+      selectedData.value = res.data
+    }
+  })
 }
 
 const changePage = (path) => {
