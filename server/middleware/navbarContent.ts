@@ -1,8 +1,8 @@
 import { createProxyMiddleware } from "http-proxy-middleware"
 
-const { navbarProxyTarget } = useRuntimeConfig()
-const apiProxy = navbarProxyTarget && createProxyMiddleware("/api/navbar", {
-  target: navbarProxyTarget,
+const { navbarContentProxyTarget } = useRuntimeConfig()
+const apiProxy = navbarContentProxyTarget && createProxyMiddleware("/api/navbar/**/**", {
+  target: navbarContentProxyTarget,
   changeOrigin: true,
   // pathRewrite: path => path.replace(/^\/api/, "")
 })
