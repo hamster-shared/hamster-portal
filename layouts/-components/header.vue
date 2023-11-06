@@ -164,13 +164,13 @@ const menuMouseLeave = () => {
 const showDropdownMenu = () => {
   showPhoneMenu.value = true;
   subMenuDropdownShow.value = false;
-  // document.body.style.overflow = 'hidden';
+  document.body.style.overflow = 'hidden';
   document.addEventListener("touchmove", handleMove, { passive: false })
 }
 
 const closeDropdownMenu = () => {
   showPhoneMenu.value = false;
-  // document.body.style.overflow = 'auto';
+  document.body.style.overflow = 'auto';
   document.removeEventListener("touchmove", handleMove, { passive: false })
 }
 
@@ -181,14 +181,12 @@ const handleMove = (event) => {
 
 const handleChange = () => {
   phoneScrollBox.value.scrollTop = 0;
-
 }
 
 
 const subMenuMouseLeave = () => {
-  // subMenuDropdownShow.value = false;
-  // subMenuDropdownHover.value = false;
-  subMenuDropdownHover.value = true;
+  subMenuDropdownShow.value = false;
+  subMenuDropdownHover.value = false;
 }
 
 const subMenuMouseEnter = () => {
