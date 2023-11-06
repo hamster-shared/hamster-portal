@@ -73,7 +73,7 @@
               :class="{ 'rotate-dropdown-icon-mobile': subMenuDropdownShow }">
           </div>
           <div class="text-[#CECFD0] w-[100%]" v-if="subMenuDropdownShow">
-            <Collapse @handleChange="handleChange"></Collapse>
+            <Collapse :navigationList="navigationList" @handleChange="handleChange"></Collapse>
           </div>
         </div>
         <a v-for="link in navLinks" :key="link.path" :href="link.path">
@@ -91,7 +91,7 @@
 </template>
 
 <script setup>
-import { computed, ref } from "vue"
+import { computed, ref, onBeforeMount } from "vue"
 import { DownOutlined } from '@ant-design/icons-vue';
 import Menu from './menu.vue';
 import Collapse from "./collapse.vue";
@@ -106,7 +106,8 @@ const props = defineProps({
   },
 })
 
-
+const navigationList = ref([]);
+const selectedData = ref([]);
 const { getImageURL } = useAssets()
 const route = useRoute();
 const { t, locale, availableLocales } = useI18n()
@@ -153,6 +154,45 @@ onMounted(() => {
     rootClassList.remove("is-mobile")
   }
 })
+
+onBeforeMount(() => [
+  getMenuList()
+])
+
+const getMenuList = async () => {
+  const url = '/api/navbar';
+
+  await $fetch(url, {
+    method: "GET",
+  }).then(res => {
+    if (res.code === 200) {
+      res.data.forEach((item, idx) => {
+        if (item.activityName === 'Features') {
+          navigationList.value = item.children;
+          item.children.forEach(it => {
+            it.children.forEach(async val => {
+              val.children = await getMenuContentList(val.id);
+              // console.log(val.children, 'hh')
+            })
+          })
+        }
+      })
+    }
+  })
+}
+
+const getMenuContentList = async (id) => {
+  const url = `/api/navbar/${id}/content`;
+  await $fetch(url, {
+    method: "GET",
+  }).then(res => {
+    if (res.code === 200) {
+      // console.log(res, 'res')
+      selectedData.value = res.data
+    }
+  })
+  return selectedData.value
+}
 
 const menuMouseLeave = () => {
   setTimeout(() => {

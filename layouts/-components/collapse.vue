@@ -38,53 +38,62 @@
   </div>
 </template>
 <script setup>
-import { ref, onBeforeMount } from "vue";
+import { ref, onBeforeMount, toRefs } from "vue";
 import { Collapse, CollapsePanel } from "ant-design-vue";
 import { featuresCollapseDatas } from '../../layouts/Features.ts'
 const { getImageURL } = useAssets()
 const activeKey = ref([]);
-const navigationList = ref([]);
-const selectedData = ref([]);
+// const navigationList = ref([]);
+// const selectedData = ref([]);
+
+const props = defineProps({
+  navigationList: {
+    type: Array,
+    default: []
+  },
+})
+
+const { navigationList } = toRefs(props);
 const emits = defineEmits(['cancelModal']);
 const handleChange = () => {
   emits("handleChange");
 }
 
 
-const getMenuList = async () => {
-  const url = '/api/navbar';
+// const getMenuList = async () => {
+//   const url = '/api/navbar';
 
-  await $fetch(url, {
-    method: "GET",
-  }).then(res => {
-    if (res.code === 200) {
-      res.data.forEach((item, idx) => {
-        if (item.activityName === 'Features') {
-          navigationList.value = item.children;
-          item.children.forEach(it => {
-            it.children.forEach(async val => {
-              val.children = await getMenuContentList(val.id);
-              // console.log(val.children, 'hh')
-            })
-          })
-        }
-      })
-    }
-  })
-}
+//   await $fetch(url, {
+//     method: "GET",
+//   }).then(res => {
+//     if (res.code === 200) {
+//       res.data.forEach((item, idx) => {
+//         if (item.activityName === 'Features') {
+//           navigationList.value = item.children;
+//           item.children.forEach(it => {
+//             it.children.forEach(async val => {
+//               val.children = await getMenuContentList(val.id);
+//               // console.log(val.children, 'hh')
+//             })
+//           })
+//         }
+//       })
+//     }
+//   })
+// }
 
-const getMenuContentList = async (id) => {
-  const url = `/api/navbar/${id}/content`;
-  await $fetch(url, {
-    method: "GET",
-  }).then(res => {
-    if (res.code === 200) {
-      // console.log(res, 'res')
-      selectedData.value = res.data
-    }
-  })
-  return selectedData.value
-}
+// const getMenuContentList = async (id) => {
+//   const url = `/api/navbar/${id}/content`;
+//   await $fetch(url, {
+//     method: "GET",
+//   }).then(res => {
+//     if (res.code === 200) {
+//       // console.log(res, 'res')
+//       selectedData.value = res.data
+//     }
+//   })
+//   return selectedData.value
+// }
 
 const changePage = (path) => {
   if (path == 'NA') {
@@ -94,9 +103,9 @@ const changePage = (path) => {
   }
 }
 
-onBeforeMount(() => {
-  getMenuList();
-})
+// onBeforeMount(() => {
+//   getMenuList();
+// })
 </script>
 <style scoped>
 :deep(.ant-collapse > .ant-collapse-item > .ant-collapse-header) {
