@@ -54,27 +54,23 @@ const getMenuList = async () => {
   await $fetch(url, {
     method: "GET",
   }).then(res => {
-    // console.log(res, 'res')
     if (res.code === 200) {
-
       res.data.forEach((item, idx) => {
         if (item.activityName === 'Features') {
           navigationList.value = item.children;
           item.children.forEach(it => {
             it.children.forEach(async val => {
               val.children = await getMenuContentList(val.id);
-              console.log(val.children, 'hh')
+              // console.log(val.children, 'hh')
             })
           })
         }
       })
     }
-    console.log(navigationList.value, '000')
   })
 }
 
 const getMenuContentList = async (id) => {
-
   const url = `/api/navbar/${id}/content`;
   await $fetch(url, {
     method: "GET",
