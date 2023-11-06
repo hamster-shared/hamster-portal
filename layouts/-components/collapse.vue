@@ -1,29 +1,29 @@
 <template>
   <div>
     <Collapse v-model:activeKey="activeKey" accordion expandIconPosition="right" ghost="true" @change="handleChange">
-      <CollapsePanel v-for="item in featuresCollapseDatas" :key="item.title" class="my-[16px]">
+      <CollapsePanel v-for="item in navigationList" :key="item.id" class="my-[16px]">
         <template #header>
           <div class="flex">
             <div class="flex left">
-              <img :src="getImageURL(`${item.srcName}.png`)" class="w-[17px] h-[17px] mt-[6px] mr-[10px]" />
-              <div class="collapse-header-title">{{ item.title }}</div>
+              <img :src="item.path" class="w-[17px] h-[17px] mt-[6px] mr-[10px]" />
+              <div class="collapse-header-title">{{ item.activityName }}</div>
             </div>
             <div class="collapse-header-line right"></div>
           </div>
         </template>
         <div v-for="it in item.children">
           <div class="text-[18px] text-[#A1A4BB] font-bold mb-[20px]">
-            <span>{{ item.title }}</span>
+            <span>{{ item.activityName }}</span>
             <span>&nbsp; - &nbsp;</span>
-            <span>{{ it.name }}</span>
+            <span>{{ it.activityName }}</span>
           </div>
-          <div v-for="val in it.data">
+          <div v-for="val in it.children">
             <div class="flex">
-              <img :src="getImageURL(`${val.srcName}.png`)" class="w-[34px] h-[34px] mr-[8px]" />
+              <img :src="getImageURL(`${val.path}.png`)" class="w-[34px] h-[34px] mr-[8px]" />
               <div class="text-[14px] text-[#ffffff] font-semibold leading-[34px]">{{ val.title }}</div>
-              <img v-if="val.isNew" src="~/assets/images/newTag.png" class="w-[34px] h-[16px] mt-[10px] ml-[8px]" />
+              <img v-if="val.newFlag" src="~/assets/images/newTag.png" class="w-[34px] h-[16px] mt-[10px] ml-[8px]" />
             </div>
-            <div class="text-[#79788F] text-[12px] leading-[15px] mt-[10px] mb-[10px]">{{ val.description }}</div>
+            <div class="text-[#79788F] text-[12px] leading-[15px] mt-[10px] mb-[10px]">{{ val.content }}</div>
             <div class="mb-[30px]">
               <span class="text-[#828CE7] text-[12px] font-semibold bg-[#ECEEFF] px-[15px] py-[2px] rounded-[10px] ">{{
                 val.version }}</span>
@@ -35,16 +35,61 @@
   </div>
 </template>
 <script setup>
-import { ref } from "vue";
+import { ref, onBeforeMount } from "vue";
 import { Collapse, CollapsePanel } from "ant-design-vue";
 import { featuresCollapseDatas } from '../../layouts/Features.ts'
 const { getImageURL } = useAssets()
 const activeKey = ref([]);
-
+const navigationList = ref([]);
+const selectedData = ref([]);
 const emits = defineEmits(['cancelModal']);
 const handleChange = () => {
   emits("handleChange");
 }
+
+
+const getMenuList = async () => {
+  const url = '/api/navbar';
+
+  await $fetch(url, {
+    method: "GET",
+  }).then(res => {
+    // console.log(res, 'res')
+    if (res.code === 200) {
+
+      res.data.forEach((item, idx) => {
+        if (item.activityName === 'Features') {
+          navigationList.value = item.children;
+          item.children.forEach(it => {
+            it.children.forEach(async val => {
+              val.children = await getMenuContentList(val.id);
+              console.log(val.children, 'hh')
+            })
+          })
+        }
+      })
+    }
+    console.log(navigationList.value, '000')
+  })
+}
+
+const getMenuContentList = async (id) => {
+
+  const url = `/api/navbar/${id}/content`;
+  await $fetch(url, {
+    method: "GET",
+  }).then(res => {
+    if (res.code === 200) {
+      // console.log(res, 'res')
+      selectedData.value = res.data
+    }
+  })
+  return selectedData.value
+}
+
+onBeforeMount(() => {
+  getMenuList();
+})
 </script>
 <style scoped>
 :deep(.ant-collapse > .ant-collapse-item > .ant-collapse-header) {

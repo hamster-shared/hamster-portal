@@ -3,7 +3,7 @@ export const featuresDatas = [
   data:[
     {srcName: 'buildServices', title: 'Build Services',link:'', description:'Intelligent contract building simplified. Construct smart contracts with one click, and efficiently manage versions and track code',version:'0.14.0',isNew: true,},
     {srcName:'sandboxServices', title: 'Sandbox Services',link:'', description:'The sandbox environment can be started online for developers and the OP network that can fork different environments',version:'Coming Soon', isNew: true,},
-    {srcName:'aLine',title:'ALine', link:'', description:'Hamster automates your Web3.0 project workflows seamlessly. Check, build, and deploy your code directly through code repository',version:'0.14.0', isNew: false}
+    {srcName:'aLine',title:'ALine', link:'', description:'Hamster automates your Web3.0 project workflows seamlessly. Check, build, and deploy your code directly through code repository',version:'0.15.0', isNew: false}
   ]},
   {
     name: 'smartContractSecureCode',
@@ -85,7 +85,7 @@ export const featuresCollapseDatas = [
     {name: 'Development', data:[
       {srcName:'buildServices', title: 'Build Services',link:'', description:'Intelligent contract building simplified. Construct smart contracts with one click, and efficiently manage versions and track code',version:'0.14.0',isNew: true,},
       {srcName:'sandboxServices', title: 'Sandbox Services',link:'', description:'The sandbox environment can be started online for developers and the OP network that can fork different environments',version:'Coming Soon', isNew: true,},
-      {srcName:'aLine',title:'ALine',link:'', description:'Hamster automates your Web3.0 project workflows seamlessly. Check, build, and deploy your code directly through code repository',version:'0.14.0', isNew: false}
+      {srcName:'aLine',title:'ALine',link:'', description:'Hamster automates your Web3.0 project workflows seamlessly. Check, build, and deploy your code directly through code repository',version:'0.15.0', isNew: false}
     ]},
     {
       name: 'Secure Code', data: [

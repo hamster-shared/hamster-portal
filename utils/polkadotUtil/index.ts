@@ -1,4 +1,4 @@
-import { ApiPromise, WsProvider, SubmittableResult } from '@polkadot/api';
+import { ApiPromise, WsProvider, SubmittableResult } from '@polkadot';
 import { formatBalance as formatBalanceUtil } from '@polkadot/util';
 import { Keyring } from '@polkadot/keyring';
 

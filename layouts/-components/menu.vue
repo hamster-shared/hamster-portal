@@ -1,17 +1,17 @@
 <template>
   <div class="flex menu">
     <div class="menu-nav-title">
-      <div v-for="item in navigationList" :key="item.name">
+      <div v-for="item in navigationList" :key="item.id">
         <div class="flex h-[42px] leading-[42px]">
-          <img :src="getImageURL(`${item.srcName}.png`)" class="w-[17px] h-[17px] mt-[12px] mr-[10px]" />
-          <div class="text-[16px] text-[#A1A4BB] ">{{ item.name }}</div>
+          <img :src="item.path" class="w-[17px] h-[17px] mt-[12px] mr-[10px]" />
+          <div class="text-[16px] text-[#A1A4BB] ">{{ item.activityName }}</div>
         </div>
 
-        <div v-for="val in item.data">
-          <div :class="selectedKeys === val.type ? 'selectedCss' : ''" @click="selectedClick(item.name, val)"
+        <div v-for="val in item.children">
+          <div :class="selectedKeys === val.id ? 'selectedCss' : ''" @click="selectedClick(item.activityName, val)"
             class="menu-nav-item-title text-[16px] text-[#051336] font-semibold cursor-pointer hover:text-[#3B4DF0] w-[196px] mb-[8px]">
             {{
-              val.name }}</div>
+              val.activityName }}</div>
         </div>
       </div>
     </div>
@@ -20,12 +20,12 @@
       <div class="grid grid-cols-3 gap-2 ">
         <div v-for="item in selectedData" :key="item.name" class="item ">
           <div class="flex">
-            <img :src="getImageURL(`${item.srcName}.png`)" class="w-[34px] h-[34px] mr-[8px]" />
+            <img :src="item.path" class="w-[34px] h-[34px] mr-[8px]" />
             <div class="text-[#051336] text-[16px] font-bold">{{ item.title }}</div>
-            <img v-if="item.isNew" src="~/assets/images/newTag.png" class="w-[34px] h-[16px] mt-[10px] ml-[8px]" />
+            <img v-if="item.newFlag" src="~/assets/images/newTag.png" class="w-[34px] h-[16px] mt-[10px] ml-[8px]" />
           </div>
 
-          <div class="text-[#79788F] text-[12px] leading-[15px] mt-[10px] mb-[10px]">{{ item.description }}</div>
+          <div class="text-[#79788F] text-[12px] leading-[15px] mt-[10px] mb-[10px]">{{ item.content }}</div>
           <div>
             <span class="text-[#828CE7] text-[12px] font-semibold bg-[#E5E7FF] px-[15px] py-[2px] rounded-[10px]">{{
               item.version
@@ -37,37 +37,70 @@
   </div>
 </template>
 <script setup>
-import { ref } from 'vue';
+import { ref, onBeforeMount } from 'vue';
 import { featuresDatas } from '../../layouts/Features.ts'
 import navigation from './navigation.vue';
 
 const { getImageURL } = useAssets()
 
-const selectedKeys = ref('smartContractDevelopment')
-const selectedData = ref(featuresDatas[0].data);
+const selectedKeys = ref('')
+// const selectedData = ref(featuresDatas[0].data);
+const selectedData = ref([]);
 const levelOne = ref('Smart Contract');
 const levelTwo = ref('Development');
 
 const navigationList = ref([
-  { name: 'Smart Contract', srcName: 'smartContract', data: [{ name: 'Development', type: 'smartContractDevelopment' }, { name: 'Secure Code', type: 'smartContractSecureCode' }, { name: 'Secure Deploy', type: 'smartContractSecureDeploy' }] },
-  { name: 'Front End', srcName: 'frontEnd', data: [{ name: 'Development', type: 'frontEndDevelopment' }, { name: 'Secure Code', type: 'frontEndSecureCode' }, { name: 'Fast Deploy', type: 'frontEndFastDeploy' }] },
-  { name: 'Node', srcName: 'node', data: [{ name: 'Development', type: 'nodeDevelopment' }, { name: 'Secure Deploy', type: 'nodeSecureDeploy' }] },
-  { name: 'Market', srcName: 'market', data: [{ name: 'Template Market', type: 'marketTemplateMarket' }, { name: 'Middleware', type: 'marketMiddleware' }] },
+  // { name: 'Smart Contract', srcName: 'smartContract', data: [{ name: 'Development', type: 'smartContractDevelopment' }, { name: 'Secure Code', type: 'smartContractSecureCode' }, { name: 'Secure Deploy', type: 'smartContractSecureDeploy' }] },
+  // { name: 'Front End', srcName: 'frontEnd', data: [{ name: 'Development', type: 'frontEndDevelopment' }, { name: 'Secure Code', type: 'frontEndSecureCode' }, { name: 'Fast Deploy', type: 'frontEndFastDeploy' }] },
+  // { name: 'Node', srcName: 'node', data: [{ name: 'Development', type: 'nodeDevelopment' }, { name: 'Secure Deploy', type: 'nodeSecureDeploy' }] },
+  // { name: 'Market', srcName: 'market', data: [{ name: 'Template Market', type: 'marketTemplateMarket' }, { name: 'Middleware', type: 'marketMiddleware' }] },
 ])
 
 const selectedClick = (name, val) => {
-  selectedKeys.value = val.type;
+  selectedKeys.value = val.id;
   featuresDatas.forEach(item => {
-    if (item.name === val.type) {
-      selectedData.value = item.data
+    if (item.id === val.id) {
+      selectedData.value = item.children
     }
   })
 
   levelOne.value = name;
-  levelTwo.value = val.name;
+  levelTwo.value = val.activityName;
 }
 
 
+const getMenuList = async () => {
+  const url = '/api/navbar';
+
+  await $fetch(url, {
+    method: "GET",
+  }).then(res => {
+    if (res.code === 200) {
+      res.data.forEach((item, idx) => {
+        if (item.activityName === 'Features') {
+          navigationList.value = item.children;
+          selectedKeys.value = navigationList.value[0].children[0].id;
+          getMenuContentList(navigationList.value[0].children[0].id);
+        }
+      })
+    }
+  })
+}
+
+const getMenuContentList = async (id) => {
+  const url = `/api/navbar/${id}/content`;
+  await $fetch(url, {
+    method: "GET",
+  }).then(res => {
+    if (res.code === 200) {
+      selectedData.value = res.data
+    }
+  })
+}
+
+onBeforeMount(() => {
+  getMenuList();
+})
 
 
 </script>

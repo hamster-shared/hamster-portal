@@ -175,8 +175,7 @@ const closeDropdownMenu = () => {
 }
 
 const handleMove = (event) => {
-  let e = e || event;
-  e.preventDefault();
+  event.preventDefault();
 }
 
 
@@ -187,9 +186,9 @@ const handleChange = () => {
 
 
 const subMenuMouseLeave = () => {
-  subMenuDropdownShow.value = false;
-  subMenuDropdownHover.value = false;
-
+  // subMenuDropdownShow.value = false;
+  // subMenuDropdownHover.value = false;
+  subMenuDropdownHover.value = true;
 }
 
 const subMenuMouseEnter = () => {
