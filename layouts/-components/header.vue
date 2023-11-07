@@ -205,12 +205,14 @@ const showDropdownMenu = () => {
   showPhoneMenu.value = true;
   subMenuDropdownShow.value = false;
   document.body.style.overflow = 'hidden';
+  document.body.style.position = 'relative';
   // document.addEventListener("touchmove", handleMove, { passive: false })
 }
 
 const closeDropdownMenu = () => {
   showPhoneMenu.value = false;
   document.body.style.overflow = 'auto';
+  document.body.style.position = 'static';
   // document.removeEventListener("touchmove", handleMove, { passive: false })
 }
 
