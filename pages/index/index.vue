@@ -36,7 +36,7 @@
               </div>
               <div class="md:flex">
                 <button class="btn-css" @click="gotoAline">Start Building</button>
-                <button class="btn-css mt-[30px] md:mt-0 md:ml-[20px] !text-[#5C64FF] !bg-transparent hover:!text-[#6C73FF] active:!text-[#3F48FF]" @click="gotoEmail">Join Hamster Agent Waitlist</button>
+                <button class="btn-css text-left md:text-center !px-[20px] md:!px-[40px] mt-[30px] md:mt-0 md:ml-[20px] !text-[#5C64FF] !bg-transparent hover:!text-[#6C73FF] active:!text-[#3F48FF]" @click="gotoEmail">Join Hamster AI Agent Freelancer Platform Waitinglist</button>
               </div>
               <div class="mt-[60px] md:mt-[70px] text-[14px] md:text-[16px] font-light font-family-light">Powered by 29yrs fintech experience elite & 6000+ IT engineers of listed company</div>
               <div class="md:flex">
