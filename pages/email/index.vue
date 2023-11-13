@@ -164,7 +164,7 @@ const getPlatform = async () => {
       window.addEventListener("mousedown", handleMouseDown)
     }
     if (route.query.show == 'topic') {
-      formData.topic = 'Join the Hamster Agent waitlist';
+      formData.topic = 'Join Hamster AI Agent Freelancer Platform Waitinglist';
     }
   })
   onUnmounted(() => {
