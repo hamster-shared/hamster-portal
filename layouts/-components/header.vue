@@ -1,9 +1,9 @@
 <template>
-  <div class="title-activity text-[12px] md:text-[14px]" @click="jumpNftActivity">
-    Build your team quickly, worry-free and at low cost >>
-  </div>
-  <div class="absolute inset-x-0 top-[34px] z-[100] md:z-[1000]  bg-black" :class="{ 'bg-opacity-0': curMenu === '' }">
-    <div class="m-auto">
+  <div class="absolute inset-x-0 z-[100] md:z-[1000]  bg-black" :class="{ 'bg-opacity-0': curMenu === '' }">
+    <div class="title-activity text-[12px] md:text-[14px]" @click="jumpNftActivity">
+      Build your team quickly, worry-free and at low cost >>
+    </div>
+    <div class="m-auto mt-[34px]">
       <div class="container px-5 py-4 mx-auto font-light font-family-light">
         <div class="relative flex flex-row items-center justify-between text-center text-white">
           <div class="absolute logo">
@@ -49,8 +49,11 @@
       </div>
     </div>
   </div>
-  <div v-if="showPhoneMenu" class="inset-x-0 top-[34px] fixed z-[300] py-4 px-5 bg-black ">
-    <div class="relative flex justify-start">
+  <div v-if="showPhoneMenu" class="phone-menu-h inset-x-0 fixed z-[300] py-4 bg-black">
+    <div class="title-activity text-[12px] md:text-[14px]" @click="jumpNftActivity">
+      Build your team quickly, worry-free and at low cost >>
+    </div>
+    <div class="relative flex justify-start mt-[34px] px-5 ">
       <nuxt-link to="/">
         <img class="h-4 md:h-[24px]" src="~/assets/images/header.png">
       </nuxt-link>
@@ -58,12 +61,13 @@
       <!-- <div class="absolute right-[-1px] top-0" @click="showPhoneMenu = false;">
         <img class="h-[24px] ml-[36vw]" src="~/assets/images/menu-close.svg" />
       </div> -->
-      <div class="absolute right-[-1px] top-0" @click="closeDropdownMenu">
+
+      <div class="absolute right-[24px]" @click="closeDropdownMenu">
         <img class="h-[24px] ml-[36vw]" src="~/assets/images/menu-close.svg" />
       </div>
     </div>
-    <div class="my-[20px] overflow-y-auto overscroll-contain phone-scroll-box" ref="phoneScrollBox">
-      <div>
+    <div class="my-[20px] overflow-y-auto overscroll-contain phone-scroll-box px-5 " ref="phoneScrollBox">
+      <div class="pb-[60px]">
         <!-- <div class="relative cursor-pointer select-none" @click="subMenuDropdownShow = !subMenuDropdownShow"> -->
         <div class="relative cursor-pointer select-none">
           <div class="h-[32px] text-base flex justify-between items-center hover:color-[#27FFB8]"
@@ -83,9 +87,10 @@
           </div>
         </a>
       </div>
-      <button class="start-today w-[100%] mt-6 !text-[14px] !font-normal" @click="gotoAline">
+      <button block class="absolute bottom-[32px] start-today w-[100%] mt-6 !text-[14px] !font-normal" @click="gotoAline">
         {{ $t('header.menu1') }}
       </button>
+
     </div>
   </div>
 </template>
@@ -205,17 +210,21 @@ const showDropdownMenu = () => {
   showPhoneMenu.value = true;
   subMenuDropdownShow.value = false;
   document.body.style.overflow = 'hidden';
-  // document.body.addEventListener("touchmove", handleMove, { passive: false })
+  document.documentElement.style.overflow = 'hidden';
+  // document.addEventListener("touchmove", handleMove, true, { passive: false })
 }
 
 const closeDropdownMenu = () => {
   showPhoneMenu.value = false;
   document.body.style.overflow = 'auto';
-  // document.body.removeEventListener("touchmove", handleMove, { passive: false })
+  document.documentElement.style.overflow = 'auto';
+  // document.body.removeEventListener("touchmove", handleMove, true, { passive: false })
 }
 
 const handleMove = (event) => {
+
   event.preventDefault();
+
 }
 
 
@@ -261,6 +270,8 @@ onMounted(() => {
   // window.addEventListener("scroll", handleScroll, false)
   // handleScroll();
 
+  // document.addEventListener("scroll", handleMove, { passive: false })
+
   curMenu.value = route.path.substring(1);
 
   if (window.location.href.indexOf('hamsternet.io') !== -1) {
@@ -289,6 +300,10 @@ onUnmounted(() => {
   cursor: pointer;
   padding: 8px 0;
   font-weight: bold;
+}
+
+.phone-menu-h {
+  height: 100vh;
 }
 
 .phone-scroll-box {
