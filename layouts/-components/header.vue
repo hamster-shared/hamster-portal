@@ -399,6 +399,10 @@ onUnmounted(() => {
   border-style: dashed dashed solid dashed;
 }
 
+.ant-btn {
+  width: calc(100% - 40px);
+}
+
 .start-today,
 .btn-css {
   border: 1px solid #5C64FF;
