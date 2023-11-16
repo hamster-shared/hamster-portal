@@ -14,6 +14,8 @@
 
           <div class="flex flex-row justify-center md:ml-auto">
             <img @click="showDropdownMenu" v-if="isMobile" class="h-4 ml-[82vw]" src="~/assets/images/head-menu-down.svg">
+            <!-- <img @click="showPhoneMenu = true; subMenuDropdownShow = false;" v-if="isMobile" class="h-4 ml-[82vw]"
+              src="~/assets/images/head-menu-down.svg"> -->
             <div v-else class="menu">
               <div>
                 <div>
@@ -24,35 +26,9 @@
                   </div>
                   <div :class="[subMenuDropdownShow === true ? 'block' : 'hidden']"
                     class="sub-menu-dropdown absolute z-[999] text-[#00044C] text-[16px] font-medium font-family-medium pt-[20px] w-full left-[0]">
-                    <div @mouseleave="subMenuMouseLeave('Features')" @mouseenter="subMenuMouseEnter('Features')"
-                      class=" box-dropdown">
+                    <div @mouseleave="subMenuMouseLeave" @mouseenter="subMenuMouseEnter" class=" box-dropdown">
                       <div class="bg-[white] p-[30px] rounded-[5px] text-base">
                         <Menu></Menu>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="relative">
-                <div @mouseleave="menuMouseLeave" @mouseenter="subMenuDropdownShowFaucet = true"
-                  :class="{ 'menu-dropdown-opened': subMenuDropdownShowFaucet }"
-                  class="flex items-center px-4 menu-dropdown-hover">Faucet
-                  <DownOutlined class="ml-2" />
-                </div>
-                <div :class="[subMenuDropdownShowFaucet === true ? 'block' : 'hidden']"
-                  class="sub-menu-dropdown absolute z-[999] text-[#00044C] text-[16px] font-medium font-family-medium w-[300px] pt-[20px] left-[0]">
-                  <div @mouseleave="subMenuMouseLeave('Faucet')" @mouseenter="subMenuMouseEnter('Faucet')"
-                    class=" box-dropdown">
-                    <div class="bg-[white] p-[30px] rounded-[5px] text-base">
-                      <div v-for="it in faucetList" :key="it.name" @click="clickHref(it.address)">
-                        <a :href="it.address" target="_blank" class="flex mb-[20px]">
-                          <img :src="it.icon" class="w-[39px] h-[39px] mr-[20px]" />
-                          <span class="text-[16px] text-[#051336] font-bold pt-[6px] hover:text-[#5C64FF]">{{
-                            it.name
-                          }}
-                            <ArrowRightOutlined class="align-middle" :style="{ fontSize: '12px', marginLeft: '10px' }" />
-                          </span>
-                        </a>
                       </div>
                     </div>
                   </div>
@@ -81,12 +57,18 @@
       <nuxt-link to="/">
         <img class="h-4 md:h-[24px]" src="~/assets/images/header.png">
       </nuxt-link>
+      <!-- <img class="h-4 md:h-[24px]" src="~/assets/images/header.png"> -->
+      <!-- <div class="absolute right-[-1px] top-0" @click="showPhoneMenu = false;">
+        <img class="h-[24px] ml-[36vw]" src="~/assets/images/menu-close.svg" />
+      </div> -->
+
       <div class="absolute right-[24px]" @click="closeDropdownMenu">
         <img class="h-[24px] ml-[36vw]" src="~/assets/images/menu-close.svg" />
       </div>
     </div>
     <div class="my-[20px] overflow-y-auto overscroll-contain phone-scroll-box px-5 " ref="phoneScrollBox">
       <div class="pb-[60px]">
+        <!-- <div class="relative cursor-pointer select-none" @click="subMenuDropdownShow = !subMenuDropdownShow"> -->
         <div class="relative cursor-pointer select-none">
           <div class="h-[32px] text-base flex justify-between items-center hover:color-[#27FFB8]"
             @click="subMenuDropdownShow = !subMenuDropdownShow">
@@ -94,29 +76,14 @@
             <img src="~/assets/images/chervon-right.svg" class="w-6 h-6 ml-2"
               :class="{ 'rotate-dropdown-icon-mobile': subMenuDropdownShow }">
           </div>
-
-          <div class="h-[32px] mt-[20px] mb-[20px] text-base flex justify-between items-center hover:color-[#27FFB8]"
-            @click="subMenuDropdownShowFaucet = !subMenuDropdownShowFaucet">
-            <div>Faucet</div>
-            <img src="~/assets/images/chervon-right.svg" class="w-6 h-6 ml-2"
-              :class="{ 'rotate-dropdown-icon-mobile': subMenuDropdownShowFaucet }">
-          </div>
-          <div class=" text-[#CECFD0] w-[100%]" v-if="subMenuDropdownShowFaucet">
-            <div v-for="it in faucetList" :key="it.name">
-              <a :href="it.address"  class="flex mb-[30px]">
-                <img :src="it.icon" class="w-[34px] h-[34px] mr-[10px]" />
-                <span class="text-[16px] text-[#FFFFFF] pt-[4px]">{{ it.name }}
-                  <ArrowRightOutlined class="align-middle" :style="{ fontSize: '12px', marginLeft: '6px' }" />
-                </span>
-              </a>
-            </div>
-            <!-- <Collapse :navigationList="navigationList" @handleChange="handleChange"></Collapse> -->
+          <div class="text-[#CECFD0] w-[100%]" v-if="subMenuDropdownShow">
+            <Collapse :navigationList="navigationList" @handleChange="handleChange"></Collapse>
           </div>
         </div>
         <a v-for="link in navLinks" :key="link.path" :href="link.path">
           <div :class="{ 'menu-active': `/${curMenu}` === link.path }" class="phone-menu">
             <span>{{ link.title }}</span>
-            <!-- <img src="~/assets/images/chervon-right.svg" /> -->
+            <img src="~/assets/images/chervon-right.svg" />
           </div>
         </a>
       </div>
@@ -130,7 +97,7 @@
 
 <script setup>
 import { computed, ref, onBeforeMount } from "vue"
-import { DownOutlined, ArrowRightOutlined } from '@ant-design/icons-vue';
+import { DownOutlined } from '@ant-design/icons-vue';
 import Menu from './menu.vue';
 import Collapse from "./collapse.vue";
 const props = defineProps({
@@ -146,9 +113,6 @@ const props = defineProps({
 
 const navigationList = ref([]);
 const selectedData = ref([]);
-
-const faucetList = ref([]);
-
 const { getImageURL } = useAssets()
 const route = useRoute();
 const { t, locale, availableLocales } = useI18n()
@@ -163,17 +127,22 @@ const alineLink = computed(() => linkValue.value + "/login")
 const dashboardLink = computed(() => linkValue.value + "/middleware/dashboard")
 
 const navLinks = computed(() => [
+  // { title: 'Solutions', path: "/solutions", children: [] },
+  // { title: t('header.dashboard'), path: '/dashboard' },
+  // { title: 'Grant', path: "" }, //
+  // { title: 'Pricing', path: "" }, //
   { title: 'Incubator', path: "/incubator", target: '_self' },
   { title: 'Community', path: "/community", target: '_self' },
   { title: 'About', path: "/about", target: '_self' },
   { title: t('header.docs'), path: "https://hamsternet.io/docs/", target: '_bank' },
-  // { title: 'News', path: "https://hamsternet.medium.com/", target: '_bank' },
+  // { title: t('header.faucet'), path: "/faucet" },
+  // { title: t('header.stake'), path: "/stake" },
+  // { title: t('header.cross_chain'), path: "/cross_chain" },
+  { title: 'News', path: "https://hamsternet.medium.com/", target: '_bank' },
 ])
 
 const subMenuDropdownShow = ref(false)
 const subMenuDropdownHover = ref(false)
-const subMenuDropdownShowFaucet = ref(false);
-const subMenuDropdownHoverFaucet = ref(false);
 
 const curMenu = ref('')
 
@@ -191,23 +160,9 @@ onMounted(() => {
   }
 })
 
-
-const getFaucetList = async () => {
-  const url = '/api/navbar/faucet';
-  await $fetch(url, {
-    method: "GET",
-  }).then(res => {
-    if (res.code === 200) {
-      console.log(res.data)
-      faucetList.value = res.data
-    }
-  })
-}
-
-onBeforeMount(() => {
-  getMenuList();
-  getFaucetList();
-})
+onBeforeMount(() => [
+  getMenuList()
+])
 
 const getMenuList = async () => {
   const url = '/api/navbar';
@@ -222,6 +177,7 @@ const getMenuList = async () => {
           item.children.forEach(it => {
             it.children.forEach(async val => {
               val.children = await getMenuContentList(val.id);
+              // console.log(val.children, 'hh')
             })
           })
         }
@@ -236,6 +192,7 @@ const getMenuContentList = async (id) => {
     method: "GET",
   }).then(res => {
     if (res.code === 200) {
+      // console.log(res, 'res')
       selectedData.value = res.data
     }
   })
@@ -245,7 +202,6 @@ const getMenuContentList = async (id) => {
 const menuMouseLeave = () => {
   setTimeout(() => {
     subMenuDropdownShow.value = subMenuDropdownHover.value;
-    subMenuDropdownShowFaucet.value = subMenuDropdownHoverFaucet.value;
   }, 100);
 }
 
@@ -255,7 +211,7 @@ const showDropdownMenu = () => {
   subMenuDropdownShow.value = false;
   document.body.style.overflow = 'hidden';
   document.documentElement.style.overflow = 'hidden';
-  // document.body.addEventListener("touchmove", handleMove, true, { passive: false })
+  // document.addEventListener("touchmove", handleMove, true, { passive: false })
 }
 
 const closeDropdownMenu = () => {
@@ -266,7 +222,9 @@ const closeDropdownMenu = () => {
 }
 
 const handleMove = (event) => {
+
   event.preventDefault();
+
 }
 
 
@@ -275,32 +233,19 @@ const handleChange = () => {
 }
 
 
-const subMenuMouseLeave = (val) => {
-  if (val === 'Features') {
-    subMenuDropdownShow.value = false;
-    subMenuDropdownHover.value = false;
-  } else {
-    subMenuDropdownShowFaucet.value = false;
-    subMenuDropdownHoverFaucet.value = false;
-  }
-  // subMenuDropdownShow.value = false;
-  // subMenuDropdownHover.value = false;
+const subMenuMouseLeave = () => {
+  subMenuDropdownShow.value = false;
+  subMenuDropdownHover.value = false;
 }
 
-const subMenuMouseEnter = (val) => {
-  if (val === 'Features') {
-    subMenuDropdownHover.value = true;
-  } else {
-    subMenuDropdownHoverFaucet.value = true
-  }
+const subMenuMouseEnter = () => {
+  subMenuDropdownHover.value = true;
 }
 
-function handleScroll() {
-  console.log(document.body.scrollTop)
-
-  // showPhoneMenu.value = false;
-  // subMenuDropdownShow.value = false;
-}
+// function handleScroll() {
+//   // showPhoneMenu.value = false;
+//   // subMenuDropdownShow.value = false;
+// }
 
 const gotoAline = function () {
   const w = window.open("about:blank");
@@ -322,8 +267,10 @@ const jumpNftActivity = () => {
 }
 
 onMounted(() => {
-  window.addEventListener("scroll", handleScroll, false)
+  // window.addEventListener("scroll", handleScroll, false)
   // handleScroll();
+
+  // document.addEventListener("scroll", handleMove, { passive: false })
 
   curMenu.value = route.path.substring(1);
 
@@ -333,7 +280,6 @@ onMounted(() => {
     linkValue.value = "https://develop.hamster.newtouch.com";
   }
 })
-
 onUnmounted(() => {
   // window.removeEventListener("scroll", handleScroll)
 })
@@ -343,9 +289,11 @@ onUnmounted(() => {
 .title-activity {
   width: 100%;
   background: linear-gradient(281deg, #BC006B 0%, #454CDA 100%);
+  /* font-size: 14px; */
   font-family: Montserrat-Regular, Montserrat;
   color: #FFFFFF;
   text-align: center;
+  /* position: fixed; */
   position: absolute;
   top: 0;
   z-index: 99999;
@@ -419,7 +367,21 @@ onUnmounted(() => {
   font-weight: 500;
 }
 
+.sub-menu-dropdown::after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 42%;
+  width: 0;
+  height: 0;
+  border-width: 8px;
+  border-style: solid;
+  border-color: transparent transparent #ffffff transparent;
+}
+
 .menu-hover:hover {
+  /* font-family: Montserrat-Medium, Montserrat;
+  font-weight: 500; */
   color: #5C64FF;
 }
 
