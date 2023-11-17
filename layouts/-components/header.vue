@@ -124,7 +124,7 @@
           </div>
         </a>
       </div>
-      <button class="absolute bottom-[32px] start-today w-[100%] mt-6 !text-[14px] !font-normal" @click="gotoAline">
+      <button class="absolute bottom-[80px] start-today w-[100%] mt-6 !text-[14px] !font-normal" @click="gotoAline">
         {{ $t('header.menu1') }}
       </button>
 
