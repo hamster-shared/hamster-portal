@@ -555,6 +555,20 @@ onUnmounted(() => {
   -webkit-text-fill-color: transparent;
 }
 
+/* :deep(.anticon-down) {
+  transform: rotate(0deg);
+  transition: all .3s, visibility 0s;
+}
+
+:deep(.ant-menu-submenu-open .anticon-down),
+:deep(.menu-dropdown-opened .anticon-down),
+:deep(.menu-dropdown-hover:hover .anticon-down) {
+  transform: rotate(180deg);
+} */
+</style>
+<style scoped lang="less">
+@baseColor: #5C64FF;
+
 :deep(.anticon-down) {
   transform: rotate(0deg);
   transition: all .3s, visibility 0s;
@@ -564,5 +578,27 @@ onUnmounted(() => {
 :deep(.menu-dropdown-opened .anticon-down),
 :deep(.menu-dropdown-hover:hover .anticon-down) {
   transform: rotate(180deg);
+}
+
+:deep(.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu:hover::after) {
+  border-bottom: none;
+}
+
+:deep(.ant-menu-submenu-open),
+:deep(.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu:hover) {
+  color: @baseColor;
+
+  svg path {
+    fill: @baseColor;
+  }
+}
+
+:deep(.ant-menu) {
+  color: #FFFFFF;
+  background-color: transparent;
+}
+
+:deep(.ant-menu-horizontal) {
+  border-bottom: none;
 }
 </style>

@@ -1191,63 +1191,55 @@ const getArticles = async () => {
   }
 }</style>
 
-<style scoped>.top-card-border {
+<style scoped>
+.top-card-border{
   @apply px-[20px] md:px-[30px] min-h-[70px] md:min-h-[50px] mt-[30px] md:mt-[20px] rounded-[10px] md:rounded-[100px];
 }
-
-.logo-title {
+.logo-title{
   @apply text-[#999999] text-base font-light;
 }
-
-.solution-text {
+.solution-text{
   @apply text-[7px] leading-[14px] md:text-[14px] md:leading-[19px] mt-[5px] md:mt-[10px];
   color: #DEDBFF;
   font-family: OpenSans;
 }
-
-.ecology-text {
-  @apply text-[9px] md:text-[16px] leading-[30px] md:leading-[50px];
+.ecology-text{
+  @apply text-[9px] md:text-[16px] leading-[30px] md:leading-[50px] ;
   font-weight: bold;
   text-align: right;
   color: #989898;
   padding-right: 20px;
 }
-
-.ecology-img {
+.ecology-img{
   @apply h-[30px] md:h-[50px];
 }
 
-.provides-card {
+.provides-card{
   @apply text-[#000000] border border-solid border-[#F1F3FE] bg-[#FFFFFF] rounded-[8px] md:rounded-[12px] p-[20px];
 }
-
-.provides-logo {
+.provides-logo{
   @apply md:w-[50px] w-[70px] h-[70px] md:h-[50px];
 }
-
-.provides-title {
+.provides-title{
   @apply my-[10px] text-[16px] md:text-[18px] font-bold leading-[30px];
 }
-
-.provides-desc {
+.provides-desc{
   @apply font-light leading-[20px] text-[14px] md:text-[16px] text-[#474959];
   font-family: Montserrat-Light, Montserrat;
 }
-
-.provides-sub {
+.provides-sub{
   @apply flex mt-[20px] text-[#474959] leading-[20px];
   font-family: Montserrat-Regular, Montserrat;
 }
-
-.provides-btn {
+.provides-btn{
   @apply absolute bottom-[40px] md:bottom-[30px] cursor-pointer leading-[20px];
 }
-
-.view-btn {
+.view-btn{
   background: #FFFFFF;
-  box-shadow: 0px 5px 15px 0px rgba(182, 184, 212, 0.3);
+  box-shadow: 0px 5px 15px 0px rgba(182,184,212,0.3);
   border-radius: 20px;
   width: 179px;
   height: 40px;
   font-weight: 600;
-}</style>
+}
+</style>
