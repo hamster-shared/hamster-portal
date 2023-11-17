@@ -17,7 +17,7 @@
             <div v-else class="menu">
               <div>
                 <div>
-                  <div @mouseleave="menuMouseLeave" @mouseenter="subMenuDropdownShow = true"
+                  <div @mouseleave="menuMouseLeave('Features')" @mouseenter="subMenuDropdownShow = true"
                     :class="{ 'menu-dropdown-opened': subMenuDropdownShow }"
                     class="flex items-center px-4 menu-dropdown-hover">Features
                     <DownOutlined class="ml-2" />
@@ -34,7 +34,7 @@
                 </div>
               </div>
               <div class="relative">
-                <div @mouseleave="menuMouseLeave" @mouseenter="subMenuDropdownShowFaucet = true"
+                <div @mouseleave="menuMouseLeave('Faucet')" @mouseenter="subMenuDropdownShowFaucet = true"
                   :class="{ 'menu-dropdown-opened': subMenuDropdownShowFaucet }"
                   class="flex items-center px-4 menu-dropdown-hover">Faucet
                   <DownOutlined class="ml-2" />
@@ -246,10 +246,14 @@ const getMenuContentList = async (id) => {
   return selectedData.value
 }
 
-const menuMouseLeave = () => {
+const menuMouseLeave = (val) => {
   setTimeout(() => {
-    subMenuDropdownShow.value = subMenuDropdownHover.value;
-    subMenuDropdownShowFaucet.value = subMenuDropdownHoverFaucet.value;
+    if (val === 'Features') {
+      subMenuDropdownShow.value = subMenuDropdownHover.value;
+    } else {
+      subMenuDropdownShowFaucet.value = subMenuDropdownHoverFaucet.value;
+    }
+
   }, 100);
 }
 
