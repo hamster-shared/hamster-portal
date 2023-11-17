@@ -1,5 +1,5 @@
 <template>
-  <div class="flex menu">
+  <div class="flex menu-nav">
     <div class="menu-nav-title">
       <div v-for="item in navigationList" :key="item.id">
         <div class="flex h-[42px] leading-[42px]">
@@ -33,7 +33,6 @@
               }}</span>
             </div>
           </div>
-
         </div>
       </div>
     </div>
@@ -107,7 +106,7 @@ onBeforeMount(() => {
 
 </script>
 <style scoped>
-.menu {
+.menu-nav {
   cursor: default;
   align-items: start;
   text-align: left;
@@ -129,13 +128,13 @@ onBeforeMount(() => {
   color: #3B4DF0;
 }
 
-.menu :deep(.ant-menu) {
+.menu-nav :deep(.ant-menu) {
   font-size: 18px;
   color: #051336;
   font-weight: bold;
 }
 
-.menu :deep(.ant-menu-submenu-title .ant-menu-title-content) {
+.menu-nav :deep(.ant-menu-submenu-title .ant-menu-title-content) {
   font-size: 16px;
 }
 
@@ -153,12 +152,12 @@ onBeforeMount(() => {
   background: linear-gradient(136deg, #EDEFFF 0%, #FFF5FE 100%);
 }
 
-.menu :deep(.ant-menu-inline .ant-menu-item::after) {
+.menu-nav :deep(.ant-menu-inline .ant-menu-item::after) {
   border: none;
 
 }
 
-.menu :deep(.ant-menu-light .ant-menu-item:hover) {
+.menu-nav :deep(.ant-menu-light .ant-menu-item:hover) {
   color: #3B4DF0;
 }
 

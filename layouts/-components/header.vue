@@ -42,16 +42,19 @@
                 <div :class="[subMenuDropdownShowFaucet === true ? 'block' : 'hidden']"
                   class="sub-menu-dropdown absolute z-[999] text-[#00044C] text-[16px] font-medium font-family-medium w-[300px] pt-[20px] left-[0]">
                   <div @mouseleave="subMenuMouseLeave('Faucet')" @mouseenter="subMenuMouseEnter('Faucet')"
-                    class=" box-dropdown">
+                    class="box-dropdown">
                     <div class="bg-[white] p-[30px] rounded-[5px] text-base">
-                      <div v-for="it in faucetList" :key="it.name" @click="clickHref(it.address)">
-                        <a :href="it.address" target="_blank" class="flex mb-[20px]">
+                      <div v-for="(it, index) in faucetList" :key="it.name" @click="clickHref(it.address)">
+                        <a :href="it.address" target="_blank" class="flex faucet-list"
+                          :class="index === 1 ? 'mb-[20px] mt-[20px]' : ''">
                           <img :src="it.icon" class="w-[39px] h-[39px] mr-[20px]" />
-                          <span class="text-[16px] text-[#051336] font-bold pt-[6px] hover:text-[#5C64FF]">{{
+                          <span class="text-[16px] text-[#051336] font-bold pt-[6px] ">{{
                             it.name
                           }}
-                            <ArrowRightOutlined class="align-middle" :style="{ fontSize: '12px', marginLeft: '10px' }" />
                           </span>
+                          <img src="@/assets/images/arrow.svg" class="w-[14px] ml-[10px] default-arrow" />
+                          <img src="@/assets/images/arrow-blue.svg" class="w-[14px] ml-[10px] hover-arrow" />
+
                         </a>
                       </div>
                     </div>
@@ -103,14 +106,13 @@
           </div>
           <div class=" text-[#CECFD0] w-[100%]" v-if="subMenuDropdownShowFaucet">
             <div v-for="it in faucetList" :key="it.name">
-              <a :href="it.address"  class="flex mb-[30px]">
+              <a :href="it.address" class="flex mb-[30px]">
                 <img :src="it.icon" class="w-[34px] h-[34px] mr-[10px]" />
                 <span class="text-[16px] text-[#FFFFFF] pt-[4px]">{{ it.name }}
-                  <ArrowRightOutlined class="align-middle" :style="{ fontSize: '12px', marginLeft: '6px' }" />
                 </span>
+                <img src="@/assets/images/arrow.svg" class="w-[14px] ml-[10px]" />
               </a>
             </div>
-            <!-- <Collapse :navigationList="navigationList" @handleChange="handleChange"></Collapse> -->
           </div>
         </div>
         <a v-for="link in navLinks" :key="link.path" :href="link.path">
@@ -120,7 +122,7 @@
           </div>
         </a>
       </div>
-      <button block class="absolute bottom-[32px] start-today w-[100%] mt-6 !text-[14px] !font-normal" @click="gotoAline">
+      <button class="absolute bottom-[32px] start-today w-[100%] mt-6 !text-[14px] !font-normal" @click="gotoAline">
         {{ $t('header.menu1') }}
       </button>
 
@@ -130,7 +132,7 @@
 
 <script setup>
 import { computed, ref, onBeforeMount } from "vue"
-import { DownOutlined, ArrowRightOutlined } from '@ant-design/icons-vue';
+import { DownOutlined } from '@ant-design/icons-vue';
 import Menu from './menu.vue';
 import Collapse from "./collapse.vue";
 const props = defineProps({
@@ -254,6 +256,7 @@ const showDropdownMenu = () => {
   showPhoneMenu.value = true;
   subMenuDropdownShow.value = false;
   document.body.style.overflow = 'hidden';
+  document.body.style.position = 'fixed';
   document.documentElement.style.overflow = 'hidden';
   // document.body.addEventListener("touchmove", handleMove, true, { passive: false })
 }
@@ -261,6 +264,7 @@ const showDropdownMenu = () => {
 const closeDropdownMenu = () => {
   showPhoneMenu.value = false;
   document.body.style.overflow = 'auto';
+  document.body.style.position = 'static';
   document.documentElement.style.overflow = 'auto';
   // document.body.removeEventListener("touchmove", handleMove, true, { passive: false })
 }
@@ -339,7 +343,7 @@ onUnmounted(() => {
 })
 </script>
 
-<style>
+<style scoped>
 .title-activity {
   width: 100%;
   background: linear-gradient(281deg, #BC006B 0%, #454CDA 100%);
@@ -412,6 +416,8 @@ onUnmounted(() => {
   svg path {
     fill: #5C64FF;
   }
+
+
 }
 
 .menu-dropdown-opened {
@@ -424,7 +430,29 @@ onUnmounted(() => {
 }
 
 .box-dropdown {
-  box-shadow: 0px 2px 10px 0px rgba(204, 204, 215, 0.65);
+  /* box-shadow: 0px 2px 10px 0px rgba(204, 204, 215, 0.65); */
+  box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.1);
+}
+
+.faucet-list .default-arrow {
+  display: block;
+}
+
+.faucet-list .hover-arrow {
+  display: none;
+}
+
+.faucet-list:hover span {
+  color: #5C64FF;
+}
+
+.faucet-list:hover .default-arrow {
+  display: none !important;
+
+}
+
+.faucet-list:hover .hover-arrow {
+  display: block !important;
 }
 
 .box-top {
@@ -438,8 +466,7 @@ onUnmounted(() => {
 }
 
 
-.start-today,
-.btn-css {
+.start-today {
   width: calc(100% - 40px);
   border: 1px solid #5C64FF;
   padding: 8px 40px;
@@ -527,9 +554,6 @@ onUnmounted(() => {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-</style>
-<style scoped lang="less">
-@baseColor: #5C64FF;
 
 :deep(.anticon-down) {
   transform: rotate(0deg);
@@ -540,27 +564,5 @@ onUnmounted(() => {
 :deep(.menu-dropdown-opened .anticon-down),
 :deep(.menu-dropdown-hover:hover .anticon-down) {
   transform: rotate(180deg);
-}
-
-:deep(.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu:hover::after) {
-  border-bottom: none;
-}
-
-:deep(.ant-menu-submenu-open),
-:deep(.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu:hover) {
-  color: @baseColor;
-
-  svg path {
-    fill: @baseColor;
-  }
-}
-
-:deep(.ant-menu) {
-  color: #FFFFFF;
-  background-color: transparent;
-}
-
-:deep(.ant-menu-horizontal) {
-  border-bottom: none;
 }
 </style>

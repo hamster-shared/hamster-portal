@@ -243,7 +243,7 @@ body {
   border-radius: 35px;
 }
 </style>
-<style lang="less">
+<!-- <style lang="less">
 // Base style
 html {
   font-family: "Noto Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
@@ -265,4 +265,4 @@ html {
     vertical-align: text-bottom;
   }
 }
-</style>
+</style> -->
