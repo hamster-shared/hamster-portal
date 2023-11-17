@@ -1,49 +1,34 @@
-# hamster-portal
+<div align="center">
+    <img src="https://socialify.git.ci/hamster-shared/hamster-portal/image?description=1&descriptionEditable=One-stop%20Toolkit%20and%20Middleware%20Platform%20for%20Web3.0%20Developers&font=KoHo&logo=https%3A%2F%2Fhamsternet.io%2F_nuxt%2Flogo.668de5a2.png&owner=1&pattern=Floating%20Cogs&theme=Auto" width="640" height="320" alt="logo" />
 
-hamster 官网
+# <a href="https://hamsternet.io">Hamster Portal</a>
 
-## Required
+[![Discord](https://badgen.net/badge/icon/discord?icon=discord&label)](https://discord.gg/qMWUvs7jkV)
+[![Telegram](https://badgen.net/badge/icon/telegram?icon=telegram&label)](https://t.me/hamsternetio)
+[![Twitter](https://badgen.net/badge/icon/twitter?icon=twitter&label)](https://twitter.com/Hamsternetio)
 
-- Node.js >= v16
-- Nuxt >= 3
+_One-stop Toolkit and Middleware Platform for Web3.0 Developers_
 
-## Setup
+</div>
 
-Make sure to install the dependencies:
+## About Hamster
 
-```bash
-# Use yarn, you can install yarn if you don't have:
-# npm install -g yarn
-yarn install
-```
+Hamster is aiming to build the one-stop infrastructure developer toolkits for Web3.0. It defines itself as a development, operation and maintenance DevOps service platform, providing a set of development tools as well as O&M tools, empowering projects in Web3.0 to improve their coding and delivery speed, quality and efficiency, as well as product reliability & safety.
 
-## Development Server
+With Hamster, developers or project teams realize the development, verification and O&M stages of their blockchain projects in an automatic, standardized and tooled approach: from contract template of multiple chains, contract/frontend code build, security check, contract deployment to the contract operation and maintenance.
 
-Start the development server on http://localhost:3000
+Together with its developer toolkits, Hamster offers the RPC service and decentralized computing power network service when users choose to deploy their contracts via Hamster.
 
-```bash
-yarn dev
-```
+At the same time, the contract security check part within the developer toolkits is offered separately to its to-C customers, who could check their contracts to avoid potential security risks.
 
-## Production
+## Contributors
 
-Set Env variables:
+This project exists thanks to all the people who contribute.
 
-```
-# .env
-NUXT_API_PROXY_TARGET=YOUR_PROXY_URL # Example: NUXT_API_PROXY_TARGET=http://example.com
-```
+ <a href="https://github.com/hamster-shared/hamster-portal/contributors">
+  <img src="https://contrib.rocks/image?repo=hamster-shared/hamster-portal" />
+ </a>
 
-Build the application for production:
+## License
 
-```bash
-yarn build
-```
-
-**Locally preview** production build:
-
-```bash
-yarn preview
-```
-
-Checkout the [deployment documentation](https://v3.nuxtjs.org/docs/deployment) for more information.
+[MIT](LICENSE)
