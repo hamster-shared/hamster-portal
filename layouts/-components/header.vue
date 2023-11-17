@@ -92,14 +92,16 @@
       <div class="pb-[60px]">
         <div class="relative cursor-pointer select-none">
           <div class="h-[32px] text-base flex justify-between items-center hover:color-[#27FFB8]"
-            @click="subMenuDropdownShow = !subMenuDropdownShow">
+            @click="subMenuDropdownShow = !subMenuDropdownShow, subMenuDropdownShowFaucet = false">
             <div>Features</div>
             <img src="~/assets/images/chervon-right.svg" class="w-6 h-6 ml-2"
               :class="{ 'rotate-dropdown-icon-mobile': subMenuDropdownShow }">
           </div>
-
+          <div class="text-[#CECFD0] w-[100%]" v-if="subMenuDropdownShow">
+            <Collapse :navigationList="navigationList" @handleChange="handleChange"></Collapse>
+          </div>
           <div class="h-[32px] mt-[20px] mb-[20px] text-base flex justify-between items-center hover:color-[#27FFB8]"
-            @click="subMenuDropdownShowFaucet = !subMenuDropdownShowFaucet">
+            @click="subMenuDropdownShowFaucet = !subMenuDropdownShowFaucet, subMenuDropdownShow = false">
             <div>Faucet</div>
             <img src="~/assets/images/chervon-right.svg" class="w-6 h-6 ml-2"
               :class="{ 'rotate-dropdown-icon-mobile': subMenuDropdownShowFaucet }">
