@@ -45,7 +45,7 @@
             </div>
             <div class="mt-[60px] md:mt-[70px] text-[14px] md:text-[16px] font-light font-family-light">Powered by 29yrs
               fintech experience elite & 6000+ IT engineers of listed company</div>
-            <div class="md:flex">
+            <!-- <div class="md:flex">
               <div class="flex items-center top-card-border">
                 <div class="top-card-title top-card-title-color1">52K+</div>
                 <div class="top-card-content whitespace-nowrap">Deployed Contracts</div>
@@ -55,7 +55,7 @@
                   <div class="top-card-title top-card-title-color2">10+</div>
                   <div class="top-card-content">Grants</div>
                 </div>
-                <div class="flex flex-wrap items-center">
+                <div class="flex flex-wrap items-center md:flex-nowrap">
                   <div v-for="(item, index) in 8" :key="index"
                     class="md:w-auto md:ml-[20px] h-[24px] md:mt-0 mt-[20px] flex item-center justify-center"
                     :class="{ 'ml-[5%]': $device.isMobile && item != 1 && item != 5 }, [item == 3 ? 'w-[35%]' : item == 4 ? 'w-[16%]' : item == 7 ? 'w-[30%]' : 'w-[17%]']">
@@ -63,8 +63,28 @@
                   </div>
                 </div>
               </div>
+            </div> -->
+            <div class="md:flex">
+              <div class="flex items-center flex-none top-card-border">
+                <div class="top-card-title top-card-title-color1">52K+</div>
+                <div class="top-card-content whitespace-nowrap">Deployed Contracts</div>
+              </div>
+              <div class="top-card-border pt-[12px] pb-[20px] md:py-0 md:ml-[30px] md:flex">
+                <div class="flex items-center ">
+                  <div class="top-card-title top-card-title-color2">10+</div>
+                  <div class="top-card-content">Grants</div>
+                </div>
+                <div class="flex flex-wrap items-center md:flex-nowrap">
+                  <div v-for="(item, index) in 8" :key="index"
+                    class="md:w-auto md:ml-[20px] md:h-auto h-[24px] md:mt-0 mt-[20px] flex item-center justify-center"
+                    :class="{ 'ml-[5%]': $device.isMobile && item != 1 && item != 5 }, [item == 3 ? 'w-[35%]' : item == 4 ? 'w-[16%]' : item == 7 ? 'w-[30%]' : 'w-[17%]']">
+                    <img :src="getImageURL(`Grant-top-${item}.png`)" class="w-auto md:h-[70%] h-auto" />
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="md:flex md:pb-0 pb-[50px]">
+
+            <!-- <div class="md:flex md:pb-0 pb-[50px]">
               <div class="flex items-center top-card-border">
                 <div class="top-card-title top-card-title-color2">620K+</div>
                 <div class="top-card-content whitespace-nowrap">IT Candidates</div>
@@ -74,7 +94,7 @@
                   <div class="top-card-title top-card-title-color1">11</div>
                   <div class="top-card-content">EcoSystems</div>
                 </div>
-                <div class="flex flex-wrap items-center">
+                <div class="flex flex-wrap items-center md:flex-nowrap">
                   <div v-for="(item, index) in 11" :key="index"
                     class="w-[12.5%] md:w-auto h-[35px] md:mt-0 mt-[20px] flex item-center justify-center"
                     :class="{ 'ml-[5%]': $device.isMobile && item != 1 && item != 7 }, { 'ml-[23px]': !$device.isMobile }">
@@ -82,8 +102,33 @@
                   </div>
                 </div>
               </div>
+
+            </div> -->
+
+            <!-- test banner -->
+            <div class="md:flex md:pb-0 pb-[50px]">
+              <div class="flex items-center flex-none top-card-border">
+                <div class="top-card-title top-card-title-color2">620K+</div>
+                <div class="top-card-content whitespace-nowrap">IT Candidates</div>
+              </div>
+              <div class="top-card-border pt-[12px] pb-[20px] md:py-0 md:ml-[30px] md:flex">
+                <div class="flex items-center">
+                  <div class="top-card-title top-card-title-color1">11</div>
+                  <div class="top-card-content">EcoSystems</div>
+                </div>
+                <div class="flex flex-wrap items-center md:flex-nowrap">
+                  <div v-for=" (item, index) in 11" :key="index"
+                    class="md:w-[8%] w-[12.5%] md:h-auto h-[35px] md:w-auto md:mt-0 mt-[20px] item-center justify-center"
+                    :class="{ 'ml-[5%]': $device.isMobile && item != 1 && item != 7 }, { 'ml-[23px]': !$device.isMobile }">
+                    <img :src="getImageURL(`EcoSystems-top-${item}.png`)" class="w-auto md:w-[86%] h-full" />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
+
+
+
           <div v-if="false" class="absolute bottom-[13px] w-full md:hidden">
             <!-- <div class="flex items-center justify-center">
                 <div class="logo-title font-family-light">Investors:</div>
@@ -703,7 +748,8 @@ const getArticles = async () => {
 }
 
 .top-card-title {
-  display: flex;
+  // display: flex;
+  vertical-align: middle;
   font-size: 30px;
   font-family: Montserrat-Bold, Montserrat;
   font-weight: bold;
@@ -1189,54 +1235,65 @@ const getArticles = async () => {
   100% {
     transform: translateY(0);
   }
-}</style>
+}
+</style>
 
 <style scoped>
-.top-card-border{
+.top-card-border {
   @apply px-[20px] md:px-[30px] min-h-[70px] md:min-h-[50px] mt-[30px] md:mt-[20px] rounded-[10px] md:rounded-[100px];
 }
-.logo-title{
+
+.logo-title {
   @apply text-[#999999] text-base font-light;
 }
-.solution-text{
+
+.solution-text {
   @apply text-[7px] leading-[14px] md:text-[14px] md:leading-[19px] mt-[5px] md:mt-[10px];
   color: #DEDBFF;
   font-family: OpenSans;
 }
-.ecology-text{
-  @apply text-[9px] md:text-[16px] leading-[30px] md:leading-[50px] ;
+
+.ecology-text {
+  @apply text-[9px] md:text-[16px] leading-[30px] md:leading-[50px];
   font-weight: bold;
   text-align: right;
   color: #989898;
   padding-right: 20px;
 }
-.ecology-img{
+
+.ecology-img {
   @apply h-[30px] md:h-[50px];
 }
 
-.provides-card{
+.provides-card {
   @apply text-[#000000] border border-solid border-[#F1F3FE] bg-[#FFFFFF] rounded-[8px] md:rounded-[12px] p-[20px];
 }
-.provides-logo{
+
+.provides-logo {
   @apply md:w-[50px] w-[70px] h-[70px] md:h-[50px];
 }
-.provides-title{
+
+.provides-title {
   @apply my-[10px] text-[16px] md:text-[18px] font-bold leading-[30px];
 }
-.provides-desc{
+
+.provides-desc {
   @apply font-light leading-[20px] text-[14px] md:text-[16px] text-[#474959];
   font-family: Montserrat-Light, Montserrat;
 }
-.provides-sub{
+
+.provides-sub {
   @apply flex mt-[20px] text-[#474959] leading-[20px];
   font-family: Montserrat-Regular, Montserrat;
 }
-.provides-btn{
+
+.provides-btn {
   @apply absolute bottom-[40px] md:bottom-[30px] cursor-pointer leading-[20px];
 }
-.view-btn{
+
+.view-btn {
   background: #FFFFFF;
-  box-shadow: 0px 5px 15px 0px rgba(182,184,212,0.3);
+  box-shadow: 0px 5px 15px 0px rgba(182, 184, 212, 0.3);
   border-radius: 20px;
   width: 179px;
   height: 40px;
