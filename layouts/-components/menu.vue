@@ -20,10 +20,10 @@
       <div class="grid grid-cols-3 gap-2 ">
         <div v-for="item in selectedData" :key="item.name" class="item ">
           <div @click="changePage(item.path)">
-            <div class="flex">
+            <div class="flex items-center">
               <img :src="item.introduce" class="w-[34px] h-[34px] mr-[8px]" />
               <div class="text-[#051336] text-[16px] font-bold">{{ item.title }}</div>
-              <img v-if="item.newFlag" src="~/assets/images/newTag.png" class="w-[34px] h-[16px] mt-[10px] ml-[8px]" />
+              <img v-if="item.newFlag" src="~/assets/images/newTag.png" class="w-[34px] h-[16px] ml-[8px]" />
             </div>
 
             <div class="text-[#79788F] text-[12px] leading-[15px] mt-[10px] mb-[10px]">{{ item.content }}</div>

@@ -1,10 +1,10 @@
 <template>
-  <div class="absolute inset-x-0 z-[100] md:z-[1000]  bg-black" :class="{ 'bg-opacity-0': curMenu === '' }">
+  <div class="absolute top-0 inset-x-0 z-[100] md:z-[1000]  bg-black" :class="{ 'bg-opacity-0': curMenu === '' }">
     <div class="title-activity text-[12px] md:text-[14px]" @click="jumpNftActivity">
       Build your team quickly, worry-free and at low cost >>
     </div>
-    <div class="m-auto mt-[34px]">
-      <div class="container px-5 py-4 mx-auto font-light font-family-light">
+    <div class="m-auto mt-[53px]">
+      <div class="container px-5 mx-auto pb-[16px] font-light font-family-light">
         <div class="relative flex flex-row items-center justify-between text-center text-white">
           <div class="absolute logo">
             <nuxt-link to="/">
@@ -15,11 +15,11 @@
           <div class="flex flex-row justify-center md:ml-auto">
             <img @click="showDropdownMenu" v-if="isMobile" class="h-4 ml-[82vw]" src="~/assets/images/head-menu-down.svg">
             <div v-else class="menu">
-              <div>
+              <div class="">
                 <div>
                   <div @mouseleave="menuMouseLeave('Features')" @mouseenter="subMenuDropdownShow = true"
                     :class="{ 'menu-dropdown-opened': subMenuDropdownShow }"
-                    class="flex items-center px-4 menu-dropdown-hover">Features
+                    class="flex items-center px-4 menu-dropdown-hover h-[50px]">Features
                     <DownOutlined class="ml-2" />
                   </div>
                   <div :class="[subMenuDropdownShow === true ? 'block' : 'hidden']"
@@ -36,7 +36,7 @@
               <div class="relative">
                 <div @mouseleave="menuMouseLeave('Faucet')" @mouseenter="subMenuDropdownShowFaucet = true"
                   :class="{ 'menu-dropdown-opened': subMenuDropdownShowFaucet }"
-                  class="flex items-center px-4 menu-dropdown-hover">Faucet
+                  class="flex items-center px-4 menu-dropdown-hover h-[50px]">Faucet
                   <DownOutlined class="ml-2" />
                 </div>
                 <div :class="[subMenuDropdownShowFaucet === true ? 'block' : 'hidden']"
@@ -67,7 +67,8 @@
                   {{ link.title }}
                 </a>
               </div>
-              <button class="ml-4 start-today !text-[14px] !font-normal" @click="gotoAline">{{ $t('header.menu1')
+              <button class="ml-4 start-today !text-[14px]  h-[50px] !font-normal" @click="gotoAline">{{
+                $t('header.menu1')
               }}</button>
             </div>
 
@@ -349,7 +350,7 @@ onUnmounted(() => {
 })
 </script>
 
-<style scoped>
+<style>
 .title-activity {
   width: 100%;
   background: linear-gradient(281deg, #BC006B 0%, #454CDA 100%);
@@ -472,8 +473,8 @@ onUnmounted(() => {
 }
 
 
-.start-today {
-  width: calc(100% - 40px);
+.start-today,
+.btn-css {
   border: 1px solid #5C64FF;
   padding: 8px 40px;
   background: #5C64FF;
@@ -560,17 +561,6 @@ onUnmounted(() => {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
-/* :deep(.anticon-down) {
-  transform: rotate(0deg);
-  transition: all .3s, visibility 0s;
-}
-
-:deep(.ant-menu-submenu-open .anticon-down),
-:deep(.menu-dropdown-opened .anticon-down),
-:deep(.menu-dropdown-hover:hover .anticon-down) {
-  transform: rotate(180deg);
-} */
 </style>
 <style scoped lang="less">
 @baseColor: #5C64FF;
