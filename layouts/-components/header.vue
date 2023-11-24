@@ -22,8 +22,8 @@
                     class="flex items-center px-4 menu-dropdown-hover h-[50px]">Features
                     <DownOutlined class="ml-2" />
                   </div>
-                  <div :class="[subMenuDropdownShow === true ? 'block' : 'hidden']"
-                    class="sub-menu-dropdown absolute z-[999] text-[#00044C] text-[16px] font-medium font-family-medium pt-[20px] w-full left-[0]">
+                  <div :class="[subMenuDropdownShow === true ? 'block' : 'block']"
+                    class="sub-menu-dropdown absolute z-[999] text-[#00044C] text-[16px] font-medium font-family-medium pt-[6px] w-full left-[0]">
                     <div @mouseleave="subMenuMouseLeave('Features')" @mouseenter="subMenuMouseEnter('Features')"
                       class=" box-dropdown">
                       <div class="bg-[white] p-[30px] rounded-[5px] text-base">
@@ -40,7 +40,7 @@
                   <DownOutlined class="ml-2" />
                 </div>
                 <div :class="[subMenuDropdownShowFaucet === true ? 'block' : 'hidden']"
-                  class="sub-menu-dropdown absolute z-[999] text-[#00044C] text-[16px] font-medium font-family-medium w-[300px] pt-[20px] left-[0]">
+                  class="sub-menu-dropdown absolute z-[999] text-[#00044C] text-[16px] font-medium font-family-medium w-[300px] pt-[6px] left-[0]">
                   <div @mouseleave="subMenuMouseLeave('Faucet')" @mouseenter="subMenuMouseEnter('Faucet')"
                     class="box-dropdown">
                     <div class="bg-[white] p-[30px] rounded-[5px] text-base">
