@@ -294,8 +294,6 @@ const subMenuMouseLeave = (val) => {
     subMenuDropdownShowFaucet.value = false;
     subMenuDropdownHoverFaucet.value = false;
   }
-  // subMenuDropdownShow.value = false;
-  // subMenuDropdownHover.value = false;
 }
 
 const subMenuMouseEnter = (val) => {
