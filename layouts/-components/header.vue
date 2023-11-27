@@ -369,7 +369,7 @@ onUnmounted(() => {
 }
 
 .phone-scroll-box {
-  max-height: calc(100vh - 120px);
+  max-height: calc(100vh - 220px);
 }
 
 .choose-locale-active {
