@@ -93,7 +93,7 @@
       <div class="pb-[60px]">
         <div class="relative cursor-pointer select-none">
           <div class="h-[32px] text-base flex justify-between items-center hover:color-[#27FFB8]"
-            @click="subMenuDropdownShow = !subMenuDropdownShow, subMenuDropdownShowFaucet = false">
+            @click="subMenuDropdownShow = !subMenuDropdownShow">
             <div>Features</div>
             <img src="~/assets/images/chervon-right.svg" class="w-6 h-6 ml-2"
               :class="{ 'rotate-dropdown-icon-mobile': subMenuDropdownShow }">
@@ -102,7 +102,7 @@
             <Collapse :navigationList="navigationList" @handleChange="handleChange"></Collapse>
           </div>
           <div class="h-[32px] mt-[20px] mb-[20px] text-base flex justify-between items-center hover:color-[#27FFB8]"
-            @click="subMenuDropdownShowFaucet = !subMenuDropdownShowFaucet, subMenuDropdownShow = false">
+            @click="subMenuDropdownShowFaucet = !subMenuDropdownShowFaucet">
             <div>Faucet</div>
             <img src="~/assets/images/chervon-right.svg" class="w-6 h-6 ml-2"
               :class="{ 'rotate-dropdown-icon-mobile': subMenuDropdownShowFaucet }">
@@ -262,7 +262,6 @@ const menuMouseLeave = (val) => {
 
 const showDropdownMenu = () => {
   showPhoneMenu.value = true;
-  subMenuDropdownShow.value = false;
   document.body.style.overflow = 'hidden';
   document.body.style.position = 'fixed';
   document.documentElement.style.overflow = 'hidden';
@@ -271,6 +270,8 @@ const showDropdownMenu = () => {
 
 const closeDropdownMenu = () => {
   showPhoneMenu.value = false;
+  subMenuDropdownShow.value = false;
+  subMenuDropdownShowFaucet.value = false;
   document.body.style.overflow = 'auto';
   document.body.style.position = 'static';
   document.documentElement.style.overflow = 'auto';
@@ -369,7 +370,7 @@ onUnmounted(() => {
 }
 
 .phone-scroll-box {
-  max-height: calc(100vh - 120px);
+  max-height: calc(100vh - 220px);
 }
 
 .choose-locale-active {
