@@ -79,7 +79,7 @@
   </div>
   <div v-if="showPhoneMenu" class="phone-menu-h inset-x-0 fixed z-[300] py-4 bg-black">
     <div class="title-activity text-[12px] md:text-[14px]" @click="jumpNftActivity">
-      Build your team quickly, worry-free and at low cost >>
+      Become a Blast developer quickly and enjoy the process with Hamster. Register now >>
     </div>
     <div class="relative flex justify-start mt-[34px] px-5 ">
       <nuxt-link to="/">
@@ -329,7 +329,8 @@ const openNewUrl = (val, link) => {
 const jumpNftActivity = () => {
   // 无论生成和测试都是跳活动的线上网址
   // window.open('https://activity.hamsternet.io/')
-  window.location.href = '/community?location=2';
+  // window.location.href = '/community?location=2';
+  window.location.href = "/email?show=register";
 }
 
 onMounted(() => {
