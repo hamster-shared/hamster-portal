@@ -51,7 +51,7 @@
   </div>
   <div class="modal-error md:w-auto w-[90%] md:top-[130px] top-[100px]" v-if="isShowError">
     <div class="flex items-center py-[15px] px-[20px]">
-      <div>“You have submitted middleware information before, please do not submit it repeatedly.”</div>
+      <div>{{errMsg}}</div>
       <div class="ml-[20px] cursor-pointer" @click="isShowError = false">X</div>
     </div>
   </div>
@@ -67,7 +67,7 @@
   </div>
 </template>
 <script setup lang="ts">
-
+  const errMsg = ref('')
   const route = useRoute();
   const device = useDevice()
   const isDisabled = ref(true);
@@ -131,9 +131,10 @@ const handleSubmit = async () => {
     }
   }).catch((err) => {
     isDisabled.value = false;
-    console.log(err)
+    console.log(1111111111,err)
+    errMsg.value = "you have added the contact information, the manager will contact you soon, please wait"
     isShowError.value = true;
-  })
+  }) 
 }
 const getPlatform = async () => {
   const url = '/api/contact/platform';
