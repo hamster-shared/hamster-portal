@@ -1,7 +1,7 @@
 <template>
   <div class="absolute top-0 inset-x-0 z-[100] md:z-[1000]  bg-black" :class="{ 'bg-opacity-0': curMenu === '' }">
     <div class="title-activity text-[12px] md:text-[14px]" @click="jumpNftActivity">
-      Build your team quickly, worry-free and at low cost >>
+      Become a Blast developer quickly and enjoy the process with Hamster. Register now >>
     </div>
     <div class="m-auto mt-[53px]">
       <div class="container px-5 mx-auto pb-[16px] font-light font-family-light">

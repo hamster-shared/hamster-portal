@@ -6,7 +6,7 @@
           <div class="md:w-[45%] flex items-center">
             <div>
               <div class="text-center md:text-left">
-                <div class="mt-[10px] mb-[20px] text-[24px] md:text-[48px] leading-[36px] md:leading-[60px] font-extrabold font-family-extraBold text-[#FFFFFF]">Hamster empowers web3.0 Explorer to build their dreams</div>
+                <div class="mt-[10px] mb-[20px] text-[24px] md:text-[48px] leading-[36px] md:leading-[60px] font-extrabold font-family-extraBold text-[#FFFFFF]">Get notified as soon as the Blast mainnet launches</div>
               </div>
             </div>
           </div>
@@ -164,7 +164,7 @@ const getPlatform = async () => {
       window.addEventListener("mousedown", handleMouseDown)
     }
     if (route.query.show == 'topic') {
-      formData.topic = 'Join Hamster AI Agent Freelancer Platform Waitinglist';
+      formData.topic = 'Become a Blast developer quickly and enjoy the process with Hamster';
     }
   })
   onUnmounted(() => {
