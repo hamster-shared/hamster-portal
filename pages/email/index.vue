@@ -61,7 +61,7 @@
         <img src="~/assets/images/submit-suc.svg" class="h-[82px] w-[82px]"/>
       </div>
       <div class="my-[15px] font-bold">Friendly reminder</div>
-      <div class="text-[14px]">Thank you for submitting the information. Our team will contact you by email within three business days. Please pay attention to checking your email.</div>
+      <div class="text-[14px]">Thank you for submitting the information.  Our team will contact you soon. Please pay attention to checking your email.</div>
       <button class="btn-css mt-[30px] text-white" @click="isShowModal = false">Got it</button>
     </div>
   </div>
