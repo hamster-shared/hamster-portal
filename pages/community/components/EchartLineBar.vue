@@ -20,7 +20,7 @@ const xAxisData = ref(['Apr-21', 'May-21', 'Jun-21', 'Jul-21', 'Aug-21', 'Sep-21
 const monthAbbr = ref(['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']);
 const baseNumber = ref(189649);
 //月份数值
-const monthlyGrowthData = ref([ 0, 15175, 9911, 7854, 9509, 9723, 9856, 6991, 6442, 3932, 8875, 13165, 11696, 13010, 16297, 15475, 13356, 15212, 11390, 12535, 7915, 4814, 3771, 4300, 2863 ,2400 , 3600, 79117,96538,77264,126491]) 
+const monthlyGrowthData = ref([ 0, 15175, 9911, 7854, 9509, 9723, 9856, 6991, 6442, 3932, 8875, 13165, 11696, 13010, 16297, 15475, 13356, 15212, 11390, 12535, 7915, 4814, 3771, 4300, 2863 ,2400 , 3600, 79117,96538,77264,126491,60715]) 
 const totalNumber = ref([]);
 const baseYear = ref(2023);
 const baseMonth = ref(4);
@@ -34,7 +34,7 @@ const setGrowthData = () => {
   const timeOne = new Date()
   const year = timeOne.getFullYear();
   // const month = timeOne.getMonth(); //不显示当前月份数据
-  const month = 10; //数组需要手动赋值，同时赋值月份，当前数据对应的月份
+  const month = 11; //数组需要手动赋值，同时赋值月份，当前数据对应的月份
   let yearAbbr = year.toString().substring(2, 4);
   if (year === baseYear.value && month > baseMonth.value || year > baseYear.value) {
     if (year > baseYear.value) {
