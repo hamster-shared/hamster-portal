@@ -1,7 +1,21 @@
 <template>
-  <div class="flex menu-nav">
+  <div class="py-[16px] px-[45px] border border-solid border-x-0 border-t-0 border-[#EBECF4] flex">
+    <div v-for="item in navigationList" :key="item.id" class="mr-[30px]">
+      <div class="flex justify-center items-center px-[20px] py-[5px] hover:bg-[#F3F3F3] rounded-[19px]" :class="{'selectedOne' : levelOne == item.activityName}" @click="selectedOneClick(item)">
+        <img :src="item.introduce" class="w-[17px] h-[17px] mr-[10px]" />
+        <div class="text-[14px] font-medium text-[#000000] ">{{ item.activityName }}</div>
+      </div>
+    </div>
+  </div>
+  <div class="flex menu-nav px-[30px] pt-[20px] pb-[50px]">
     <div class="menu-nav-title">
-      <div v-for="item in navigationList" :key="item.id">
+      <div v-for="val in navChildrenList">
+        <div :class="selectedKeys === val.id ? 'selectedCss' : ''" @click="selectedClick(val)"
+          class="menu-nav-item-title text-[16px] text-[#051336] font-semibold cursor-pointer hover:text-[#3B4DF0] w-[196px] mb-[8px]">
+          {{
+            val.activityName }}</div>
+      </div>
+      <!-- <div v-for="item in navigationList" :key="item.id">
         <div class="flex h-[42px] leading-[42px]">
           <img :src="item.introduce" class="w-[17px] h-[17px] mt-[12px] mr-[10px]" />
           <div class="text-[16px] text-[#A1A4BB] ">{{ item.activityName }}</div>
@@ -13,9 +27,9 @@
             {{
               val.activityName }}</div>
         </div>
-      </div>
+      </div> -->
     </div>
-    <div class="pl-[16px]">
+    <div class="pl-[16px]" v-if="levelTwo">
       <navigation :levelOne="levelOne" :levelTwo="levelTwo"></navigation>
       <div class="grid grid-cols-3 gap-2 ">
         <div v-for="item in selectedData" :key="item.name" class="item ">
@@ -51,11 +65,17 @@ const selectedData = ref([]);
 const levelOne = ref('Smart Contract');
 const levelTwo = ref('Development');
 
-const navigationList = ref([])
-
-const selectedClick = (name, val) => {
+const navigationList = ref([]);
+const navChildrenList = ref([]);
+const selectedOneClick = (item) => {
+  levelOne.value = item.activityName;
+  navChildrenList.value = item.children;
+  selectedData.value = [];
+  levelTwo.value = '';
+}
+const selectedClick = (val) => {
   selectedKeys.value = val.id;
-  levelOne.value = name;
+  // levelOne.value = name;
   levelTwo.value = val.activityName;
   getMenuContentList(val.id)
 }
@@ -71,7 +91,13 @@ const getMenuList = async () => {
       res.data.forEach((item, idx) => {
         if (item.activityName === 'Features') {
           navigationList.value = item.children;
-          selectedKeys.value = navigationList.value[0].children[0].id;
+          navigationList.value.forEach((it, k) => {
+            if (it.activityName == levelOne.value) {
+              navChildrenList.value = it.children;
+              selectedKeys.value = it.children[0].id
+            }
+          })
+          // selectedKeys.value = navigationList.value[0].children[0].id;
           getMenuContentList(navigationList.value[0].children[0].id);
         }
       })
@@ -119,7 +145,7 @@ onBeforeMount(() => {
 .menu-nav-item-title {
   height: 42px;
   line-height: 42px;
-  padding: 0 20px 0;
+  padding: 0 32px 0;
   border-radius: 10px;
 }
 
@@ -165,5 +191,11 @@ onBeforeMount(() => {
   border-radius: 10px;
   background-color: #EAECFF;
   color: #3B4DF0;
+}
+.selectedOne{
+  background: #000000;
+  div{
+    color: #FFFFFF;
+  }
 }
 </style>
