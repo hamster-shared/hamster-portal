@@ -22,8 +22,7 @@
                     class="flex items-center px-4 menu-dropdown-hover h-[50px]">Features
                     <DownOutlined class="ml-2" />
                   </div>
-                  <!-- :class="[subMenuDropdownShow === true ? 'block' : 'hidden']" @todo-->
-                  <div 
+                  <div :class="[subMenuDropdownShow === true ? 'block' : 'hidden']"
                     class="sub-menu-dropdown absolute z-[999] text-[#00044C] text-[16px] font-medium font-family-medium pt-[10px] w-full left-[0]">
                     <div @mouseleave="subMenuMouseLeave('Features')" @mouseenter="subMenuMouseEnter('Features')"
                       class=" box-dropdown">

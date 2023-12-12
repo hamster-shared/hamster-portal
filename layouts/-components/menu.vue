@@ -72,6 +72,7 @@ const selectedOneClick = (item) => {
   navChildrenList.value = item.children;
   selectedData.value = [];
   levelTwo.value = '';
+  selectedKeys.value = '';
 }
 const selectedClick = (val) => {
   selectedKeys.value = val.id;
