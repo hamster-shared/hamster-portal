@@ -3,7 +3,7 @@
     <div class="title-activity text-[12px] md:text-[14px]" @click="jumpNftActivity">
       Become a Blast developer quickly and enjoy the process with Hamster. Register now >>
     </div>
-    <div class="m-auto mt-[53px]">
+    <div class="m-auto mt-[66px] md:mt-[53px]">
       <div class="container px-5 mx-auto pb-[16px] font-light font-family-light">
         <div class="relative flex flex-row items-center justify-between text-center text-white">
           <div class="absolute logo">
@@ -26,7 +26,7 @@
                     class="sub-menu-dropdown absolute z-[999] text-[#00044C] text-[16px] font-medium font-family-medium pt-[10px] w-full left-[0]">
                     <div @mouseleave="subMenuMouseLeave('Features')" @mouseenter="subMenuMouseEnter('Features')"
                       class=" box-dropdown">
-                      <div class="bg-[white] p-[30px] rounded-[5px] text-base">
+                      <div class="bg-[white] rounded-[5px] text-base">
                         <Menu></Menu>
                       </div>
                     </div>
@@ -81,7 +81,7 @@
     <div class="title-activity text-[12px] md:text-[14px]" @click="jumpNftActivity">
       Become a Blast developer quickly and enjoy the process with Hamster. Register now >>
     </div>
-    <div class="relative flex justify-start mt-[34px] px-5 ">
+    <div class="relative flex justify-start mt-[50px] px-5 ">
       <nuxt-link to="/">
         <img class="h-4 md:h-[24px]" src="~/assets/images/header.png">
       </nuxt-link>
@@ -176,7 +176,7 @@ const navLinks = computed(() => [
   // { title: 'News', path: "https://hamsternet.medium.com/", target: '_bank' },
 ])
 
-const subMenuDropdownShow = ref(false)
+const subMenuDropdownShow = ref(false) 
 const subMenuDropdownHover = ref(false)
 const subMenuDropdownShowFaucet = ref(false);
 const subMenuDropdownHoverFaucet = ref(false);
