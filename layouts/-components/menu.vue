@@ -70,9 +70,9 @@ const navChildrenList = ref([]);
 const selectedOneClick = (item) => {
   levelOne.value = item.activityName;
   navChildrenList.value = item.children;
-  selectedData.value = [];
-  levelTwo.value = '';
-  selectedKeys.value = '';
+  levelTwo.value = item.children[0].activityName;
+  selectedKeys.value = item.children[0].id;
+  getMenuContentList(selectedKeys.value);
 }
 const selectedClick = (val) => {
   selectedKeys.value = val.id;
@@ -99,7 +99,7 @@ const getMenuList = async () => {
             }
           })
           // selectedKeys.value = navigationList.value[0].children[0].id;
-          getMenuContentList(navigationList.value[0].children[0].id);
+          getMenuContentList(selectedKeys.value);
         }
       })
     }
