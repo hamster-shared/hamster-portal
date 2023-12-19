@@ -93,7 +93,8 @@ const getMenuList = async () => {
         if (item.activityName === 'Features') {
           navigationList.value = item.children;
           navigationList.value.forEach((it, k) => {
-            if (it.activityName == levelOne.value) {
+            if (k == 0 ) {
+              levelOne.value = it.activityName;
               navChildrenList.value = it.children;
               selectedKeys.value = it.children[0].id
             }

@@ -23,9 +23,9 @@
                     <DownOutlined class="ml-2" />
                   </div> 
                   <div :class="[subMenuDropdownShow === true ? 'block' : 'hidden']"
-                    class="sub-menu-dropdown absolute z-[999] text-[#00044C] text-[16px] font-medium font-family-medium pt-[10px] w-full left-[0]">
+                    class="sub-menu-dropdown absolute z-[999] text-[#00044C] text-[16px] font-medium font-family-medium w-full left-[0]">
                     <div @mouseleave="subMenuMouseLeave('Features')" @mouseenter="subMenuMouseEnter('Features')"
-                      class=" box-dropdown">
+                      class=" box-dropdown pt-[10px]">
                       <div class="bg-[white] rounded-[5px] text-base">
                         <Menu></Menu>
                       </div>
@@ -40,9 +40,9 @@
                   <DownOutlined class="ml-2" />
                 </div>
                 <div :class="[subMenuDropdownShowFaucet === true ? 'block' : 'hidden']"
-                  class="sub-menu-dropdown absolute z-[999] text-[#00044C] text-[16px] font-medium font-family-medium w-[300px] pt-[10px] left-[0]">
+                  class="sub-menu-dropdown absolute z-[999] text-[#00044C] text-[16px] font-medium font-family-medium w-[300px] left-[0]">
                   <div @mouseleave="subMenuMouseLeave('Faucet')" @mouseenter="subMenuMouseEnter('Faucet')"
-                    class="box-dropdown">
+                    class="box-dropdown pt-[10px]">
                     <div class="bg-[white] p-[30px] rounded-[5px] text-base">
                       <div v-for="(it, index) in faucetList" :key="it.name" @click="clickHref(it.address)">
                         <a :href="it.address" target="_blank" class="flex faucet-list"
@@ -296,6 +296,7 @@ const subMenuMouseLeave = (val) => {
     subMenuDropdownShowFaucet.value = false;
     subMenuDropdownHoverFaucet.value = false;
   }
+  console.log("subMenuMouseLeave subMenuDropdownShow:",subMenuDropdownShow.value);
 }
 
 const subMenuMouseEnter = (val) => {
@@ -304,6 +305,7 @@ const subMenuMouseEnter = (val) => {
   } else {
     subMenuDropdownHoverFaucet.value = true
   }
+  console.log("subMenuMouseEnter subMenuDropdownHover:",subMenuDropdownHover.value);
 }
 
 function handleScroll() {
