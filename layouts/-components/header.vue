@@ -296,7 +296,6 @@ const subMenuMouseLeave = (val) => {
     subMenuDropdownShowFaucet.value = false;
     subMenuDropdownHoverFaucet.value = false;
   }
-  console.log("subMenuMouseLeave subMenuDropdownShow:",subMenuDropdownShow.value);
 }
 
 const subMenuMouseEnter = (val) => {
@@ -305,7 +304,6 @@ const subMenuMouseEnter = (val) => {
   } else {
     subMenuDropdownHoverFaucet.value = true
   }
-  console.log("subMenuMouseEnter subMenuDropdownHover:",subMenuDropdownHover.value);
 }
 
 function handleScroll() {
