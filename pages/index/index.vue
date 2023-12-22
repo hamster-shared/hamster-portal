@@ -388,7 +388,7 @@
         </div>
       </div>
       <div v-if="$device.isMobile" class="mt-[40px] flex">
-        <div v-for="item in 5" :id="`div-quotes-num${item}`" :class="{ 'add-item-style': item === 1 }"
+        <div v-for="item in 6" :id="`div-quotes-num${item}`" :class="{ 'add-item-style': item === 1 }"
           class="box-num-item"></div>
       </div>
       <div v-if="!$device.isMobile" class="relative overflow-hidden top-0 bottom-0 right-0 left-0 h-[50px] mt-[50px]">
