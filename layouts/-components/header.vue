@@ -1,9 +1,9 @@
 <template>
   <div class="absolute top-0 inset-x-0 z-[100] md:z-[1000]  bg-black" :class="{ 'bg-opacity-0': curMenu === '' }">
     <div class="title-activity text-[12px] md:text-[14px]" @click="jumpNftActivity">
-      Build your team quickly, worry-free and at low cost >>
+      Become a Blast developer quickly and enjoy the process with Hamster. Register now >>
     </div>
-    <div class="m-auto mt-[53px]">
+    <div class="m-auto mt-[66px] md:mt-[53px]">
       <div class="container px-5 mx-auto pb-[16px] font-light font-family-light">
         <div class="relative flex flex-row items-center justify-between text-center text-white">
           <div class="absolute logo">
@@ -21,12 +21,12 @@
                     :class="{ 'menu-dropdown-opened': subMenuDropdownShow }"
                     class="flex items-center px-4 menu-dropdown-hover h-[50px]">Features
                     <DownOutlined class="ml-2" />
-                  </div>
+                  </div> 
                   <div :class="[subMenuDropdownShow === true ? 'block' : 'hidden']"
-                    class="sub-menu-dropdown absolute z-[999] text-[#00044C] text-[16px] font-medium font-family-medium pt-[10px] w-full left-[0]">
+                    class="sub-menu-dropdown absolute z-[999] text-[#00044C] text-[16px] font-medium font-family-medium w-full left-[0]">
                     <div @mouseleave="subMenuMouseLeave('Features')" @mouseenter="subMenuMouseEnter('Features')"
-                      class=" box-dropdown">
-                      <div class="bg-[white] p-[30px] rounded-[5px] text-base">
+                      class=" box-dropdown pt-[10px]">
+                      <div class="bg-[white] rounded-[5px] text-base">
                         <Menu></Menu>
                       </div>
                     </div>
@@ -40,9 +40,9 @@
                   <DownOutlined class="ml-2" />
                 </div>
                 <div :class="[subMenuDropdownShowFaucet === true ? 'block' : 'hidden']"
-                  class="sub-menu-dropdown absolute z-[999] text-[#00044C] text-[16px] font-medium font-family-medium w-[300px] pt-[10px] left-[0]">
+                  class="sub-menu-dropdown absolute z-[999] text-[#00044C] text-[16px] font-medium font-family-medium w-[300px] left-[0]">
                   <div @mouseleave="subMenuMouseLeave('Faucet')" @mouseenter="subMenuMouseEnter('Faucet')"
-                    class="box-dropdown">
+                    class="box-dropdown pt-[10px]">
                     <div class="bg-[white] p-[30px] rounded-[5px] text-base">
                       <div v-for="(it, index) in faucetList" :key="it.name" @click="clickHref(it.address)">
                         <a :href="it.address" target="_blank" class="flex faucet-list"
@@ -79,9 +79,9 @@
   </div>
   <div v-if="showPhoneMenu" class="phone-menu-h inset-x-0 fixed z-[300] py-4 bg-black">
     <div class="title-activity text-[12px] md:text-[14px]" @click="jumpNftActivity">
-      Build your team quickly, worry-free and at low cost >>
+      Become a Blast developer quickly and enjoy the process with Hamster. Register now >>
     </div>
-    <div class="relative flex justify-start mt-[34px] px-5 ">
+    <div class="relative flex justify-start mt-[50px] px-5 ">
       <nuxt-link to="/">
         <img class="h-4 md:h-[24px]" src="~/assets/images/header.png">
       </nuxt-link>
@@ -176,7 +176,7 @@ const navLinks = computed(() => [
   // { title: 'News', path: "https://hamsternet.medium.com/", target: '_bank' },
 ])
 
-const subMenuDropdownShow = ref(false)
+const subMenuDropdownShow = ref(false) 
 const subMenuDropdownHover = ref(false)
 const subMenuDropdownShowFaucet = ref(false);
 const subMenuDropdownHoverFaucet = ref(false);
@@ -329,7 +329,8 @@ const openNewUrl = (val, link) => {
 const jumpNftActivity = () => {
   // 无论生成和测试都是跳活动的线上网址
   // window.open('https://activity.hamsternet.io/')
-  window.location.href = '/community?location=2';
+  // window.location.href = '/community?location=2';
+  window.location.href = "/email?show=register";
 }
 
 onMounted(() => {

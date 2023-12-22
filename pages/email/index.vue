@@ -6,7 +6,11 @@
           <div class="md:w-[45%] flex items-center">
             <div>
               <div class="text-center md:text-left">
-                <div class="mt-[10px] mb-[20px] text-[24px] md:text-[48px] leading-[36px] md:leading-[60px] font-extrabold font-family-extraBold text-[#FFFFFF]">Hamster empowers web3.0 Explorer to build their dreams</div>
+                <div class="mt-[10px] mb-[20px] text-[24px] md:text-[48px] leading-[36px] md:leading-[60px] font-extrabold font-family-extraBold text-[#FFFFFF]">
+                  
+                  <label v-if="route.query.show == 'register'">Get notified as soon as the Blast mainnet launches</label>
+                  <label v-else>Hamster empowers web3.0 Explorer to build their dreams</label>
+                </div>
               </div>
             </div>
           </div>
@@ -47,7 +51,7 @@
   </div>
   <div class="modal-error md:w-auto w-[90%] md:top-[130px] top-[100px]" v-if="isShowError">
     <div class="flex items-center py-[15px] px-[20px]">
-      <div>“You have submitted middleware information before, please do not submit it repeatedly.”</div>
+      <div>{{errMsg}}</div>
       <div class="ml-[20px] cursor-pointer" @click="isShowError = false">X</div>
     </div>
   </div>
@@ -57,13 +61,13 @@
         <img src="~/assets/images/submit-suc.svg" class="h-[82px] w-[82px]"/>
       </div>
       <div class="my-[15px] font-bold">Friendly reminder</div>
-      <div class="text-[14px]">Thank you for submitting the information. Our team will contact you by email within three business days. Please pay attention to checking your email.</div>
+      <div class="text-[14px]">Thank you for submitting the information.  Our team will contact you soon. Please pay attention to checking your email.</div>
       <button class="btn-css mt-[30px] text-white" @click="isShowModal = false">Got it</button>
     </div>
   </div>
 </template>
 <script setup lang="ts">
-
+  const errMsg = ref('')
   const route = useRoute();
   const device = useDevice()
   const isDisabled = ref(true);
@@ -127,9 +131,10 @@ const handleSubmit = async () => {
     }
   }).catch((err) => {
     isDisabled.value = false;
-    console.log(err)
+    console.log(1111111111,err)
+    errMsg.value = "you have added the contact information, the manager will contact you soon, please wait"
     isShowError.value = true;
-  })
+  }) 
 }
 const getPlatform = async () => {
   const url = '/api/contact/platform';
@@ -165,6 +170,8 @@ const getPlatform = async () => {
     }
     if (route.query.show == 'topic') {
       formData.topic = 'Join Hamster AI Agent Freelancer Platform Waitinglist';
+    } else if (route.query.show == 'register') {
+      formData.topic = 'Become a Blast developer quickly and enjoy the process with Hamster';
     }
   })
   onUnmounted(() => {
