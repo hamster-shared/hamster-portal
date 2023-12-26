@@ -1,7 +1,7 @@
 <template>
   <div class="email-sub py-[40px] md:py-[90px] px-5">
     <img src="~/assets/images/emailSub.png" class="w-[50px] mx-auto" />
-    <div class="font-extrabold text-[16px] md:text-[36px] leading-[34px] md:leading-[74px]   ">
+    <div class="font-extrabold text-[18px] md:text-[36px] leading-[34px] md:leading-[74px]   ">
       <span class="font-extrabold email-title font-family-extraBold"> Never
         Miss an updates</span>
 
@@ -14,11 +14,10 @@
       <div class="relative w-[285px] mr-[20px]">
         <input placeholder="Enter your Email address" type="text" v-model="addressValue"
           :class="{ 'input-error': emailErr }" />
-        <div v-if="emailErr" class="input-error-label text-[12px]">{{ errMessage }}</div>
+        <div v-if="emailErr" class="input-error-label text-[14px] ">{{ errMessage }}</div>
       </div>
-
       <button
-        class="sen-btn-css py-[8px] px-[20px] min-w-[120px] md:px-[40px] !text-[8px] md:!text-[14px] font-bold mf:h-[47px]"
+        class="sen-btn-css py-[8px] px-[12px] min-w-[140px] md:px-[40px] !text-[11px] md:!text-[14px] font-bold mf:h-[47px]"
         @click="sendEmailAddress" :disabled="isLoading">SEND ME
         UPDATES</button>
     </div>
@@ -123,7 +122,8 @@ const sendEmailAddress = () => {
   border-radius: 8px;
   border: 1px solid #EBEBEB;
   outline: none;
-  font-weight: 300;
+  // font-weight: 300;
+  font-size: 14px;
   font-family: Montserrat-Light, Montserrat;
   color: #000000;
 }
