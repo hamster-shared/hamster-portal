@@ -58,9 +58,9 @@ const sendEmailAddress = () => {
       }).then((res) => {
         console.log(res)
         isLoading.value = false;
-        message.success(`Success`);
+        message.success(`Subscription Success`);
       }).catch((err) => {
-        message.error('Failed')
+        message.error('Subscription Failed')
         isLoading.value = false
       })
     }
