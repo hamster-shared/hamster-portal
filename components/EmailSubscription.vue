@@ -7,14 +7,14 @@
 
     </div>
     <div
-      class="mb-[20px] md:mb-[30px] text-[#FFFFFF] leading-[16px] md:leading-[35px] text-[12px] md:text-[18px] font-light font-family-medium">
+      class="mb-[20px] md:mb-[30px] text-[#FFFFFF] leading-[16px] md:leading-[35px] text-[12px] md:text-[18px] font-thin font-family-medium">
       Stay up to date on our product features and latest updates.
     </div>
     <div class="flex justify-center">
       <div class="relative w-[285px] mr-[20px]">
         <input placeholder="Enter your Email address" type="text" v-model="addressValue"
           :class="{ 'input-error': emailErr }" />
-        <div v-if="emailErr" class="input-error-label text-[12px] md:text-[14px]">{{ errMessage }}</div>
+        <div v-if="emailErr" class="input-error-label text-[12px]">{{ errMessage }}</div>
       </div>
 
       <button
@@ -58,9 +58,9 @@ const sendEmailAddress = () => {
       }).then((res) => {
         console.log(res)
         isLoading.value = false;
-        message.success(`Subscription Success`);
+        message.success(`Subscription successful, thank you for your interest!`);
       }).catch((err) => {
-        message.error('Subscription Failed')
+        message.error('Subscription Failed!')
         isLoading.value = false
       })
     }
@@ -98,9 +98,9 @@ const sendEmailAddress = () => {
 }
 
 .input-error-label {
-  color: red;
+  color: #FF2900;
   position: absolute;
-  top: 40px;
+  top: 46px;
   left: 0;
 }
 
