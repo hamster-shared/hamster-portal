@@ -108,10 +108,11 @@
         </div>
       </div>
     </div>
+    <EmailSubscriptionVue></EmailSubscriptionVue>
   </div>
 </template>
 <script setup>
-
+import EmailSubscriptionVue from '~~/components/EmailSubscription.vue';
 const alineLink = ref('')
 const gotoAline = () => {
   window.open(alineLink.value);
