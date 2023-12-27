@@ -45,6 +45,7 @@ export function configStyleImportPlugin() {
             'skeleton-paragraph',
             'skeleton-image',
             'skeleton-button',
+            'button',
           ];
 
           const replaceList = {
@@ -56,7 +57,7 @@ export function configStyleImportPlugin() {
             'input-password': 'input',
             'input-search': 'input',
             'input-group': 'input',
-            textarea: 'input',
+            'textarea': 'input',
             'radio-group': 'radio',
             'checkbox-group': 'checkbox',
             'layout-sider': 'layout',
