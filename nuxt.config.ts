@@ -34,7 +34,7 @@ export default defineNuxtConfig({
     contractProxyTarget: "https://media.c.alpha.hamsternet.io",
     navbarProxyTarget:"http://61.172.179.6:30317",
     navbarContentProxyTarget:"http://61.172.179.6:30317",
-    subscribeProxyTarget:"https://media.c.alpha.hamsternet.io",
+    subscribeProxyTarget:"http://61.172.179.6:30317",
 
     // hamsterProxyTarget: "http://183.66.65.207:8003",
     public: {
