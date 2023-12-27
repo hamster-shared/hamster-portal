@@ -388,7 +388,7 @@
         </div>
       </div>
       <div v-if="$device.isMobile" class="mt-[40px] flex">
-        <div v-for="item in 5" :id="`div-quotes-num${item}`" :class="{ 'add-item-style': item === 1 }"
+        <div v-for="item in 6" :id="`div-quotes-num${item}`" :class="{ 'add-item-style': item === 1 }"
           class="box-num-item"></div>
       </div>
       <div v-if="!$device.isMobile" class="relative overflow-hidden top-0 bottom-0 right-0 left-0 h-[50px] mt-[50px]">
@@ -404,7 +404,8 @@
       </div>
     </div>
 
-    <StartBuild></StartBuild>
+    <!-- <StartBuild></StartBuild> -->
+    <EmailSubscriptionVue></EmailSubscriptionVue>
 
     <div class="container px-5 mx-auto">
       <div class="mb-8 text-center md:mb-0">
@@ -446,6 +447,7 @@ import { ref, onMounted, computed, onUnmounted } from 'vue'
 import DefaultLayout from "~/layouts/default.vue"
 import Footer from "~/layouts/-components/footer.vue"
 import StartBuild from "./components/StartBuild.vue";
+import EmailSubscriptionVue from '~~/components/EmailSubscription.vue';
 import 'vue3-carousel/dist/carousel.css';
 import 'animate.css';
 
@@ -510,6 +512,9 @@ const scrollQuotesR = ref(false);
 const setQuotesList = () => {
   if (isMobile) {
     showQuotesList.value = quotesList.value
+    // 把第三条数据换到第一个，在手机端第一个展示
+    showQuotesList.value.splice(2, 1, ...showQuotesList.value.splice(0, 1, showQuotesList.value[2]))
+    // console.log(showQuotesList.value, 'showQuotesList.value')
   } else {
     showQuotesImgList.value = quotesList.value.slice(0, 5)
     showQuotesList.value = showQuotesImgList.value.slice(1, 4)
@@ -520,8 +525,6 @@ const addQuotesScroll = () => {
 
     // e.target.scrollLeft 滚动条距离左边的距离（ps: 只有距离左边的和距离上面的距离，没有右边和下面的距离。）
     // e.target.clientWidth  客户端显示宽度，高度大概同理，当距离左边的长度等于滚动条长度减去显示宽度即滚动到了最右边
-
-
     let left = e.target.scrollLeft;
     let width = e.target.clientWidth;
     let divNum = Math.round(left / width);
@@ -546,6 +549,7 @@ const getQuotesName = (name, keyVal, type) => {
     quotesList.value.filter(function (val, key) {
       if (val.imgName === name) curKey = key;
     })
+    // 2023/12/25 新增一条数据，quotesList按6条数据计算
     if (curKey - 2 < 0) {
       // quotesList 注释了一条，将 slice(4+curKey,6) 改为 slice(3+curKey,5)
       showQuotesImgList.value = quotesList.value.slice(4 + curKey, 6)
@@ -1187,8 +1191,8 @@ const getArticles = async () => {
 }
 
 .box-num-item {
-  // width: 16.66%;
-  width: 20%;
+  width: 16.66%;
+  // width: 20%;
   height: 3px;
   background: #EAEAEA;
 }

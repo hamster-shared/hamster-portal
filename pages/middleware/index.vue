@@ -118,9 +118,10 @@
     </div>
     <button class="btn-css mt-[30px] md:mt-[80px]" @click="goSubmit">Submit your middleware</button>
   </div>
+  <EmailSubscriptionVue></EmailSubscriptionVue>
 </template>
-<script setup>
-
+<script setup lang="ts">
+import EmailSubscriptionVue from '~~/components/EmailSubscription.vue';
 const { getImageURL } = useAssets()
 
 const subDesc = ref({
@@ -296,4 +297,5 @@ onMounted(() => {
     left: -667px;
     top: 0px;
   }
-}</style>
+}
+</style>
