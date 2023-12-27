@@ -1,7 +1,7 @@
 <template>
   <div class="email-sub py-[40px] md:py-[90px] px-5">
     <img src="~/assets/images/emailSub.png" class="w-[50px] mx-auto" />
-    <div class="font-extrabold text-[18px] md:text-[36px] leading-[34px] md:leading-[74px]   ">
+    <div class="font-extrabold text-[18px] md:text-[36px] leading-[34px] md:leading-[74px] ">
       <span class="font-extrabold email-title font-family-extraBold"> Never
         Miss an updates</span>
 
@@ -32,7 +32,7 @@ const emailErr = ref(false);
 const isLoading = ref(false);
 
 
-const sendEmailAddress = () => {
+const sendEmailAddress = async () => {
   if (!addressValue.value) {
     emailErr.value = true;
     errMessage.value = 'Please Enter Your Email！'
@@ -51,34 +51,27 @@ const sendEmailAddress = () => {
         email: addressValue.value
       }
 
-      $fetch(url, {
+      fetch(url, {
         method: "POST",
-        body: data
-      }).then((res) => {
-        console.log(res)
-        isLoading.value = false;
-        message.success(`Subscription successful, thank you for your interest!`);
-      }).catch((err) => {
-        message.error('Subscription Failed!')
-        isLoading.value = false
-      })
+        body: JSON.stringify(data),
+        headers: new Headers({
+          'Content-Type': 'application/json'
+        })
+      }).then((response) => response.json())
+        .then((data) => {
+          isLoading.value = false;
+          console.log("Success:", data);
+          if (data.code === 200) {
+            message.success('Subscription successful, thank you for your interest!')
+          } else {
+            message.error(data.message)
+          }
+        })
+        .catch((error) => {
+          isLoading.value = false;
+          console.error("Error:", error);
+        });
     }
-    // const url = '/api/subscribe/email';
-    // const data = {
-    //   email: addressValue.value
-    // }
-
-    // $fetch(url, {
-    //   method: "POST",
-    //   body: data
-    // }).then((res) => {
-    //   console.log(res)
-    //   isLoading.value = false;
-    //   message.success(`${res.message}`);
-    // }).catch((err) => {
-    //   isLoading.value = false;
-    //   message.error('Failed')
-    // })
   }
 }
 
