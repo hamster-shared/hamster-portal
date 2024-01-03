@@ -2,11 +2,11 @@
   <div  class="absolute top-0 inset-x-0 z-[100] md:z-[1000]  bg-black" :class="{ 'bg-opacity-0': curMenu === '' }">
 
     <div class="title-activity text-[12px] md:text-[14px]">
-      <Vue3Marquee :pause-on-hover="true">
-        <div class="mx-5 md:mx-0 flex cursor-pointer h-[30px] md:h-[50px] py-1 md:py-3" v-for="(item,index) in headerBannerInfo" :key="index">
-          <img :src="getImageURL(`header-banner-${item.number}.png`)" class="h-4"/>
-          <div class="mx-1 align-middle">{{ item.content }}</div>
-          <img src="~/assets/images/header-banner-arrow.png" class="h-[10px] mt-1 md:h-3"/>
+      <Vue3Marquee :pause-on-hover="true" :clone="true">
+        <div class="mx-5 items-center md:mx-[40px] flex cursor-pointer h-[30px] md:h-[40px] py-1 md:py-3" v-for="(item,index) in headerBannerInfo" :key="index">
+          <img :src="getImageURL(`header-banner-${item.number}.png`)" class="h-[20px]"/>
+          <div class="mx-2 align-middle text-[16px] font-medium">{{ item.content }}</div>
+          <img src="~/assets/images/header-banner-arrow.png" class="h-[14px]"/>
         </div>
       </Vue3Marquee>
     </div>
@@ -384,9 +384,9 @@ onUnmounted(() => {
   font-weight: bold;
 }
 
-.vue3-marquee.horizontal>.marquee {
+/* .vue3-marquee.horizontal>.marquee {
   justify-content: space-around;
-}
+} */
 
 .phone-menu-h {
   height: 100vh;
