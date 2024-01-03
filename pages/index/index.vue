@@ -6,10 +6,10 @@
         <div class="md:flex md:items-center relative md:mt-[80px]">
           <div class=" mt-[110px] md:mt-0">
             <div class="text-2xl font-extrabold md:w-[970px] md:text-[50px] md:leading-[74px] font-family-extraBold">
-              Build Web3.0 collaboratively with the power of AI, fast.
+              Build Web3.0 collaboratively <br />with the power of AI, fast.
             </div>
             <div
-              class="mt-[20px] mb-[60px] text-[16px] md:text-[18px] md:w-[970px] leading-[21px] md:leading-[30px] font-medium md:font-light text-[#999999] ">
+              class="mt-[20px] mb-[60px] text-[16px] md:text-[18px] md:w-[970px] leading-[21px] md:leading-[30px] font-medium text-[#999999] ">
               One-stop Development Automation Experience with Process Safety and Privacy</div>
             <div v-if="false" class="hidden mb-[35px] md:block">
               <div class="flex ">
@@ -43,7 +43,7 @@
                 <img src="~/assets/images/banner-right-arrow.png"  class="h-[16px] inline-block ml-1"/>
               </button>
               <button
-                class="btn-css text-left md:text-center !px-[20px] md:!px-[40px] mt-[30px] md:mt-0 md:ml-[20px] !text-[#FFFFF] !bg-transparent hover:!text-[#6C73FF] active:!text-[#3F48FF]"
+                class="btn-css text-left md:text-center !px-[20px] md:!px-[40px] mt-[30px] md:mt-0 md:ml-[20px] !text-[#FFFFF] hover:!text-[#6C73FF] active:!text-[#3F48FF]"
                 @click="gotoEmail">
                 Join Hamster AI Agent Freelancer Platform Waitinglist
               </button>
@@ -739,7 +739,7 @@ const getArticles = async () => {
 }
 
 .top-bg {
-  background: url("~/assets/images/home-top-bg-1.jpg") no-repeat center #000000;
+  background: url("~/assets/images/home-top-bg-1.png") no-repeat center #000000;
   // background: url("~/assets/images/home-top-bg.png") no-repeat 70% #000000;
   background-size: 100% 100%;
 }
@@ -793,6 +793,7 @@ const getArticles = async () => {
   font-size: 16px;
   font-weight: 500;
   padding: 8px 40px;
+  height: 65px;
 }
 
 .banner-btn-gradient {
@@ -1260,7 +1261,7 @@ const getArticles = async () => {
 
 <style scoped>
 .top-card-border {
-  @apply px-[20px] md:px-[30px] min-h-[70px] md:min-h-[50px] mt-[30px] md:mt-[20px] rounded-[10px] md:rounded-[100px];
+  @apply px-[20px] md:px-[30px] min-h-[70px] md:min-h-[50px] mt-[30px] rounded-[10px] md:rounded-[100px];
 }
 
 .logo-title {
