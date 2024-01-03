@@ -38,7 +38,7 @@
               </div>
             </div>
             <div class="md:flex">
-              <button class="banner-btn-gradient" @click="gotoAline">
+              <button class="banner-btn-gradient md:w-[317px]" @click="gotoAline">
                 Start Building
                 <img src="~/assets/images/banner-right-arrow.png"  class="h-[16px] inline-block ml-1"/>
               </button>
@@ -48,7 +48,7 @@
                 Join Hamster AI Agent Freelancer Platform Waitinglist
               </button>
             </div>
-            <div class="mt-[60px] md:mt-[100px] text-[14px] md:text-[16px] font-light font-family-light">Powered by 29yrs
+            <div class="mt-[60px] md:mt-[100px] text-[14px] md:text-[16px] font-thin font-family-light">Powered by 29yrs
               fintech experience elite & 6000+ IT engineers of listed company</div>
             <!-- <div class="md:flex">
               <div class="flex items-center top-card-border">
@@ -754,7 +754,7 @@ const getArticles = async () => {
   overflow: hidden;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(30px);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 0.5px solid #5d5b5b;
 }
 
 .top-card-title {
@@ -781,7 +781,7 @@ const getArticles = async () => {
 
 .top-card-content {
   font-size: 14px;
-  font-weight: 300;
+  font-weight: 100;
   font-family: Montserrat-Light, Montserrat;
 }
 
@@ -798,7 +798,6 @@ const getArticles = async () => {
 
 .banner-btn-gradient {
   background: linear-gradient(270deg, #00E5D7 0%, #5C65FF 100%);
-  border: 1px solid #5c64ff;
   border-radius: 5px;
   font-family: Montserrat-Bold, Montserrat;
   font-size: 21px;
@@ -1261,7 +1260,7 @@ const getArticles = async () => {
 
 <style scoped>
 .top-card-border {
-  @apply px-[20px] md:px-[30px] min-h-[70px] md:min-h-[50px] mt-[30px] rounded-[10px] md:rounded-[100px];
+  @apply px-[20px] md:px-[30px] min-h-[70px] md:min-h-[50px] mt-[20px] rounded-[10px] md:rounded-[100px];
 }
 
 .logo-title {
