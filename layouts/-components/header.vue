@@ -1,8 +1,16 @@
 <template>
-  <div class="absolute top-0 inset-x-0 z-[100] md:z-[1000]  bg-black" :class="{ 'bg-opacity-0': curMenu === '' }">
-    <div class="title-activity text-[12px] md:text-[14px]" @click="jumpNftActivity">
-      Become a Blast developer quickly and enjoy the process with Hamster. Register now >>
+  <div  class="absolute top-0 inset-x-0 z-[100] md:z-[1000]  bg-black" :class="{ 'bg-opacity-0': curMenu === '' }">
+
+    <div class="title-activity text-[12px] md:text-[14px]">
+      <Vue3Marquee :pause-on-hover="true" :clone="true">
+        <div class="mx-5 items-center md:mx-[40px] flex cursor-pointer h-[30px] md:h-[40px] py-1 md:py-3" v-for="(item,index) in headerBannerInfo" :key="index" @click="jumpNftActivity(item.path)">
+          <img :src="getImageURL(`header-banner-${item.number}.png`)" class="h-[20px]"/>
+          <div class="mx-2 align-middle text-[16px] font-medium">{{ item.content }}</div>
+          <img src="~/assets/images/header-banner-arrow.png" class="h-[14px]"/>
+        </div>
+      </Vue3Marquee>
     </div>
+
     <div class="m-auto mt-[66px] md:mt-[53px]">
       <div class="container px-5 mx-auto pb-[16px] font-light font-family-light">
         <div class="relative flex flex-row items-center justify-between text-center text-white">
@@ -78,9 +86,7 @@
     </div>
   </div>
   <div v-if="showPhoneMenu" class="phone-menu-h inset-x-0 fixed z-[300] py-4 bg-black">
-    <div class="title-activity text-[12px] md:text-[14px]" @click="jumpNftActivity">
-      Become a Blast developer quickly and enjoy the process with Hamster. Register now >>
-    </div>
+
     <div class="relative flex justify-start mt-[50px] px-5 ">
       <nuxt-link to="/">
         <img class="h-4 md:h-[24px]" src="~/assets/images/header.png">
@@ -174,6 +180,19 @@ const navLinks = computed(() => [
   { title: 'About', path: "/about", target: '_self' },
   { title: t('header.docs'), path: "https://hamsternet.io/docs/", target: '_bank' },
   // { title: 'News', path: "https://hamsternet.medium.com/", target: '_bank' },
+])
+
+const headerBannerInfo = ref([
+  {
+    number: 1,
+    content:'Build your team quickly, worry-free and at low cost',
+    path: 1
+  },
+  {
+    number: 2,
+    content:'Become a Blast developer quickly and enjoy the process with Hamster',
+    path: 2
+  }
 ])
 
 const subMenuDropdownShow = ref(false) 
@@ -326,11 +345,15 @@ const openNewUrl = (val, link) => {
   }
 }
 
-const jumpNftActivity = () => {
+const jumpNftActivity = (path) => {
   // 无论生成和测试都是跳活动的线上网址
   // window.open('https://activity.hamsternet.io/')
   // window.location.href = '/community?location=2';
-  window.location.href = "/email?show=register";
+  if (path == 2){
+    window.location.href = "/email?show=register";
+  } else if(path == 1) {
+    window.location.href = "/community?banner=header"
+  }
 }
 
 onMounted(() => {
@@ -361,10 +384,13 @@ onUnmounted(() => {
   position: absolute;
   top: 0;
   z-index: 99999;
-  cursor: pointer;
-  padding: 8px 0;
+  /* padding: 10px 0; */
   font-weight: bold;
 }
+
+/* .vue3-marquee.horizontal>.marquee {
+  justify-content: space-around;
+} */
 
 .phone-menu-h {
   height: 100vh;

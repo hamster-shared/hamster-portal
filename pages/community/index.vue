@@ -87,6 +87,13 @@ onMounted(() => {
 
   }
 
+  setTimeout(() => {
+    if(route.query.banner == 'header'){
+      document.documentElement.scrollTop = 1350
+    }
+  },100);
+  
+
 })
 </script>
 <style scoped lang="less"> .community-top-bg {

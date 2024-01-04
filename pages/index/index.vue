@@ -6,10 +6,10 @@
         <div class="md:flex md:items-center relative md:mt-[80px]">
           <div class=" mt-[110px] md:mt-0">
             <div class="text-2xl font-extrabold md:w-[970px] md:text-[50px] md:leading-[74px] font-family-extraBold">
-              Build Web3.0 collaboratively with the power of AI, fast.
+              Build Web3.0 collaboratively <br />with the power of AI, fast.
             </div>
             <div
-              class="mt-5 mb-6 text-[16px] md:text-[21px] md:w-[500px] leading-[21px] md:leading-[30px] font-medium md:font-light text-[#999999] ">
+              class="mt-[20px] mb-[60px] text-[16px] md:text-[18px] md:w-[970px] leading-[21px] md:leading-[30px] font-medium text-[#999999] ">
               One-stop Development Automation Experience with Process Safety and Privacy</div>
             <div v-if="false" class="hidden mb-[35px] md:block">
               <div class="flex ">
@@ -38,12 +38,17 @@
               </div>
             </div>
             <div class="md:flex">
-              <button class="btn-css" @click="gotoAline">Start Building</button>
+              <button class="banner-btn-gradient md:w-[317px]" @click="gotoAline">
+                Start Building
+                <img src="~/assets/images/banner-right-arrow.png"  class="h-[16px] inline-block ml-1"/>
+              </button>
               <button
-                class="btn-css text-left md:text-center !px-[20px] md:!px-[40px] mt-[30px] md:mt-0 md:ml-[20px] !text-[#5C64FF] !bg-transparent hover:!text-[#6C73FF] active:!text-[#3F48FF]"
-                @click="gotoEmail">Join Hamster AI Agent Freelancer Platform Waitinglist</button>
+                class="btn-css text-left md:text-center !px-[20px] md:!px-[40px] mt-[30px] md:mt-0 md:ml-[20px] !text-[#FFFFF] hover:!text-[#6C73FF] active:!text-[#3F48FF]"
+                @click="gotoEmail">
+                Join Hamster AI Agent Freelancer Platform Waitinglist
+              </button>
             </div>
-            <div class="mt-[60px] md:mt-[70px] text-[14px] md:text-[16px] font-light font-family-light">Powered by 29yrs
+            <div class="mt-[60px] md:mt-[100px] text-[14px] md:text-[16px] font-thin font-family-light">Powered by 29yrs
               fintech experience elite & 6000+ IT engineers of listed company</div>
             <!-- <div class="md:flex">
               <div class="flex items-center top-card-border">
@@ -734,7 +739,7 @@ const getArticles = async () => {
 }
 
 .top-bg {
-  background: url("~/assets/images/home-top-bg-1.jpg") no-repeat center #000000;
+  background: url("~/assets/images/home-top-bg-1.png") no-repeat center #000000;
   // background: url("~/assets/images/home-top-bg.png") no-repeat 70% #000000;
   background-size: 100% 100%;
 }
@@ -749,7 +754,7 @@ const getArticles = async () => {
   overflow: hidden;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(30px);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 0.5px solid #5d5b5b;
 }
 
 .top-card-title {
@@ -776,16 +781,26 @@ const getArticles = async () => {
 
 .top-card-content {
   font-size: 14px;
-  font-weight: 300;
+  font-weight: 100;
   font-family: Montserrat-Light, Montserrat;
 }
 
 .btn-css {
-  background: #5c64ff;
-  border: 1px solid #5c64ff;
+  background: rgba(255,255,255,0.11);
+  border: 1px solid rgba(255,255,255,0.23);
   border-radius: 5px;
   font-family: Montserrat-Bold, Montserrat;
-  font-size: 18px;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 8px 40px;
+  height: 65px;
+}
+
+.banner-btn-gradient {
+  background: linear-gradient(270deg, #00E5D7 0%, #5C65FF 100%);
+  border-radius: 5px;
+  font-family: Montserrat-Bold, Montserrat;
+  font-size: 21px;
   font-weight: 700;
   padding: 8px 40px;
 }
@@ -1245,7 +1260,7 @@ const getArticles = async () => {
 
 <style scoped>
 .top-card-border {
-  @apply px-[20px] md:px-[30px] min-h-[70px] md:min-h-[50px] mt-[30px] md:mt-[20px] rounded-[10px] md:rounded-[100px];
+  @apply px-[20px] md:px-[30px] min-h-[70px] md:min-h-[50px] mt-[20px] rounded-[10px] md:rounded-[100px];
 }
 
 .logo-title {
