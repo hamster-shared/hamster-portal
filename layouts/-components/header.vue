@@ -3,7 +3,7 @@
 
     <div class="title-activity text-[12px] md:text-[14px]">
       <Vue3Marquee :pause-on-hover="true" :clone="true">
-        <div class="mx-5 items-center md:mx-[40px] flex cursor-pointer h-[30px] md:h-[40px] py-1 md:py-3" v-for="(item,index) in headerBannerInfo" :key="index">
+        <div class="mx-5 items-center md:mx-[40px] flex cursor-pointer h-[30px] md:h-[40px] py-1 md:py-3" v-for="(item,index) in headerBannerInfo" :key="index" @click="jumpNftActivity(item.path)">
           <img :src="getImageURL(`header-banner-${item.number}.png`)" class="h-[20px]"/>
           <div class="mx-2 align-middle text-[16px] font-medium">{{ item.content }}</div>
           <img src="~/assets/images/header-banner-arrow.png" class="h-[14px]"/>
@@ -345,11 +345,15 @@ const openNewUrl = (val, link) => {
   }
 }
 
-const jumpNftActivity = () => {
+const jumpNftActivity = (path) => {
   // 无论生成和测试都是跳活动的线上网址
   // window.open('https://activity.hamsternet.io/')
   // window.location.href = '/community?location=2';
-  window.location.href = "/email?show=register";
+  if (path == 2){
+    window.location.href = "/email?show=register";
+  } else if(path == 1) {
+    window.location.href = "/community?banner=header"
+  }
 }
 
 onMounted(() => {
