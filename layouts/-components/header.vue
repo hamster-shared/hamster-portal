@@ -185,7 +185,7 @@ const navLinks = computed(() => [
 const headerBannerInfo = ref([
   {
     number: 1,
-    content:'Build your team quickly, worry-free and at low cost',
+    content:'Seamless Integration: ZAN Node Joins Forces with Hamster for Enhanced Web3 Development',
     path: 1
   },
   {
@@ -352,7 +352,8 @@ const jumpNftActivity = (path) => {
   if (path == 2){
     window.location.href = "/email?show=register";
   } else if(path == 1) {
-    window.location.href = "/community?banner=header"
+    // window.location.href = "/community?banner=header"
+    window.open('https://medium.com/@zan.top/seamless-integration-zan-node-joins-forces-with-hamster-for-enhanced-web3-development-977b9692236e');
   }
 }
 
