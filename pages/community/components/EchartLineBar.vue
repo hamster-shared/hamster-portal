@@ -45,7 +45,7 @@ const setGrowthData = () => {
         if (i === 0) {
           setNewData(baseMonth.value, 12, yearAbbr);
         } else if (i === tempYear) {
-          if (curMonth > 0) {
+          if (curMonth > 0 && month != 12) {
             setNewData(0, month, yearAbbr);
           }
         } else {
