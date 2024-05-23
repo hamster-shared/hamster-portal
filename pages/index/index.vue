@@ -45,7 +45,7 @@
               <button
                 class="btn-css text-left md:text-center !px-[20px] md:!px-[40px] mt-[30px] md:mt-0 md:ml-[20px] !text-[#FFFFF] hover:!text-[#6C73FF] active:!text-[#3F48FF]"
                 @click="gotoEmail">
-                Ask product questions, report problems,orleave feedback
+                Ask Product Questions, Report Problems, or Leave Feedback
               </button>
             </div>
             <div class="mt-[60px] md:mt-[100px] text-[14px] md:text-[16px] font-thin font-family-light">Powered by 29yrs
