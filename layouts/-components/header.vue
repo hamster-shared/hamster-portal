@@ -3,10 +3,14 @@
 
     <div class="title-activity text-[12px] md:text-[14px]">
       <Vue3Marquee :pause-on-hover="true" :clone="true">
-        <div class="w-[100%] mx-[80px] items-center md:mx-[200px] flex cursor-pointer h-[30px] md:h-[40px]"
-          v-for="(item, index) in headerBannerInfo" :key="index" @click="jumpNftActivity(item.path)">
+        <div class="w-[100%] mx-[80px] items-center md:mx-[200px] flex h-[30px] md:h-[40px]"
+          v-for="(item, index) in headerBannerInfo" :key="index">
           <img :src="getImageURL(`header-banner-${item.number}.png`)" class="h-[20px]" />
-          <div class="mx-2 align-middle text-[16px] font-medium">{{ item.content }}</div>
+          <div class="mx-2 align-middle text-[16px] font-medium " @click="jumpNftActivity('https://t.me/opcatbtc')">
+            We are partners of OP_CAT Builder Alliance, join <span
+              class="cursor-pointer text-[#646cff] underline-offset-4 ">https://t.me/opcatbtc</span> to know more and
+            tech of OP_CAT.
+          </div>
           <img src="~/assets/images/header-banner-arrow.png" class="h-[14px]" />
         </div>
       </Vue3Marquee>
