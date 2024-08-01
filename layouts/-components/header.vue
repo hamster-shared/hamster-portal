@@ -1,12 +1,13 @@
 <template>
-  <div  class="absolute top-0 inset-x-0 z-[100] md:z-[1000]  bg-black" :class="{ 'bg-opacity-0': curMenu === '' }">
+  <div class="absolute top-0 inset-x-0 z-[100] md:z-[1000]  bg-black" :class="{ 'bg-opacity-0': curMenu === '' }">
 
     <div class="title-activity text-[12px] md:text-[14px]">
       <Vue3Marquee :pause-on-hover="true" :clone="true">
-        <div class="mx-5 items-center md:mx-[40px] flex cursor-pointer h-[30px] md:h-[40px] py-1 md:py-3" v-for="(item,index) in headerBannerInfo" :key="index" @click="jumpNftActivity(item.path)">
-          <img :src="getImageURL(`header-banner-${item.number}.png`)" class="h-[20px]"/>
+        <div class="w-[100%] mx-[80px] items-center md:mx-[200px] flex cursor-pointer h-[30px] md:h-[40px]"
+          v-for="(item, index) in headerBannerInfo" :key="index" @click="jumpNftActivity(item.path)">
+          <img :src="getImageURL(`header-banner-${item.number}.png`)" class="h-[20px]" />
           <div class="mx-2 align-middle text-[16px] font-medium">{{ item.content }}</div>
-          <img src="~/assets/images/header-banner-arrow.png" class="h-[14px]"/>
+          <img src="~/assets/images/header-banner-arrow.png" class="h-[14px]" />
         </div>
       </Vue3Marquee>
     </div>
@@ -21,7 +22,8 @@
           </div>
 
           <div class="flex flex-row justify-center md:ml-auto">
-            <img @click="showDropdownMenu" v-if="isMobile" class="h-4 ml-[82vw]" src="~/assets/images/head-menu-down.svg">
+            <img @click="showDropdownMenu" v-if="isMobile" class="h-4 ml-[82vw]"
+              src="~/assets/images/head-menu-down.svg">
             <div v-else class="menu">
               <div class="">
                 <div>
@@ -29,7 +31,7 @@
                     :class="{ 'menu-dropdown-opened': subMenuDropdownShow }"
                     class="flex items-center px-4 menu-dropdown-hover h-[50px]">Features
                     <DownOutlined class="ml-2" />
-                  </div> 
+                  </div>
                   <div :class="[subMenuDropdownShow === true ? 'block' : 'hidden']"
                     class="sub-menu-dropdown absolute z-[999] text-[#00044C] text-[16px] font-medium font-family-medium w-full left-[0]">
                     <div @mouseleave="subMenuMouseLeave('Features')" @mouseenter="subMenuMouseEnter('Features')"
@@ -185,17 +187,17 @@ const navLinks = computed(() => [
 const headerBannerInfo = ref([
   {
     number: 1,
-    content:'Seamless Integration: ZAN Node Joins Forces with Hamster for Enhanced Web3 Development',
+    content: 'We are partners of OP_CAT Builder Alliance, join https://t.me/opcatbtc to know more and tech of OP_CAT.',
     path: 1
   },
-  {
-    number: 2,
-    content:'Become a Blast developer quickly and enjoy the process with Hamster',
-    path: 2
-  }
+  // {
+  //   number: 2,
+  //   content:'We are partners of OP_CAT Builder Alliance, join https://t.me/opcatbtc to know more and tech of OP_CAT.',
+  //   path: 2
+  // }
 ])
 
-const subMenuDropdownShow = ref(false) 
+const subMenuDropdownShow = ref(false)
 const subMenuDropdownHover = ref(false)
 const subMenuDropdownShowFaucet = ref(false);
 const subMenuDropdownHoverFaucet = ref(false);
@@ -349,9 +351,9 @@ const jumpNftActivity = (path) => {
   // 无论生成和测试都是跳活动的线上网址
   // window.open('https://activity.hamsternet.io/')
   // window.location.href = '/community?location=2';
-  if (path == 2){
+  if (path == 2) {
     window.location.href = "/email?show=register";
-  } else if(path == 1) {
+  } else if (path == 1) {
     // window.location.href = "/community?banner=header"
     window.open('https://medium.com/@zan.top/seamless-integration-zan-node-joins-forces-with-hamster-for-enhanced-web3-development-977b9692236e');
   }
